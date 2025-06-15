@@ -231,10 +231,13 @@ nav {
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .recipe-card:hover {
     transform: translateY(-5px);
+    color: var(--accent-color);
 }
 
 .recipe-image {
@@ -282,9 +285,12 @@ nav {
 
 .about-image img {
     width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
 }
 
 /* Contact Section */
@@ -338,7 +344,7 @@ footer {
     flex-shrink: 0;
     background-color: var(--primary-color);
     color: white;
-    padding: 2rem;
+    padding: 1rem 0.5rem;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
@@ -467,6 +473,16 @@ footer {
     display: inline-block;
 }
 
+.categories-list a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.categories-list a:hover {
+    color: var(--accent-color);
+}
+
 @media (max-width: 900px) {
     .categories-section {
         flex-direction: column;
@@ -502,4 +518,13 @@ html, body {
 }
 main {
     flex: 1 0 auto;
+    padding-top: 130px;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.fade-out {
+  animation: fadeOut 0.5s forwards;
 } 

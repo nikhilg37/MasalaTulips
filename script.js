@@ -51,25 +51,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add animation to recipe cards on scroll
-    const recipeCards = document.querySelectorAll('.recipe-card');
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+    // Animated navigation for Breakfast link (remove fade-out from body)
+    const breakfastLink = document.querySelector('.categories-list a[href="breakfast.html"]');
+    if (breakfastLink) {
+        breakfastLink.addEventListener('click', function(e) {
+            // No fade-out on body
         });
-    }, observerOptions);
+    }
 
-    recipeCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(card);
-    });
+    // Only animate recipe cards if there are multiple cards (not on breakfast.html)
+    const recipeCards = document.querySelectorAll('.recipe-card');
+    const featuredGrid = document.querySelector('.featured-grid');
+    if (featuredGrid && recipeCards.length > 1) {
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        recipeCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    } else if (featuredGrid && recipeCards.length === 1) {
+        // On breakfast.html, ensure the single card is always visible
+        recipeCards[0].style.opacity = '1';
+        recipeCards[0].style.transform = 'none';
+        recipeCards[0].style.transition = 'none';
+    }
+
+    // Remove fade-out animation for Mavinakaayi Chitranna card
+    // No special click handler needed, default link behavior
 }); 

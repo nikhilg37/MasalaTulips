@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masala Tulips</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="logo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <div class="logo-icon">
-                    <div class="tulip">
-                        <div class="tulip-petal" style="--rotation: -30deg"></div>
-                        <div class="tulip-petal" style="--rotation: 30deg"></div>
-                        <div class="tulip-petal" style="--rotation: 90deg"></div>
-                        <div class="tulip-stem"></div>
+                <a href="index.html" class="logo-icon-link" aria-label="Go to home page">
+                    <div class="logo-icon">
+                        <div class="tulip">
+                            <div class="tulip-petal" style="--rotation: -30deg"></div>
+                            <div class="tulip-petal" style="--rotation: 30deg"></div>
+                            <div class="tulip-petal" style="--rotation: 90deg"></div>
+                            <div class="tulip-stem"></div>
+                        </div>
+                        <div class="spice"></div>
                     </div>
-                    <div class="spice"></div>
-                </div>
+                </a>
                 <div class="logo-text-container">
                     <div class="logo-text">Masala Tulips</div>
                     <div class="logo-subtext">by Pooja Nidasale Chandranna</div>
@@ -28,6 +34,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -42,9 +49,66 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1>Welcome to Masala Tulips</h1>
-                <p>Discover the perfect blend of tradition and innovation</p>
-                <a href="#contact" class="cta-button">Get Started</a>
+                <h1>Simple recipes made for real, actual, everyday life</h1>
+                <p>Discover the perfect blend of Indian and Dutch flavors</p>
+            </div>
+        </section>
+
+        <section id="recipes" class="recipe-categories">
+            <div class="container">
+                <h2>Recipe Categories</h2>
+                <div class="categories-grid">
+                    <a href="breakfast.html" class="category-card" style="text-decoration: none; color: inherit;">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Breakfast" class="category-image">
+                        <div class="category-content">
+                            <h3>Breakfast</h3>
+                            <p>Start your day with delicious breakfast recipes</p>
+                        </div>
+                    </a>
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Kids Food" class="category-image">
+                        <div class="category-content">
+                            <h3>Kids Options</h3>
+                            <p>Fun and nutritious meals for little ones(Coming soon)</p>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Healthy Options" class="category-image">
+                        <div class="category-content">
+                            <h3>Healthy Options</h3>
+                            <p>Nutritious and delicious meals(Coming soon)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-recipes">
+            <div class="container">
+                <h2>Featured Recipes</h2>
+                <div class="featured-grid">
+                    <a href="mavinakaayi-chitranna.html" class="recipe-card">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Mavinakaayi Chitranna" class="recipe-image">
+                        <div class="recipe-content">
+                            <h3>Mavinakaayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
+                            <p class="recipe-meta">30 minutes • South Indian • Vegetarian</p>
+                        </div>
+                    </a>
+                    <div class="recipe-card">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Recipe 2" class="recipe-image">
+                        <div class="recipe-content">
+                            <h3>Dutch Apple Pie</h3>
+                            <p class="recipe-meta">45 minutes • Dessert</p>
+                        </div>
+                    </div>
+                    <a href="#" class="recipe-card">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Bisibele Bath" class="recipe-image">
+                        <div class="recipe-content">
+                            <h3>Bisibele Bath - ಬಿಸಿಬೆಲೆ ಬಾತ್ - Hot Lentil Rice</h3>
+                            <p class="recipe-meta">60 minutes • South Indian • Vegetarian</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -57,21 +121,23 @@
                         <p>We believe in using fresh, high-quality ingredients to create memorable dining experiences. Our recipes are passed down through generations, ensuring that every dish tells a story of tradition and innovation.</p>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Indian Spices">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" alt="About Us">
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact-section">
-            <h2>Contact Us</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -80,9 +146,10 @@
         <div class="footer-content">
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
             </div>
             <p>&copy; 2025 Masala Tulips. All rights reserved.</p>
         </div>

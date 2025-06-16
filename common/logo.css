@@ -19,11 +19,19 @@
     overflow: hidden;
 }
 
+.logo-icon-link {
+    text-decoration: none;
+    display: block;
+}
+
 /* Tulip Design */
 .tulip {
     position: relative;
     width: 30px;
     height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tulip-petal {

@@ -82,10 +82,30 @@
 /* Subheader Text */
 .logo-subtext {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 1.08rem;
     font-style: italic;
     margin-top: -2px;
+    background: linear-gradient(90deg, #ffb347 0%, #ff6b6b 40%, #6bafff 80%, #81ff6b 100%);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ffb347;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    padding: 0 2px;
+    text-shadow: 0 2px 8px rgba(107,175,255,0.10), 0 1px 1px rgba(255,107,107,0.10);
+    display: inline-block;
+    animation: subheader-shimmer 3s linear infinite;
+}
+
+@keyframes subheader-shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 /* Hover Effects */

@@ -81,57 +81,11 @@
 
 /* Subheader Text */
 .logo-subtext {
-    font-family: 'Crimson Text', serif;
-    font-size: 0.95rem;
-    color: #2c2c2c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+    color: #666;
     font-style: italic;
-    font-weight: 400;
-    margin-top: 3px;
-    letter-spacing: 1.2px;
-    position: relative;
-    display: inline-block;
-    padding: 5px 20px;
-    background: linear-gradient(to right,
-        rgba(255, 107, 107, 0.08),
-        rgba(255, 165, 0, 0.08));
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.logo-subtext::before,
-.logo-subtext::after {
-    content: "❀";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ff6b6b;
-    font-size: 0.6rem;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.logo-subtext::before {
-    left: 6px;
-}
-
-.logo-subtext::after {
-    right: 6px;
-}
-
-.logo:hover .logo-subtext {
-    background: linear-gradient(to right,
-        rgba(255, 107, 107, 0.12),
-        rgba(255, 165, 0, 0.12));
-    transform: translateY(-1px);
-    letter-spacing: 1.5px;
-}
-
-.logo:hover .logo-subtext::before {
-    transform: translateY(-50%) rotate(-15deg);
-}
-
-.logo:hover .logo-subtext::after {
-    transform: translateY(-50%) rotate(15deg);
+    margin-top: -2px;
 }
 
 /* Hover Effects */
@@ -175,14 +129,7 @@
     }
     
     .logo-subtext {
-        font-size: 0.85rem;
-        padding: 4px 16px;
-        letter-spacing: 1px;
-    }
-    
-    .logo-subtext::before,
-    .logo-subtext::after {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 }
   

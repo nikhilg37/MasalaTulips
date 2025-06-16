@@ -523,35 +523,32 @@ footer {
 }
 
 .categories-list li {
+    margin-bottom: 0.5rem;
     position: relative;
-    font-family: var(--body-font);
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-left: 1.5em;
-    break-inside: avoid;
+    padding-left: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .categories-list li::before {
-    content: '';
+    content: "•";
     position: absolute;
-    left: 0.3em;
-    top: 0.7em;
-    width: 0.6em;
-    height: 0.6em;
-    background: var(--accent-color);
-    border-radius: 50%;
-    display: inline-block;
+    left: 0;
+    color: var(--accent-color);
 }
 
 .categories-list a {
+    color: var(--primary-color);
     text-decoration: none;
-    color: inherit;
-    transition: color 0.2s;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.5rem 0;
+    font-weight: 500;
 }
 
 .categories-list a:hover {
     color: var(--accent-color);
+    text-decoration: underline;
 }
 
 @media (max-width: 900px) {

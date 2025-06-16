@@ -9,7 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="common/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Poppins:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -83,44 +83,118 @@
         </section>
 
         <!-- Categories Section -->
-        <section class="categories-section">
-            <div class="categories-block">
-                <h2 class="categories-heading">Main Categories</h2>
-                <hr class="categories-divider">
-                <ul class="categories-list">
-                    <li>Vegetarian</li>
-                    <li>Vegan</li>
-                    <li>Kid-Friendly</li>
-                    <li>Soups</li>
-                    <li>Salads</li>
-                    <li>Most Popular</li>
-                    <li>All Recipes</li>
-                </ul>
-            </div>
-            <div class="categories-block">
-                <h2 class="categories-heading">Recipes by Meal Type</h2>
-                <hr class="categories-divider">
-                <ul class="categories-list">
-                    <li><a href="recipesByMealType/breakfast.html">Breakfast</a></li>
-                    <li><a href="recipesByMealType/lunch.html">Lunch</a></li>
-                    <li><a href="recipesByMealType/dinner.html">Dinner</a></li>
-                    <li>Appetizer</li>
-                    <li>Drinks</li>
-                    <li>Snacks</li>
-                    <li>Desserts</li>
-                </ul>
-            </div>
-            <div class="categories-block">
-                <h2 class="categories-heading">Recipes By Cooking Time</h2>
-                <hr class="categories-divider">
-                <ul class="categories-list">
-                    <li>Upto 30 min</li>
-                    <li>Upto 60 min</li>
-                    <li>Upto 120 min</li>
-                    <li>More than 120 min</li>
-                </ul>
+        <section class="categories-section themed-section">
+            <div class="categories-cards-grid themed-cards-grid">
+                <div class="category-card themed-card">
+                    <h2 class="category-card-heading themed-heading">Popular Categories</h2>
+                    <ul class="category-card-list themed-list">
+                        <li><a href="recipesByMainCategories/vegetarian.html">Vegetarian</a></li>
+                        <li>Vegan</li>
+                        <li>Kid-Friendly</li>
+                        <li>Soups</li>
+                        <li>Salads</li>
+                        <li><a href="recipesByMainCategories/most-popular.html">Most Popular</a></li>
+                        <li><a href="recipesByMainCategories/all-recipes.html">All Recipes</a></li>
+                    </ul>
+                </div>
+                <div class="category-card themed-card">
+                    <h2 class="category-card-heading themed-heading">Recipes by Meal Type</h2>
+                    <ul class="category-card-list themed-list">
+                        <li><a href="recipesByMealType/breakfast.html">Breakfast</a></li>
+                        <li><a href="recipesByMealType/lunch.html">Lunch</a></li>
+                        <li><a href="recipesByMealType/dinner.html">Dinner</a></li>
+                        <li>Drinks</li>
+                        <li>Snacks</li>
+                        <li>Desserts</li>
+                    </ul>
+                </div>
+                <div class="category-card themed-card">
+                    <h2 class="category-card-heading themed-heading">By Cooking Time</h2>
+                    <ul class="category-card-list themed-list">
+                        <li>Upto 30 min</li>
+                        <li>Upto 60 min</li>
+                        <li>Upto 120 min</li>
+                        <li>More than 120 min</li>
+                    </ul>
+                </div>
             </div>
         </section>
+        <style>
+            .themed-section {
+                padding: 2.5rem 0;
+                display: flex;
+                justify-content: center;
+                background: #f8f7f4;
+            }
+            .themed-cards-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+                max-width: 1100px;
+                width: 100%;
+            }
+            .themed-card {
+                background: #fff;
+                border-radius: 20px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+                padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: box-shadow 0.2s;
+            }
+            .themed-card:hover {
+                box-shadow: 0 8px 32px rgba(255,107,107,0.13);
+            }
+            .themed-heading {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.35rem;
+                font-weight: 700;
+                margin-bottom: 1.2rem;
+                letter-spacing: 0.5px;
+                color: #222;
+                text-align: center;
+            }
+            .themed-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+            }
+            .themed-list li {
+                font-size: 1.08rem;
+                color: #333;
+                padding: 0.7rem 0.5rem;
+                border-radius: 8px;
+                margin-bottom: 0.2rem;
+                transition: background 0.18s, color 0.18s;
+                cursor: pointer;
+                font-family: 'Poppins', sans-serif;
+            }
+            .themed-list li a {
+                color: #333;
+                text-decoration: none;
+                font-weight: 400;
+                transition: color 0.18s;
+            }
+            .themed-list li a:hover {
+                color: #ff6b6b;
+                text-decoration: none;
+            }
+            .themed-list li:hover {
+                background: #fff5f5;
+                color: #ff6b6b;
+            }
+            @media (max-width: 900px) {
+                .themed-cards-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                .themed-card {
+                    padding: 1.5rem 1rem;
+                }
+            }
+        </style>
     </main>
 
     <div id="footer-container"></div>

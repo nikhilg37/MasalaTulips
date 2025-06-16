@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breakfast Recipes | Masala Tulips</title>
+    <title>All Recipes | Masala Tulips</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="logo.css">
+    <link rel="stylesheet" href="../common/styles.css">
+    <link rel="stylesheet" href="../common/logo.css">
+    <link rel="icon" type="image/svg+xml" href="../common/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html" class="logo-icon-link" aria-label="Go to home page">
+                <a href="../homepage.html" class="logo-icon-link" aria-label="Go to home page">
                     <div class="logo-icon">
                         <div class="tulip">
                             <div class="tulip-petal" style="--rotation: -30deg"></div>
@@ -34,10 +33,10 @@
                 </div>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="../homepage.html#home">Home</a></li>
+                <li><a href="../recipes.html">Recipes</a></li>
+                <li><a href="../homepage.html#about">About</a></li>
+                <li><a href="../homepage.html#contact">Contact</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -47,23 +46,21 @@
         </nav>
     </header>
     <main>
-        <!-- Hero Section -->
         <section class="recipes-hero">
-            <h1>Breakfast Recipes</h1>
-            <p>Start your day with our delicious and energizing breakfast recipes!</p>
+            <h1>All Recipes</h1>
+            <p>Browse our complete collection of recipes!</p>
         </section>
-        <!-- Recipe Card Section -->
         <section class="featured-recipes" style="padding: 2rem 0;">
-            <div class="container" style="max-width: 600px; margin: 0 auto;">
-                <div class="featured-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
-                    <a href="mavinakaayi-chitranna.html" class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
+            <div class="container" style="max-width: 900px; margin: 0 auto;">
+                <div class="featured-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                    <a href="../allRecipes/mavinakaayi-chitranna.html" class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
                         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Mavinakaayi Chitranna" class="recipe-image" style="height: 180px;">
                         <div class="recipe-content">
-                            <h3>Mavinakaayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>  
+                            <h3>Mavinakaayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
                             <p class="recipe-meta">30 minutes • South Indian • Vegetarian</p>
                         </div>
                     </a>
-                    <a href="#" class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
+                    <a href="../allRecipes/mavinakaayi-chitranna.html" class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
                         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Bisibele Bath" class="recipe-image" style="height: 180px;">
                         <div class="recipe-content">
                             <h3>Bisibele Bath - ಬಿಸಿಬೆಲೆ ಬಾತ್ - Hot Lentil Rice</h3>
@@ -74,7 +71,6 @@
             </div>
         </section>
     </main>
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="social-links">
@@ -87,6 +83,6 @@
             <p>&copy; 2025 Masala Tulips. All rights reserved.</p>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="../common/script.js"></script>
 </body>
 </html> 

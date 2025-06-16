@@ -7,17 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="logo.css">
+    <link rel="stylesheet" href="common/styles.css">
+    <link rel="stylesheet" href="common/logo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="common/favicon.svg">
 </head>
 <body>
     <!-- Header -->
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html" class="logo-icon-link" aria-label="Go to home page">
+                <a href="homepage.html" class="logo-icon-link" aria-label="Go to home page">
                     <div class="logo-icon">
                         <div class="tulip">
                             <div class="tulip-petal" style="--rotation: -30deg"></div>
@@ -34,10 +34,10 @@
                 </div>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
+                <li><a href="homepage.html#home">Home</a></li>
                 <li><a href="recipes.html" class="active">Recipes</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="homepage.html#about">About</a></li>
+                <li><a href="homepage.html#contact">Contact</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -60,25 +60,25 @@
                 <h2 class="categories-heading">Popular Categories</h2>
                 <hr class="categories-divider">
                 <ul class="categories-list">
-                    <li>Vegetarian</li>
+                    <li><a href="recipesByPopularCategories/vegetarian.html">Vegetarian</a></li>
                     <li>Vegan</li>
                     <li>Kid-Friendly</li>
                     <li>Soups</li>
                     <li>Salads</li>
-                    <li>Most Popular</li>
-                    <li>All Recipes</li>
+                    <li><a href="recipesByPopularCategories/most-popular.html">Most Popular</a></li>
+                    <li><a href="recipesByPopularCategories/all-recipes.html">All Recipes</a></li>
                 </ul>
             </div>
             <div class="categories-block">
                 <h2 class="categories-heading">Recipes by Meal Type</h2>
                 <hr class="categories-divider">
                 <ul class="categories-list">
-                    <li><a href="breakfast.html">Breakfast</a></li>
+                    <li><a href="recipesByMealType/breakfast.html">Breakfast</a></li>
+                    <li><a href="recipesByMealType/lunch.html">Lunch</a></li>
+                    <li><a href="recipesByMealType/dinner.html">Dinner</a></li>
                     <li>Appetizer</li>
                     <li>Drinks</li>
-                    <li>Lunch</li>
                     <li>Snacks</li>
-                    <li>Dinner</li>
                     <li>Desserts</li>
                 </ul>
             </div>
@@ -86,7 +86,7 @@
                 <h2 class="categories-heading">By Cooking Time</h2>
                 <hr class="categories-divider">
                 <ul class="categories-list">
-                    <li>Upto 30 min</li>
+                    <li><a href="recipesByCookingTime/upto-30-min.html">Upto 30 min</a></li>
                     <li>Upto 60 min</li>
                     <li>Upto 120 min</li>
                     <li>More than 120 min</li>
@@ -108,6 +108,6 @@
             <p>&copy; 2025 Masala Tulips. All rights reserved.</p>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="common/script.js"></script>
 </body>
 </html> 

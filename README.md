@@ -26,7 +26,7 @@ A modern, responsive website showcasing South Indian recipes.
    - With Python 2: `python -m SimpleHTTPServer`
    - Or use VS Code Live Server extension
    - Or run the provided script: `sh run_server.sh`
-3. Open `homepage.html` in your web browser
+3. Open `index.html` in your web browser
 4. Explore the homepage and the Recipes page!
 
 ## Running a Python HTTP Server
@@ -51,7 +51,7 @@ This will start a local server (default: http://localhost:8000). Open this addre
 ```text
 MasalaTulips/
 ├── README.md
-├── homepage.html
+├── index.html
 ├── recipes.html
 ├── run_server.sh
 ├── common/
@@ -74,7 +74,7 @@ MasalaTulips/
 ```
 
 ## Project Structure
-- `homepage.html` - Main homepage
+- `index.html` - Main homepage
 - `recipes.html` - Recipes landing page
 - `common/` - Shared resources (styles, scripts, favicon)
   - `styles.css` - Main CSS styles

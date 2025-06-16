@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mavinakaayi Chitranna - Masala Tulips</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="common/logo.css">
-    <link rel="icon" type="image/svg+xml" href="common/favicon.svg">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../common/logo.css">
+    <link rel="icon" type="image/svg+xml" href="../common/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
         <header>
             <nav>
                 <div class="logo">
-                    <a href="home.html" class="logo-icon-link" aria-label="Go to home page">
+                    <a href="../home.html" class="logo-icon-link" aria-label="Go to home page">
                         <div class="logo-icon">
                             <div class="tulip">
                                 <div class="tulip-petal" style="--rotation: -30deg"></div>
@@ -35,10 +35,10 @@
                     </div>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="home.html#home">Home</a></li>
-                    <li><a href="recipes.html">Recipes</a></li>
-                    <li><a href="home.html#about">About</a></li>
-                    <li><a href="home.html#contact">Contact</a></li>
+                    <li><a href="../home.html#home">Home</a></li>
+                    <li><a href="../recipes.html">Recipes</a></li>
+                    <li><a href="../home.html#about">About</a></li>
+                    <li><a href="../home.html#contact">Contact</a></li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -96,9 +96,10 @@
 
     <!-- Load Components -->
     <script type="module">
-        import { loadCommonComponents } from './script.js';
-        document.addEventListener('DOMContentLoaded', loadCommonComponents);
+        import { loadCommonComponents } from '../common/utils.js';
+        window.addEventListener('load', () => {
+            loadCommonComponents();
+        });
     </script>
-    <script type="module" src="common/utils.js"></script>
 </body>
 </html> 

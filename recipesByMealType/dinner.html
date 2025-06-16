@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunch Recipes - Masala Tulips</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="common/logo.css">
-    <link rel="icon" type="image/svg+xml" href="common/favicon.svg">
+    <title>Dinner Recipes - Masala Tulips</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../common/logo.css">
+    <link rel="icon" type="image/svg+xml" href="../common/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
         <header>
             <nav>
                 <div class="logo">
-                    <a href="home.html" class="logo-icon-link" aria-label="Go to home page">
+                    <a href="../home.html" class="logo-icon-link" aria-label="Go to home page">
                         <div class="logo-icon">
                             <div class="tulip">
                                 <div class="tulip-petal" style="--rotation: -30deg"></div>
@@ -35,10 +35,10 @@
                     </div>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="home.html#home">Home</a></li>
-                    <li><a href="recipes.html">Recipes</a></li>
-                    <li><a href="home.html#about">About</a></li>
-                    <li><a href="home.html#contact">Contact</a></li>
+                    <li><a href="../home.html#home">Home</a></li>
+                    <li><a href="../recipes.html">Recipes</a></li>
+                    <li><a href="../home.html#about">About</a></li>
+                    <li><a href="../home.html#contact">Contact</a></li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -78,17 +78,24 @@
     <main>
         <!-- Hero Section -->
         <section class="recipes-hero">
-            <h1>Lunch Recipes</h1>
-            <p>Discover our delicious lunch recipes!</p>
+            <h1>Dinner Recipes</h1>
+            <p>Discover our delicious dinner recipes!</p>
         </section>
         <!-- Recipe Card Section -->
         <section class="featured-recipes" style="padding: 2rem 0;">
             <div class="container" style="max-width: 600px; margin: 0 auto;">
                 <div class="featured-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
-                    <a href="mavinakaayi-chitranna.html" class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
+                    <div class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Bisi Bele Bath" class="recipe-image" style="height: 180px;">
+                        <div class="recipe-content">
+                            <h3>Bisi Bele Bath - ಬಿಸಿ ಬೇಳೆ ಬಾತ್ - Spicy Rice and Lentil Dish</h3>
+                            <p class="recipe-meta">45 minutes • South Indian • Vegetarian</p>
+                        </div>
+                    </div>
+                    <a href="../mavinakaayi-chitranna.html" class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
                         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Mavinakaayi Chitranna" class="recipe-image" style="height: 180px;">
                         <div class="recipe-content">
-                            <h3>Mavinakaayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
+                            <h3>Mavinakaayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Mango Rice</h3>
                             <p class="recipe-meta">30 minutes • South Indian • Vegetarian</p>
                         </div>
                     </a>
@@ -101,7 +108,7 @@
 
     <!-- Load Components -->
     <script type="module">
-        import { loadCommonComponents } from './common/utils.js';
+        import { loadCommonComponents } from '../common/utils.js';
         document.addEventListener('DOMContentLoaded', loadCommonComponents);
     </script>
 </body>

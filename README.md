@@ -42,17 +42,26 @@ The website uses a combination of elegant fonts:
 
 ```
 MasalaTulips/
-├── home.html                    # Homepage
+├── home.html                    # Main homepage
 ├── recipes.html                 # Recipe categories page
-├── common/
+├── start-server.sh             # Server startup script
+├── common/                     # Common assets and utilities
 │   ├── styles.css              # Main stylesheet
 │   ├── logo.css                # Logo styles
 │   ├── utils.js               # Common JavaScript utilities
 │   └── favicon.svg            # Site favicon
+├── allRecipes/                 # Individual recipe pages
+│   └── mavinakaayi-chitranna.html  # Raw Mango Rice recipe
 ├── recipesByMainCategories/    # Main recipe categories
+│   ├── all-recipes.html       # All recipes listing
+│   ├── most-popular.html      # Most popular recipes
+│   └── vegetarian.html        # Vegetarian recipes
 ├── recipesByMealType/         # Recipes by meal type
-├── recipesByCookingTime/      # Recipes by cooking time
-└── allRecipes/                # Individual recipe pages
+│   ├── breakfast.html         # Breakfast recipes
+│   ├── lunch.html            # Lunch recipes
+│   └── dinner.html           # Dinner recipes
+└── recipesByCookingTime/      # Recipes by cooking time
+    └── upto-30-min.html      # Quick recipes (30 min or less)
 ```
 
 ## Getting Started

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes - Masala Tulips</title>
+    <title>Lunch Recipes - Masala Tulips</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="common/logo.css">
     <link rel="icon" type="image/svg+xml" href="common/favicon.svg">
@@ -36,7 +36,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="home.html#home">Home</a></li>
-                    <li><a href="recipes.html" class="active">Recipes</a></li>
+                    <li><a href="recipes.html">Recipes</a></li>
                     <li><a href="home.html#about">About</a></li>
                     <li><a href="home.html#contact">Contact</a></li>
                 </ul>
@@ -78,47 +78,21 @@
     <main>
         <!-- Hero Section -->
         <section class="recipes-hero">
-            <h1>Recipes</h1>
-            <p>Browse all our delicious recipes by category, meal type, or dietary preference!</p>
+            <h1>Lunch Recipes</h1>
+            <p>Discover our delicious lunch recipes!</p>
         </section>
-
-        <!-- Categories Section -->
-        <section class="categories-section">
-            <div class="categories-block">
-                <h2 class="categories-heading">Main Categories</h2>
-                <hr class="categories-divider">
-                <ul class="categories-list">
-                    <li>Vegetarian</li>
-                    <li>Vegan</li>
-                    <li>Kid-Friendly</li>
-                    <li>Soups</li>
-                    <li>Salads</li>
-                    <li>Most Popular</li>
-                    <li>All Recipes</li>
-                </ul>
-            </div>
-            <div class="categories-block">
-                <h2 class="categories-heading">Recipes by Meal Type</h2>
-                <hr class="categories-divider">
-                <ul class="categories-list">
-                    <li><a href="breakfast.html">Breakfast</a></li>
-                    <li><a href="lunch.html">Lunch</a></li>
-                    <li><a href="dinner.html">Dinner</a></li>
-                    <li>Appetizer</li>
-                    <li>Drinks</li>
-                    <li>Snacks</li>
-                    <li>Desserts</li>
-                </ul>
-            </div>
-            <div class="categories-block">
-                <h2 class="categories-heading">Recipes By Cooking Time</h2>
-                <hr class="categories-divider">
-                <ul class="categories-list">
-                    <li>Upto 30 min</li>
-                    <li>Upto 60 min</li>
-                    <li>Upto 120 min</li>
-                    <li>More than 120 min</li>
-                </ul>
+        <!-- Recipe Card Section -->
+        <section class="featured-recipes" style="padding: 2rem 0;">
+            <div class="container" style="max-width: 600px; margin: 0 auto;">
+                <div class="featured-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                    <a href="mavinakaayi-chitranna.html" class="recipe-card" style="max-width: 400px; display: block; text-decoration: none; color: inherit;">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Mavinakaayi Chitranna" class="recipe-image" style="height: 180px;">
+                        <div class="recipe-content">
+                            <h3>Mavinakaayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
+                            <p class="recipe-meta">30 minutes • South Indian • Vegetarian</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
     </main>

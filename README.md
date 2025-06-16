@@ -15,7 +15,7 @@ A modern, responsive website showcasing authentic South Indian recipes with a fo
 
 ```
 MasalaTulips/
-├── index.html              # Homepage
+├── home.html              # Homepage
 ├── recipes.html           # Recipe categories page
 ├── breakfast.html         # Breakfast recipes page
 ├── mavinakaayi-chitranna.html  # Individual recipe page
@@ -43,7 +43,7 @@ python3 -m http.server 8000
 
 ### Option 2: Using VS Code Live Server
 1. Install the "Live Server" extension in VS Code
-2. Right-click on `index.html` and select "Open with Live Server"
+2. Right-click on `home.html` and select "Open with Live Server"
 
 ### Option 3: Using Node.js http-server
 ```bash
@@ -91,6 +91,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Font Awesome 6.5.0](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css)
 
 ## Project Structure
-- `index.html` - Main homepage
+- `home.html` - Main homepage
 - `recipes.html` - Recipes landing page
 - `

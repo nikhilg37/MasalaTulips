@@ -124,7 +124,7 @@
                 padding: 2.5rem 0;
                 display: flex;
                 justify-content: center;
-                background: #f8f7f4;
+                background: var(--light-gray);
             }
             .themed-cards-grid {
                 display: grid;
@@ -134,7 +134,7 @@
                 width: 100%;
             }
             .themed-card {
-                background: #fff;
+                background: var(--background-color);
                 border-radius: 20px;
                 box-shadow: 0 2px 12px rgba(0,0,0,0.06);
                 padding: 2.2rem 1.5rem 1.5rem 1.5rem;
@@ -147,12 +147,12 @@
                 box-shadow: 0 8px 32px rgba(255,107,107,0.13);
             }
             .themed-heading {
-                font-family: 'Playfair Display', serif;
+                font-family: var(--heading-font);
                 font-size: 1.35rem;
                 font-weight: 700;
                 margin-bottom: 1.2rem;
                 letter-spacing: 0.5px;
-                color: #222;
+                color: var(--primary-color);
                 text-align: center;
             }
             .themed-list {
@@ -163,7 +163,7 @@
             }
             .themed-list li {
                 font-size: 1.08rem;
-                color: #333;
+                color: var(--secondary-color);
                 padding: 0.7rem 0.5rem;
                 border-radius: 8px;
                 margin-bottom: 0.2rem;
@@ -172,18 +172,18 @@
                 font-family: 'Poppins', sans-serif;
             }
             .themed-list li a {
-                color: #333;
+                color: var(--secondary-color);
                 text-decoration: none;
                 font-weight: 400;
                 transition: color 0.18s;
             }
             .themed-list li a:hover {
-                color: #ff6b6b;
+                color: var(--accent-color);
                 text-decoration: none;
             }
             .themed-list li:hover {
                 background: #fff5f5;
-                color: #ff6b6b;
+                color: var(--accent-color);
             }
             @media (max-width: 900px) {
                 .themed-cards-grid {

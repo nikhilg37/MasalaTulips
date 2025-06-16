@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #2c2c2c;
+    --primary-color: #000000;
     --secondary-color: #666666;
     --accent-color: #ff6b6b;
     --background-color: #ffffff;
@@ -414,7 +414,7 @@ nav {
 footer {
     flex-shrink: 0;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--background-color);
     padding: 1rem 0.5rem;
     text-align: center;
     width: 100%;
@@ -426,7 +426,7 @@ footer {
 }
 
 .social-links a {
-    color: white;
+    color: var(--background-color);
     margin: 0 0.5rem;
     font-size: 1.5rem;
     transition: color 0.3s ease;

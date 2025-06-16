@@ -10,21 +10,49 @@ A modern, responsive website showcasing authentic South Indian recipes with a fo
 - Beautiful typography and color scheme
 - Interactive components with hover effects
 - Optimized images and assets
+- Dynamic component loading
+- Consistent styling across all pages
+
+## Color Scheme
+
+The website uses a carefully selected color palette:
+
+```css
+:root {
+    --primary-color: #000000;    /* Main headings and important text */
+    --secondary-color: #666666;  /* Body text and secondary content */
+    --accent-color: #ff6b6b;     /* Accents, hover states, and highlights */
+    --background-color: #ffffff; /* Main background */
+    --text-color: #2c2c2c;      /* General text color */
+    --light-gray: #f8f8f8;      /* Secondary background */
+    --border-color: #e6e6e6;    /* Borders and dividers */
+}
+```
+
+## Typography
+
+The website uses a combination of elegant fonts:
+
+- Headings: 'Playfair Display', Georgia, serif
+- Body text: 'Source Sans Pro', system fonts
+- Logo: 'Segoe UI', system fonts
+- Subtext: 'Crimson Text', serif
 
 ## Project Structure
 
 ```
 MasalaTulips/
-├── home.html              # Homepage
-├── recipes.html           # Recipe categories page
-├── breakfast.html         # Breakfast recipes page
-├── mavinakaayi-chitranna.html  # Individual recipe page
-├── styles.css             # Main stylesheet
+├── home.html                    # Homepage
+├── recipes.html                 # Recipe categories page
 ├── common/
-│   ├── utils.js          # Common JavaScript utilities
-│   ├── logo.css          # Logo styles
-│   └── favicon.svg       # Site favicon
-└── start-server.sh       # Server startup script
+│   ├── styles.css              # Main stylesheet
+│   ├── logo.css                # Logo styles
+│   ├── utils.js               # Common JavaScript utilities
+│   └── favicon.svg            # Site favicon
+├── recipesByMainCategories/    # Main recipe categories
+├── recipesByMealType/         # Recipes by meal type
+├── recipesByCookingTime/      # Recipes by cooking time
+└── allRecipes/                # Individual recipe pages
 ```
 
 ## Getting Started
@@ -50,27 +78,14 @@ python3 -m http.server 8000
 npx http-server
 ```
 
-## Deployment
-
-### GitHub Pages
-This project is configured to work with GitHub Pages. To deploy:
-
-1. Push your code to a GitHub repository
-2. Go to repository Settings > Pages
-3. Under "Source", select:
-   - Branch: `main` (or your default branch)
-   - Folder: `/` (root)
-4. Click Save
-5. Your site will be available at `https://<username>.github.io/<repository-name>`
-
-Note: GitHub Pages automatically serves static files, so no server configuration is needed. The site will work exactly as it does locally.
-
 ## Development
 
 - The site uses vanilla HTML, CSS, and JavaScript
-- Common components (header, footer) are loaded dynamically
-- Styles are organized in a modular way
+- Common components (header, footer) are loaded dynamically using JavaScript
+- Styles are organized in a modular way with separate files for different components
 - All pages are responsive and mobile-friendly
+- CSS variables are used for consistent theming
+- Interactive elements have smooth transitions and hover effects
 
 ## Browser Support
 
@@ -89,8 +104,21 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - CSS3
 - JavaScript
 - [Font Awesome 6.5.0](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css)
+- Google Fonts:
+  - Playfair Display
+  - Source Sans Pro
+  - Crimson Text
 
-## Project Structure
-- `home.html` - Main homepage
-- `recipes.html` - Recipes landing page
-- `
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Contact
+
+Pooja Nidasale Chandranna - [@masalatulips](https://twitter.com/masalatulips)
+
+Project Link: [https://github.com/yourusername/MasalaTulips](https://github.com/yourusername/MasalaTulips)

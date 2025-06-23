@@ -31,6 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.toggle('toggle');
     });
 
+    const setMainPadding = () => {
+        const header = document.querySelector('header');
+        const main = document.querySelector('main');
+        if (header && main) {
+            main.style.paddingTop = `${header.offsetHeight}px`;
+        }
+    };
+
+    window.addEventListener('load', setMainPadding);
+    window.addEventListener('resize', setMainPadding);
+
     // Event listeners for closing the nav
     document.addEventListener('click', (e) => {
         // Close with the X button inside the panel

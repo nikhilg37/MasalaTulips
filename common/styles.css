@@ -631,7 +631,7 @@ html, body {
 }
 main {
     flex: 1 0 auto;
-    padding-top: 130px;
+    /* padding-top is now set by script.js */
 }
 
 @keyframes fadeOut {
@@ -684,4 +684,22 @@ body.nav-active::before {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.4s ease-in-out;
+}
+
+.breadcrumbs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.breadcrumbs a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
 } 

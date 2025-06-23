@@ -212,6 +212,8 @@ body.nav-active .burger {
     overflow: hidden;
     transition: transform 0.3s ease;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
 }
 
 .category-card:hover {
@@ -247,7 +249,7 @@ body.nav-active .burger {
     background-color: var(--light-gray);
 }
 
-.featured-grid {
+.breakfast-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
@@ -256,18 +258,20 @@ body.nav-active .burger {
 }
 
 .recipe-card {
-    background-color: var(--background-color);
+    background-color: var(--light-gray);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
     text-decoration: none;
     color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .recipe-card:hover {
     transform: translateY(-5px);
-    color: var(--accent-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .recipe-image {
@@ -290,10 +294,6 @@ body.nav-active .burger {
 .recipe-meta {
     font-size: 0.875rem;
     color: var(--secondary-color);
-}
-
-.breakfast-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 /* About Section */

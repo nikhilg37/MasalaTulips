@@ -4,8 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
 
+    const closeNav = () => {
+        nav.classList.remove('nav-active');
+        burger.classList.remove('toggle');
+        document.body.classList.remove('nav-active');
+        navLinks.forEach(link => {
+            link.style.animation = '';
+        });
+    };
+
     // Toggle Navigation
     burger.addEventListener('click', () => {
+        document.body.classList.toggle('nav-active');
         nav.classList.toggle('nav-active');
         
         // Animate Links
@@ -21,6 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.toggle('toggle');
     });
 
+    // Event listeners for closing the nav
+    document.addEventListener('click', (e) => {
+        // Close with the X button inside the panel
+        if (e.target && e.target.id === 'close-nav') {
+            closeNav();
+        }
+        
+        // Close by clicking outside the panel
+        else if (nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
+            closeNav();
+        }
+    });
+
     // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -33,8 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 // Close mobile menu if open
                 if (nav.classList.contains('nav-active')) {
-                    nav.classList.remove('nav-active');
-                    burger.classList.remove('toggle');
+                    closeNav();
                 }
             }
         });

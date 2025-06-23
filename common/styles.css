@@ -136,10 +136,25 @@ nav {
     color: var(--accent-color);
 }
 
+/* Desktop-specific overrides to hide mobile elements */
+.nav-panel-header,
+.nav-links .fas {
+    display: none;
+}
+
+.nav-links a .nav-item-left {
+    display: inline; /* Make it behave like a simple link */
+}
+
 /* Burger Menu */
 .burger {
     display: none;
     cursor: pointer;
+    z-index: 1002;
+}
+
+body.nav-active .burger {
+    display: none;
 }
 
 .burger div {
@@ -148,6 +163,7 @@ nav {
     background-color: var(--primary-color);
     margin: 5px;
     transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 /* Hero Section */
@@ -277,7 +293,7 @@ nav {
 }
 
 .breakfast-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 /* About Section */
@@ -386,26 +402,53 @@ footer {
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
+        left: auto;
         right: -100%;
-        top: 70px;
-        height: calc(100vh - 70px);
+        top: 0;
+        height: 100vh;
         background-color: var(--background-color);
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         justify-content: flex-start;
-        padding-top: 2rem;
-        transition: right 0.3s ease;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-        width: 250px;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+        width: 300px;
+        padding: 0;
+        z-index: 1001;
     }
-    
+
     .nav-links.nav-active {
         right: 0;
     }
     
     .nav-links li {
-        margin: 1rem 0;
+        margin: 0;
         opacity: 0;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links li:first-child {
+        border-bottom: none; /* No border for the header */
+    }
+
+    .nav-links a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 1.5rem;
+        text-transform: none;
+        font-size: 1rem;
+    }
+
+    .nav-links .fas {
+        display: inline-block; /* Show icons on mobile */
+    }
+
+    .nav-item-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
     
     .burger {
@@ -425,7 +468,25 @@ footer {
     }
 
     .breakfast-grid {
-        grid-template-columns: 1fr;
+        /* This is no longer needed as auto-fit handles it */
+    }
+
+    .nav-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    #close-nav {
+        font-size: 2rem;
+        font-weight: 400;
+        cursor: pointer;
+        line-height: 1;
     }
 }
 
@@ -603,4 +664,24 @@ main {
     .recipe-image-container {
         margin: 1rem 0;
     }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
+}
+
+body.nav-active::before {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease-in-out;
 } 

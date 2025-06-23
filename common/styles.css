@@ -136,6 +136,20 @@ nav {
     color: var(--accent-color);
 }
 
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
 /* Hero Section */
 .hero {
     padding: 8rem 2rem 4rem;
@@ -258,9 +272,12 @@ nav {
 }
 
 .recipe-meta {
+    font-size: 0.875rem;
     color: var(--secondary-color);
-    font-size: 0.9rem;
-    font-weight: 500;
+}
+
+.breakfast-grid {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 /* About Section */
@@ -368,7 +385,27 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        height: calc(100vh - 70px);
+        background-color: var(--background-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        width: 250px;
+    }
+    
+    .nav-links.nav-active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+        opacity: 0;
     }
     
     .burger {
@@ -386,20 +423,35 @@ footer {
     h2 {
         font-size: 1.75rem;
     }
+
+    .breakfast-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Burger Menu */
-.burger {
-    display: none;
-    cursor: pointer;
+/* Burger Animation */
+.burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 5px;
-    transition: all 0.3s ease;
+.burger.toggle .line2 {
+    opacity: 0;
+}
+
+.burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Navigation Link Animation */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .categories-section {

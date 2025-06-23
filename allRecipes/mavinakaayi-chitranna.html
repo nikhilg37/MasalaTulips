@@ -11,6 +11,200 @@
     <link rel="stylesheet" href="../common/logo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="../common/favicon.svg">
+    <style>
+        .recipe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .recipe-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .recipe-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .recipe-header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .recipe-section {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .recipe-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .ingredients-list {
+            list-style: none;
+            padding: 0;
+        }
+        .ingredients-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .ingredients-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        .instructions-list {
+            list-style: none;
+            padding: 0;
+        }
+        .instructions-list li {
+            margin-bottom: 2rem;
+        }
+        .instructions-list h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .instructions-list p {
+            margin-bottom: 1rem;
+        }
+        .step-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .notes-section {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .notes-section h2 {
+            text-align: left;
+        }
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .recipe-grid, .notes-grid {
+                grid-template-columns: 1fr;
+            }
+            .recipe-container {
+                padding: 1rem;
+            }
+        }
+        .showcase-image {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Comments Section Styles */
+        .comments-section {
+            background-color: var(--light-gray);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .comments-section h2 {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .comments-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--body-font);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(255,107,107,0.1);
+        }
+
+        .submit-button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #ff5252;
+        }
+
+        .comments-list {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .comments-section {
+                padding: 2rem 0;
+            }
+            
+            .comments-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -34,10 +228,38 @@
                 </div>
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html#home">Home</a></li>
-                <li><a href="../recipes.html">Recipes</a></li>
-                <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
+                <li class="nav-panel-header">
+                    <span>Menu</span>
+                    <span id="close-nav">&times;</span>
+                </li>
+                <li><a href="../index.html#home">
+                    <div class="nav-item-left">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a></li>
+                <li><a href="../recipes.html">
+                    <div class="nav-item-left">
+                        <i class="fas fa-utensils"></i>
+                        <span>Recipes</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a></li>
+                <li><a href="../index.html#about">
+                    <div class="nav-item-left">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a></li>
+                <li><a href="../index.html#contact">
+                    <div class="nav-item-left">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -46,17 +268,140 @@
             </div>
         </nav>
     </header>
+
     <main>
-        <!-- Hero Section -->
-        <section class="recipes-hero">
-            <h1>Mavinakaayi Chitranna - "ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ" - Raw Mango Rice</h1>
-            <p>Raw mango rice is a popular South Indian dish, especially prevalent during the summer season when green, unripe mangoes are abundant. Known by various regional names—such as Mavinakaayi Chitranna (Kannada), Mamidikaya Pulihora (Telugu), and Mangai Sadam (Tamil)—this dish is celebrated for its tangy, sour flavor and the way it combines simple ingredients to create a vibrant, aromatic meal.</p>
-        </section>
-        <!-- Placeholder for images and steps -->
-        <section style="text-align:center; margin: 3rem 0; color: var(--secondary-color);">
-            <p>[Add your recipe images and step-by-step instructions here]</p>
-        </section>
+        <div class="recipe-container">
+            <div class="recipe-header">
+                <h1>Mavinakaayi Chitranna - "ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ" - Raw Mango Rice</h1>
+                <p>A tangy and refreshing South Indian rice dish made with raw mangoes, tempered with aromatic spices, and garnished with fresh herbs. This traditional recipe brings together the perfect balance of sour, spicy, and savory flavors that will transport you straight to the heart of Karnataka.</p>
+                <div class="recipe-time">
+                    <i class="far fa-clock"></i>
+                    <span>Prep Time: 15 mins | Cook Time: 15 mins | Total Time: 30 mins</span>
+                </div>
+            </div>
+
+            <div class="showcase-image">
+                <img src="../images/recipes/mavinakaayi-chitranna/7.jpeg" alt="Mavinakaayi Chitranna - Raw Mango Rice" class="main-image">
+            </div>
+
+            <div class="recipe-grid">
+                <div class="recipe-section">
+                    <h2>Ingredients</h2>
+                    <ul class="ingredients-list">
+                        <li>2 cups cooked rice</li>
+                        <li>2 finely chopped onions</li>
+                        <li>1 medium raw mango, grated</li>
+                        <li>2 tablespoons oil</li>
+                        <li>1 teaspoon mustard seeds</li>
+                        <li>1 teaspoon cumin seeds</li>
+                        <li>1 teaspoon urad dal</li>
+                        <li>1 teaspoon chana dal</li>
+                        <li>1 complete garlic pod</li>
+                        <li>A pinch of asafoetida</li>
+                        <li>3-4 finely chopped dry red/green chilies</li>
+                        <li>10-12 curry leaves</li>
+                        <li>1/4 cup peanuts</li>
+                        <li>1/4 teaspoon turmeric powder</li>
+                        <li>Salt to taste</li>
+                        <li>Fresh coriander leaves for garnish</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-section">
+                    <h2>Instructions</h2>
+                    <ol class="instructions-list">
+                        <li>
+                            <h3>Prepare the Rice</h3>
+                            <p>Cook rice and let it cool completely.</p>
+                            <img src="../images/recipes/mavinakaayi-chitranna/1.jpeg" alt="Cooked rice ready for the recipe" class="step-image">
+                        </li>
+                        <li>
+                            <h3>Prepare the Mango</h3>
+                            <p>Wash and peel the raw mango. Grate it finely and set aside. Chop the onions finely and set aside.</p>
+                            <img src="../images/recipes/mavinakaayi-chitranna/2.jpeg" alt="Grated raw mango" class="step-image">
+                        </li>
+                        <li>
+                            <h3>Make the Tempering</h3>
+                            <p>Heat oil in a large pan. Add cumin seeds, mustard seeds, and asafoetida. Let them splutter. Add urad dal, chana dal, and dry red chilies. Fry until the dals turn golden brown. Add the chopped onions and fry until they are golden brown.</p>
+                            <img src="../images/recipes/mavinakaayi-chitranna/3.jpeg" alt="Tempering with mustard seeds and dals" class="step-image">
+                        </li>
+                        <li>
+                            <h3>Add Aromatics</h3>
+                            <p>Add curry leaves and peanuts. Fry for a minute until the peanuts are slightly roasted.</p>
+                            <img src="../images/recipes/mavinakaayi-chitranna/4.jpeg" alt="Adding curry leaves and peanuts" class="step-image">
+                        </li>
+                        <li>
+                            <h3>Combine Everything</h3>
+                            <p>Add turmeric powder and grated raw mango. Mix well and cook for 2-3 minutes until the mango softens slightly.</p>
+                            <img src="../images/recipes/mavinakaayi-chitranna/7.jpeg" alt="Combining mango and spices" class="step-image">
+                        </li>
+                        <li>
+                            <h3>Mix with Rice</h3>
+                            <p>Add the cooled rice and salt. Gently mix everything together, taking care not to break the rice grains.</p>
+                            <img src="../images/recipes/mavinakaayi-chitranna/8.jpeg" alt="Mixing rice with the tempering" class="step-image">
+                        </li>
+                        <li>
+                            <h3>Garnish and Serve</h3>
+                            <p>Garnish with fresh coriander leaves and serve warm or at room temperature.</p>
+                            <img src="../images/recipes/mavinakaayi-chitranna/9.jpeg" alt="Final dish garnished with coriander" class="step-image">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h2>Notes & Variations</h2>
+                <div class="notes-grid">
+                    <div>
+                        <h3>Notes</h3>
+                        <ul class="ingredients-list">
+                            <li>Choose firm, green raw mangoes for the best tangy flavor.</li>
+                            <li>You can adjust the amount of raw mango based on how tangy you prefer the dish.</li>
+                            <li>For a spicier version, add finely chopped green chilies during tempering.</li>
+                            <li>This dish can be stored in the refrigerator for up to 2 days.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Variations</h3>
+                        <ul class="ingredients-list">
+                            <li>Add grated coconut for a richer flavor.</li>
+                            <li>Include roasted cashews for extra crunch.</li>
+                            <li>Try with different types of rice like brown rice or basmati rice.</li>
+                            <li>Add finely chopped vegetables like carrots or beans for extra nutrition.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <div class="recipe-container">
+                <h2>Comments</h2>
+                <div class="comments-form">
+                    <form id="commentForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Post Comment</button>
+                    </form>
+                </div>
+                <div class="comments-list">
+                    <!-- Comments will be dynamically added here -->
+                </div>
+            </div>
+        </div>
     </main>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -71,5 +416,15 @@
         </div>
     </footer>
     <script src="../common/script.js"></script>
+    <script>
+        // Add this to your existing script.js or include it here
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the comment to your backend
+            // For now, we'll just show an alert
+            alert('Thank you for your comment! This feature is coming soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html> 

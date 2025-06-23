@@ -701,5 +701,71 @@ body.nav-active::before {
 }
 
 .breadcrumbs a:hover {
-    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+/* Notes & Variations Section */
+.notes-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.notes-section h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.notes-grid h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.notes-grid ul {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--secondary-color);
+}
+
+.notes-grid li {
+    margin-bottom: 0.8rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .notes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .notes-section {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .notes-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .notes-grid h3 {
+        font-size: 1.2rem;
+    }
 } 

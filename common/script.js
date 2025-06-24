@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Load Footer
+    const loadFooter = async () => {
+        try {
+            const response = await fetch('common/footer.html');
+            const footerHtml = await response.text();
+            const placeholder = document.getElementById('footer-placeholder');
+            if (placeholder) {
+                placeholder.innerHTML = footerHtml;
+            }
+        } catch (error) {
+            console.error('Error loading footer:', error);
+        }
+    };
+
+    // Load footer for root level pages
+    if (window.location.pathname === '/' || 
+        window.location.pathname.endsWith('index.html') || 
+        window.location.pathname.endsWith('recipes.html')) {
+        loadFooter();
+    }
+
+    // Load footer for subdirectory pages
+    if (window.location.pathname.includes('/allRecipes/') || 
+        window.location.pathname.includes('/recipesByPopularCategories/') ||
+        window.location.pathname.includes('/recipesByMealType/') ||
+        window.location.pathname.includes('/recipesByCookingTime/')) {
+        const loadFooterSubdir = async () => {
+            try {
+                const response = await fetch('../common/footer.html');
+                const footerHtml = await response.text();
+                const placeholder = document.getElementById('footer-placeholder');
+                if (placeholder) {
+                    placeholder.innerHTML = footerHtml;
+                }
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        };
+        loadFooterSubdir();
+    }
+
     // Navigation
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');

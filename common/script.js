@@ -92,7 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Blogs
             else if (
                 (href.endsWith('index.html#blogs') && currentHash === '#blogs') ||
-                (href.endsWith('../index.html#blogs') && currentHash === '#blogs')
+                (href.endsWith('../index.html#blogs') && currentHash === '#blogs') ||
+                (href.endsWith('blogs.html') && currentPath.endsWith('blogs.html')) ||
+                (href.endsWith('../blogs.html') && currentPath.endsWith('blogs.html'))
             ) {
                 link.classList.add('active');
             }
@@ -128,15 +130,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Header
     const loadHeader = async () => {
         try {
+            console.log('Attempting to load header from:', `${basePath}/common/header-root.html`);
             const response = await fetch(`${basePath}/common/header-root.html`);
             const headerHtml = await response.text();
             const placeholder = document.getElementById('header-placeholder');
             if (placeholder) {
                 placeholder.innerHTML = headerHtml;
+                console.log('Header loaded and inserted!');
                 robustSetMainPadding();
                 setupHeaderEventListeners();
                 setTimeout(setActiveNavigation, 100);
                 setTimeout(setupNavigationLinks, 150);
+                setTimeout(scrollToHashIfPresent, 200);
+            } else {
+                console.log('Header placeholder not found!');
             }
         } catch (error) {
             console.error('Error loading header:', error);
@@ -144,9 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Load header for root level pages
-    if (window.location.pathname === '/' || 
+    if (
+        window.location.pathname === '/' || 
         window.location.pathname.endsWith('index.html') || 
-        window.location.pathname.endsWith('recipeCategories.html')) {
+        window.location.pathname.endsWith('recipeCategories.html') ||
+        window.location.pathname.endsWith('blogs.html')
+    ) {
         loadHeader();
     }
 
@@ -166,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setupHeaderEventListeners();
                     setTimeout(setActiveNavigation, 100);
                     setTimeout(setupNavigationLinks, 150);
+                    setTimeout(scrollToHashIfPresent, 200);
                 }
             } catch (error) {
                 console.error('Error loading header:', error);
@@ -177,11 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Footer
     const loadFooter = async () => {
         try {
+            console.log('Attempting to load footer from:', `${basePath}/common/footer.html`);
             const response = await fetch(`${basePath}/common/footer.html`);
             const footerHtml = await response.text();
             const placeholder = document.getElementById('footer-placeholder');
             if (placeholder) {
                 placeholder.innerHTML = footerHtml;
+                console.log('Footer loaded and inserted!');
+            } else {
+                console.log('Footer placeholder not found!');
             }
         } catch (error) {
             console.error('Error loading footer:', error);
@@ -189,9 +204,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Load footer for root level pages
-    if (window.location.pathname === '/' || 
+    if (
+        window.location.pathname === '/' || 
         window.location.pathname.endsWith('index.html') || 
-        window.location.pathname.endsWith('recipeCategories.html')) {
+        window.location.pathname.endsWith('recipeCategories.html') ||
+        window.location.pathname.endsWith('blogs.html')
+    ) {
         loadFooter();
     }
 
@@ -307,4 +325,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', () => {
         setTimeout(setActiveNavigation, 100);
     });
+
+    function scrollToHashIfPresent() {
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
 }); 

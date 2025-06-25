@@ -800,4 +800,10 @@ body.nav-active::before {
   padding: 0 !important;
   height: 0 !important;
   display: block;
+}
+
+section[id],
+#about,
+#contact {
+  scroll-margin-top: 90px;
 } 

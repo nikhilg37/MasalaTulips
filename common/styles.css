@@ -496,10 +496,6 @@ footer {
         font-size: 1.75rem;
     }
 
-    .breakfast-grid {
-        /* This is no longer needed as auto-fit handles it */
-    }
-
     .nav-panel-header {
         display: flex;
         justify-content: space-between;
@@ -804,4 +800,10 @@ body.nav-active::before {
   padding: 0 !important;
   height: 0 !important;
   display: block;
+}
+
+section[id],
+#about,
+#contact {
+  scroll-margin-top: 90px;
 } 

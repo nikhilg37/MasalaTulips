@@ -61,36 +61,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPath = window.location.pathname;
         const currentHash = window.location.hash;
         const navLinks = document.querySelectorAll('.nav-links a');
-        
+
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (!href) return;
-            
+
             // Remove any existing active class
             link.classList.remove('active');
-            
-            // Check if this link matches the current page
-            if (href === 'index.html#home' && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) {
-                link.classList.add('active');
-            } else if (href === 'recipes.html' && currentPath.endsWith('recipes.html')) {
-                link.classList.add('active');
-            } else if (href === 'index.html#blogs' && currentHash === '#blogs') {
-                link.classList.add('active');
-            } else if (href === 'index.html#about' && currentHash === '#about') {
-                link.classList.add('active');
-            } else if (href === 'index.html#contact' && currentHash === '#contact') {
+
+            // Home
+            if (
+                (href.endsWith('index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) ||
+                (href.endsWith('../index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home'))
+            ) {
                 link.classList.add('active');
             }
-            // For subdirectory pages, check relative paths
-            else if (href === '../index.html#home' && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) {
+            // Recipes (main, subpages, and all recipe detail pages)
+            else if (
+                href.endsWith('recipeCategories.html') &&
+                (
+                    currentPath.endsWith('recipeCategories.html') ||
+                    currentPath.includes('/recipesByPopularCategories/') ||
+                    currentPath.includes('/recipesByMealType/') ||
+                    currentPath.includes('/recipesByCookingTime/') ||
+                    currentPath.includes('/recipePage/')
+                )
+            ) {
                 link.classList.add('active');
-            } else if (href === '../recipes.html' && currentPath.endsWith('recipes.html')) {
+            }
+            // Blogs
+            else if (
+                (href.endsWith('index.html#blogs') && currentHash === '#blogs') ||
+                (href.endsWith('../index.html#blogs') && currentHash === '#blogs') ||
+                (href.endsWith('blogs.html') && currentPath.endsWith('blogs.html')) ||
+                (href.endsWith('../blogs.html') && currentPath.endsWith('blogs.html'))
+            ) {
                 link.classList.add('active');
-            } else if (href === '../index.html#blogs' && currentHash === '#blogs') {
+            }
+            // About
+            else if (
+                (href.endsWith('index.html#about') && currentHash === '#about') ||
+                (href.endsWith('../index.html#about') && currentHash === '#about')
+            ) {
                 link.classList.add('active');
-            } else if (href === '../index.html#about' && currentHash === '#about') {
-                link.classList.add('active');
-            } else if (href === '../index.html#contact' && currentHash === '#contact') {
+            }
+            // Contact
+            else if (
+                (href.endsWith('index.html#contact') && currentHash === '#contact') ||
+                (href.endsWith('../index.html#contact') && currentHash === '#contact')
+            ) {
                 link.classList.add('active');
             }
         });
@@ -111,15 +130,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Header
     const loadHeader = async () => {
         try {
+            console.log('Attempting to load header from:', `${basePath}/common/header-root.html`);
             const response = await fetch(`${basePath}/common/header-root.html`);
             const headerHtml = await response.text();
             const placeholder = document.getElementById('header-placeholder');
             if (placeholder) {
                 placeholder.innerHTML = headerHtml;
+                console.log('Header loaded and inserted!');
                 robustSetMainPadding();
                 setupHeaderEventListeners();
                 setTimeout(setActiveNavigation, 100);
                 setTimeout(setupNavigationLinks, 150);
+                setTimeout(scrollToHashIfPresent, 200);
+            } else {
+                console.log('Header placeholder not found!');
             }
         } catch (error) {
             console.error('Error loading header:', error);
@@ -127,14 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Load header for root level pages
-    if (window.location.pathname === '/' || 
+    if (
+        window.location.pathname === '/' || 
         window.location.pathname.endsWith('index.html') || 
-        window.location.pathname.endsWith('recipes.html')) {
+        window.location.pathname.endsWith('recipeCategories.html') ||
+        window.location.pathname.endsWith('blogs.html')
+    ) {
         loadHeader();
     }
 
     // Load header for subdirectory pages
-    if (window.location.pathname.includes('/allRecipes/') || 
+    if (window.location.pathname.includes('/recipePage/') || 
         window.location.pathname.includes('/recipesByPopularCategories/') ||
         window.location.pathname.includes('/recipesByMealType/') ||
         window.location.pathname.includes('/recipesByCookingTime/')) {
@@ -149,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setupHeaderEventListeners();
                     setTimeout(setActiveNavigation, 100);
                     setTimeout(setupNavigationLinks, 150);
+                    setTimeout(scrollToHashIfPresent, 200);
                 }
             } catch (error) {
                 console.error('Error loading header:', error);
@@ -160,11 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Footer
     const loadFooter = async () => {
         try {
+            console.log('Attempting to load footer from:', `${basePath}/common/footer.html`);
             const response = await fetch(`${basePath}/common/footer.html`);
             const footerHtml = await response.text();
             const placeholder = document.getElementById('footer-placeholder');
             if (placeholder) {
                 placeholder.innerHTML = footerHtml;
+                console.log('Footer loaded and inserted!');
+            } else {
+                console.log('Footer placeholder not found!');
             }
         } catch (error) {
             console.error('Error loading footer:', error);
@@ -172,14 +204,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Load footer for root level pages
-    if (window.location.pathname === '/' || 
+    if (
+        window.location.pathname === '/' || 
         window.location.pathname.endsWith('index.html') || 
-        window.location.pathname.endsWith('recipes.html')) {
+        window.location.pathname.endsWith('recipeCategories.html') ||
+        window.location.pathname.endsWith('blogs.html')
+    ) {
         loadFooter();
     }
 
     // Load footer for subdirectory pages
-    if (window.location.pathname.includes('/allRecipes/') || 
+    if (window.location.pathname.includes('/recipePage/') || 
         window.location.pathname.includes('/recipesByPopularCategories/') ||
         window.location.pathname.includes('/recipesByMealType/') ||
         window.location.pathname.includes('/recipesByCookingTime/')) {
@@ -290,4 +325,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', () => {
         setTimeout(setActiveNavigation, 100);
     });
+
+    function scrollToHashIfPresent() {
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }
 }); 

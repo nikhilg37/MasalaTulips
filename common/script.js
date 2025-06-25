@@ -105,10 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(setMainPadding, 1000);
     }
 
+    // Detect base path for GitHub Pages or local
+    const basePath = window.location.pathname.includes('/MasalaTulips/') ? '/MasalaTulips' : '';
+
     // Load Header
     const loadHeader = async () => {
         try {
-            const response = await fetch('/common/header-root.html');
+            const response = await fetch(`${basePath}/common/header-root.html`);
             const headerHtml = await response.text();
             const placeholder = document.getElementById('header-placeholder');
             if (placeholder) {
@@ -137,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.pathname.includes('/recipesByCookingTime/')) {
         const loadHeaderSubdir = async () => {
             try {
-                const response = await fetch('/common/header-subdir.html');
+                const response = await fetch(`${basePath}/common/header-subdir.html`);
                 const headerHtml = await response.text();
                 const placeholder = document.getElementById('header-placeholder');
                 if (placeholder) {
@@ -157,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load Footer
     const loadFooter = async () => {
         try {
-            const response = await fetch('/common/footer.html');
+            const response = await fetch(`${basePath}/common/footer.html`);
             const footerHtml = await response.text();
             const placeholder = document.getElementById('footer-placeholder');
             if (placeholder) {
@@ -182,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.pathname.includes('/recipesByCookingTime/')) {
         const loadFooterSubdir = async () => {
             try {
-                const response = await fetch('/common/footer.html');
+                const response = await fetch(`${basePath}/common/footer.html`);
                 const footerHtml = await response.text();
                 const placeholder = document.getElementById('footer-placeholder');
                 if (placeholder) {

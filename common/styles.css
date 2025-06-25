@@ -496,10 +496,6 @@ footer {
         font-size: 1.75rem;
     }
 
-    .breakfast-grid {
-        /* This is no longer needed as auto-fit handles it */
-    }
-
     .nav-panel-header {
         display: flex;
         justify-content: space-between;

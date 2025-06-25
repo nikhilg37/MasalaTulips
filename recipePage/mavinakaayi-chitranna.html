@@ -359,7 +359,7 @@
             const recipeTitle = "Mavinakaayi Chitranna";
 
             // Default breadcrumb
-            let breadcrumbHTML = `<a href="../recipes.html">Recipes</a> &gt; <span>${recipeTitle}</span>`;
+            let breadcrumbHTML = `<a href="../recipeCategories.html">Recipes</a> &gt; <span>${recipeTitle}</span>`;
 
             if (document.referrer) {
                 const referrerURL = new URL(document.referrer);
@@ -371,9 +371,9 @@
                     const categoryName = categoryNameRaw.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
                     // Check if the referrer is a category page and not the index or recipes page
-                    if (categoryName && pageName !== 'index.html' && pageName !== 'recipes.html') {
+                    if (categoryName && pageName !== 'index.html' && pageName !== 'recipeCategories.html') {
                          breadcrumbHTML = `
-                            <a href="../recipes.html">Recipes</a> &gt; 
+                            <a href="../recipeCategories.html">Recipes</a> &gt; 
                             <a href="${referrerURL.pathname}">${categoryName}</a> &gt; 
                             <span>${recipeTitle}</span>`;
                     }

@@ -78,9 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // Recipes (main, subpages, and all recipe detail pages)
             else if (
-                href.endsWith('recipes.html') &&
+                href.endsWith('recipeCategories.html') &&
                 (
-                    currentPath.endsWith('recipes.html') ||
+                    currentPath.endsWith('recipeCategories.html') ||
                     currentPath.includes('/recipesByPopularCategories/') ||
                     currentPath.includes('/recipesByMealType/') ||
                     currentPath.includes('/recipesByCookingTime/') ||
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load header for root level pages
     if (window.location.pathname === '/' || 
         window.location.pathname.endsWith('index.html') || 
-        window.location.pathname.endsWith('recipes.html')) {
+        window.location.pathname.endsWith('recipeCategories.html')) {
         loadHeader();
     }
 
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load footer for root level pages
     if (window.location.pathname === '/' || 
         window.location.pathname.endsWith('index.html') || 
-        window.location.pathname.endsWith('recipes.html')) {
+        window.location.pathname.endsWith('recipeCategories.html')) {
         loadFooter();
     }
 

@@ -1,77 +1,234 @@
+console.log('Script loaded and running on', window.location.pathname);
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Navigation
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-
-    const closeNav = () => {
-        nav.classList.remove('nav-active');
-        burger.classList.remove('toggle');
-        document.body.classList.remove('nav-active');
-        navLinks.forEach(link => {
-            link.style.animation = '';
-        });
-    };
-
-    // Toggle Navigation
-    burger.addEventListener('click', () => {
-        document.body.classList.toggle('nav-active');
-        nav.classList.toggle('nav-active');
-        
-        // Animate Links
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-            }
-        });
-
-        // Burger Animation
-        burger.classList.toggle('toggle');
-    });
-
-    const setMainPadding = () => {
-        const header = document.querySelector('header');
+    // Function declaration for setMainPadding (hoisted)
+    function setMainPadding() {
+        const header = document.querySelector('header') || document.querySelector('#header-placeholder header');
         const main = document.querySelector('main');
         if (header && main) {
             main.style.paddingTop = `${header.offsetHeight}px`;
         }
-    };
+    }
 
-    window.addEventListener('load', setMainPadding);
-    window.addEventListener('resize', setMainPadding);
-
-    // Event listeners for closing the nav
-    document.addEventListener('click', (e) => {
-        // Close with the X button inside the panel
-        if (e.target && e.target.id === 'close-nav') {
-            closeNav();
+    // Global function to close navigation
+    function closeNav() {
+        const nav = document.querySelector('.nav-links');
+        const burger = document.querySelector('.burger');
+        if (nav && burger) {
+            nav.classList.remove('nav-active');
+            burger.classList.remove('toggle');
+            document.body.classList.remove('nav-active');
+            const navLinks = document.querySelectorAll('.nav-links li');
+            navLinks.forEach(link => {
+                link.style.animation = '';
+            });
         }
-        
-        // Close by clicking outside the panel
-        else if (nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
-            closeNav();
-        }
-    });
+    }
 
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Close mobile menu if open
-                if (nav.classList.contains('nav-active')) {
-                    closeNav();
+    // Function to set up header-dependent event listeners
+    function setupHeaderEventListeners() {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+        if (!burger || !nav) return;
+
+        // Toggle Navigation
+        burger.addEventListener('click', () => {
+            document.body.classList.toggle('nav-active');
+            nav.classList.toggle('nav-active');
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                 }
+            });
+            burger.classList.toggle('toggle');
+        });
+
+        // Event listeners for closing the nav
+        document.addEventListener('click', (e) => {
+            if (e.target && e.target.id === 'close-nav') {
+                closeNav();
+            } else if (nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
+                closeNav();
             }
         });
-    });
+    }
+
+    // Function to set active navigation state
+    function setActiveNavigation() {
+        const currentPath = window.location.pathname;
+        const currentHash = window.location.hash;
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+            
+            // Remove any existing active class
+            link.classList.remove('active');
+            
+            // Check if this link matches the current page
+            if (href === 'index.html#home' && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) {
+                link.classList.add('active');
+            } else if (href === 'recipes.html' && currentPath.endsWith('recipes.html')) {
+                link.classList.add('active');
+            } else if (href === 'index.html#blogs' && currentHash === '#blogs') {
+                link.classList.add('active');
+            } else if (href === 'index.html#about' && currentHash === '#about') {
+                link.classList.add('active');
+            } else if (href === 'index.html#contact' && currentHash === '#contact') {
+                link.classList.add('active');
+            }
+            // For subdirectory pages, check relative paths
+            else if (href === '../index.html#home' && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) {
+                link.classList.add('active');
+            } else if (href === '../recipes.html' && currentPath.endsWith('recipes.html')) {
+                link.classList.add('active');
+            } else if (href === '../index.html#blogs' && currentHash === '#blogs') {
+                link.classList.add('active');
+            } else if (href === '../index.html#about' && currentHash === '#about') {
+                link.classList.add('active');
+            } else if (href === '../index.html#contact' && currentHash === '#contact') {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Helper: Call setMainPadding multiple times after header insertion
+    function robustSetMainPadding() {
+        setMainPadding();
+        setTimeout(setMainPadding, 100);
+        setTimeout(setMainPadding, 300);
+        setTimeout(setMainPadding, 600);
+        setTimeout(setMainPadding, 1000);
+    }
+
+    // Detect base path for GitHub Pages or local
+    const basePath = window.location.pathname.includes('/MasalaTulips/') ? '/MasalaTulips' : '';
+
+    // Load Header
+    const loadHeader = async () => {
+        try {
+            const response = await fetch(`${basePath}/common/header-root.html`);
+            const headerHtml = await response.text();
+            const placeholder = document.getElementById('header-placeholder');
+            if (placeholder) {
+                placeholder.innerHTML = headerHtml;
+                robustSetMainPadding();
+                setupHeaderEventListeners();
+                setTimeout(setActiveNavigation, 100);
+                setTimeout(setupNavigationLinks, 150);
+            }
+        } catch (error) {
+            console.error('Error loading header:', error);
+        }
+    };
+
+    // Load header for root level pages
+    if (window.location.pathname === '/' || 
+        window.location.pathname.endsWith('index.html') || 
+        window.location.pathname.endsWith('recipes.html')) {
+        loadHeader();
+    }
+
+    // Load header for subdirectory pages
+    if (window.location.pathname.includes('/allRecipes/') || 
+        window.location.pathname.includes('/recipesByPopularCategories/') ||
+        window.location.pathname.includes('/recipesByMealType/') ||
+        window.location.pathname.includes('/recipesByCookingTime/')) {
+        const loadHeaderSubdir = async () => {
+            try {
+                const response = await fetch(`${basePath}/common/header-subdir.html`);
+                const headerHtml = await response.text();
+                const placeholder = document.getElementById('header-placeholder');
+                if (placeholder) {
+                    placeholder.innerHTML = headerHtml;
+                    robustSetMainPadding();
+                    setupHeaderEventListeners();
+                    setTimeout(setActiveNavigation, 100);
+                    setTimeout(setupNavigationLinks, 150);
+                }
+            } catch (error) {
+                console.error('Error loading header:', error);
+            }
+        };
+        loadHeaderSubdir();
+    }
+
+    // Load Footer
+    const loadFooter = async () => {
+        try {
+            const response = await fetch(`${basePath}/common/footer.html`);
+            const footerHtml = await response.text();
+            const placeholder = document.getElementById('footer-placeholder');
+            if (placeholder) {
+                placeholder.innerHTML = footerHtml;
+            }
+        } catch (error) {
+            console.error('Error loading footer:', error);
+        }
+    };
+
+    // Load footer for root level pages
+    if (window.location.pathname === '/' || 
+        window.location.pathname.endsWith('index.html') || 
+        window.location.pathname.endsWith('recipes.html')) {
+        loadFooter();
+    }
+
+    // Load footer for subdirectory pages
+    if (window.location.pathname.includes('/allRecipes/') || 
+        window.location.pathname.includes('/recipesByPopularCategories/') ||
+        window.location.pathname.includes('/recipesByMealType/') ||
+        window.location.pathname.includes('/recipesByCookingTime/')) {
+        const loadFooterSubdir = async () => {
+            try {
+                const response = await fetch(`${basePath}/common/footer.html`);
+                const footerHtml = await response.text();
+                const placeholder = document.getElementById('footer-placeholder');
+                if (placeholder) {
+                    placeholder.innerHTML = footerHtml;
+                }
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        };
+        loadFooterSubdir();
+    }
+
+    // Function to set up navigation link event listeners
+    function setupNavigationLinks() {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.includes('#')) {
+                    // Extract the hash part
+                    const hashIndex = href.indexOf('#');
+                    const hash = href.substring(hashIndex);
+                    const target = document.querySelector(hash);
+                    // Only prevent default if the target exists on this page
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        window.location.hash = hash;
+                        closeNav();
+                    } else {
+                        // If the target doesn't exist, let the browser handle navigation (could be a different page)
+                        closeNav();
+                    }
+                } else {
+                    // For normal links (like Recipes), just close the menu and let navigation happen
+                    closeNav();
+                }
+            });
+        });
+    }
 
     // Form Submission
     const contactForm = document.getElementById('contactForm');
@@ -122,4 +279,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Remove fade-out animation for Mavinakaayi Chitranna card
     // No special click handler needed, default link behavior
+
+    // Call setMainPadding on window load (after all resources, images, fonts)
+    window.addEventListener('load', setMainPadding);
+    
+    // Set active navigation state for existing headers
+    setTimeout(setActiveNavigation, 100);
+    
+    // Update active navigation when hash changes (for anchor links)
+    window.addEventListener('hashchange', () => {
+        setTimeout(setActiveNavigation, 100);
+    });
 }); 

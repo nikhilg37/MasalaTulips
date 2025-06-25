@@ -61,36 +61,53 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPath = window.location.pathname;
         const currentHash = window.location.hash;
         const navLinks = document.querySelectorAll('.nav-links a');
-        
+
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (!href) return;
-            
+
             // Remove any existing active class
             link.classList.remove('active');
-            
-            // Check if this link matches the current page
-            if (href === 'index.html#home' && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) {
-                link.classList.add('active');
-            } else if (href === 'recipes.html' && currentPath.endsWith('recipes.html')) {
-                link.classList.add('active');
-            } else if (href === 'index.html#blogs' && currentHash === '#blogs') {
-                link.classList.add('active');
-            } else if (href === 'index.html#about' && currentHash === '#about') {
-                link.classList.add('active');
-            } else if (href === 'index.html#contact' && currentHash === '#contact') {
+
+            // Home
+            if (
+                (href.endsWith('index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) ||
+                (href.endsWith('../index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home'))
+            ) {
                 link.classList.add('active');
             }
-            // For subdirectory pages, check relative paths
-            else if (href === '../index.html#home' && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) {
+            // Recipes (main, subpages, and all recipe detail pages)
+            else if (
+                href.endsWith('recipes.html') &&
+                (
+                    currentPath.endsWith('recipes.html') ||
+                    currentPath.includes('/recipesByPopularCategories/') ||
+                    currentPath.includes('/recipesByMealType/') ||
+                    currentPath.includes('/recipesByCookingTime/') ||
+                    currentPath.includes('/recipePage/')
+                )
+            ) {
                 link.classList.add('active');
-            } else if (href === '../recipes.html' && currentPath.endsWith('recipes.html')) {
+            }
+            // Blogs
+            else if (
+                (href.endsWith('index.html#blogs') && currentHash === '#blogs') ||
+                (href.endsWith('../index.html#blogs') && currentHash === '#blogs')
+            ) {
                 link.classList.add('active');
-            } else if (href === '../index.html#blogs' && currentHash === '#blogs') {
+            }
+            // About
+            else if (
+                (href.endsWith('index.html#about') && currentHash === '#about') ||
+                (href.endsWith('../index.html#about') && currentHash === '#about')
+            ) {
                 link.classList.add('active');
-            } else if (href === '../index.html#about' && currentHash === '#about') {
-                link.classList.add('active');
-            } else if (href === '../index.html#contact' && currentHash === '#contact') {
+            }
+            // Contact
+            else if (
+                (href.endsWith('index.html#contact') && currentHash === '#contact') ||
+                (href.endsWith('../index.html#contact') && currentHash === '#contact')
+            ) {
                 link.classList.add('active');
             }
         });
@@ -134,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Load header for subdirectory pages
-    if (window.location.pathname.includes('/allRecipes/') || 
+    if (window.location.pathname.includes('/recipePage/') || 
         window.location.pathname.includes('/recipesByPopularCategories/') ||
         window.location.pathname.includes('/recipesByMealType/') ||
         window.location.pathname.includes('/recipesByCookingTime/')) {
@@ -179,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Load footer for subdirectory pages
-    if (window.location.pathname.includes('/allRecipes/') || 
+    if (window.location.pathname.includes('/recipePage/') || 
         window.location.pathname.includes('/recipesByPopularCategories/') ||
         window.location.pathname.includes('/recipesByMealType/') ||
         window.location.pathname.includes('/recipesByCookingTime/')) {

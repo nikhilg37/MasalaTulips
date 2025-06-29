@@ -158,7 +158,15 @@ function initializePage() {
     // Detect base path for GitHub Pages or local
     const basePath = (() => {
         const pathname = window.location.pathname;
+        const hostname = window.location.hostname;
         console.log('Current pathname:', pathname);
+        console.log('Current hostname:', hostname);
+        
+        // Check if we're on the custom domain
+        if (hostname === 'masalatulips.nl' || hostname === 'www.masalatulips.nl') {
+            console.log('Detected custom domain - no base path needed');
+            return '';
+        }
         
         // Check if we're on GitHub Pages with repository name
         if (pathname.includes('/MasalaTulips')) {

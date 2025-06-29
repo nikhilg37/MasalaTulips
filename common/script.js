@@ -63,6 +63,8 @@ function initializePage() {
         const currentHash = window.location.hash;
         const navLinks = document.querySelectorAll('.nav-links a');
 
+        console.log('Setting active navigation - Path:', currentPath, 'Hash:', currentHash);
+
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (!href) return;
@@ -72,10 +74,11 @@ function initializePage() {
 
             // Home
             if (
-                (href.endsWith('index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home')) ||
-                (href.endsWith('../index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html')) && (!currentHash || currentHash === '#home'))
+                (href.endsWith('index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '/MasalaTulips/') && (!currentHash || currentHash === '#home')) ||
+                (href.endsWith('../index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '/MasalaTulips/') && (!currentHash || currentHash === '#home'))
             ) {
                 link.classList.add('active');
+                console.log('Home link activated');
             }
             // Recipes (main, subpages, and all recipe detail pages)
             else if (
@@ -89,6 +92,7 @@ function initializePage() {
                 )
             ) {
                 link.classList.add('active');
+                console.log('Recipes link activated');
             }
             // Blogs
             else if (
@@ -98,6 +102,7 @@ function initializePage() {
                 (href.endsWith('../blogs.html') && currentPath.endsWith('blogs.html'))
             ) {
                 link.classList.add('active');
+                console.log('Blogs link activated');
             }
             // About
             else if (
@@ -105,6 +110,7 @@ function initializePage() {
                 (href.endsWith('../index.html#about') && currentHash === '#about')
             ) {
                 link.classList.add('active');
+                console.log('About link activated');
             }
             // Contact
             else if (
@@ -112,6 +118,7 @@ function initializePage() {
                 (href.endsWith('../index.html#contact') && currentHash === '#contact')
             ) {
                 link.classList.add('active');
+                console.log('Contact link activated');
             }
         });
     }
@@ -323,6 +330,8 @@ function initializePage() {
                             block: 'start'
                         });
                         window.location.hash = hash;
+                        // Update active navigation state after hash change
+                        setTimeout(setActiveNavigation, 100);
                         closeNav();
                     } else {
                         // If the target doesn't exist, let the browser handle navigation (could be a different page)
@@ -394,6 +403,11 @@ function initializePage() {
             }
         }
     }
+
+    // Listen for hash changes to update navigation state
+    window.addEventListener('hashchange', () => {
+        setTimeout(setActiveNavigation, 100);
+    });
 }
 
 // Initialize when DOM is ready

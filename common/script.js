@@ -217,9 +217,12 @@ function initializePage() {
     if (
         window.location.pathname === '/' || 
         window.location.pathname.endsWith('index.html') || 
+        window.location.pathname.endsWith('/') ||
+        window.location.pathname === '/MasalaTulips/' ||
         window.location.pathname.endsWith('recipeCategories.html') ||
         window.location.pathname.endsWith('blogs.html')
     ) {
+        console.log('Loading header for root level page');
         loadHeader();
     }
 

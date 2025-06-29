@@ -154,7 +154,7 @@ function initializePage() {
         console.log('Current pathname:', pathname);
         
         // Check if we're on GitHub Pages with repository name
-        if (pathname.includes('/MasalaTulips/')) {
+        if (pathname.includes('/MasalaTulips')) {
             console.log('Detected GitHub Pages with repository name');
             return '/MasalaTulips';
         }
@@ -172,6 +172,11 @@ function initializePage() {
 
     // Load Header
     const loadHeader = async () => {
+        console.log('=== HEADER LOADING DEBUG ===');
+        console.log('Base path detected:', basePath);
+        console.log('Current URL:', window.location.href);
+        console.log('Current pathname:', window.location.pathname);
+        
         const headerPaths = [
             `${basePath}/common/header-root.html`,
             '/common/header-root.html',
@@ -179,8 +184,11 @@ function initializePage() {
             '../common/header-root.html'
         ];
         
+        console.log('Header paths to try:', headerPaths);
+        
         const success = await tryLoadContent(headerPaths, 'header');
         if (success) {
+            console.log('Header loaded successfully!');
             robustSetMainPadding();
             setupHeaderEventListeners();
             setTimeout(setActiveNavigation, 100);
@@ -192,11 +200,14 @@ function initializePage() {
             setTimeout(async () => {
                 const retrySuccess = await tryLoadContent(headerPaths, 'header');
                 if (retrySuccess) {
+                    console.log('Header loaded successfully on retry!');
                     robustSetMainPadding();
                     setupHeaderEventListeners();
                     setTimeout(setActiveNavigation, 100);
                     setTimeout(setupNavigationLinks, 150);
                     setTimeout(scrollToHashIfPresent, 200);
+                } else {
+                    console.error('Header failed to load even after retry!');
                 }
             }, 500);
         }

@@ -1,6 +1,7 @@
 console.log('Script loaded and running on', window.location.pathname);
 
-document.addEventListener('DOMContentLoaded', () => {
+// Function to initialize the page
+function initializePage() {
     // Function declaration for setMainPadding (hoisted)
     function setMainPadding() {
         const header = document.querySelector('header') || document.querySelector('#header-placeholder header');
@@ -124,29 +125,80 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(setMainPadding, 1000);
     }
 
+    // Helper function to try multiple path variations
+    const tryLoadContent = async (paths, contentType) => {
+        for (const path of paths) {
+            try {
+                console.log(`Trying to load ${contentType} from:`, path);
+                const response = await fetch(path);
+                if (response.ok) {
+                    const content = await response.text();
+                    const placeholder = document.getElementById(`${contentType}-placeholder`);
+                    if (placeholder) {
+                        placeholder.innerHTML = content;
+                        console.log(`${contentType} loaded successfully from:`, path);
+                        return true;
+                    }
+                }
+            } catch (error) {
+                console.log(`Failed to load ${contentType} from ${path}:`, error.message);
+            }
+        }
+        console.error(`Failed to load ${contentType} from all attempted paths`);
+        return false;
+    };
+
     // Detect base path for GitHub Pages or local
-    const basePath = window.location.pathname.includes('/MasalaTulips/') ? '/MasalaTulips' : '';
+    const basePath = (() => {
+        const pathname = window.location.pathname;
+        console.log('Current pathname:', pathname);
+        
+        // Check if we're on GitHub Pages with repository name
+        if (pathname.includes('/MasalaTulips/')) {
+            console.log('Detected GitHub Pages with repository name');
+            return '/MasalaTulips';
+        }
+        
+        // Check if we're on GitHub Pages root (custom domain or username.github.io)
+        if (pathname === '/' || pathname.endsWith('index.html')) {
+            console.log('Detected root path - no base path needed');
+            return '';
+        }
+        
+        // Default case
+        console.log('Using default base path detection');
+        return '';
+    })();
 
     // Load Header
     const loadHeader = async () => {
-        try {
-            console.log('Attempting to load header from:', `${basePath}/common/header-root.html`);
-            const response = await fetch(`${basePath}/common/header-root.html`);
-            const headerHtml = await response.text();
-            const placeholder = document.getElementById('header-placeholder');
-            if (placeholder) {
-                placeholder.innerHTML = headerHtml;
-                console.log('Header loaded and inserted!');
-                robustSetMainPadding();
-                setupHeaderEventListeners();
-                setTimeout(setActiveNavigation, 100);
-                setTimeout(setupNavigationLinks, 150);
-                setTimeout(scrollToHashIfPresent, 200);
-            } else {
-                console.log('Header placeholder not found!');
-            }
-        } catch (error) {
-            console.error('Error loading header:', error);
+        const headerPaths = [
+            `${basePath}/common/header-root.html`,
+            '/common/header-root.html',
+            './common/header-root.html',
+            '../common/header-root.html'
+        ];
+        
+        const success = await tryLoadContent(headerPaths, 'header');
+        if (success) {
+            robustSetMainPadding();
+            setupHeaderEventListeners();
+            setTimeout(setActiveNavigation, 100);
+            setTimeout(setupNavigationLinks, 150);
+            setTimeout(scrollToHashIfPresent, 200);
+        } else {
+            // Retry after a short delay
+            console.log('Retrying header load after delay...');
+            setTimeout(async () => {
+                const retrySuccess = await tryLoadContent(headerPaths, 'header');
+                if (retrySuccess) {
+                    robustSetMainPadding();
+                    setupHeaderEventListeners();
+                    setTimeout(setActiveNavigation, 100);
+                    setTimeout(setupNavigationLinks, 150);
+                    setTimeout(scrollToHashIfPresent, 200);
+                }
+            }, 500);
         }
     };
 
@@ -166,20 +218,33 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.pathname.includes('/recipesByMealType/') ||
         window.location.pathname.includes('/recipesByCookingTime/')) {
         const loadHeaderSubdir = async () => {
-            try {
-                const response = await fetch(`${basePath}/common/header-subdir.html`);
-                const headerHtml = await response.text();
-                const placeholder = document.getElementById('header-placeholder');
-                if (placeholder) {
-                    placeholder.innerHTML = headerHtml;
-                    robustSetMainPadding();
-                    setupHeaderEventListeners();
-                    setTimeout(setActiveNavigation, 100);
-                    setTimeout(setupNavigationLinks, 150);
-                    setTimeout(scrollToHashIfPresent, 200);
-                }
-            } catch (error) {
-                console.error('Error loading header:', error);
+            const headerPaths = [
+                `${basePath}/common/header-subdir.html`,
+                '/common/header-subdir.html',
+                '../common/header-subdir.html',
+                '../../common/header-subdir.html'
+            ];
+            
+            const success = await tryLoadContent(headerPaths, 'header');
+            if (success) {
+                robustSetMainPadding();
+                setupHeaderEventListeners();
+                setTimeout(setActiveNavigation, 100);
+                setTimeout(setupNavigationLinks, 150);
+                setTimeout(scrollToHashIfPresent, 200);
+            } else {
+                // Retry after a short delay
+                console.log('Retrying subdirectory header load after delay...');
+                setTimeout(async () => {
+                    const retrySuccess = await tryLoadContent(headerPaths, 'header');
+                    if (retrySuccess) {
+                        robustSetMainPadding();
+                        setupHeaderEventListeners();
+                        setTimeout(setActiveNavigation, 100);
+                        setTimeout(setupNavigationLinks, 150);
+                        setTimeout(scrollToHashIfPresent, 200);
+                    }
+                }, 500);
             }
         };
         loadHeaderSubdir();
@@ -187,20 +252,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load Footer
     const loadFooter = async () => {
-        try {
-            console.log('Attempting to load footer from:', `${basePath}/common/footer.html`);
-            const response = await fetch(`${basePath}/common/footer.html`);
-            const footerHtml = await response.text();
-            const placeholder = document.getElementById('footer-placeholder');
-            if (placeholder) {
-                placeholder.innerHTML = footerHtml;
-                console.log('Footer loaded and inserted!');
-            } else {
-                console.log('Footer placeholder not found!');
-            }
-        } catch (error) {
-            console.error('Error loading footer:', error);
-        }
+        const footerPaths = [
+            `${basePath}/common/footer.html`,
+            '/common/footer.html',
+            './common/footer.html',
+            '../common/footer.html'
+        ];
+        
+        await tryLoadContent(footerPaths, 'footer');
     };
 
     // Load footer for root level pages
@@ -219,16 +278,14 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.pathname.includes('/recipesByMealType/') ||
         window.location.pathname.includes('/recipesByCookingTime/')) {
         const loadFooterSubdir = async () => {
-            try {
-                const response = await fetch(`${basePath}/common/footer.html`);
-                const footerHtml = await response.text();
-                const placeholder = document.getElementById('footer-placeholder');
-                if (placeholder) {
-                    placeholder.innerHTML = footerHtml;
-                }
-            } catch (error) {
-                console.error('Error loading footer:', error);
-            }
+            const footerPaths = [
+                `${basePath}/common/footer.html`,
+                '/common/footer.html',
+                '../common/footer.html',
+                '../../common/footer.html'
+            ];
+            
+            await tryLoadContent(footerPaths, 'footer');
         };
         loadFooterSubdir();
     }
@@ -299,39 +356,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, observerOptions);
+
         recipeCards.forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
-    } else if (featuredGrid && recipeCards.length === 1) {
-        // On breakfast.html, ensure the single card is always visible
-        recipeCards[0].style.opacity = '1';
-        recipeCards[0].style.transform = 'none';
-        recipeCards[0].style.transition = 'none';
     }
 
-    // Remove fade-out animation for Mavinakaayi Chitranna card
-    // No special click handler needed, default link behavior
-
-    // Call setMainPadding on window load (after all resources, images, fonts)
-    window.addEventListener('load', setMainPadding);
-    
-    // Set active navigation state for existing headers
-    setTimeout(setActiveNavigation, 100);
-    
-    // Update active navigation when hash changes (for anchor links)
-    window.addEventListener('hashchange', () => {
-        setTimeout(setActiveNavigation, 100);
-    });
-
+    // Function to scroll to hash if present in URL
     function scrollToHashIfPresent() {
-        if (window.location.hash) {
-            const target = document.querySelector(window.location.hash);
+        const hash = window.location.hash;
+        if (hash) {
+            const target = document.querySelector(hash);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
             }
         }
+    }
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePage);
+} else {
+    // DOM is already loaded
+    initializePage();
+}
+
+// Also initialize when window loads (backup)
+window.addEventListener('load', () => {
+    console.log('Window loaded - checking if header is present...');
+    const header = document.querySelector('#header-placeholder header');
+    if (!header) {
+        console.log('Header not found, re-initializing...');
+        initializePage();
     }
 }); 

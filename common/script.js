@@ -1,5 +1,3 @@
-console.log('Script loaded and running on', window.location.pathname);
-
 // Function to initialize the page
 function initializePage() {
     // Function declaration for setMainPadding (hoisted)
@@ -63,8 +61,6 @@ function initializePage() {
         const currentHash = window.location.hash;
         const navLinks = document.querySelectorAll('.nav-links a');
 
-        console.log('Setting active navigation - Path:', currentPath, 'Hash:', currentHash);
-
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             if (!href) return;
@@ -78,7 +74,6 @@ function initializePage() {
                 (href.endsWith('../index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '/MasalaTulips/') && (!currentHash || currentHash === '#home'))
             ) {
                 link.classList.add('active');
-                console.log('Home link activated');
             }
             // Recipes (main, subpages, and all recipe detail pages)
             else if (
@@ -92,7 +87,6 @@ function initializePage() {
                 )
             ) {
                 link.classList.add('active');
-                console.log('Recipes link activated');
             }
             // Blogs
             else if (
@@ -102,7 +96,6 @@ function initializePage() {
                 (href.endsWith('../blogs.html') && currentPath.endsWith('blogs.html'))
             ) {
                 link.classList.add('active');
-                console.log('Blogs link activated');
             }
             // About
             else if (
@@ -110,7 +103,6 @@ function initializePage() {
                 (href.endsWith('../index.html#about') && currentHash === '#about')
             ) {
                 link.classList.add('active');
-                console.log('About link activated');
             }
             // Contact
             else if (
@@ -118,7 +110,6 @@ function initializePage() {
                 (href.endsWith('../index.html#contact') && currentHash === '#contact')
             ) {
                 link.classList.add('active');
-                console.log('Contact link activated');
             }
         });
     }
@@ -136,22 +127,18 @@ function initializePage() {
     const tryLoadContent = async (paths, contentType) => {
         for (const path of paths) {
             try {
-                console.log(`Trying to load ${contentType} from:`, path);
                 const response = await fetch(path);
                 if (response.ok) {
                     const content = await response.text();
                     const placeholder = document.getElementById(`${contentType}-placeholder`);
                     if (placeholder) {
                         placeholder.innerHTML = content;
-                        console.log(`${contentType} loaded successfully from:`, path);
                         return true;
                     }
                 }
             } catch (error) {
-                console.log(`Failed to load ${contentType} from ${path}:`, error.message);
             }
         }
-        console.error(`Failed to load ${contentType} from all attempted paths`);
         return false;
     };
 
@@ -159,39 +146,28 @@ function initializePage() {
     const basePath = (() => {
         const pathname = window.location.pathname;
         const hostname = window.location.hostname;
-        console.log('Current pathname:', pathname);
-        console.log('Current hostname:', hostname);
         
         // Check if we're on the custom domain
         if (hostname === 'masalatulips.nl' || hostname === 'www.masalatulips.nl') {
-            console.log('Detected custom domain - no base path needed');
             return '';
         }
         
         // Check if we're on GitHub Pages with repository name
         if (pathname.includes('/MasalaTulips')) {
-            console.log('Detected GitHub Pages with repository name');
             return '/MasalaTulips';
         }
         
         // Check if we're on GitHub Pages root (custom domain or username.github.io)
         if (pathname === '/' || pathname.endsWith('index.html')) {
-            console.log('Detected root path - no base path needed');
             return '';
         }
         
         // Default case
-        console.log('Using default base path detection');
         return '';
     })();
 
     // Load Header
     const loadHeader = async () => {
-        console.log('=== HEADER LOADING DEBUG ===');
-        console.log('Base path detected:', basePath);
-        console.log('Current URL:', window.location.href);
-        console.log('Current pathname:', window.location.pathname);
-        
         const headerPaths = [
             `${basePath}/common/header-root.html`,
             '/common/header-root.html',
@@ -199,11 +175,8 @@ function initializePage() {
             '../common/header-root.html'
         ];
         
-        console.log('Header paths to try:', headerPaths);
-        
         const success = await tryLoadContent(headerPaths, 'header');
         if (success) {
-            console.log('Header loaded successfully!');
             robustSetMainPadding();
             setupHeaderEventListeners();
             setTimeout(setActiveNavigation, 100);
@@ -211,18 +184,14 @@ function initializePage() {
             setTimeout(scrollToHashIfPresent, 200);
         } else {
             // Retry after a short delay
-            console.log('Retrying header load after delay...');
             setTimeout(async () => {
                 const retrySuccess = await tryLoadContent(headerPaths, 'header');
                 if (retrySuccess) {
-                    console.log('Header loaded successfully on retry!');
                     robustSetMainPadding();
                     setupHeaderEventListeners();
                     setTimeout(setActiveNavigation, 100);
                     setTimeout(setupNavigationLinks, 150);
                     setTimeout(scrollToHashIfPresent, 200);
-                } else {
-                    console.error('Header failed to load even after retry!');
                 }
             }, 500);
         }
@@ -237,7 +206,6 @@ function initializePage() {
         window.location.pathname.endsWith('recipeCategories.html') ||
         window.location.pathname.endsWith('blogs.html')
     ) {
-        console.log('Loading header for root level page');
         loadHeader();
     }
 
@@ -263,7 +231,6 @@ function initializePage() {
                 setTimeout(scrollToHashIfPresent, 200);
             } else {
                 // Retry after a short delay
-                console.log('Retrying subdirectory header load after delay...');
                 setTimeout(async () => {
                     const retrySuccess = await tryLoadContent(headerPaths, 'header');
                     if (retrySuccess) {
@@ -428,10 +395,8 @@ if (document.readyState === 'loading') {
 
 // Also initialize when window loads (backup)
 window.addEventListener('load', () => {
-    console.log('Window loaded - checking if header is present...');
     const header = document.querySelector('#header-placeholder header');
     if (!header) {
-        console.log('Header not found, re-initializing...');
         initializePage();
     }
 }); 

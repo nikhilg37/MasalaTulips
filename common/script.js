@@ -70,8 +70,8 @@ function initializePage() {
 
             // Home
             if (
-                (href.endsWith('index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '/MasalaTulips/') && (!currentHash || currentHash === '#home')) ||
-                (href.endsWith('../index.html#home') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '/MasalaTulips/') && (!currentHash || currentHash === '#home'))
+                (href.endsWith('/#home') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '/MasalaTulips/') && (!currentHash || currentHash === '#home')) ||
+                (href.endsWith('../#home') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '/MasalaTulips/') && (!currentHash || currentHash === '#home'))
             ) {
                 link.classList.add('active');
             }
@@ -90,8 +90,8 @@ function initializePage() {
             }
             // Blogs
             else if (
-                (href.endsWith('index.html#blogs') && currentHash === '#blogs') ||
-                (href.endsWith('../index.html#blogs') && currentHash === '#blogs') ||
+                (href.endsWith('/#blogs') && currentHash === '#blogs') ||
+                (href.endsWith('../#blogs') && currentHash === '#blogs') ||
                 (href.endsWith('blogs.html') && currentPath.endsWith('blogs.html')) ||
                 (href.endsWith('../blogs.html') && currentPath.endsWith('blogs.html'))
             ) {
@@ -99,15 +99,15 @@ function initializePage() {
             }
             // About
             else if (
-                (href.endsWith('index.html#about') && currentHash === '#about') ||
-                (href.endsWith('../index.html#about') && currentHash === '#about')
+                (href.endsWith('/#about') && currentHash === '#about') ||
+                (href.endsWith('../#about') && currentHash === '#about')
             ) {
                 link.classList.add('active');
             }
             // Contact
             else if (
-                (href.endsWith('index.html#contact') && currentHash === '#contact') ||
-                (href.endsWith('../index.html#contact') && currentHash === '#contact')
+                (href.endsWith('/#contact') && currentHash === '#contact') ||
+                (href.endsWith('../#contact') && currentHash === '#contact')
             ) {
                 link.classList.add('active');
             }

@@ -16,6 +16,7 @@ A modern, responsive website showcasing authentic Indian recipes with a blend of
 - **Font Awesome 6.5.0** for latest icon support
 - **Cross-browser compatible**
 - **Google Tag Manager** integration for analytics
+- **Ad-free experience** - Google AdSense code commented out to prevent blank space at top of pages
 
 ## Available Recipes
 
@@ -152,6 +153,14 @@ MasalaTulips/
 - **Meta descriptions** and viewport settings
 - **Breadcrumb navigation** for better user experience and SEO
 
+## Ads Configuration
+- **Google AdSense** code is currently **commented out** across all pages
+- AdSense scripts and ad units have been disabled to prevent blank space at the top of pages
+- Ad configuration can be re-enabled by uncommenting the relevant sections in:
+  - Header files: `common/header-root.html` and `common/header-subdir.html`
+  - All HTML pages with AdSense ad unit containers
+- Ad configuration file: `ads.txt` (for future use when ads are re-enabled)
+
 ## Design Features
 - **Responsive design** that works on all devices
 - **Modern color scheme** with CSS custom properties
@@ -168,6 +177,7 @@ MasalaTulips/
 - Recipe sharing features
 - Newsletter subscription
 - Recipe print functionality
+- Re-enable Google AdSense (currently commented out)
 
 ---
 For any questions, suggestions, or contributions, feel free to reach out! 

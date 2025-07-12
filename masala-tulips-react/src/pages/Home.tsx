@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 
 const Home: React.FC = () => {
   const [contactForm, setContactForm] = useState({
@@ -19,12 +20,34 @@ const Home: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Track contact form submission
+    trackGAEvent({
+      action: 'submit',
+      category: 'Contact Form',
+      label: 'Home Contact',
+    });
+    trackGTMEvent('contact_form_submit', { location: 'Home' });
     // Handle form submission here
     console.log('Contact form submitted:', contactForm);
     // Reset form
     setContactForm({ name: '', email: '', message: '' });
     alert('Thank you for your message! We\'ll get back to you soon.');
   };
+
+  useEffect(() => {
+    const hash = sessionStorage.getItem('scrollToHash');
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.clientHeight : 0;
+        const elementTop = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top: elementTop, behavior: 'smooth' });
+        window.history.pushState(null, '', `/#${hash}`);
+      }
+      sessionStorage.removeItem('scrollToHash');
+    }
+  }, []);
 
   return (
     <div className="home">

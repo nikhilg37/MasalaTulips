@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const Header: React.FC = () => {
   const [isNavActive, setIsNavActive] = useState(false);
   const [currentHash, setCurrentHash] = useState('');
+  const [lockedHash, setLockedHash] = useState<string | null>(null);
+  const lockTimeout = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleNav = () => {
     setIsNavActive(!isNavActive);
@@ -21,20 +24,26 @@ const Header: React.FC = () => {
     
     // Update the current hash state immediately for highlighting
     setCurrentHash(`#${hash}`);
+    setLockedHash(`#${hash}`);
+    if (lockTimeout.current) clearTimeout(lockTimeout.current);
+    lockTimeout.current = setTimeout(() => setLockedHash(null), 600);
     
-    // If we're not on the home page, navigate to home first
+    // If we're not on the home page, navigate to home first using SPA navigation
     if (location.pathname !== '/') {
-      window.location.href = `/#${hash}`;
+      sessionStorage.setItem('scrollToHash', hash);
+      navigate('/');
       return;
     }
     
     // If we're already on home page, scroll to the section and update hash
     const element = document.getElementById(hash);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
+      // Get header height
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.clientHeight : 0;
+      // Calculate element's position minus header height
+      const elementTop = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top: elementTop, behavior: 'smooth' });
       // Update the URL hash
       window.history.pushState(null, '', `/#${hash}`);
     }
@@ -143,25 +152,34 @@ const Header: React.FC = () => {
     if (location.pathname !== '/') return;
 
     const handleScroll = () => {
+      if (lockedHash) return; // Don't update highlight if locked
       const sections = ['home', 'about', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Offset for header
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.clientHeight : 0;
+      const scrollPosition = window.scrollY + headerHeight + 1; // +1 to ensure we cross the threshold
 
+      let found = false;
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const elementTop = element.offsetTop;
           const elementBottom = elementTop + element.offsetHeight;
-          
           if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-            // Update hash if it's different
             if (location.hash !== `#${section}`) {
               window.history.replaceState(null, '', `/#${section}`);
             }
-            // Update the current hash state for highlighting
             setCurrentHash(`#${section}`);
+            found = true;
             break;
           }
         }
+      }
+      // If at the bottom of the page, always highlight Contact
+      if (!found && window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+        if (location.hash !== '#contact') {
+          window.history.replaceState(null, '', '/#contact');
+        }
+        setCurrentHash('#contact');
       }
     };
 
@@ -179,7 +197,7 @@ const Header: React.FC = () => {
 
     window.addEventListener('scroll', throttledScroll);
     return () => window.removeEventListener('scroll', throttledScroll);
-  }, [location.pathname]);
+  }, [location.pathname, lockedHash]);
 
 
 

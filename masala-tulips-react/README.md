@@ -259,9 +259,48 @@ interface Recipe {
 - **Bundle Analysis**: Webpack bundle analyzer
 - **Image Optimization**: WebP format support
 
+## 📈 Analytics & Event Tracking
+
+This project includes robust Google Analytics (gtag.js) and Google Tag Manager (GTM) event tracking for key user interactions.
+
+### Automatically Tracked Events
+- **Page Views:** Every route change is tracked as a page view.
+- **Contact Form Submission:** When a user submits the contact form on the Home page.
+- **Recipe Views:** When a user views a recipe page.
+- **Comment Form Submission:** When a user submits a comment on a recipe page.
+- **Social Link Clicks:** When a user clicks Instagram, YouTube, or Pinterest links in the footer.
+
+### How to Track Custom Events
+Use the utility functions in `src/utils/analytics.ts`:
+
+```js
+import { trackGAEvent, trackGTMEvent } from './utils/analytics';
+
+// Google Analytics event
+trackGAEvent({
+  action: 'click',
+  category: 'Button',
+  label: 'Subscribe Button',
+});
+
+// Google Tag Manager event
+trackGTMEvent('custom_event', { customData: 'value' });
+```
+
+### Adding New Events
+- For any new button, form, or interaction, call the above functions in your React component.
+- See `Home.tsx`, `RecipePage.tsx`, and `Footer.tsx` for examples.
+
+### Implementation Note
+- **Page view tracking** is implemented via an `AnalyticsPageView` component, which is rendered inside the `<Router>` in `App.tsx`. This ensures React Router hooks like `useLocation()` are only used within a valid Router context.
+
+### Troubleshooting
+- If you see an error like `useLocation() may be used only in the context of a <Router> component`, make sure any hooks using `useLocation` are only called inside components rendered within a `<Router>`.
+
+---
+
 ## 📝 Recent Updates
 
-- **Project Cleanup**: Removed redundant `src/` and `RecipesByMealType/` folders
 - **Modern React**: Updated to React 19 and React Router v7
 - **Improved Structure**: Better organization of components and pages
 - **Enhanced Navigation**: Added breadcrumb navigation and scroll restoration 

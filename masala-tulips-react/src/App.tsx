@@ -16,11 +16,23 @@ import MostPopular from './pages/MostPopular';
 import AllRecipes from './pages/AllRecipes';
 import './styles/App.css';
 import ScrollToTop from './components/ScrollToTop';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { trackPageView } from './utils/analytics';
+
+function AnalyticsPageView() {
+  const location = useLocation();
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+  return null;
+}
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <AnalyticsPageView />
       <div className="App">
         <Header />
         <main>

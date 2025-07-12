@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug } from '../data/recipes';
 import './RecipePage.css';
+import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -12,8 +13,26 @@ const RecipePage: React.FC = () => {
     comment: ''
   });
 
+  useEffect(() => {
+    if (recipe) {
+      trackGAEvent({
+        action: 'view',
+        category: 'Recipe',
+        label: recipe.title,
+      });
+      trackGTMEvent('recipe_view', { recipeId: recipe.id, title: recipe.title });
+    }
+  }, [recipe]);
+
   const handleCommentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Track comment form submission
+    trackGAEvent({
+      action: 'submit',
+      category: 'Comment Form',
+      label: recipe ? recipe.title : 'Unknown Recipe',
+    });
+    trackGTMEvent('comment_form_submit', { recipeId: recipe ? recipe.id : undefined });
     alert('Thank you for your comment! This feature is coming soon.');
     setCommentForm({ name: '', email: '', comment: '' });
   };

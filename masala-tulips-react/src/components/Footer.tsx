@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+import '../styles/Footer.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 
 const Footer: React.FC = () => {

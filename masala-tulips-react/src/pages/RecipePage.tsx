@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug } from '../data/recipes';
-import './RecipePage.css';
+import '../styles/RecipePage.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 
 const RecipePage: React.FC = () => {

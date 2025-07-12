@@ -1,6 +1,6 @@
 import React from 'react';
-import RecipeList from '../components/RecipeList';
-import { getRecipesByCategory } from '../data/recipes';
+import RecipeList from '../RecipeList';
+import { getRecipesByCategory } from '../../data/recipes';
 
 const Vegetarian: React.FC = () => {
   const vegetarianRecipes = getRecipesByCategory('vegetarian');

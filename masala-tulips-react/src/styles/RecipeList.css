@@ -83,7 +83,8 @@
     padding: 1rem 1.5rem 0;
     font-size: 0.9rem;
     color: var(--secondary-color);
-    margin-top: 2.5rem;
+    margin-top: 1rem; /* Move breadcrumbs higher up */
+    margin-bottom: 2.5rem;
 }
 
 .breadcrumbs a {

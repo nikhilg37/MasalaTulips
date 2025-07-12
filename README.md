@@ -12,52 +12,73 @@ A modern React.js implementation of the Masala Tulips recipe website, featuring 
 - **Icons**: Font Awesome 6
 - **Analytics**: Google Analytics integration
 
-## 📁 Project Structure
+## 📁 Project Structure (Updated)
 
 ```
 MasalaTulips/
 ├── masala-tulips-react/     # Main React application
 │   ├── public/
 │   │   ├── images/          # Recipe images and assets
+│   │   ├── socialMediaLogo/ # Custom branding assets
 │   │   ├── favicon.ico
+│   │   ├── favicon.svg
+│   │   ├── manifest.json
+│   │   ├── robots.txt
 │   │   └── index.html       # Main HTML template
 │   ├── src/
 │   │   ├── components/      # Reusable UI components
 │   │   │   ├── Header.tsx
 │   │   │   ├── Footer.tsx
-│   │   │   ├── RecipeList.tsx
 │   │   │   └── ScrollToTop.tsx
 │   │   ├── pages/          # Page components
-│   │   │   ├── Home.tsx
-│   │   │   ├── RecipeCategories.tsx
+│   │   │   ├── recipesByPopularCategory/
+│   │   │   │   ├── AllRecipes.tsx
+│   │   │   │   ├── MostPopular.tsx
+│   │   │   │   └── Vegetarian.tsx
+│   │   │   ├── recipesByMealType/
+│   │   │   │   ├── Breakfast.tsx
+│   │   │   │   ├── Lunch.tsx
+│   │   │   │   └── Dinner.tsx
+│   │   │   ├── recipesByCookingTime/
+│   │   │   │   ├── Upto30Min.tsx
+│   │   │   │   └── Upto60Min.tsx
+│   │   │   ├── RecipeList.tsx
 │   │   │   ├── RecipePage.tsx
-│   │   │   ├── Blogs.tsx
-│   │   │   ├── Breakfast.tsx
-│   │   │   ├── Lunch.tsx
-│   │   │   ├── Dinner.tsx
-│   │   │   ├── Upto30Min.tsx
-│   │   │   ├── Upto60Min.tsx
-│   │   │   ├── Vegetarian.tsx
-│   │   │   ├── MostPopular.tsx
-│   │   │   └── AllRecipes.tsx
+│   │   │   ├── RecipeCategories.tsx
+│   │   │   ├── Home.tsx
+│   │   │   └── Blogs.tsx
 │   │   ├── data/           # Recipe data and content
 │   │   │   └── recipes.ts
-│   │   ├── styles/         # CSS stylesheets
-│   │   │   └── App.css
+│   │   ├── styles/         # All CSS stylesheets (centralized, flat)
+│   │   │   ├── App.css
+│   │   │   ├── Blogs.css
+│   │   │   ├── Footer.css
+│   │   │   ├── Header.css
+│   │   │   ├── Home.css
+│   │   │   ├── RecipeCategories.css
+│   │   │   ├── RecipeList.css
+│   │   │   └── RecipePage.css
+│   │   ├── utils/          # Utility functions
+│   │   │   └── analytics.ts
 │   │   ├── App.tsx         # Main app component with routing
 │   │   ├── index.tsx       # App entry point
-│   │   └── index.css       # Global styles
+│   │   ├── index.css       # Global styles
+│   │   ├── react-app-env.d.ts # TypeScript declarations
+│   │   └── reportWebVitals.ts # Performance monitoring
 │   ├── package.json
 │   ├── tsconfig.json
 │   └── README.md
-├── docs/                   # Built/deployed website files
+├── docs/                   # Built/deployed website files (GitHub Pages)
 ├── images/                 # Recipe images (shared)
-├── public/                 # Static files for deployment
 ├── CNAME                   # Custom domain configuration
 ├── robots.txt              # SEO configuration
 ├── sitemap.xml             # Site map for search engines
 └── ads.txt                 # Ad configuration
 ```
+
+**All CSS files are now centralized in `src/styles/` (flat structure).**
+Recipe category pages are organized in subfolders by type (PopularCategory, MealType, CookingTime).
+**Project cleanup completed:** Removed unused files (logo.svg, App.test.tsx, setupTests.ts) for cleaner structure.
 
 ## 🎯 Features
 
@@ -81,6 +102,7 @@ MasalaTulips/
 - **Optimized Assets**: Compressed images and efficient CSS
 - **SEO Friendly**: Meta tags and semantic HTML structure
 - **Scroll to Top**: Automatic scroll restoration on navigation
+- **Core Web Vitals**: Performance monitoring with reportWebVitals
 
 ## 🛠️ Setup & Installation
 
@@ -110,7 +132,7 @@ MasalaTulips/
 ### Available Scripts
 - `npm start` - Start development server
 - `npm build` - Build for production
-- `npm test` - Run test suite
+- `npm test` - Run test suite (when tests are added)
 - `npm eject` - Eject from Create React App (irreversible)
 - `npm run deploy` - Deploy to GitHub Pages
 
@@ -184,6 +206,9 @@ interface Recipe {
 - **Pages**: PascalCase with descriptive names
 - **Data**: camelCase (e.g., `recipes.ts`)
 
+### CSS Organization
+- **Centralized Flat Structure**: All CSS files are located in `src/styles/` and imported into their respective components/pages. No CSS files are colocated with components or pages.
+
 ### State Management
 - **Local State**: useState for component-specific state
 - **Form State**: Controlled components with validation
@@ -231,6 +256,12 @@ interface Recipe {
 
 7. **Custom Domain**
    - Make sure `docs/CNAME` contains `masalatulips.nl`.
+
+### Deployment Notes
+- The `docs/` folder contains the built/deployed version of your website
+- GitHub Pages serves your site from this folder
+- All static assets are optimized for production
+- Client-side routing works via the 404.html fallback
 
 ---
 

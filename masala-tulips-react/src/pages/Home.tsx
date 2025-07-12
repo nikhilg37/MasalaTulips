@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import '../styles/Home.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 
 const Home: React.FC = () => {

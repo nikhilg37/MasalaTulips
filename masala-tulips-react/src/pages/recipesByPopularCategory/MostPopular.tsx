@@ -1,6 +1,6 @@
 import React from 'react';
-import RecipeList from '../components/RecipeList';
-import { getAllRecipes } from '../data/recipes';
+import RecipeList from '../RecipeList';
+import { getAllRecipes } from '../../data/recipes';
 
 const MostPopular: React.FC = () => {
   // For now, show all recipes as "most popular"

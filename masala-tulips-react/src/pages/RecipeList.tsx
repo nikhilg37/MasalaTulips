@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Recipe } from '../data/recipes';
-import './RecipeList.css';
+import '../styles/RecipeList.css';
 
 interface RecipeListProps {
   title: string;

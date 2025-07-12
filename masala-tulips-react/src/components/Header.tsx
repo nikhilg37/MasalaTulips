@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import './Header.css';
+import '../styles/Header.css';
 
 const Header: React.FC = () => {
   const [isNavActive, setIsNavActive] = useState(false);

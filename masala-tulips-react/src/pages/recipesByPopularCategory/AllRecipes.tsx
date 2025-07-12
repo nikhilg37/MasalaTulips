@@ -1,6 +1,6 @@
 import React from 'react';
-import RecipeList from '../components/RecipeList';
-import { getAllRecipes } from '../data/recipes';
+import RecipeList from '../RecipeList';
+import { getAllRecipes } from '../../data/recipes';
 
 const AllRecipes: React.FC = () => {
   const allRecipes = getAllRecipes();

@@ -1,6 +1,6 @@
 import React from 'react';
-import RecipeList from '../components/RecipeList';
-import { getRecipesByCookingTime } from '../data/recipes';
+import RecipeList from '../RecipeList';
+import { getRecipesByCookingTime } from '../../data/recipes';
 
 const Upto30Min: React.FC = () => {
   const quickRecipes = getRecipesByCookingTime(30);

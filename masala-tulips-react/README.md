@@ -180,27 +180,57 @@ interface Recipe {
 - **Form State**: Controlled components with validation
 - **Global State**: Context API for shared data (if needed)
 
-## 🚀 Deployment
+## 🚀 Deployment (GitHub Pages + Custom Domain)
 
-### Build Process
-1. **Create production build**
+### Live Site
+- **Production:** [https://masalatulips.nl/](https://masalatulips.nl/)
+
+### How to Deploy
+
+1. **Build the app**
    ```bash
    npm run build
    ```
 
-2. **Test build locally**
+2. **Copy the build output to `/docs`**
    ```bash
-   npx serve -s build
+   rsync -av build/ ../docs/
    ```
 
-3. **Deploy to hosting platform**
-   - Netlify: Drag and drop `build` folder
-   - Vercel: Connect repository for auto-deploy
-   - GitHub Pages: Use `gh-pages` package
+3. **Ensure `.nojekyll` is present in `/docs`**
+   ```bash
+   touch ../docs/.nojekyll
+   ```
 
-### Environment Variables
-- `REACT_APP_GA_TRACKING_ID`: Google Analytics ID
-- `REACT_APP_API_URL`: Backend API URL (future use)
+4. **Add a 404.html for client-side routing**
+   ```bash
+   cp ../docs/index.html ../docs/404.html
+   ```
+
+5. **Commit and push**
+   ```bash
+   cd ..
+   git add docs
+   git commit -m "Deploy new build to docs for GitHub Pages"
+   git push
+   ```
+
+6. **GitHub Pages Settings**
+   - Go to your repo’s **Settings > Pages**.
+   - Set the source to your branch (e.g., `main`) and `/docs` folder.
+
+7. **Custom Domain**
+   - Make sure `docs/CNAME` contains `masalatulips.nl`.
+
+---
+
+### 🛠️ Notes
+
+- The `"homepage"` field in `package.json` should be `"."` for custom domain deployments.
+- All client-side routes (e.g., `/recipe-categories`) work due to the presence of `404.html`.
+- If you see a blank page or 404, check that all steps above are followed and that your DNS is set up correctly.
+
+---
 
 ## 🧪 Testing Strategy
 

@@ -43,6 +43,7 @@
     padding: 1rem 1.5rem 0;
     font-size: 0.9rem;
     color: var(--secondary-color);
+    margin-bottom: 3.5rem; /* Increased space below breadcrumbs */
 }
 
 .breadcrumbs a {
@@ -59,6 +60,7 @@
 .recipe-header {
     text-align: center;
     margin-bottom: 2rem;
+    margin-top: 2.5rem; /* Added extra space above the header */
 }
 
 .recipe-header h1 {

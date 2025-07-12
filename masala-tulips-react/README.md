@@ -4,8 +4,8 @@ A modern React.js implementation of the Masala Tulips recipe website, featuring 
 
 ## 🚀 Tech Stack
 
-- **Frontend Framework**: React 18 with TypeScript
-- **Routing**: React Router v6
+- **Frontend Framework**: React 19 with TypeScript
+- **Routing**: React Router v7
 - **Styling**: CSS3 with responsive design
 - **Build Tool**: Create React App
 - **Package Manager**: npm
@@ -15,47 +15,48 @@ A modern React.js implementation of the Masala Tulips recipe website, featuring 
 ## 📁 Project Structure
 
 ```
-masala-tulips-react/
-├── public/
-│   ├── images/           # Recipe images and assets
-│   ├── favicon.ico
-│   └── index.html        # Main HTML template
-├── src/
-│   ├── components/       # Reusable UI components
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   └── RecipeList.tsx
-│   ├── pages/           # Page components
-│   │   ├── Home.tsx
-│   │   ├── RecipeCategories.tsx
-│   │   ├── RecipePage.tsx
-│   │   ├── Blogs.tsx
-│   │   ├── mealTypes/
+MasalaTulips/
+├── masala-tulips-react/     # Main React application
+│   ├── public/
+│   │   ├── images/          # Recipe images and assets
+│   │   ├── favicon.ico
+│   │   └── index.html       # Main HTML template
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── RecipeList.tsx
+│   │   │   └── ScrollToTop.tsx
+│   │   ├── pages/          # Page components
+│   │   │   ├── Home.tsx
+│   │   │   ├── RecipeCategories.tsx
+│   │   │   ├── RecipePage.tsx
+│   │   │   ├── Blogs.tsx
 │   │   │   ├── Breakfast.tsx
 │   │   │   ├── Lunch.tsx
-│   │   │   └── Dinner.tsx
-│   │   ├── cookingTime/
+│   │   │   ├── Dinner.tsx
 │   │   │   ├── Upto30Min.tsx
-│   │   │   └── Upto60Min.tsx
-│   │   └── popularCategories/
-│   │       ├── Vegetarian.tsx
-│   │       ├── MostPopular.tsx
-│   │       └── AllRecipes.tsx
-│   ├── data/            # Recipe data and mock content
-│   │   └── recipes.ts
-│   ├── styles/          # CSS stylesheets
-│   │   ├── Header.css
-│   │   ├── Footer.css
-│   │   ├── Home.css
-│   │   ├── RecipeCategories.css
-│   │   ├── RecipePage.css
-│   │   └── RecipeList.css
-│   ├── App.tsx          # Main app component with routing
-│   ├── index.tsx        # App entry point
-│   └── index.css        # Global styles
-├── package.json
-├── tsconfig.json
-└── README.md
+│   │   │   ├── Upto60Min.tsx
+│   │   │   ├── Vegetarian.tsx
+│   │   │   ├── MostPopular.tsx
+│   │   │   └── AllRecipes.tsx
+│   │   ├── data/           # Recipe data and content
+│   │   │   └── recipes.ts
+│   │   ├── styles/         # CSS stylesheets
+│   │   │   └── App.css
+│   │   ├── App.tsx         # Main app component with routing
+│   │   ├── index.tsx       # App entry point
+│   │   └── index.css       # Global styles
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── README.md
+├── docs/                   # Built/deployed website files
+├── images/                 # Recipe images (shared)
+├── public/                 # Static files for deployment
+├── CNAME                   # Custom domain configuration
+├── robots.txt              # SEO configuration
+├── sitemap.xml             # Site map for search engines
+└── ads.txt                 # Ad configuration
 ```
 
 ## 🎯 Features
@@ -73,11 +74,13 @@ masala-tulips-react/
 - **Contact Form**: Functional contact form with validation
 - **Comment System**: Interactive comments on recipe pages
 - **Social Media Integration**: Links to Instagram, YouTube, and Pinterest
+- **Breadcrumb Navigation**: Clear navigation paths throughout the site
 
 ### Performance
 - **Lazy Loading**: Images load progressively
 - **Optimized Assets**: Compressed images and efficient CSS
 - **SEO Friendly**: Meta tags and semantic HTML structure
+- **Scroll to Top**: Automatic scroll restoration on navigation
 
 ## 🛠️ Setup & Installation
 
@@ -86,9 +89,8 @@ masala-tulips-react/
 - npm (v8 or higher)
 
 ### Installation Steps
-1. **Clone the repository**
+1. **Navigate to the React app directory**
    ```bash
-   git clone <repository-url>
    cd masala-tulips-react
    ```
 
@@ -110,6 +112,7 @@ masala-tulips-react/
 - `npm build` - Build for production
 - `npm test` - Run test suite
 - `npm eject` - Eject from Create React App (irreversible)
+- `npm run deploy` - Deploy to GitHub Pages
 
 ## 📊 Data Architecture
 
@@ -118,26 +121,32 @@ masala-tulips-react/
 interface Recipe {
   id: string;
   title: string;
+  subtitle: string;
   description: string;
+  cookingTime: string;
   prepTime: string;
-  cookTime: string;
-  servings: string;
-  difficulty: string;
-  category: string[];
+  totalTime: string;
+  cuisine: string;
+  type: string;
   ingredients: string[];
-  instructions: {
+  instructions: Array<{
     step: number;
+    title: string;
     description: string;
     images?: string[];
-  }[];
-  notes?: string[];
-  images: string[];
-  relatedRecipes?: string[];
+  }>;
+  notes: Array<{
+    title: string;
+    content: string[];
+  }>;
+  mainImage: string;
+  category: string[];
+  tags: string[];
 }
 ```
 
 ### Component Props
-- **RecipeList**: Accepts `recipes` array and renders recipe cards
+- **RecipeList**: Accepts `recipes` array and renders recipe cards with breadcrumbs
 - **RecipePage**: Accepts `recipeId` and fetches recipe data
 - **Header**: Accepts `isHome` boolean for conditional styling
 - **Footer**: No props, static social media links
@@ -189,6 +198,7 @@ interface Recipe {
 
 1. **Build the app**
    ```bash
+   cd masala-tulips-react
    npm run build
    ```
 
@@ -216,7 +226,7 @@ interface Recipe {
    ```
 
 6. **GitHub Pages Settings**
-   - Go to your repo’s **Settings > Pages**.
+   - Go to your repo's **Settings > Pages**.
    - Set the source to your branch (e.g., `main`) and `/docs` folder.
 
 7. **Custom Domain**
@@ -249,69 +259,9 @@ interface Recipe {
 - **Bundle Analysis**: Webpack bundle analyzer
 - **Image Optimization**: WebP format support
 
-## 🔒 Security Considerations
+## 📝 Recent Updates
 
-### Frontend Security
-- **XSS Prevention**: React's built-in XSS protection
-- **Input Validation**: Client-side form validation
-- **HTTPS**: Secure connections in production
-- **Content Security Policy**: CSP headers
-
-### Data Protection
-- **No Sensitive Data**: No API keys in client code
-- **Environment Variables**: Secure configuration
-- **User Input Sanitization**: Prevent injection attacks
-
-## 📈 Performance Optimization
-
-### Loading Performance
-- **Code Splitting**: Route-based code splitting
-- **Image Optimization**: WebP format, lazy loading
-- **CSS Optimization**: Critical CSS inlining
-- **Bundle Optimization**: Tree shaking, minification
-
-### Runtime Performance
-- **Memoization**: React.memo for expensive components
-- **Virtual Scrolling**: For large lists (future)
-- **Debouncing**: Search and filter inputs
-- **Caching**: Browser caching strategies
-
-## 🤝 Contributing
-
-### Development Workflow
-1. **Fork repository**
-2. **Create feature branch**
-3. **Make changes**
-4. **Add tests**
-5. **Submit pull request**
-
-### Code Review Process
-- **Automated Checks**: Linting, testing, build
-- **Manual Review**: Code quality, functionality
-- **Documentation**: Update docs for new features
-
-### Commit Guidelines
-- **Conventional Commits**: feat, fix, docs, style, refactor
-- **Descriptive Messages**: Clear commit descriptions
-- **Atomic Commits**: One change per commit
-
-## 📚 Additional Resources
-
-### Documentation
-- [React Documentation](https://reactjs.org/docs/)
-- [React Router Documentation](https://reactrouter.com/)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-
-### Tools & Libraries
-- [Create React App](https://create-react-app.dev/)
-- [Font Awesome](https://fontawesome.com/)
-- [Google Analytics](https://analytics.google.com/)
-
-### Best Practices
-- [React Best Practices](https://reactjs.org/docs/hooks-faq.html)
-- [Performance Optimization](https://reactjs.org/docs/optimizing-performance.html)
-- [Accessibility](https://reactjs.org/docs/accessibility.html)
-
----
-
-**Note**: This React app is a complete conversion of the original HTML website, maintaining all functionality while providing a modern, maintainable codebase with enhanced user experience and developer productivity. 
+- **Project Cleanup**: Removed redundant `src/` and `RecipesByMealType/` folders
+- **Modern React**: Updated to React 19 and React Router v7
+- **Improved Structure**: Better organization of components and pages
+- **Enhanced Navigation**: Added breadcrumb navigation and scroll restoration 

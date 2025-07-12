@@ -1,0 +1,151 @@
+/* Recipe List Page Styles */
+.recipe-list-page {
+    min-height: 100vh;
+}
+
+.recipes-hero {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+.recipes-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.recipes-hero p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.featured-recipes {
+    padding: 2rem 0 4rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.breakfast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-content {
+    padding: 1.5rem;
+}
+
+.recipe-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    line-height: 1.4;
+}
+
+.recipe-meta {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-top: 1rem; /* Move breadcrumbs higher up */
+    margin-bottom: 2.5rem;
+}
+
+.breadcrumbs a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-link {
+  color: var(--accent-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  color: #666;
+  font-weight: 400;
+  margin: 0 0.25em;
+}
+
+.breadcrumbs span:last-child {
+  color: #555;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recipes-hero {
+        padding: 2rem 0 1rem;
+    }
+    
+    .recipes-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .recipes-hero p {
+        font-size: 1rem;
+    }
+    
+    .breakfast-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .recipe-content {
+        padding: 1rem;
+    }
+    
+    .recipe-content h3 {
+        font-size: 1.1rem;
+    }
+} 

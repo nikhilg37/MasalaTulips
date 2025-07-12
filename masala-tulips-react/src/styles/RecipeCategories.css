@@ -1,0 +1,137 @@
+/* Recipe Categories Page Styles */
+.recipe-categories-page {
+    min-height: 100vh;
+}
+
+.recipes-hero {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+.recipes-hero h1,
+.recipes-hero p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recipes-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.recipes-hero p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    max-width: 600px;
+}
+
+.categories-section {
+    max-width: 1200px;
+    margin: 3rem auto 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+    background: var(--light-gray);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.categories-block {
+    flex: 1 1 350px;
+    min-width: 320px;
+    text-align: center;
+}
+
+.categories-heading {
+    font-family: var(--heading-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.categories-divider {
+    border: none;
+    border-top: 2px solid #e6e6e6;
+    margin: 0 auto 1.5rem auto;
+    width: 80%;
+}
+
+.categories-list {
+    columns: 2 200px;
+    -webkit-columns: 2 200px;
+    -moz-columns: 2 200px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+}
+
+.categories-list li {
+    position: relative;
+    font-family: var(--body-font);
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-left: 1.5em;
+    break-inside: avoid;
+}
+
+.categories-list li::before {
+    content: '';
+    position: absolute;
+    left: 0.3em;
+    top: 0.7em;
+    width: 0.6em;
+    height: 0.6em;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.categories-list a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.categories-list a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 900px) {
+    .categories-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .categories-list {
+        columns: 1 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .categories-list {
+        columns: 1 200px;
+    }
+    .categories-section {
+        padding: 1.5rem 0.5rem;
+    }
+    .recipes-hero {
+        padding: 2rem 0 1rem;
+    }
+    .recipes-hero h1 {
+        font-size: 2rem;
+    }
+    .recipes-hero p {
+        font-size: 1rem;
+    }
+} 

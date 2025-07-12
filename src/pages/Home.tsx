@@ -1,0 +1,182 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css';
+
+const Home: React.FC = () => {
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setContactForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Contact form submitted:', contactForm);
+    // Reset form
+    setContactForm({ name: '', email: '', message: '' });
+  };
+
+  return (
+    <div className="home">
+      {/* Hero Section */}
+      <section id="home" className="hero">
+        <div className="hero-content">
+          <h1>Simple recipes made for real, actual, everyday life</h1>
+          <p>Discover the perfect blend of Indian and Dutch flavors</p>
+        </div>
+      </section>
+
+      {/* Recipe Categories */}
+      <section id="recipes" className="recipe-categories">
+        <div className="container">
+          <h2>Recipe Categories</h2>
+          <div className="categories-grid">
+            <Link to="/recipe-categories" className="category-card">
+              <img 
+                src="/images/recipes/mavinakaayi-chitranna/7.jpeg" 
+                alt="South Indian Breakfast - Mavinakaayi Chitranna (Raw Mango Rice)" 
+                className="category-image"
+              />
+              <div className="category-content">
+                <h3>Breakfast</h3>
+                <p>Start your day with delicious breakfast recipes</p>
+              </div>
+            </Link>
+            <div className="category-card">
+              <img 
+                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Cooking+Soon" 
+                alt="Kids Recipe Options Coming Soon - Masala Tulips" 
+                className="category-image"
+              />
+              <div className="category-content">
+                <h3>Kids Options</h3>
+                <p>Fun and nutritious meals for little ones</p>
+              </div>
+            </div>
+            <div className="category-card">
+              <img 
+                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Cooking+Soon" 
+                alt="Healthy Indian Recipes Coming Soon - Masala Tulips" 
+                className="category-image"
+              />
+              <div className="category-content">
+                <h3>Healthy Options</h3>
+                <p>Nutritious and delicious meals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Recipes */}
+      <section className="featured-recipes">
+        <div className="container">
+          <h2>Featured Recipes</h2>
+          <div className="breakfast-grid">
+            <Link to="/recipe/mavinakaayi-chitranna" className="recipe-card">
+              <img 
+                src="/images/recipes/mavinakaayi-chitranna/7.jpeg" 
+                alt="Featured Recipe - Mavinakaayi Chitranna (Raw Mango Rice) by Masala Tulips" 
+                className="recipe-image"
+              />
+              <div className="recipe-content">
+                <h3>Mavinakayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
+                <p className="recipe-meta">30 minutes • South Indian • Vegetarian</p>
+              </div>
+            </Link>
+            <Link to="/recipe/vegetable-pulao" className="recipe-card">
+              <img 
+                src="/images/recipes/veg-pulao/new13.jpeg" 
+                alt="Featured Recipe - Tharakari Pulao (Vegetable Pulao) by Masala Tulips" 
+                className="recipe-image"
+              />
+              <div className="recipe-content">
+                <h3>Tharakari Pulao - ತರಕಾರಿ ಪುಲಾವ್ - Vegetable Pulao</h3>
+                <p className="recipe-meta">45 min • South Indian • Vegetarian</p>
+              </div>
+            </Link>
+            <div className="recipe-card">
+              <img 
+                src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Cooking+Soon" 
+                alt="Bisibele Bath Recipe Coming Soon - Masala Tulips" 
+                className="recipe-image"
+              />
+              <div className="recipe-content">
+                <h3>Bisibele Bath - ಬಿಸಿಬೆಲೆ ಬಾತ್ - Hot Lentil Rice</h3>
+                <p className="recipe-meta">60 min • South Indian • Vegetarian</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="about-section">
+        <div className="container">
+          <h2>About Us</h2>
+          <div className="about-content">
+            <div className="about-text">
+              <p>Welcome to Masala Tulips, where we blend the rich flavors of Indian cuisine with the warmth of Dutch hospitality.</p>
+              <p>Our journey began with a deep passion for creating authentic Indian dishes that bring people together. Inspired by the vibrant spices and diverse regional recipes of India, we set out to share more than just food—we wanted to share a taste of home, wherever you are.
+                We believe in using only the freshest, highest-quality ingredients, handpicked to ensure every dish bursts with flavor and authenticity. Our recipes are lovingly passed down through generations, each one carrying the stories, traditions, and memories of those who prepared them before us. We also embrace innovation, adding our own creative twists to make these classic dishes accessible and exciting for everyone, whether you're new to Indian cuisine or a longtime enthusiast.</p>
+              <p>At Masala Tulips, every meal is an opportunity to connect, celebrate, and create new memories. Whether you're looking for a comforting bowl of curry, a festive feast, or a simple snack to brighten your day, you'll find recipes that inspire and delight. Join us on this flavorful journey—where tradition meets innovation, and every bite tells a story.
+                Explore our recipes, discover the stories behind each dish, and let Masala Tulips bring the spirit of Indian hospitality to your table.</p>
+            </div>
+            <div className="about-image">
+              <img 
+                src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" 
+                alt="Masala Tulips Team - About Us Photo"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="contact-section">
+        <div className="container">
+          <h2>Get in Touch</h2>
+          <div className="contact-form">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={contactForm.name}
+                onChange={handleInputChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={contactForm.email}
+                onChange={handleInputChange}
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={contactForm.message}
+                onChange={handleInputChange}
+                required
+              ></textarea>
+              <button type="submit" className="submit-button">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home; 

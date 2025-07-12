@@ -1,0 +1,290 @@
+/* Header and Navigation */
+header {
+    background-color: var(--background-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-text {
+    font-family: var(--heading-font);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.02em;
+}
+
+.logo-icon-link {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    outline: none;
+    transition: box-shadow 0.2s, background 0.2s;
+    z-index: 10;
+    position: relative;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.logo-icon-link:focus, .logo-icon-link:hover {
+    box-shadow: 0 0 0 2px var(--accent-color);
+    background: rgba(255,107,107,0.08);
+}
+
+/* Logo Icon Styles */
+.logo-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.tulip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.tulip-petal {
+    position: absolute;
+    width: 20px;
+    height: 25px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border-radius: 50% 50% 0 0;
+    top: 5px;
+    left: 10px;
+    transform: rotate(var(--rotation));
+    transform-origin: bottom center;
+    animation: tulipSway 3s ease-in-out infinite;
+}
+
+.tulip-petal:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.tulip-petal:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.tulip-stem {
+    position: absolute;
+    width: 3px;
+    height: 15px;
+    background: #4CAF50;
+    bottom: 0;
+    left: 18.5px;
+}
+
+.spice {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #FF9800;
+    border-radius: 50%;
+    top: 15px;
+    right: 5px;
+    animation: spiceFloat 2s ease-in-out infinite;
+}
+
+@keyframes tulipSway {
+    0%, 100% { transform: rotate(var(--rotation)); }
+    50% { transform: rotate(calc(var(--rotation) + 5deg)); }
+}
+
+@keyframes spiceFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links a.active {
+    color: var(--accent-color);
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    border-radius: 1px;
+}
+
+/* Desktop-specific overrides to hide mobile elements */
+.nav-panel-header,
+.nav-links .fas {
+    display: none;
+}
+
+.nav-links a .nav-item-left {
+    display: inline;
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 1002;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: var(--background-color);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        transition: right 0.3s ease;
+        padding-top: 80px;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.nav-active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links li:first-child {
+        border-bottom: 2px solid var(--accent-color);
+    }
+
+    .nav-links a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        width: 100%;
+        font-size: 1.1rem;
+        text-transform: none;
+        letter-spacing: normal;
+    }
+
+    .nav-links a.active {
+        background-color: rgba(255,107,107,0.1);
+    }
+
+    .nav-links a.active::after {
+        display: none;
+    }
+
+    .nav-links .fas {
+        display: inline-block;
+    }
+
+    .nav-item-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    #close-nav {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--accent-color);
+        font-weight: bold;
+    }
+}
+
+/* Burger Animation */
+.burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line2 {
+    opacity: 0;
+}
+
+.burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Body overlay for mobile nav */
+body.nav-active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+} 

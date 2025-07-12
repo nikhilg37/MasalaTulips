@@ -2,7 +2,6 @@
   "name": "masala-tulips-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nikhilg37.github.io/Masalatulips",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

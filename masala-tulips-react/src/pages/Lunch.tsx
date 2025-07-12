@@ -1,0 +1,19 @@
+import React from 'react';
+import RecipeList from '../components/RecipeList';
+import { getRecipesByCategory } from '../data/recipes';
+
+const Lunch: React.FC = () => {
+  const lunchRecipes = getRecipesByCategory('lunch');
+
+  return (
+    <RecipeList
+      title="Lunch Recipes"
+      description="Delicious and satisfying lunch recipes to brighten up your day!"
+      recipes={lunchRecipes}
+      breadcrumbPath="/recipes/lunch"
+      breadcrumbLabel="Lunch"
+    />
+  );
+};
+
+export default Lunch; 

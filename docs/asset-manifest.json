@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Masalatulips/static/css/main.1a9e9638.css",
+    "main.js": "/Masalatulips/static/js/main.45dc61be.js",
+    "static/js/453.70a84420.chunk.js": "/Masalatulips/static/js/453.70a84420.chunk.js",
+    "index.html": "/Masalatulips/index.html",
+    "main.1a9e9638.css.map": "/Masalatulips/static/css/main.1a9e9638.css.map",
+    "main.45dc61be.js.map": "/Masalatulips/static/js/main.45dc61be.js.map",
+    "453.70a84420.chunk.js.map": "/Masalatulips/static/js/453.70a84420.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a9e9638.css",
+    "static/js/main.45dc61be.js"
+  ]
+}

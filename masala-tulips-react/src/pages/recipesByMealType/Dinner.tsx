@@ -6,13 +6,15 @@ const Dinner: React.FC = () => {
   const dinnerRecipes = getRecipesByCategory('dinner');
 
   return (
-    <RecipeList
-      title="Dinner Recipes"
-      description="End your day with these comforting and delicious dinner recipes!"
-      recipes={dinnerRecipes}
-      breadcrumbPath="/recipes/dinner"
-      breadcrumbLabel="Dinner"
-    />
+    <div className="content-section">
+      <RecipeList
+        title="Dinner Recipes"
+        description="End your day with these comforting and delicious dinner recipes!"
+        recipes={dinnerRecipes}
+        breadcrumbPath="/recipes/dinner"
+        breadcrumbLabel="Dinner"
+      />
+    </div>
   );
 };
 

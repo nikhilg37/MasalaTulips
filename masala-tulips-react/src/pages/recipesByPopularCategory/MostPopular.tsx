@@ -8,13 +8,15 @@ const MostPopular: React.FC = () => {
   const popularRecipes = getAllRecipes();
 
   return (
-    <RecipeList
-      title="Most Popular Recipes"
-      description="Our most loved and frequently cooked recipes!"
-      recipes={popularRecipes}
-      breadcrumbPath="/recipes/most-popular"
-      breadcrumbLabel="Most Popular"
-    />
+    <div className="content-section">
+      <RecipeList
+        title="Most Popular Recipes"
+        description="Our most loved and frequently cooked recipes!"
+        recipes={popularRecipes}
+        breadcrumbPath="/recipes/most-popular"
+        breadcrumbLabel="Most Popular"
+      />
+    </div>
   );
 };
 

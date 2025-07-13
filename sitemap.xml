@@ -4,39 +4,33 @@
     <loc>https://masalatulips.nl/</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipeCategories.html</loc>
+    <loc>https://masalatulips.nl/recipe-categories</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/blogs.html</loc>
+    <loc>https://masalatulips.nl/blogs</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipePage/vegetable-pulao.html</loc>
+    <loc>https://masalatulips.nl/recipes/breakfast</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipePage/mavinakaayi-chitranna.html</loc>
+    <loc>https://masalatulips.nl/recipes/lunch</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipesByPopularCategories/vegetarian.html</loc>
+    <loc>https://masalatulips.nl/recipes/dinner</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipesByPopularCategories/most-popular.html</loc>
+    <loc>https://masalatulips.nl/recipes/upto-30-min</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipesByPopularCategories/all-recipes.html</loc>
+    <loc>https://masalatulips.nl/recipes/upto-60-min</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipesByMealType/breakfast.html</loc>
+    <loc>https://masalatulips.nl/recipes/vegetarian</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipesByMealType/lunch.html</loc>
+    <loc>https://masalatulips.nl/recipes/most-popular</loc>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipesByMealType/dinner.html</loc>
-  </url>
-  <url>
-    <loc>https://masalatulips.nl/recipesByCookingTime/upto-30-min.html</loc>
-  </url>
-  <url>
-    <loc>https://masalatulips.nl/recipesByCookingTime/upto-60-min.html</loc>
+    <loc>https://masalatulips.nl/recipes/all-recipes</loc>
   </url>
 </urlset> 

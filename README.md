@@ -1,293 +1,369 @@
-# Masala Tulips
+# Masala Tulips React App
 
-A modern, responsive website showcasing authentic Indian recipes with a blend of South Indian and Dutch culinary traditions.
+A modern React.js implementation of the Masala Tulips recipe website, featuring a responsive design, dynamic routing, and interactive components.
 
-## Features
-- **Responsive, modern UI/UX** with beautiful typography and color scheme
-- **Fixed, consistent header and footer** on all pages with navigation
-- **Clickable logo icon** that returns to homepage
-- **Comprehensive recipe organization** by categories, meal types, and cooking time
-- **Detailed recipe pages** with step-by-step instructions, ingredients, and high-quality images
-- **SEO-optimized page titles** for better Google Analytics tracking
-- **Breadcrumb navigation** for improved user experience
-- **Comments section** on recipe pages (coming soon)
-- **Custom favicon** (tulip and spice SVG)
-- **Social media integration** in footer (Facebook, Instagram, Pinterest, YouTube, X/Twitter)
-- **Font Awesome 6.5.0** for latest icon support
-- **Cross-browser compatible**
-- **Google Tag Manager** integration for analytics
-- **Optimized ads setup** - Google AdSense scripts enabled, ad containers commented out to prevent blank space
+## 🚀 Tech Stack
 
-## Available Recipes
+- **Frontend Framework**: React 19 with TypeScript
+- **Routing**: React Router v7
+- **Styling**: CSS3 with responsive design
+- **Build Tool**: Create React App
+- **Package Manager**: npm
+- **Icons**: Font Awesome 6
+- **Analytics**: Google Analytics integration
 
-### Current Recipes
-1. **Mavinakaayi Chitranna** - Raw Mango Rice (30 minutes)
-   - Traditional South Indian tangy rice dish
-   - Step-by-step instructions with 9 images
-   - Available in multiple categories
+## 📁 Project Structure (Updated)
 
-2. **Tharakari Pulao** - Vegetable Pulao (45 minutes)
-   - Fragrant rice with mixed vegetables
-   - Aromatic spices and fresh herbs
-   - Step-by-step instructions with 10 images
-   - Available in multiple categories
-
-### Recipe Categories
-- **By Meal Type**: Breakfast, Lunch, Dinner
-- **By Popular Categories**: Vegetarian, Most Popular, All Recipes
-- **By Cooking Time**: Up to 30 minutes, Up to 60 minutes
-
-## Technologies Used
-- **HTML5** - Semantic markup and modern structure
-- **CSS3** - Responsive design, Grid/Flexbox layouts, custom properties
-- **JavaScript** - Dynamic navigation, breadcrumbs, form handling
-- **Font Awesome 6.5.0** - Latest icon support
-- **Google Fonts** - Playfair Display and Source Sans Pro
-- **Google Tag Manager** - Analytics and tracking
-
-## Getting Started
-1. Clone this repository
-2. For best results, run a local server (recommended for navigation between pages):
-   - With Python 3: `python3 -m http.server 8000`
-   - With Python 2: `python -m SimpleHTTPServer 8000`
-   - Or use VS Code Live Server extension
-   - Or run the provided script: `sh run_server.sh`
-3. Open `http://localhost:8000` in your web browser
-4. Explore the homepage and recipe categories!
-
-## Running a Local Server
-You can quickly serve the site locally using Python's built-in HTTP server:
-
-- **Python 3:**
-  ```sh
-  python3 -m http.server 8000
-  ```
-- **Python 2:**
-  ```sh
-  python -m SimpleHTTPServer 8000
-  ```
-- **Shell script:**
-  ```sh
-  sh run_server.sh
-  ```
-
-This will start a local server at http://localhost:8000. Open this address in your browser to view the site.
-
-## File Structure
-```text
+```
 MasalaTulips/
-├── README.md
-├── index.html                          # Homepage
-├── recipeCategories.html               # Main recipes landing page
-├── blogs.html                          # Blog section
-├── ads.txt                             # Ad configuration
-├── CNAME                               # Custom domain
-├── run_server.sh                       # Local server script
-├── common/
-│   ├── styles.css                      # Main CSS styles
-│   ├── logo.css                        # Logo-specific styles
-│   ├── script.js                       # JavaScript functionality
-│   ├── footer.html                     # Footer template
-│   ├── header-root.html                # Header for root pages
-│   ├── header-subdir.html              # Header for subdirectory pages
-│   └── socialMediaLogo/
-│       ├── favicon.svg                 # Custom favicon
-│       ├── social-media-logo-horizontal.jpg
-│       ├── social-media-logo-horizontal.svg
-│       ├── social-media-logo-square.jpg
-│       ├── social-media-logo-square.svg
-│       ├── social-media-logo.jpg
-│       └── social-media-logo.svg
-├── images/
-│   └── recipes/
-│       ├── mavinakaayi-chitranna/      # Recipe images (1-9.jpeg)
-│       └── veg-pulao/                  # Recipe images (new1-new13.jpeg)
-├── recipePage/
-│   ├── mavinakaayi-chitranna.html      # Raw mango rice recipe
-│   └── vegetable-pulao.html            # Vegetable pulao recipe
-├── recipesByMealType/
-│   ├── breakfast.html                  # Breakfast recipes
-│   ├── lunch.html                      # Lunch recipes
-│   └── dinner.html                     # Dinner recipes
-├── recipesByPopularCategories/
-│   ├── all-recipes.html                # All recipes collection
-│   ├── most-popular.html               # Most popular recipes
-│   └── vegetarian.html                 # Vegetarian recipes
-└── recipesByCookingTime/
-    ├── upto-30-min.html                # Quick recipes (30 min or less)
-    └── upto-60-min.html                # Easy recipes (60 min or less)
+├── masala-tulips-react/     # Main React application
+│   ├── public/
+│   │   ├── images/          # Recipe images and assets
+│   │   ├── socialMediaLogo/ # Custom branding assets
+│   │   ├── favicon.ico
+│   │   ├── favicon.svg
+│   │   ├── manifest.json
+│   │   ├── robots.txt
+│   │   └── index.html       # Main HTML template
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── ScrollToTop.tsx
+│   │   ├── pages/          # Page components
+│   │   │   ├── recipesByPopularCategory/
+│   │   │   │   ├── AllRecipes.tsx
+│   │   │   │   ├── MostPopular.tsx
+│   │   │   │   └── Vegetarian.tsx
+│   │   │   ├── recipesByMealType/
+│   │   │   │   ├── Breakfast.tsx
+│   │   │   │   ├── Lunch.tsx
+│   │   │   │   └── Dinner.tsx
+│   │   │   ├── recipesByCookingTime/
+│   │   │   │   ├── Upto30Min.tsx
+│   │   │   │   └── Upto60Min.tsx
+│   │   │   ├── RecipeList.tsx
+│   │   │   ├── RecipePage.tsx
+│   │   │   ├── RecipeCategories.tsx
+│   │   │   ├── Home.tsx
+│   │   │   └── Blogs.tsx
+│   │   ├── data/           # Recipe data and content
+│   │   │   └── recipes.ts
+│   │   ├── styles/         # All CSS stylesheets (centralized, flat)
+│   │   │   ├── App.css
+│   │   │   ├── Blogs.css
+│   │   │   ├── Footer.css
+│   │   │   ├── Header.css
+│   │   │   ├── Home.css
+│   │   │   ├── RecipeCategories.css
+│   │   │   ├── RecipeList.css
+│   │   │   └── RecipePage.css
+│   │   ├── utils/          # Utility functions
+│   │   │   └── analytics.ts
+│   │   ├── App.tsx         # Main app component with routing
+│   │   ├── index.tsx       # App entry point
+│   │   ├── index.css       # Global styles
+│   │   ├── react-app-env.d.ts # TypeScript declarations
+│   │   └── reportWebVitals.ts # Performance monitoring
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── README.md
+├── docs/                   # Built/deployed website files (GitHub Pages)
+├── images/                 # Recipe images (shared)
+├── CNAME                   # Custom domain configuration
+├── robots.txt              # SEO configuration
+├── sitemap.xml             # Site map for search engines
+└── ads.txt                 # Ad configuration
 ```
 
-## Project Structure
+**All CSS files are now centralized in `src/styles/` (flat structure).**
+Recipe category pages are organized in subfolders by type (PopularCategory, MealType, CookingTime).
+**Project cleanup completed:** Removed unused files (logo.svg, App.test.tsx, setupTests.ts) for cleaner structure.
 
-### Main Pages
-- `index.html` - Homepage with hero section, featured recipes, about, and contact
-- `recipeCategories.html` - Main recipes landing page with category navigation
-- `blogs.html` - Blog section for cooking tips and stories
+## 🎯 Features
 
-### Recipe Pages
-- `recipePage/mavinakaayi-chitranna.html` - Raw mango rice recipe with detailed instructions
-- `recipePage/vegetable-pulao.html` - Vegetable pulao recipe with step-by-step guide
+### Core Functionality
+- **Responsive Design**: Mobile-first approach with breakpoints for all devices
+- **Dynamic Routing**: Client-side navigation with React Router
+- **Interactive Components**: Stateful components with user interactions
+- **Recipe Management**: Detailed recipe pages with ingredients, instructions, and images
+- **Category Filtering**: Multiple ways to browse recipes (meal type, cooking time, popularity)
 
-### Category Pages
-- **Meal Types**: `recipesByMealType/` - Breakfast, Lunch, Dinner
-- **Popular Categories**: `recipesByPopularCategories/` - Vegetarian, Most Popular, All Recipes
-- **Cooking Time**: `recipesByCookingTime/` - Quick (30 min), Easy (60 min)
+### User Experience
+- **Animated Logo**: CSS animations for the tulip logo
+- **Hamburger Menu**: Mobile-responsive navigation
+- **Contact Form**: Functional contact form with validation
+- **Comment System**: Interactive comments on recipe pages
+- **Social Media Integration**: Links to Instagram, YouTube, and Pinterest
+- **Breadcrumb Navigation**: Clear navigation paths throughout the site
 
-### Shared Resources
-- `common/` - Shared styles, scripts, and assets
-  - `styles.css` - Main CSS with responsive design
-  - `script.js` - JavaScript for navigation and interactivity
-  - `logo.css` - Logo and branding styles
-  - Header/footer templates for consistent navigation
+### Performance
+- **Lazy Loading**: Images load progressively
+- **Optimized Assets**: Compressed images and efficient CSS
+- **SEO Friendly**: Meta tags and semantic HTML structure
+- **Scroll to Top**: Automatic scroll restoration on navigation
+- **Core Web Vitals**: Performance monitoring with reportWebVitals
 
-### Images
-- `images/recipes/` - High-quality recipe images organized by recipe name
-- Each recipe has multiple step-by-step images for better user experience
+## 🛠️ Setup & Installation
 
-## SEO & Analytics
-- **Optimized page titles** for better Google Analytics tracking
-- **Google Tag Manager** integration (GTM-5W79QV73)
-- **Structured content** with proper heading hierarchy
-- **Alt text** for all images
-- **Meta descriptions** and viewport settings
-- **Breadcrumb navigation** for better user experience and SEO
+### Prerequisites
+- Node.js (v16 or higher)
+- npm (v8 or higher)
 
-## Ads Configuration
-- **Google AdSense scripts** are **enabled** in all HTML files for proper loading
-- **Ad unit containers** are **commented out** to prevent blank space at the top of pages
-- Current setup allows AdSense to load without displaying ads that cause layout issues
-- To display ads, uncomment the ad unit containers in individual HTML files (search for "AdSense Ad Unit")
-- AdSense configuration includes:
-  - Meta tag and script in header files: `common/header-root.html` and `common/header-subdir.html`
-  - Individual AdSense scripts in each HTML page's `<head>` section
-  - Ad unit containers (currently commented) in page body sections
-- Ad configuration file: `ads.txt` (for publisher verification)
+### Installation Steps
+1. **Navigate to the React app directory**
+   ```bash
+   cd masala-tulips-react
+   ```
 
-## Design Features
-- **Responsive design** that works on all devices
-- **Modern color scheme** with CSS custom properties
-- **Beautiful typography** using Google Fonts
-- **Hover effects** and smooth transitions
-- **Grid and Flexbox layouts** for modern CSS
-- **Consistent spacing** and visual hierarchy
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Future Enhancements
-- Comments system for recipe pages
-- Recipe search functionality
-- Recipe rating system
-- More recipe categories
-- Recipe sharing features
-- Newsletter subscription
-- Recipe print functionality
-- Enable AdSense ad unit display (scripts already loaded, containers commented out)
+3. **Start development server**
+   ```bash
+   npm start
+   ```
 
-### ReactJS Migration Plan
-The current HTML-based website can be migrated to **ReactJS** (the JavaScript library for building user interfaces) for improved performance, maintainability, and modern development practices. Here's the proposed migration strategy:
+4. **Open in browser**
+   Navigate to `http://localhost:3000`
 
-#### Benefits of ReactJS Migration
-- **Component-based architecture** for reusable UI elements
-- **Dynamic content rendering** for recipes and categories
-- **Better state management** for user interactions
-- **Improved SEO** with Next.js or React Server Components
-- **Enhanced performance** with code splitting and lazy loading
-- **Modern development workflow** with hot reloading and better debugging
+### Available Scripts
+- `npm start` - Start development server
+- `npm build` - Build for production
+- `npm test` - Run test suite (when tests are added)
+- `npm eject` - Eject from Create React App (irreversible)
+- `npm run deploy` - Deploy to GitHub Pages
 
-#### Migration Strategy
-1. **Phase 1: Setup & Infrastructure**
-   - Create ReactJS app with Next.js for SEO benefits
-   - Set up TypeScript for better code quality
-   - Configure Tailwind CSS or styled-components
-   - Implement build and deployment pipeline
+## 📊 Data Architecture
 
-2. **Phase 2: Core Components**
-   - Convert header navigation to ReactJS component
-   - Create reusable recipe card components
-   - Build category listing components
-   - Migrate footer to ReactJS component
-
-3. **Phase 3: Page Components**
-   - Convert homepage to ReactJS page component
-   - Create recipe detail page component
-   - Build category pages with dynamic routing
-   - Implement blog page structure
-
-4. **Phase 4: Data Management**
-   - Create JSON data structure for recipes
-   - Implement recipe data fetching
-   - Add recipe search and filtering
-   - Set up content management system (optional)
-
-5. **Phase 5: Advanced Features**
-   - Add recipe rating and comments system
-   - Implement user authentication (optional)
-   - Create recipe submission form
-   - Add PWA capabilities for mobile
-
-#### Technical Considerations
-- **SEO**: Use Next.js with static generation for recipe pages
-- **Images**: Implement Next.js Image optimization for recipe photos
-- **Analytics**: Migrate Google Tag Manager and AdSense integration
-- **Performance**: Implement lazy loading for recipe images
-- **Accessibility**: Maintain current accessibility standards
-- **Mobile**: Ensure responsive design with ReactJS components
-
-#### File Structure (Proposed ReactJS Version)
-```
-masala-tulips-react/
-├── public/
-│   ├── images/
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   ├── RecipeCard.tsx
-│   │   ├── CategoryCard.tsx
-│   │   └── Navigation.tsx
-│   ├── pages/
-│   │   ├── index.tsx
-│   │   ├── recipes/
-│   │   ├── categories/
-│   │   └── blog/
-│   ├── data/
-│   │   └── recipes.json
-│   ├── styles/
-│   │   └── globals.css
-│   └── utils/
-├── package.json
-└── next.config.js
-```
-
-#### Data Structure Example
-```json
-{
-  "recipes": [
-    {
-      "id": "mavinakaayi-chitranna",
-      "title": "Mavinakaayi Chitranna",
-      "description": "Traditional South Indian raw mango rice",
-      "cookTime": 30,
-      "difficulty": "easy",
-      "category": ["breakfast", "vegetarian"],
-      "ingredients": [...],
-      "instructions": [...],
-      "images": [...],
-      "tags": ["south-indian", "mango", "rice"]
-    }
-  ]
+### Recipe Data Structure
+```typescript
+interface Recipe {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  cookingTime: string;
+  prepTime: string;
+  totalTime: string;
+  cuisine: string;
+  type: string;
+  ingredients: string[];
+  instructions: Array<{
+    step: number;
+    title: string;
+    description: string;
+    images?: string[];
+  }>;
+  notes: Array<{
+    title: string;
+    content: string[];
+  }>;
+  mainImage: string;
+  category: string[];
+  tags: string[];
 }
 ```
 
-#### Migration Timeline
-- **Week 1-2**: Project setup and infrastructure
-- **Week 3-4**: Core component development
-- **Week 5-6**: Page component migration
-- **Week 7-8**: Data integration and testing
-- **Week 9-10**: Advanced features and optimization
-- **Week 11-12**: SEO optimization and deployment
+### Component Props
+- **RecipeList**: Accepts `recipes` array and renders recipe cards with breadcrumbs
+- **RecipePage**: Accepts `recipeId` and fetches recipe data
+- **Header**: Accepts `isHome` boolean for conditional styling
+- **Footer**: No props, static social media links
 
-This migration would transform the current static site into a modern, scalable **ReactJS application** while preserving all existing content and improving user experience.
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: #8B4513 (Saddle Brown)
+- **Secondary / Button / Orange Accent**: #FF6B35 (Vibrant Orange, used for primary buttons and key accents)
+- **Accent**: #4CAF50 (Green)
+- **Background**: #FFFFFF (White)
+- **Hero Section Background**: #FFF3EB (Light vibrant orange, used on Home and Recipe Categories hero sections for a cohesive brand look)
+- **Text**: #333333 (Dark Gray)
+
+### Button Styles
+- **Primary Action Buttons** (e.g., Send Message, Post Comment):
+  - Background: #FF6B35
+  - Hover: #e65c24
+  - Text: #FFFFFF
+
+### Hero Section
+- The hero section on the home page and Recipe Categories page uses a light version of vibrant orange (#FFF3EB) as the background for a warm, inviting, and consistent brand appearance.
+
+### Typography
+- **Headings**: Georgia, serif
+- **Body**: Arial, sans-serif
+- **Font Sizes**: Responsive scale (16px base)
+
+### Layout
+- **Container**: Max-width 1200px, centered
+- **Grid System**: CSS Grid and Flexbox
+- **Spacing**: Consistent 16px, 24px, 32px increments
+
+## 🔧 Development Guidelines
+
+### Code Style
+- **TypeScript**: Strict mode enabled
+- **Components**: Functional components with hooks
+- **Props**: Interface definitions for all props
+- **CSS**: BEM methodology for class naming
+
+### File Naming
+- **Components**: PascalCase (e.g., `RecipePage.tsx`)
+- **CSS**: Same name as component (e.g., `RecipePage.css`)
+- **Pages**: PascalCase with descriptive names
+- **Data**: camelCase (e.g., `recipes.ts`)
+
+### CSS Organization
+- **Centralized Flat Structure**: All CSS files are located in `src/styles/` and imported into their respective components/pages. No CSS files are colocated with components or pages.
+
+### State Management
+- **Local State**: useState for component-specific state
+- **Form State**: Controlled components with validation
+- **Global State**: Context API for shared data (if needed)
+
+## 🚀 Deployment (GitHub Pages + Custom Domain)
+
+### Live Site
+- **Production:** [https://masalatulips.nl/](https://masalatulips.nl/)
+
+### How to Deploy
+
+1. **Build the app**
+   ```bash
+   cd masala-tulips-react
+   npm run build
+   ```
+
+2. **Copy the build output to `/docs`**
+   ```bash
+   rsync -av build/ ../docs/
+   ```
+
+3. **Ensure `.nojekyll` is present in `/docs`**
+   ```bash
+   touch ../docs/.nojekyll
+   ```
+
+4. **Add a 404.html for client-side routing**
+   ```bash
+   cp ../docs/index.html ../docs/404.html
+   ```
+
+5. **Commit and push**
+   ```bash
+   cd ..
+   git add docs
+   git commit -m "Deploy new build to docs for GitHub Pages"
+   git push
+   ```
+
+6. **GitHub Pages Settings**
+   - Go to your repo's **Settings > Pages**.
+   - Set the source to your branch (e.g., `main`) and `/docs` folder.
+
+7. **Custom Domain**
+   - Make sure `docs/CNAME` contains `masalatulips.nl`.
+
+### Deployment Notes
+- The `docs/` folder contains the built/deployed version of your website
+- GitHub Pages serves your site from this folder
+- All static assets are optimized for production
+- Client-side routing works via the 404.html fallback
 
 ---
-For any questions, suggestions, or contributions, feel free to reach out! 
+
+### 🛠️ Notes
+
+- The `"homepage"` field in `package.json` should be `"."` for custom domain deployments.
+- All client-side routes (e.g., `/recipe-categories`) work due to the presence of `404.html`.
+- If you see a blank page or 404, check that all steps above are followed and that your DNS is set up correctly.
+
+---
+
+## 🧪 Testing Strategy
+
+### Unit Testing
+- **Components**: React Testing Library
+- **Utilities**: Jest
+- **Coverage**: Aim for 80%+ coverage
+
+### Integration Testing
+- **User Flows**: End-to-end testing with Cypress
+- **Navigation**: Route testing
+- **Forms**: Form submission testing
+
+### Performance Testing
+- **Lighthouse**: Core Web Vitals
+- **Bundle Analysis**: Webpack bundle analyzer
+- **Image Optimization**: WebP format support
+
+## 📈 Analytics & Event Tracking
+
+This project includes robust Google Analytics (gtag.js) and Google Tag Manager (GTM) event tracking for key user interactions.
+
+### Automatically Tracked Events
+- **Page Views:** Every route change is tracked as a page view.
+- **Contact Form Submission:** When a user submits the contact form on the Home page.
+- **Recipe Views:** When a user views a recipe page.
+- **Comment Form Submission:** When a user submits a comment on a recipe page.
+- **Social Link Clicks:** When a user clicks Instagram, YouTube, or Pinterest links in the footer.
+
+### How to Track Custom Events
+Use the utility functions in `src/utils/analytics.ts`:
+
+```js
+import { trackGAEvent, trackGTMEvent } from './utils/analytics';
+
+// Google Analytics event
+trackGAEvent({
+  action: 'click',
+  category: 'Button',
+  label: 'Subscribe Button',
+});
+
+// Google Tag Manager event
+trackGTMEvent('custom_event', { customData: 'value' });
+```
+
+### Adding New Events
+- For any new button, form, or interaction, call the above functions in your React component.
+- See `Home.tsx`, `RecipePage.tsx`, and `Footer.tsx` for examples.
+
+### Implementation Note
+- **Page view tracking** is implemented via an `AnalyticsPageView` component, which is rendered inside the `<Router>` in `App.tsx`. This ensures React Router hooks like `useLocation()` are only used within a valid Router context.
+
+### Troubleshooting
+- If you see an error like `useLocation() may be used only in the context of a <Router> component`, make sure any hooks using `useLocation` are only called inside components rendered within a `<Router>`.
+
+---
+
+## 📝 Recent Updates
+
+- **Modern React**: Updated to React 19 and React Router v7
+- **Improved Structure**: Better organization of components and pages
+- **Enhanced Navigation**: Added breadcrumb navigation and scroll restoration 
+
+## 🗓️ Upcoming: Mobile App (PWA + Capacitor)
+
+We plan to bring Masala Tulips to the App Store and Google Play using a hybrid approach:
+
+- **PWA (Progressive Web App):** The web app is installable, works offline, and provides a native-like experience on mobile browsers.
+- **Capacitor:** We will wrap the PWA with Capacitor to create native Android and iOS apps, enabling app store distribution and access to device features.
+
+**Planned Steps:**
+1. Ensure the React app is a high-quality PWA (manifest, service worker, icons, HTTPS).
+2. Add Capacitor to the project and initialize native platforms (Android/iOS).
+3. Build the React app and copy the output to Capacitor's native projects.
+4. Open and test in Android Studio/Xcode.
+5. (Optional) Add native plugins for features like camera or push notifications.
+6. Publish to Google Play and the App Store.
+
+**Benefits:**
+- Fastest way to turn the web app into a mobile app.
+- Reuse almost all existing code and UI.
+- Optionally add native features as needed.
+
+_If you want to contribute to the mobile app effort, see the Capacitor and PWA documentation links in this README!_ 

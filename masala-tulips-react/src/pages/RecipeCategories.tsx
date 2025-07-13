@@ -21,6 +21,7 @@ const RecipeCategories: React.FC = () => {
             <li>Vegan</li>
             <li>Kid-Friendly</li>
             <li>Salads</li>
+            <li>Healthy Options</li>
             <li><Link to="/recipes/most-popular">Most Popular</Link></li>
             <li><Link to="/recipes/all-recipes">All Recipes</Link></li>
           </ul>

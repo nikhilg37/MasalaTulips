@@ -86,7 +86,7 @@ main {
 /* Hero Section */
 .hero {
     padding: 2.5rem 2rem 2.5rem;
-    background-color: var(--light-gray);
+    background-color: #FFF3EB; /* Light version of vibrant orange */
     text-align: center;
     min-height: 0;
 }

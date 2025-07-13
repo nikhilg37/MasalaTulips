@@ -177,9 +177,10 @@ interface Recipe {
 
 ### Color Palette
 - **Primary**: #8B4513 (Saddle Brown)
-- **Secondary / Button / Orange Accent**: #FF6B35 (Orange, used for primary buttons like 'Send Message' and 'Post Comment', and for 'Cooking Soon' backgrounds)
+- **Secondary / Button / Orange Accent**: #FF6B35 (Vibrant Orange, used for primary buttons and key accents)
 - **Accent**: #4CAF50 (Green)
 - **Background**: #FFFFFF (White)
+- **Hero Section Background**: #FFF3EB (Light vibrant orange, used on Home and Recipe Categories hero sections for a cohesive brand look)
 - **Text**: #333333 (Dark Gray)
 
 ### Button Styles
@@ -187,6 +188,9 @@ interface Recipe {
   - Background: #FF6B35
   - Hover: #e65c24
   - Text: #FFFFFF
+
+### Hero Section
+- The hero section on the home page and Recipe Categories page uses a light version of vibrant orange (#FFF3EB) as the background for a warm, inviting, and consistent brand appearance.
 
 ### Typography
 - **Headings**: Georgia, serif

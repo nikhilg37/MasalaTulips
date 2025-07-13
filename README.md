@@ -177,10 +177,16 @@ interface Recipe {
 
 ### Color Palette
 - **Primary**: #8B4513 (Saddle Brown)
-- **Secondary**: #FF6B35 (Orange)
+- **Secondary / Button / Orange Accent**: #FF6B35 (Orange, used for primary buttons like 'Send Message' and 'Post Comment', and for 'Cooking Soon' backgrounds)
 - **Accent**: #4CAF50 (Green)
 - **Background**: #FFFFFF (White)
 - **Text**: #333333 (Dark Gray)
+
+### Button Styles
+- **Primary Action Buttons** (e.g., Send Message, Post Comment):
+  - Background: #FF6B35
+  - Hover: #e65c24
+  - Text: #FFFFFF
 
 ### Typography
 - **Headings**: Georgia, serif
@@ -335,3 +341,25 @@ trackGTMEvent('custom_event', { customData: 'value' });
 - **Modern React**: Updated to React 19 and React Router v7
 - **Improved Structure**: Better organization of components and pages
 - **Enhanced Navigation**: Added breadcrumb navigation and scroll restoration 
+
+## 🗓️ Upcoming: Mobile App (PWA + Capacitor)
+
+We plan to bring Masala Tulips to the App Store and Google Play using a hybrid approach:
+
+- **PWA (Progressive Web App):** The web app is installable, works offline, and provides a native-like experience on mobile browsers.
+- **Capacitor:** We will wrap the PWA with Capacitor to create native Android and iOS apps, enabling app store distribution and access to device features.
+
+**Planned Steps:**
+1. Ensure the React app is a high-quality PWA (manifest, service worker, icons, HTTPS).
+2. Add Capacitor to the project and initialize native platforms (Android/iOS).
+3. Build the React app and copy the output to Capacitor's native projects.
+4. Open and test in Android Studio/Xcode.
+5. (Optional) Add native plugins for features like camera or push notifications.
+6. Publish to Google Play and the App Store.
+
+**Benefits:**
+- Fastest way to turn the web app into a mobile app.
+- Reuse almost all existing code and UI.
+- Optionally add native features as needed.
+
+_If you want to contribute to the mobile app effort, see the Capacitor and PWA documentation links in this README!_ 

@@ -217,7 +217,10 @@ const Header: React.FC = () => {
             </div>
           </Link>
           <div className="logo-text-container">
-            <div className="logo-text">Masala Tulips</div>
+            <Link to="/" className="logo-text" aria-label="Go to home page"
+              onClick={() => location.pathname === '/' && window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              Masala Tulips
+            </Link>
           </div>
         </div>
         

@@ -71,6 +71,11 @@ main {
     margin-top: 80px; /* Account for fixed header */
 }
 
+/* Balanced vertical spacing for main content sections */
+.content-section {
+  padding: 2.5rem 0;
+}
+
 /* Container */
 .container {
     max-width: 1200px;
@@ -80,9 +85,10 @@ main {
 
 /* Hero Section */
 .hero {
-    padding: 8rem 2rem 4rem;
+    padding: 2.5rem 2rem 2.5rem;
     background-color: var(--light-gray);
     text-align: center;
+    min-height: 0;
 }
 
 .hero-content {
@@ -91,22 +97,22 @@ main {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     color: var(--primary-color);
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--secondary-color);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-weight: 400;
 }
 
 /* Recipe Categories */
 .recipe-categories {
-    padding: 4rem 2rem;
+    padding: 2rem 2rem 4rem 2rem;
     background-color: var(--background-color);
 }
 
@@ -262,7 +268,7 @@ main {
 }
 
 .submit-button {
-    background-color: var(--accent-color);
+    background-color: #FF6B35;
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -275,11 +281,16 @@ main {
 }
 
 .submit-button:hover {
-    background-color: #ff5252;
+    background-color: #e65c24;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero {
+        padding: 3rem 1rem 1.5rem;
+        min-height: 35vh;
+    }
+    
     .hero h1 {
         font-size: 2rem;
         line-height: 1.3;

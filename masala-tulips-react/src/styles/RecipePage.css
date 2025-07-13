@@ -264,7 +264,7 @@
 }
 
 .submit-button {
-    background-color: var(--accent-color);
+    background-color: #FF6B35;
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -278,7 +278,7 @@
 }
 
 .submit-button:hover {
-    background-color: #ff5252;
+    background-color: #e65c24;
 }
 
 .comments-list {

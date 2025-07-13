@@ -5,7 +5,7 @@
 
 .recipes-hero {
     text-align: center;
-    padding: 4rem 0 2rem;
+    padding: 2.5rem 0 2.5rem;
 }
 
 .recipes-hero h1 {
@@ -22,7 +22,7 @@
 }
 
 .featured-recipes {
-    padding: 2rem 0 4rem;
+    padding: 1rem 0 4rem;
 }
 
 .container {
@@ -35,7 +35,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .recipe-card {
@@ -84,7 +84,7 @@
     font-size: 0.9rem;
     color: var(--secondary-color);
     margin-top: 1rem; /* Move breadcrumbs higher up */
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .breadcrumbs a {

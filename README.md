@@ -177,10 +177,16 @@ interface Recipe {
 
 ### Color Palette
 - **Primary**: #8B4513 (Saddle Brown)
-- **Secondary**: #FF6B35 (Orange)
+- **Secondary / Button / Orange Accent**: #FF6B35 (Orange, used for primary buttons like 'Send Message' and 'Post Comment', and for 'Cooking Soon' backgrounds)
 - **Accent**: #4CAF50 (Green)
 - **Background**: #FFFFFF (White)
 - **Text**: #333333 (Dark Gray)
+
+### Button Styles
+- **Primary Action Buttons** (e.g., Send Message, Post Comment):
+  - Background: #FF6B35
+  - Hover: #e65c24
+  - Text: #FFFFFF
 
 ### Typography
 - **Headings**: Georgia, serif

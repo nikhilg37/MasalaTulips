@@ -34,7 +34,8 @@ const RecipeCategories: React.FC = () => {
             <li><Link to="/recipes/breakfast">Breakfast</Link></li>
             <li><Link to="/recipes/lunch">Lunch</Link></li>
             <li><Link to="/recipes/dinner">Dinner</Link></li>
-            <li>Appetizer</li>
+            <li>Side Dish</li>
+            <li>Starters</li>
             <li>Drinks</li>
             <li>Snacks</li>
             <li>Desserts</li>

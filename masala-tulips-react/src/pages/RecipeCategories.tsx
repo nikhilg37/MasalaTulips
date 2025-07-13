@@ -20,7 +20,6 @@ const RecipeCategories: React.FC = () => {
             <li><Link to="/recipes/vegetarian">Vegetarian</Link></li>
             <li>Vegan</li>
             <li>Kid-Friendly</li>
-            <li>Soups</li>
             <li>Salads</li>
             <li><Link to="/recipes/most-popular">Most Popular</Link></li>
             <li><Link to="/recipes/all-recipes">All Recipes</Link></li>

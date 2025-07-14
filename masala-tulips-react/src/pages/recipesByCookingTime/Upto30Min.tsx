@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RecipeList from '../RecipeList';
 import { getRecipesByCookingTime } from '../../data/recipes';
 
 const Upto30Min: React.FC = () => {
+  useEffect(() => {
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Upto 30 min', path: '/recipes/upto-30-min' }));
+  }, []);
   const quickRecipes = getRecipesByCookingTime(30);
 
   return (

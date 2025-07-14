@@ -71,10 +71,10 @@ const Blogs: React.FC = () => {
                 className="recipe-image"
               />
               <div className="category-content">
-                <h3>Italian Focaccia: Rustic Oven-Baked Bread</h3>
+                <h3>Gebakken Champignons: Dutch-Style Sautéed Mushrooms</h3>
                 <p><strong>Place:</strong>Almere, The Netherlands</p>
                 <p><strong>Restaurant:</strong>Woodstone Pizza</p>
-                <p><strong>Ingredients:</strong> Flour, Olive Oil, Yeast, Rosemary, Sea Salt</p>
+                <p><strong>Ingredients:</strong> Mushrooms, Butter, Garlic, Parsley, Red Onion, Truffle sauce, Fior de latte mozzarella, Cheddar, Cheese, Chives, Black Pepper, Lemon Juice, Fresh focaccia</p>
                 <p>
                   <strong>Rating:</strong>
                   <span style={{ color: '#ffb400' }}>
@@ -85,7 +85,7 @@ const Blogs: React.FC = () => {
                     <i className="fas fa-star"></i>
                   </span>
                 </p>
-                <p>Focaccia is a classic Italian flatbread known for its crisp crust, airy crumb, and rich olive oil flavor. Traditionally topped with rosemary and sea salt, this bread is perfect as a side for soups, salads, or enjoyed on its own. Its golden, dimpled surface and aromatic herbs make it a favorite in Italian bakeries and home kitchens alike.</p>
+                <p>Gebakken champignons are a classic Dutch appetizer or side dish featuring mushrooms sautéed in butter with garlic and fresh herbs. Served hot, often with a squeeze of lemon and a sprinkle of parsley, these mushrooms are rich, savory, and perfect served with focaccia bread. A favorite in Dutch bistros and at home, they make a delicious vegetarian treat.</p>
               </div>
             </div>
 

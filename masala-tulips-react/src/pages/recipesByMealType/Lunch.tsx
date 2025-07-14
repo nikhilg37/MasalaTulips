@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RecipeList from '../RecipeList';
 import { getRecipesByCategory } from '../../data/recipes';
 
 const Lunch: React.FC = () => {
+  useEffect(() => {
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Lunch', path: '/recipes/lunch' }));
+  }, []);
   const lunchRecipes = getRecipesByCategory('lunch');
 
   return (

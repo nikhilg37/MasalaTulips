@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Recipe } from '../data/recipes';
-import '../styles/RecipeList.css';
+import { getRecipesByCategory } from '../../data/recipes';
+import '../../styles/RecipeList.css';
+
+const KidsOptions: React.FC = () => {
+  useEffect(() => {
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Kids Options', path: '/recipes/kids-options' }));
+  }, []);
+  const recipes = getRecipesByCategory('kids-options');
+
+  return (
+    <RecipeList
+      title="Kids Options"
+      description="Fun and nutritious meals designed specifically for children. Our kid-friendly recipes focus on healthy ingredients, appealing presentation, and flavors that young palates love."
+      recipes={recipes}
+      breadcrumbPath="/recipes/kids-options"
+      breadcrumbLabel="Kids Options"
+    />
+  );
+};
 
 interface RecipeListProps {
   title: string;
   description: string;
-  recipes: Recipe[];
+  recipes: any[];
   breadcrumbPath: string;
   breadcrumbLabel: string;
 }
@@ -78,4 +95,4 @@ const RecipeList: React.FC<RecipeListProps> = ({
   );
 };
 
-export default RecipeList; 
+export default KidsOptions; 

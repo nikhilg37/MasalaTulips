@@ -136,7 +136,7 @@ export const recipes: Record<string, Recipe> = {
     cookingTime: '20 mins',
     prepTime: '25 mins',
     totalTime: '45 mins',
-    cuisine: 'Indian',
+    cuisine: 'South Indian',
     type: 'Vegetarian',
     mainImage: '/images/recipes/veg-pulao/new13.jpeg',
     category: ['lunch', 'dinner', 'vegetarian'],
@@ -247,6 +247,186 @@ export const recipes: Record<string, Recipe> = {
           'Try with brown rice for a healthier option.',
           'Add saffron soaked in warm milk for a royal pulao.',
           'Use coconut milk instead of water for a creamy texture.'
+        ]
+      }
+    ]
+  },
+  'mint-chutney': {
+    id: 'mint-chutney',
+    title: 'Mint Chutney',
+    subtitle: 'Pudina Chutney',
+    description: 'A refreshing and tangy Indian condiment made with fresh mint leaves, coriander, green chilies, and spices. Perfect as a dip for snacks or a side for Indian meals.',
+    cookingTime: '5 mins',
+    prepTime: '10 mins',
+    totalTime: '15 mins',
+    cuisine: 'South Indian',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/mint-chutney/im6.jpeg',
+    category: ['side-dish', 'all-recipes', 'upto-30-min'],
+    tags: ['chutney', 'mint', 'dip', 'condiment', 'vegetarian'],
+    ingredients: [
+      '1 cup fresh mint leaves',
+      '1/2 cup fresh coriander leaves',
+      '4-5 green chilies(Depending on your spice preference)',
+      '1-inch piece ginger',
+      '1 tablespoon oil',
+      'A bit of tamrind',
+      'Salt to taste',
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Ingredients',
+        description: 'Wash the mint and coriander leaves thoroughly. Roughly chop the green chilies and tamrind.',
+        images: ['/images/recipes/mint-chutney/im2.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Fry the Ingredients',
+        description: 'Fry the chopped mint, green chilies for 2-3 minutes.',
+        images: ['/images/recipes/mint-chutney/im3.jpeg', '/images/recipes/mint-chutney/im4.jpeg']
+      },
+      {
+        step: 3,
+        title: 'Add the Ingredients to the Blender',
+        description: 'Add the fried mint, green chilies, tamrind, salt to the blender. Blend to a smooth paste. The add chopped coriander leaves and blend again.',
+        images: ['/images/recipes/mint-chutney/im5.jpeg']
+      },
+
+      {
+        step: 4,
+        title: 'Serve',
+        description: 'Transfer the chutney to a bowl. Serve immediately as a dip with snacks or as a side with Indian meals. Store leftovers in the refrigerator for up to 2 days.',
+        images: ['/images/recipes/mint-chutney/im6.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Adjust the number of green chilies to your spice preference.',
+          'Add a small clove of garlic for extra flavor if desired.',
+          'A spoonful of yogurt can be added for a creamy texture.'
+        ]
+      }
+    ]
+  },
+  'strawberry-milkshake': {
+    id: 'strawberry-milkshake',
+    title: 'Strawberry Milkshake',
+    subtitle: 'Refreshing Summer Drink',
+    description: 'A creamy, refreshing milkshake made with fresh strawberries, milk, and a touch of sweetness. Perfect for hot summer days or as a quick, delicious treat for kids and adults alike.',
+    cookingTime: '5 mins',
+    prepTime: '5 mins',
+    totalTime: '10 mins',
+    cuisine: '',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/strawberry-milkshake/img1.jpeg',
+    category: ['drinks', 'all-recipes', 'upto-30-min'],
+    tags: ['milkshake', 'strawberry', 'drink', 'vegetarian', 'summer'],
+    ingredients: [
+      '1 cup fresh strawberries, hulled and chopped',
+      '1.5 cups chilled milk',
+      '1 piece of chopped banana',
+      '1/2 cup flavoured yogurt',
+      '2-3 tablespoons sugar (Optional)',
+      '2-3 ice cubes (Optional)',
+      'Fresh strawberries for garnish'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Strawberries',
+        description: 'Wash, hull, and chop the strawberries. Reserve a few for garnish if desired.',
+        images: ['/images/recipes/strawberry-milkshake/img1.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Blend the Milkshake',
+        description: 'Add chopped strawberries, chilled milk, chopped banana, yogurt, sugar(Optional) to a blender. Blend until smooth and creamy. For a richer shake, add a scoop of vanilla ice cream and blend again.',
+       images: []
+      },
+      {
+        step: 3,
+        title: 'Serve',
+        description: 'Pour the milkshake into glasses. Garnish with fresh strawberries and serve immediately.',
+        images: ['/images/recipes/strawberry-milkshake/img2.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Adjust sugar to your taste and the sweetness of the strawberries.',
+          'For a vegan version, use almond or oat milk and skip the ice cream.',
+          'Add a few mint leaves for a refreshing twist.'
+        ]
+      }
+    ]
+  },
+  'spinach-khichdi': {
+    id: 'spinach-khichdi',
+    title: 'Spinach Khichdi',
+    subtitle: 'Palak Khichdi - Healthy One-Pot Meal',
+    description: 'A nutritious and comforting one-pot meal made with rice, lentils, and fresh spinach. This wholesome khichdi is perfect for kids and adults alike, packed with iron and essential nutrients. Quick to prepare and easy to digest.',
+    cookingTime: '20 mins',
+    prepTime: '10 mins',
+    totalTime: '30 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/spinach-khichidi/img3.jpeg',
+    category: ['kids-options', 'all-recipes', 'upto-30-min'],
+    tags: ['khichdi', 'spinach', 'one-pot', 'vegetarian', 'healthy'],
+    ingredients: [
+      '1 cup rice',
+      '1/2 cup yellow moong dal',
+      '1/2 cup black eyed peas',
+      '1/2 cup toor dal',
+      '2 cups fresh spinach, chopped',
+      '1 onion, finely chopped',
+      '2 cloves garlic, minced',
+      '1/2 teaspoon turmeric powder',
+      '2 tablespoons ghee or oil',
+      'Salt to taste',
+      '4 cups water',
+      'Fresh coriander leaves for garnish'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Ingredients',
+        description: 'Wash rice, moong dal, black eyed peas, toor dal together. Chop spinach, onion, and tomatoes. Grate ginger and mince garlic.',
+        images: ['/images/recipes/spinach-khichidi/img1.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Add everything to the pressure cooker',
+        description: 'Add all the ingredients to the pressure cooker. Add 4 cups of water and mix well and add a pinch of salt. Close the pressure cooker and cook for 4 whistles on medium heat. Let the pressure release naturally.',
+        images: ['/images/recipes/spinach-khichidi/img2.jpeg']
+      },
+      {
+        step: 3,
+        title: 'Serve',
+        description: 'Open the cooker, fluff the khichdi gently with a fork. Garnish with fresh coriander leaves and serve hot.',
+        images: ['/images/recipes/spinach-khichidi/img3.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'You can add more vegetables like carrots, peas, or beans for extra nutrition.',
+          'For a creamier texture, add a tablespoon of ghee before serving.',
+          'Adjust spices according to your taste preference.',
+          'This khichdi is perfect for kids as it\'s mild and nutritious.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add paneer cubes for extra protein.',
+          'Use brown rice for a healthier version.',
+          'Add a pinch of asafoetida for better digestion.'
         ]
       }
     ]

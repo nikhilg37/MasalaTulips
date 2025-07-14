@@ -141,6 +141,12 @@ main {
 .category-image {
     width: 100%;
     height: 250px;
+    object-fit: contain;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -195,7 +201,7 @@ main {
 .recipe-image {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .recipe-content {

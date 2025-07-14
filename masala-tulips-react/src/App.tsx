@@ -14,6 +14,9 @@ import Upto60Min from './pages/recipesByCookingTime/Upto60Min';
 import Vegetarian from './pages/recipesByPopularCategory/Vegetarian';
 import MostPopular from './pages/recipesByPopularCategory/MostPopular';
 import AllRecipes from './pages/recipesByPopularCategory/AllRecipes';
+import SideDish from './pages/recipesByMealType/SideDish';
+import Drinks from './pages/recipesByMealType/Drinks';
+import KidsOptions from './pages/recipesByMealType/KidsOptions';
 import './styles/App.css';
 import ScrollToTop from './components/ScrollToTop';
 import { useEffect } from 'react';
@@ -46,6 +49,9 @@ function App() {
             <Route path="/recipes/breakfast" element={<Breakfast />} />
             <Route path="/recipes/lunch" element={<Lunch />} />
             <Route path="/recipes/dinner" element={<Dinner />} />
+            <Route path="/recipes/side-dish" element={<SideDish />} />
+            <Route path="/recipes/drinks" element={<Drinks />} />
+            <Route path="/recipes/kids-options" element={<KidsOptions />} />
             
             {/* Cooking Time Routes */}
             <Route path="/recipes/upto-30-min" element={<Upto30Min />} />

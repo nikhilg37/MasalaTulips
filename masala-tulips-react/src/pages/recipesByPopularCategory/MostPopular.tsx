@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RecipeList from '../RecipeList';
 import { getAllRecipes } from '../../data/recipes';
 
 const MostPopular: React.FC = () => {
-  // For now, show all recipes as "most popular"
-  // In the future, you can add a popularity field to recipes
-  const popularRecipes = getAllRecipes();
+  useEffect(() => {
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Most Popular', path: '/recipes/most-popular' }));
+  }, []);
+  // Filter out Mint Chutney and Pulao from most popular recipes
+  const allRecipes = getAllRecipes();
+  const popularRecipes = allRecipes.filter(recipe => 
+    recipe.id !== 'mint-chutney' && recipe.id !== 'vegetable-pulao'
+  );
 
   return (
     <div className="content-section">

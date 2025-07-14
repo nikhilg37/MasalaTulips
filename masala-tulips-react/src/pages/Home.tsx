@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
+import { getRecipeBySlug } from '../data/recipes';
 
 const Home: React.FC = () => {
   const [contactForm, setContactForm] = useState({
@@ -34,6 +35,14 @@ const Home: React.FC = () => {
     alert('Thank you for your message! We\'ll get back to you soon.');
   };
 
+  const navigate = useNavigate();
+
+  // Handler to clear lastCategory and navigate
+  const handleRecipeClick = (e: React.MouseEvent, path: string) => {
+    sessionStorage.removeItem('lastCategory');
+    navigate(path);
+  };
+
   useEffect(() => {
     const hash = sessionStorage.getItem('scrollToHash');
     if (hash) {
@@ -48,6 +57,10 @@ const Home: React.FC = () => {
       sessionStorage.removeItem('scrollToHash');
     }
   }, []);
+
+  const chitranna = getRecipeBySlug('mavinakaayi-chitranna');
+  const pulao = getRecipeBySlug('vegetable-pulao');
+  const milkshake = getRecipeBySlug('strawberry-milkshake');
 
   return (
     <div className="home">
@@ -79,37 +92,37 @@ const Home: React.FC = () => {
           <div className="categories-grid">
             <Link to="/recipes/breakfast" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
-                src="/images/recipes/mavinakaayi-chitranna/7.jpeg" 
-                alt="South Indian Breakfast - Mavinakaayi Chitranna (Raw Mango Rice)" 
-                className="category-image"
+                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Breakfast+Recipes" 
+                alt="Breakfast Recipe Options - Masala Tulips" 
+                className="placeholder-image"
               />
               <div className="category-content">
                 <h3>Breakfast</h3>
                 <p>Start your day with delicious and nutritious South Indian breakfast recipes. From traditional rice dishes like Mavinakaayi Chitranna to wholesome vegetable pulao, our breakfast collection offers authentic flavors that energize your morning. Perfect for busy weekdays or leisurely weekend brunches.</p>
               </div>
             </Link>
-            <div className="category-card">
+            <Link to="/recipes/kids-options" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
                 src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Kids+Recipes" 
                 alt="Kids Recipe Options - Masala Tulips" 
-                className="category-image"
+                className="placeholder-image"
               />
               <div className="category-content">
                 <h3>Kids Options</h3>
                 <p>Fun and nutritious meals designed specifically for children. Our kid-friendly recipes focus on healthy ingredients, appealing presentation, and flavors that young palates love. From colorful vegetable dishes to creative snack ideas, we make healthy eating exciting for the whole family.</p>
               </div>
-            </div>
-            <div className="category-card">
+            </Link>
+            <Link to="/recipes/most-popular" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
-                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Healthy+Recipes" 
-                alt="Healthy Indian Recipes - Masala Tulips" 
-                className="category-image"
+                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Most+Popular" 
+                alt="Most Popular Recipes - Masala Tulips" 
+                className="placeholder-image"
               />
               <div className="category-content">
-                <h3>Healthy Options</h3>
-                <p>Nutritious and delicious meals that don't compromise on taste. Our healthy recipes feature whole grains, fresh vegetables, lean proteins, and traditional Indian spices known for their health benefits. Perfect for those looking to maintain a balanced diet while enjoying authentic flavors.</p>
+                <h3>Most Popular</h3>
+                <p>Discover our most loved and frequently cooked recipes. These crowd-pleasing dishes have been tried, tested, and loved by our community. From traditional favorites to modern twists, these recipes are guaranteed to become your family's favorites too.</p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -119,42 +132,48 @@ const Home: React.FC = () => {
         <div className="container">
           <h2>Featured Recipes</h2>
           <div className="breakfast-grid">
-            <Link to="/recipe/mavinakaayi-chitranna" className="recipe-card">
-              <img 
-                src="/images/recipes/mavinakaayi-chitranna/7.jpeg" 
-                alt="Featured Recipe - Mavinakaayi Chitranna (Raw Mango Rice) by Masala Tulips" 
-                className="recipe-image"
-              />
-              <div className="recipe-content">
-                <h3>Mavinakayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
-                <p className="recipe-meta">30 minutes • South Indian • Vegetarian</p>
-                <p>A tangy and refreshing South Indian rice dish made with raw mangoes and aromatic spices. This traditional Karnataka recipe combines the sourness of raw mango with the warmth of mustard seeds, curry leaves, and roasted peanuts. Perfect for hot summer days or as a light lunch option.</p>
-              </div>
-            </Link>
-            <Link to="/recipe/vegetable-pulao" className="recipe-card" style={{textDecoration: 'none'}}>
-              <img 
-                src="/images/recipes/veg-pulao/new13.jpeg" 
-                alt="Featured Recipe - Tharakari Pulao (Vegetable Pulao) by Masala Tulips" 
-                className="recipe-image"
-              />
-              <div className="recipe-content">
-                <h3>Tharakari Pulao - ತರಕಾರಿ ಪುಲಾವ್ - Vegetable Pulao</h3>
-                <p className="recipe-meta">45 min • South Indian • Vegetarian</p>
-                <p>Aromatic and flavorful vegetable pulao made with basmati rice, fresh vegetables, and whole spices. This one-pot dish is infused with the fragrance of bay leaves, cardamom, and cinnamon, creating a perfect balance of flavors. Ideal for family gatherings or a comforting dinner.</p>
-              </div>
-            </Link>
-            <div className="recipe-card">
-              <img 
-                src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Bisibele+Bath" 
-                alt="Bisibele Bath Recipe - Masala Tulips" 
-                className="recipe-image"
-              />
-              <div className="recipe-content">
-                <h3>Bisibele Bath - ಬಿಸಿಬೆಲೆ ಬಾತ್ - Hot Lentil Rice</h3>
-                <p className="recipe-meta">60 min • South Indian • Vegetarian</p>
-                <p>A traditional Karnataka dish made with rice, lentils, and a special spice blend. This one-pot meal is packed with protein and flavor, perfect for a hearty lunch or dinner. The aromatic spices and ghee create a rich, comforting dish that's both nutritious and delicious.</p>
-              </div>
-            </div>
+                  {chitranna && (
+                    <div className="recipe-card" onClick={e => handleRecipeClick(e, `/recipe/${chitranna.id}`)} style={{cursor: 'pointer'}}>
+                      <img 
+                        src={chitranna.mainImage} 
+                        alt={`Featured Recipe - ${chitranna.title} by Masala Tulips`} 
+                        className="recipe-image"
+                      />
+                      <div className="recipe-content">
+                        <h3>{chitranna.title} - {chitranna.subtitle}</h3>
+                        <p className="recipe-meta">{chitranna.totalTime} • {chitranna.type}</p>
+                        <p>{chitranna.description}</p>
+                      </div>
+                    </div>
+                  )}
+                  {pulao && (
+                    <div className="recipe-card" onClick={e => handleRecipeClick(e, `/recipe/${pulao.id}`)} style={{cursor: 'pointer'}}>
+                      <img 
+                        src={pulao.mainImage} 
+                        alt={`Featured Recipe - ${pulao.title} by Masala Tulips`} 
+                        className="recipe-image"
+                      />
+                      <div className="recipe-content">
+                        <h3>{pulao.title} - {pulao.subtitle}</h3>
+                        <p className="recipe-meta">{pulao.totalTime} • {pulao.type}</p>
+                        <p>{pulao.description}</p>
+                      </div>
+                    </div>
+                  )}
+                  {milkshake && (
+                    <div className="recipe-card" onClick={e => handleRecipeClick(e, `/recipe/${milkshake.id}`)} style={{cursor: 'pointer'}}>
+                      <img 
+                        src={milkshake.mainImage} 
+                        alt={`Featured Recipe - ${milkshake.title} by Masala Tulips`} 
+                        className="recipe-image"
+                      />
+                      <div className="recipe-content">
+                        <h3>{milkshake.title} - {milkshake.subtitle}</h3>
+                        <p className="recipe-meta">{milkshake.totalTime} • {milkshake.type}</p>
+                        <p>{milkshake.description}</p>
+                      </div>
+                    </div>
+                  )}
           </div>
         </div>
       </section>
@@ -173,8 +192,8 @@ const Home: React.FC = () => {
             </div>
             <div className="about-image">
               <img 
-                src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" 
-                alt="Masala Tulips Team - About Us"
+                src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=600&q=80" 
+                alt="About Us - Vegetarian Food - Masala Tulips"
               />
             </div>
           </div>

@@ -19,9 +19,8 @@ const RecipeCategories: React.FC = () => {
           <ul className="categories-list">
             <li><Link to="/recipes/vegetarian">Vegetarian</Link></li>
             <li>Vegan</li>
-            <li>Kids Options</li>
+            <li><Link to="/recipes/kids-options">Kids Options</Link></li>
             <li>Salads</li>
-            <li>Healthy Options</li>
             <li><Link to="/recipes/most-popular">Most Popular</Link></li>
             <li><Link to="/recipes/all-recipes">All Recipes</Link></li>
           </ul>
@@ -34,9 +33,9 @@ const RecipeCategories: React.FC = () => {
             <li><Link to="/recipes/breakfast">Breakfast</Link></li>
             <li><Link to="/recipes/lunch">Lunch</Link></li>
             <li><Link to="/recipes/dinner">Dinner</Link></li>
-            <li>Side Dish</li>
+            <li><Link to="/recipes/side-dish">Side Dish</Link></li>
             <li>Starters</li>
-            <li>Drinks</li>
+            <li><Link to="/recipes/drinks">Drinks</Link></li>
             <li>Snacks</li>
             <li>Desserts</li>
           </ul>

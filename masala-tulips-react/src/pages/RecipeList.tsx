@@ -51,40 +51,25 @@ const RecipeList: React.FC<RecipeListProps> = ({
                 <div className="recipe-content">
                   <h3>{recipe.title} - {recipe.subtitle}</h3>
                   <p className="recipe-meta">
-                    {recipe.cookingTime} • {recipe.cuisine} • {recipe.type}
+                    {recipe.totalTime} • {recipe.type}
                   </p>
                 </div>
               </Link>
             ))}
             
             {/* Placeholder cards for future recipes */}
-            {recipes.length < 3 && (
-              <>
-                <div className="recipe-card">
-                  <img 
-                    src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Cooking+Soon" 
-                    alt="Recipe Coming Soon - Masala Tulips" 
-                    className="recipe-image"
-                  />
-                  <div className="recipe-content">
-                    <h3>Bisibele Bath - ಬಿಸಿಬೆಲೆ ಬಾತ್ - Hot Lentil Rice</h3>
-                    <p className="recipe-meta">60 min • South Indian • Vegetarian</p>
-                  </div>
+            {recipes.length < 2 && (
+              <div className="recipe-card">
+                <img 
+                  src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Cooking+Soon" 
+                  alt="Recipe Coming Soon - Masala Tulips" 
+                  className="recipe-image"
+                />
+                <div className="recipe-content">
+                  <h3>More Recipes Coming Soon</h3>
+                  <p className="recipe-meta">Stay tuned for more delicious recipes!</p>
                 </div>
-                {recipes.length < 2 && (
-                  <div className="recipe-card">
-                    <img 
-                      src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Cooking+Soon" 
-                      alt="Recipe Coming Soon - Masala Tulips" 
-                      className="recipe-image"
-                    />
-                    <div className="recipe-content">
-                      <h3>More Recipes Coming Soon</h3>
-                      <p className="recipe-meta">Stay tuned for more delicious recipes!</p>
-                    </div>
-                  </div>
-                )}
-              </>
+              </div>
             )}
           </div>
         </div>

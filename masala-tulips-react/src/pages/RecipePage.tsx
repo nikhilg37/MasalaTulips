@@ -45,6 +45,17 @@ const RecipePage: React.FC = () => {
     }));
   };
 
+  // Get last visited category from sessionStorage
+  let lastCategory = null;
+  if (typeof window !== 'undefined') {
+    const stored = sessionStorage.getItem('lastCategory');
+    if (stored) {
+      try {
+        lastCategory = JSON.parse(stored);
+      } catch {}
+    }
+  }
+
   if (!recipe) {
     return (
       <div className="recipe-not-found">
@@ -63,6 +74,12 @@ const RecipePage: React.FC = () => {
         {/* Breadcrumbs */}
         <div className="breadcrumbs">
           <Link to="/recipe-categories">Recipes</Link>
+          {lastCategory && (
+            <>
+              <span> &gt; </span>
+              <Link to={lastCategory.path}>{lastCategory.label}</Link>
+            </>
+          )}
           <span> &gt; </span>
           <span>{recipe.title}</span>
         </div>

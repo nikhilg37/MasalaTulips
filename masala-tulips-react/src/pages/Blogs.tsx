@@ -12,17 +12,18 @@ const Blogs: React.FC = () => {
       <section className="featured-recipes">
         <div className="container">
           <div className="categories-grid">
-            {/* Italian Pizza Blog */}
+            {/* Continental Breakfast Blog */}
             <div className="category-card">
               <img 
-                src="https://placehold.co/400x300?text=Italian+Pizza" 
-                alt="Italian Pizza" 
+                src="/images/blogs/Continental_Belgium.jpeg" 
+                alt="Continental Breakfast" 
                 className="recipe-image"
               />
               <div className="category-content">
-                <h3>Italian Pizza: A Culinary Journey</h3>
-                <p><strong>Country:</strong> Italy</p>
-                <p><strong>Ingredients:</strong> Dough, Tomato, Cheese, Basil</p>
+                <h3>Continental Breakfast: A European Morning Classic</h3>
+                <p><strong>Place:</strong>Antwerp, Belgium</p>
+                <p><strong>Restaurant:</strong> Hampton by Hilton</p>
+                <p><strong>Ingredients:</strong> Croissants, Baguette, Butter, Jam, Cheese, Fresh Fruit, Eggs, Omlette, Coffee</p>
                 <p>
                   <strong>Rating:</strong>
                   <span style={{ color: '#ffb400' }}>
@@ -30,24 +31,24 @@ const Blogs: React.FC = () => {
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
-                    <i className="far fa-star"></i>
                   </span>
                 </p>
-                <p>A classic Margherita pizza enjoyed in Rome. The perfect combination of fresh mozzarella, San Marzano tomatoes, and fragrant basil leaves creates an authentic taste of Italy. The wood-fired oven gives it that characteristic charred crust that's crispy on the outside and chewy on the inside.</p>
+                <p>The continental breakfast is a light, elegant morning meal enjoyed across Europe. Featuring flaky croissants, crusty baguette, creamy butter, fruit preserves, a selection of cheeses, and fresh fruit, it’s typically served with a hot cup of coffee. This breakfast is perfect for a leisurely start to the day, offering a taste of European café culture at home.</p>
               </div>
             </div>
             
-            {/* Dutch Stroopwafel Blog */}
+            {/* Burger and Fries Blog */}
             <div className="category-card">
               <img 
-                src="https://placehold.co/400x300?text=Dutch+Stroopwafel" 
-                alt="Dutch Stroopwafel" 
+                src="/images/blogs/Burger-Fries-BurgerBar.jpeg" 
+                alt="Burger and Fries" 
                 className="recipe-image"
               />
               <div className="category-content">
-                <h3>Dutch Stroopwafel: Sweet Tradition</h3>
-                <p><strong>Country:</strong> Netherlands</p>
-                <p><strong>Ingredients:</strong> Flour, Butter, Sugar, Cinnamon, Caramel</p>
+                <h3>Burger & Fries: The Classic Comfort Combo</h3>
+                <p><strong>Place:</strong> Amsterdam, The Netherlands</p>
+                <p><strong>Restaurant:</strong> Burger Bar</p>
+                <p><strong>Ingredients:</strong> Burger Bun, Veggie Patty, Lettuce, Tomato, Cheese, Pickles, Eggs, Fries, Ketchup, Mayo</p>
                 <p>
                   <strong>Rating:</strong>
                   <span style={{ color: '#ffb400' }}>
@@ -58,21 +59,22 @@ const Blogs: React.FC = () => {
                     <i className="fas fa-star"></i>
                   </span>
                 </p>
-                <p>Traditional Dutch stroopwafels are thin waffle cookies filled with sweet caramel syrup. Originating from Gouda in the 18th century, these treats are best enjoyed warm with a cup of coffee or tea. The caramel filling melts perfectly when placed over a hot beverage.</p>
+                <p>Burger and fries is a beloved comfort food enjoyed around the world. This classic combo features a juicy veggie burger stacked with fresh toppings and served alongside crispy golden fries. Whether at a local burger bar or homemade, it’s a satisfying meal perfect for lunch, dinner, or a weekend treat.</p>
               </div>
             </div>
 
-            {/* Indian Masala Dosa Blog */}
+            {/* Focaccia Blog */}
             <div className="category-card">
               <img 
-                src="https://placehold.co/400x300?text=Indian+Masala+Dosa" 
-                alt="Indian Masala Dosa" 
+                src="/images/blogs/focaccia.jpeg" 
+                alt="Italian Focaccia Bread" 
                 className="recipe-image"
               />
               <div className="category-content">
-                <h3>Indian Masala Dosa: South Indian Delight</h3>
-                <p><strong>Country:</strong> India</p>
-                <p><strong>Ingredients:</strong> Rice, Lentils, Potatoes, Onions, Spices</p>
+                <h3>Italian Focaccia: Rustic Oven-Baked Bread</h3>
+                <p><strong>Place:</strong>Almere, The Netherlands</p>
+                <p><strong>Restaurant:</strong>Woodstone Pizza</p>
+                <p><strong>Ingredients:</strong> Flour, Olive Oil, Yeast, Rosemary, Sea Salt</p>
                 <p>
                   <strong>Rating:</strong>
                   <span style={{ color: '#ffb400' }}>
@@ -83,7 +85,7 @@ const Blogs: React.FC = () => {
                     <i className="fas fa-star"></i>
                   </span>
                 </p>
-                <p>A crispy fermented crepe made from rice and lentils, filled with spiced potato mixture. Served with coconut chutney and sambar, this breakfast staple from South India is both nutritious and delicious. The fermentation process gives it a unique tangy flavor.</p>
+                <p>Focaccia is a classic Italian flatbread known for its crisp crust, airy crumb, and rich olive oil flavor. Traditionally topped with rosemary and sea salt, this bread is perfect as a side for soups, salads, or enjoyed on its own. Its golden, dimpled surface and aromatic herbs make it a favorite in Italian bakeries and home kitchens alike.</p>
               </div>
             </div>
 

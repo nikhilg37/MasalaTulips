@@ -173,8 +173,8 @@ const Home: React.FC = () => {
             </div>
             <div className="about-image">
               <img 
-                src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" 
-                alt="Masala Tulips Team - About Us"
+                src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=600&q=80" 
+                alt="About Us - Vegetarian Food - Masala Tulips"
               />
             </div>
           </div>

@@ -52,9 +52,9 @@ const Home: React.FC = () => {
   return (
     <div className="home">
       {/* AdSense Ad Unit */}
-      {/* <div style="text-align: center; margin: 20px 0; padding: 0 20px;">
-          <ins class="adsbygoogle"
-               style="display:block"
+      <div style={{textAlign: 'center', margin: '20px 0', padding: '0 20px'}}>
+          <ins className="adsbygoogle"
+               style={{display: 'block'}}
                data-ad-client="ca-pub-1787338664165158"
                data-ad-slot="4974887200"
                data-ad-format="auto"
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
           <script>
                (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
-      </div> */}
+      </div>
 
       {/* Hero Section */}
       <section id="home" className="hero">
@@ -85,29 +85,29 @@ const Home: React.FC = () => {
               />
               <div className="category-content">
                 <h3>Breakfast</h3>
-                <p>Start your day with delicious breakfast recipes</p>
+                <p>Start your day with delicious and nutritious South Indian breakfast recipes. From traditional rice dishes like Mavinakaayi Chitranna to wholesome vegetable pulao, our breakfast collection offers authentic flavors that energize your morning. Perfect for busy weekdays or leisurely weekend brunches.</p>
               </div>
             </Link>
             <div className="category-card">
               <img 
-                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Cooking+Soon" 
-                alt="Kids Recipe Options Coming Soon - Masala Tulips" 
+                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Kids+Recipes" 
+                alt="Kids Recipe Options - Masala Tulips" 
                 className="category-image"
               />
               <div className="category-content">
                 <h3>Kids Options</h3>
-                <p>Fun and nutritious meals for little ones</p>
+                <p>Fun and nutritious meals designed specifically for children. Our kid-friendly recipes focus on healthy ingredients, appealing presentation, and flavors that young palates love. From colorful vegetable dishes to creative snack ideas, we make healthy eating exciting for the whole family.</p>
               </div>
             </div>
             <div className="category-card">
               <img 
-                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Cooking+Soon" 
-                alt="Healthy Indian Recipes Coming Soon - Masala Tulips" 
+                src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Healthy+Recipes" 
+                alt="Healthy Indian Recipes - Masala Tulips" 
                 className="category-image"
               />
               <div className="category-content">
                 <h3>Healthy Options</h3>
-                <p>Nutritious and delicious meals</p>
+                <p>Nutritious and delicious meals that don't compromise on taste. Our healthy recipes feature whole grains, fresh vegetables, lean proteins, and traditional Indian spices known for their health benefits. Perfect for those looking to maintain a balanced diet while enjoying authentic flavors.</p>
               </div>
             </div>
           </div>
@@ -128,6 +128,7 @@ const Home: React.FC = () => {
               <div className="recipe-content">
                 <h3>Mavinakayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
                 <p className="recipe-meta">30 minutes • South Indian • Vegetarian</p>
+                <p>A tangy and refreshing South Indian rice dish made with raw mangoes and aromatic spices. This traditional Karnataka recipe combines the sourness of raw mango with the warmth of mustard seeds, curry leaves, and roasted peanuts. Perfect for hot summer days or as a light lunch option.</p>
               </div>
             </Link>
             <Link to="/recipe/vegetable-pulao" className="recipe-card" style={{textDecoration: 'none'}}>
@@ -139,17 +140,19 @@ const Home: React.FC = () => {
               <div className="recipe-content">
                 <h3>Tharakari Pulao - ತರಕಾರಿ ಪುಲಾವ್ - Vegetable Pulao</h3>
                 <p className="recipe-meta">45 min • South Indian • Vegetarian</p>
+                <p>Aromatic and flavorful vegetable pulao made with basmati rice, fresh vegetables, and whole spices. This one-pot dish is infused with the fragrance of bay leaves, cardamom, and cinnamon, creating a perfect balance of flavors. Ideal for family gatherings or a comforting dinner.</p>
               </div>
             </Link>
             <div className="recipe-card">
               <img 
-                src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Cooking+Soon" 
-                alt="Bisibele Bath Recipe Coming Soon - Masala Tulips" 
+                src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Bisibele+Bath" 
+                alt="Bisibele Bath Recipe - Masala Tulips" 
                 className="recipe-image"
               />
               <div className="recipe-content">
                 <h3>Bisibele Bath - ಬಿಸಿಬೆಲೆ ಬಾತ್ - Hot Lentil Rice</h3>
                 <p className="recipe-meta">60 min • South Indian • Vegetarian</p>
+                <p>A traditional Karnataka dish made with rice, lentils, and a special spice blend. This one-pot meal is packed with protein and flavor, perfect for a hearty lunch or dinner. The aromatic spices and ghee create a rich, comforting dish that's both nutritious and delicious.</p>
               </div>
             </div>
           </div>

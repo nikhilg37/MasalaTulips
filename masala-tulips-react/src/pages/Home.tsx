@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
+import { getRecipeBySlug } from '../data/recipes';
 
 const Home: React.FC = () => {
   const [contactForm, setContactForm] = useState({
@@ -56,6 +57,10 @@ const Home: React.FC = () => {
       sessionStorage.removeItem('scrollToHash');
     }
   }, []);
+
+  const chitranna = getRecipeBySlug('mavinakaayi-chitranna');
+  const pulao = getRecipeBySlug('vegetable-pulao');
+  const milkshake = getRecipeBySlug('strawberry-milkshake');
 
   return (
     <div className="home">
@@ -127,42 +132,48 @@ const Home: React.FC = () => {
         <div className="container">
           <h2>Featured Recipes</h2>
           <div className="breakfast-grid">
-            <div className="recipe-card" onClick={e => handleRecipeClick(e, '/recipe/mavinakaayi-chitranna')} style={{cursor: 'pointer'}}>
-              <img 
-                src="/images/recipes/mavinakaayi-chitranna/7.jpeg" 
-                alt="Featured Recipe - Mavinakaayi Chitranna (Raw Mango Rice) by Masala Tulips" 
-                className="recipe-image"
-              />
-              <div className="recipe-content">
-                <h3>Mavinakayi Chitranna - ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ - Raw Mango Rice</h3>
-                <p className="recipe-meta">30 minutes • South Indian • Vegetarian</p>
-                <p>A tangy and refreshing South Indian rice dish made with raw mangoes and aromatic spices. This traditional Karnataka recipe combines the sourness of raw mango with the warmth of mustard seeds, curry leaves, and roasted peanuts. Perfect for hot summer days or as a light lunch option.</p>
-              </div>
-            </div>
-            <div className="recipe-card" onClick={e => handleRecipeClick(e, '/recipe/vegetable-pulao')} style={{cursor: 'pointer'}}>
-              <img 
-                src="/images/recipes/veg-pulao/new13.jpeg" 
-                alt="Featured Recipe - Tharakari Pulao (Vegetable Pulao) by Masala Tulips" 
-                className="recipe-image"
-              />
-              <div className="recipe-content">
-                <h3>Tharakari Pulao - ತರಕಾರಿ ಪುಲಾವ್ - Vegetable Pulao</h3>
-                <p className="recipe-meta">45 min • South Indian • Vegetarian</p>
-                <p>Aromatic and flavorful vegetable pulao made with basmati rice, fresh vegetables, and whole spices. This one-pot dish is infused with the fragrance of bay leaves, cardamom, and cinnamon, creating a perfect balance of flavors. Ideal for family gatherings or a comforting dinner.</p>
-              </div>
-            </div>
-            <div className="recipe-card">
-              <img 
-                src="https://placehold.co/300x200/FF6B35/FFFFFF/png?text=Bisibele+Bath" 
-                alt="Bisibele Bath Recipe - Masala Tulips" 
-                className="placeholder-image"
-              />
-              <div className="recipe-content">
-                <h3>Bisibele Bath - ಬಿಸಿಬೆಲೆ ಬಾತ್ - Hot Lentil Rice</h3>
-                <p className="recipe-meta">60 min • South Indian • Vegetarian</p>
-                <p>A traditional Karnataka dish made with rice, lentils, and a special spice blend. This one-pot meal is packed with protein and flavor, perfect for a hearty lunch or dinner. The aromatic spices and ghee create a rich, comforting dish that's both nutritious and delicious.</p>
-              </div>
-            </div>
+                  {chitranna && (
+                    <div className="recipe-card" onClick={e => handleRecipeClick(e, `/recipe/${chitranna.id}`)} style={{cursor: 'pointer'}}>
+                      <img 
+                        src={chitranna.mainImage} 
+                        alt={`Featured Recipe - ${chitranna.title} by Masala Tulips`} 
+                        className="recipe-image"
+                      />
+                      <div className="recipe-content">
+                        <h3>{chitranna.title} - {chitranna.subtitle}</h3>
+                        <p className="recipe-meta">{chitranna.totalTime} • {chitranna.type}</p>
+                        <p>{chitranna.description}</p>
+                      </div>
+                    </div>
+                  )}
+                  {pulao && (
+                    <div className="recipe-card" onClick={e => handleRecipeClick(e, `/recipe/${pulao.id}`)} style={{cursor: 'pointer'}}>
+                      <img 
+                        src={pulao.mainImage} 
+                        alt={`Featured Recipe - ${pulao.title} by Masala Tulips`} 
+                        className="recipe-image"
+                      />
+                      <div className="recipe-content">
+                        <h3>{pulao.title} - {pulao.subtitle}</h3>
+                        <p className="recipe-meta">{pulao.totalTime} • {pulao.type}</p>
+                        <p>{pulao.description}</p>
+                      </div>
+                    </div>
+                  )}
+                  {milkshake && (
+                    <div className="recipe-card" onClick={e => handleRecipeClick(e, `/recipe/${milkshake.id}`)} style={{cursor: 'pointer'}}>
+                      <img 
+                        src={milkshake.mainImage} 
+                        alt={`Featured Recipe - ${milkshake.title} by Masala Tulips`} 
+                        className="recipe-image"
+                      />
+                      <div className="recipe-content">
+                        <h3>{milkshake.title} - {milkshake.subtitle}</h3>
+                        <p className="recipe-meta">{milkshake.totalTime} • {milkshake.type}</p>
+                        <p>{milkshake.description}</p>
+                      </div>
+                    </div>
+                  )}
           </div>
         </div>
       </section>

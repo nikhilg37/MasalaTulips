@@ -27,8 +27,8 @@ export interface Recipe {
 export const recipes: Record<string, Recipe> = {
   'mavinakaayi-chitranna': {
     id: 'mavinakaayi-chitranna',
-    title: 'Mavinakaayi Chitranna',
-    subtitle: '"ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ" - Raw Mango Rice',
+    title: 'Raw Mango Rice',
+    subtitle: '"ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ" - Mavinakaayi Chitranna',
     description: 'A tangy and refreshing South Indian rice dish made with raw mangoes, tempered with aromatic spices, and garnished with fresh herbs. This traditional recipe brings together the perfect balance of sour, spicy, and savory flavors that will transport you straight to the heart of Karnataka.',
     cookingTime: '15 mins',
     prepTime: '15 mins',
@@ -130,8 +130,8 @@ export const recipes: Record<string, Recipe> = {
   },
   'vegetable-pulao': {
     id: 'vegetable-pulao',
-    title: 'Tharakari Pulao',
-    subtitle: '"ತರಕಾರಿ ಪುಲಾವ್" - Vegetable Pulao',
+    title: 'Vegetable Pulao',
+    subtitle: '"ತರಕಾರಿ ಪುಲಾವ್" - Tharakari Pulao',
     description: 'Aromatic and flavorful vegetable pulao made with basmati/sona masuri rice, fresh vegetables, and aromatic spices. This one-pot dish is perfect for lunch or dinner, combining the goodness of mixed vegetables with the fragrant essence of whole spices and herbs.',
     cookingTime: '20 mins',
     prepTime: '25 mins',
@@ -254,7 +254,7 @@ export const recipes: Record<string, Recipe> = {
   'mint-chutney': {
     id: 'mint-chutney',
     title: 'Mint Chutney',
-    subtitle: 'Pudina Chutney',
+    subtitle: '"ಪುಡಿನಾ ಚುಟ್ನಿ" - Pudina Chutney',
     description: 'A refreshing and tangy Indian condiment made with fresh mint leaves, coriander, green chilies, and spices. Perfect as a dip for snacks or a side for Indian meals.',
     cookingTime: '5 mins',
     prepTime: '10 mins',
@@ -314,14 +314,14 @@ export const recipes: Record<string, Recipe> = {
   'strawberry-milkshake': {
     id: 'strawberry-milkshake',
     title: 'Strawberry Milkshake',
-    subtitle: 'Refreshing Summer Drink',
+    subtitle: '"ಸ್ಟ್ರೋಬೆರ್ರಿ ಮಿಲ್ಕ್ಶ್ಯೇಕ್"',
     description: 'A creamy, refreshing milkshake made with fresh strawberries, milk, and a touch of sweetness. Perfect for hot summer days or as a quick, delicious treat for kids and adults alike.',
     cookingTime: '5 mins',
     prepTime: '5 mins',
     totalTime: '10 mins',
     cuisine: '',
     type: 'Vegetarian',
-    mainImage: '/images/recipes/strawberry-milkshake/img1.jpeg',
+    mainImage: '/images/recipes/strawberry-milkshake/img2.jpeg',
     category: ['drinks', 'all-recipes', 'upto-30-min'],
     tags: ['milkshake', 'strawberry', 'drink', 'vegetarian', 'summer'],
     ingredients: [
@@ -367,7 +367,7 @@ export const recipes: Record<string, Recipe> = {
   'spinach-khichdi': {
     id: 'spinach-khichdi',
     title: 'Spinach Khichdi',
-    subtitle: 'Palak Khichdi - Healthy One-Pot Meal',
+    subtitle: '"ಪಾಲಾಕ್ ಖಿಚ್ಡಿ" - Palak Khichdi',
     description: 'A nutritious and comforting one-pot meal made with rice, lentils, and fresh spinach. This wholesome khichdi is perfect for kids and adults alike, packed with iron and essential nutrients. Quick to prepare and easy to digest.',
     cookingTime: '20 mins',
     prepTime: '10 mins',

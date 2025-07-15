@@ -159,9 +159,9 @@ const RecipePage: React.FC = () => {
           <h2>Related Recipes & Categories</h2>
           <ul className="ingredients-list">
             <li><Link to="/recipe/vegetable-pulao">Tharakari Pulao (Vegetable Pulao)</Link></li>
-            <li><Link to="/recipes/vegetarian">See all Vegetarian Recipes</Link></li>
-            <li><Link to="/recipes/lunch">See all Lunch Recipes</Link></li>
-            <li><Link to="/recipes/all-recipes">Browse All Recipes</Link></li>
+            <li><Link to="/recipe-categories/vegetarian">See all Vegetarian Recipes</Link></li>
+            <li><Link to="/recipe-categories/lunch">See all Lunch Recipes</Link></li>
+            <li><Link to="/recipe-categories/all-recipes">Browse All Recipes</Link></li>
           </ul>
         </div>
       </div>

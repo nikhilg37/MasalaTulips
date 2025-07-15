@@ -3,6 +3,7 @@ footer {
     color: white;
     padding: 2rem 0;
     margin-top: auto;
+    font-family: var(--body-font);
 }
 
 .footer-content {
@@ -25,4 +26,9 @@ footer {
 
 .social-links a:hover {
     color: var(--accent-color);
+}
+
+.footer-content p {
+    font-family: var(--body-font);
+    margin: 0;
 } 

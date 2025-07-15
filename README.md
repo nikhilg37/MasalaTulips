@@ -51,7 +51,8 @@ MasalaTulips/
 │   │   │   │   └── KidsOptions.tsx
 │   │   │   ├── recipesByCookingTime/
 │   │   │   │   ├── Upto30Min.tsx
-│   │   │   │   └── Upto60Min.tsx
+│   │   │   │   ├── Between30to60Min.tsx
+│   │   │   │   └── Between60to90Min.tsx
 │   │   │   ├── RecipeList.tsx
 │   │   │   ├── RecipePage.tsx
 │   │   │   ├── RecipeCategories.tsx
@@ -106,8 +107,13 @@ MasalaTulips/
 - **Drinks**: Refreshing beverages
 - **Kids Options**: Child-friendly recipes
 - **Vegetarian**: Plant-based dishes
-- **Upto 30 min**: Quick recipes
-- **Upto 60 min**: Medium-duration recipes
+- **Most Popular**: Community favorites
+- **All Recipes**: Complete recipe collection
+
+### Cooking Time Categories
+- **Upto 30 min**: Quick recipes (≤ 30 mins total time)
+- **Between 30 - 60 min**: Medium-duration recipes (> 30 mins and ≤ 60 mins total time)
+- **Between 60 - 90 min**: Longer recipes (> 60 mins and ≤ 90 mins total time)
 
 ## 🎯 Features
 
@@ -230,6 +236,7 @@ interface Recipe {
 ### Navigation System
 - **Smart Breadcrumbs**: Tracks user journey using sessionStorage
 - **Category Pages**: Dynamic recipe filtering by category
+- **Consistent URL Structure**: `/recipe-categories/[category-name]` for all category pages
 - **Recipe Cards**: Consistent styling with hover effects
 - **Responsive Navigation**: Mobile-friendly hamburger menu
 - **Recipe Meta Display**: Dynamic meal type and dietary information
@@ -294,18 +301,34 @@ interface Recipe {
 ## 🎯 Recent Updates
 
 ### Latest Improvements
-- **Removed Contact Section**: Streamlined home page by removing contact form
+- **Consistent URL Structure**: Updated all category routes to use `/recipe-categories/[category-name]` pattern
+- **Enhanced Cooking Time Categories**: 
+  - "Upto 30 min" for quick recipes (≤ 30 mins total time)
+  - "Between 30 - 60 min" for medium recipes (> 30 mins and ≤ 60 mins total time)
+  - "Between 60 - 90 min" for longer recipes (> 60 mins and ≤ 90 mins total time)
+- **Component Naming Convention**: Renamed cooking time components for better clarity:
+  - `Upto30Min.tsx` → `Upto30Min.tsx` (unchanged)
+  - `Upto60Min.tsx` → `Between30to60Min.tsx`
+  - `Between60Min.tsx` → `Between60to90Min.tsx`
+- **Total Time Logic**: Updated cooking time filtering to use total time (prep + cooking) instead of just cooking time
+- **Exclusive Range Logic**: Fixed recipe categorization to prevent overlap between time categories
 - **Enhanced Recipe Meta**: Added dynamic meal type display (Breakfast, Lunch, Dinner, Drinks, Kids Options)
-- **Email Integration**: Added email icon in footer for direct contact
+- **Email Integration**: Added email icon in footer for direct contact (masalatulips27@gmail.com)
 - **Improved Navigation**: Removed contact link from header navigation
 - **Recipe Categorization**: Updated recipe categories for better organization
 - **Context-Aware Display**: Smart meal type display based on recipe categories
+- **Removed Contact Section**: Streamlined home page by removing contact form
 
 ### Recipe Meta Information
 - **Raw Mango Rice**: 30 mins • Vegetarian • Breakfast
 - **Vegetable Pulao**: 45 mins • Vegetarian • Lunch
 - **Strawberry Milkshake**: 15 mins • Vegetarian • Drinks
 - **Spinach Khichdi**: 30 mins • Vegetarian • Kids Options
+
+### Current Recipe Distribution
+- **"Upto 30 min"**: 4 recipes (Raw Mango Rice, Mint Chutney, Strawberry Milkshake, Spinach Khichdi)
+- **"Between 30 - 60 min"**: 1 recipe (Vegetable Pulao)
+- **"Between 60 - 90 min"**: 0 recipes (ready for future additions)
 
 ## 🎯 Future Enhancements
 
@@ -317,6 +340,8 @@ interface Recipe {
 - **Print Recipes**: PDF generation for recipes
 - **Recipe Collections**: Curated recipe collections
 - **Video Content**: Recipe video integration
+- **More Cooking Time Categories**: Additional time ranges as recipe collection grows (e.g., "Between 90 - 120 min", "More than 120 min")
+- **Recipe Difficulty Levels**: Easy, Medium, Hard categorization
 
 ### Technical Improvements
 - **Performance**: Image lazy loading optimization

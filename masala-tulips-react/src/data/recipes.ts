@@ -451,8 +451,16 @@ export const getRecipesByTag = (tag: string): Recipe[] => {
 
 export const getRecipesByCookingTime = (maxMinutes: number): Recipe[] => {
   return getAllRecipes().filter(recipe => {
-    const timeStr = recipe.cookingTime.toLowerCase();
+    const timeStr = recipe.totalTime.toLowerCase();
     const minutes = parseInt(timeStr.match(/\d+/)?.[0] || '0');
     return minutes <= maxMinutes;
+  });
+};
+
+export const getRecipesByCookingTimeRange = (minMinutes: number, maxMinutes: number): Recipe[] => {
+  return getAllRecipes().filter(recipe => {
+    const timeStr = recipe.totalTime.toLowerCase();
+    const minutes = parseInt(timeStr.match(/\d+/)?.[0] || '0');
+    return minutes > minMinutes && minutes <= maxMinutes;
   });
 }; 

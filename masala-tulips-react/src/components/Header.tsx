@@ -60,7 +60,7 @@ const Header: React.FC = () => {
     // Recipes (main, subpages, and all recipe detail pages)
     else if (href === '/recipe-categories' && (
       currentPath === '/recipe-categories' ||
-      currentPath.includes('/recipes/') ||
+      currentPath.includes('/recipe-categories/') ||
       currentPath.includes('/recipe/')
     )) {
       return true;

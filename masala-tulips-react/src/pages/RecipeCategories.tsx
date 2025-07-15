@@ -17,12 +17,12 @@ const RecipeCategories: React.FC = () => {
           <h2 className="categories-heading">Popular Categories</h2>
           <hr className="categories-divider" />
           <ul className="categories-list">
-            <li><Link to="/recipes/vegetarian">Vegetarian</Link></li>
+            <li><Link to="/recipe-categories/vegetarian">Vegetarian</Link></li>
             <li>Vegan</li>
-            <li><Link to="/recipes/kids-options">Kids Options</Link></li>
+            <li><Link to="/recipe-categories/kids-options">Kids Options</Link></li>
             <li>Salads</li>
-            <li><Link to="/recipes/most-popular">Most Popular</Link></li>
-            <li><Link to="/recipes/all-recipes">All Recipes</Link></li>
+            <li><Link to="/recipe-categories/most-popular">Most Popular</Link></li>
+            <li><Link to="/recipe-categories/all-recipes">All Recipes</Link></li>
           </ul>
         </div>
         
@@ -30,12 +30,12 @@ const RecipeCategories: React.FC = () => {
           <h2 className="categories-heading">Recipes by Meal Type</h2>
           <hr className="categories-divider" />
           <ul className="categories-list">
-            <li><Link to="/recipes/breakfast">Breakfast</Link></li>
-            <li><Link to="/recipes/lunch">Lunch</Link></li>
-            <li><Link to="/recipes/dinner">Dinner</Link></li>
-            <li><Link to="/recipes/side-dish">Side Dish</Link></li>
+            <li><Link to="/recipe-categories/breakfast">Breakfast</Link></li>
+            <li><Link to="/recipe-categories/lunch">Lunch</Link></li>
+            <li><Link to="/recipe-categories/dinner">Dinner</Link></li>
+            <li><Link to="/recipe-categories/side-dish">Side Dish</Link></li>
             <li>Starters</li>
-            <li><Link to="/recipes/drinks">Drinks</Link></li>
+            <li><Link to="/recipe-categories/drinks">Drinks</Link></li>
             <li>Snacks</li>
             <li>Desserts</li>
           </ul>
@@ -45,9 +45,9 @@ const RecipeCategories: React.FC = () => {
           <h2 className="categories-heading">By Cooking Time</h2>
           <hr className="categories-divider" />
           <ul className="categories-list">
-            <li><Link to="/recipes/upto-30-min">Upto 30 min</Link></li>
-            <li><Link to="/recipes/upto-60-min">Upto 60 min</Link></li>
-            <li>Upto 120 min</li>
+            <li><Link to="/recipe-categories/upto-30-min">Upto 30 min</Link></li>
+            <li><Link to="/recipe-categories/between-30-60-min">Between 30 - 60 min</Link></li>
+            <li><Link to="/recipe-categories/between-60-90-min">Between 60 - 90 min</Link></li>
             <li>More than 120 min</li>
           </ul>
         </div>

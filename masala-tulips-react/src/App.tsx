@@ -10,7 +10,8 @@ import Breakfast from './pages/recipesByMealType/Breakfast';
 import Lunch from './pages/recipesByMealType/Lunch';
 import Dinner from './pages/recipesByMealType/Dinner';
 import Upto30Min from './pages/recipesByCookingTime/Upto30Min';
-import Upto60Min from './pages/recipesByCookingTime/Upto60Min';
+import Between30to60Min from './pages/recipesByCookingTime/Between30to60Min';
+import Between60to90Min from './pages/recipesByCookingTime/Between60to90Min';
 import Vegetarian from './pages/recipesByPopularCategory/Vegetarian';
 import MostPopular from './pages/recipesByPopularCategory/MostPopular';
 import AllRecipes from './pages/recipesByPopularCategory/AllRecipes';
@@ -46,21 +47,22 @@ function App() {
             <Route path="/blogs" element={<Blogs />} />
             
             {/* Meal Type Routes */}
-            <Route path="/recipes/breakfast" element={<Breakfast />} />
-            <Route path="/recipes/lunch" element={<Lunch />} />
-            <Route path="/recipes/dinner" element={<Dinner />} />
-            <Route path="/recipes/side-dish" element={<SideDish />} />
-            <Route path="/recipes/drinks" element={<Drinks />} />
-            <Route path="/recipes/kids-options" element={<KidsOptions />} />
+            <Route path="/recipe-categories/breakfast" element={<Breakfast />} />
+            <Route path="/recipe-categories/lunch" element={<Lunch />} />
+            <Route path="/recipe-categories/dinner" element={<Dinner />} />
+            <Route path="/recipe-categories/side-dish" element={<SideDish />} />
+            <Route path="/recipe-categories/drinks" element={<Drinks />} />
+            <Route path="/recipe-categories/kids-options" element={<KidsOptions />} />
             
             {/* Cooking Time Routes */}
-            <Route path="/recipes/upto-30-min" element={<Upto30Min />} />
-            <Route path="/recipes/upto-60-min" element={<Upto60Min />} />
+            <Route path="/recipe-categories/upto-30-min" element={<Upto30Min />} />
+            <Route path="/recipe-categories/between-30-60-min" element={<Between30to60Min />} />
+            <Route path="/recipe-categories/between-60-90-min" element={<Between60to90Min />} />
             
             {/* Popular Categories Routes */}
-            <Route path="/recipes/vegetarian" element={<Vegetarian />} />
-            <Route path="/recipes/most-popular" element={<MostPopular />} />
-            <Route path="/recipes/all-recipes" element={<AllRecipes />} />
+            <Route path="/recipe-categories/vegetarian" element={<Vegetarian />} />
+            <Route path="/recipe-categories/most-popular" element={<MostPopular />} />
+            <Route path="/recipe-categories/all-recipes" element={<AllRecipes />} />
           </Routes>
         </main>
         <Footer />

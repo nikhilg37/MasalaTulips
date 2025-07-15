@@ -4,7 +4,7 @@ import { getRecipesByCategory } from '../../data/recipes';
 
 const Vegetarian: React.FC = () => {
   useEffect(() => {
-    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Vegetarian', path: '/recipes/vegetarian' }));
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Vegetarian', path: '/recipe-categories/vegetarian' }));
   }, []);
   const vegetarianRecipes = getRecipesByCategory('vegetarian');
 
@@ -14,7 +14,7 @@ const Vegetarian: React.FC = () => {
         title="Vegetarian Recipes"
         description="Delicious and hearty vegetarian dishes for everyone to enjoy!"
         recipes={vegetarianRecipes}
-        breadcrumbPath="/recipes/vegetarian"
+        breadcrumbPath="/recipe-categories/vegetarian"
         breadcrumbLabel="Vegetarian"
       />
     </div>

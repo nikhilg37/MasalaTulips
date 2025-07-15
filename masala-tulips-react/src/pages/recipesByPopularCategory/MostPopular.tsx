@@ -4,7 +4,7 @@ import { getAllRecipes } from '../../data/recipes';
 
 const MostPopular: React.FC = () => {
   useEffect(() => {
-    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Most Popular', path: '/recipes/most-popular' }));
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Most Popular', path: '/recipe-categories/most-popular' }));
   }, []);
   // Filter out Mint Chutney and Pulao from most popular recipes
   const allRecipes = getAllRecipes();
@@ -18,7 +18,7 @@ const MostPopular: React.FC = () => {
         title="Most Popular Recipes"
         description="Our most loved and frequently cooked recipes!"
         recipes={popularRecipes}
-        breadcrumbPath="/recipes/most-popular"
+        breadcrumbPath="/recipe-categories/most-popular"
         breadcrumbLabel="Most Popular"
       />
     </div>

@@ -59,7 +59,7 @@ const Home: React.FC = () => {
         <div className="container">
           <h2>Recipe Categories</h2>
           <div className="categories-grid">
-            <Link to="/recipes/breakfast" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
+            <Link to="/recipe-categories/breakfast" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
                 src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Breakfast+Recipes" 
                 alt="Breakfast Recipe Options - Masala Tulips" 
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
                 <p>Start your day with delicious and nutritious South Indian breakfast recipes. From traditional rice dishes like Mavinakaayi Chitranna to wholesome vegetable pulao, our breakfast collection offers authentic flavors that energize your morning. Perfect for busy weekdays or leisurely weekend brunches.</p>
               </div>
             </Link>
-            <Link to="/recipes/kids-options" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
+            <Link to="/recipe-categories/kids-options" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
                 src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Kids+Recipes" 
                 alt="Kids Recipe Options - Masala Tulips" 
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
                 <p>Fun and nutritious meals designed specifically for children. Our kid-friendly recipes focus on healthy ingredients, appealing presentation, and flavors that young palates love. From colorful vegetable dishes to creative snack ideas, we make healthy eating exciting for the whole family.</p>
               </div>
             </Link>
-            <Link to="/recipes/most-popular" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
+            <Link to="/recipe-categories/most-popular" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
                 src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Most+Popular" 
                 alt="Most Popular Recipes - Masala Tulips" 

@@ -5,7 +5,7 @@ import '../../styles/RecipeList.css';
 
 const KidsOptions: React.FC = () => {
   useEffect(() => {
-    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Kids Options', path: '/recipes/kids-options' }));
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Kids Options', path: '/recipe-categories/kids-options' }));
   }, []);
   const recipes = getRecipesByCategory('kids-options');
 
@@ -14,7 +14,7 @@ const KidsOptions: React.FC = () => {
       title="Kids Options"
       description="Fun and nutritious meals designed specifically for children. Our kid-friendly recipes focus on healthy ingredients, appealing presentation, and flavors that young palates love."
       recipes={recipes}
-      breadcrumbPath="/recipes/kids-options"
+      breadcrumbPath="/recipe-categories/kids-options"
       breadcrumbLabel="Kids Options"
     />
   );

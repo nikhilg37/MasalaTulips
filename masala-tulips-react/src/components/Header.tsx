@@ -73,10 +73,6 @@ const Header: React.FC = () => {
     else if (href === '/#about' && hash === '#about') {
       return true;
     }
-    // Contact
-    else if (href === '/#contact' && hash === '#contact') {
-      return true;
-    }
     
     return false;
   };
@@ -153,7 +149,7 @@ const Header: React.FC = () => {
 
     const handleScroll = () => {
       if (lockedHash) return; // Don't update highlight if locked
-      const sections = ['home', 'about', 'contact'];
+      const sections = ['home', 'about'];
       const header = document.querySelector('header');
       const headerHeight = header ? header.clientHeight : 0;
       const scrollPosition = window.scrollY + headerHeight + 1; // +1 to ensure we cross the threshold
@@ -174,12 +170,12 @@ const Header: React.FC = () => {
           }
         }
       }
-      // If at the bottom of the page, always highlight Contact
+      // If at the bottom of the page, always highlight About
       if (!found && window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
-        if (location.hash !== '#contact') {
-          window.history.replaceState(null, '', '/#contact');
+        if (location.hash !== '#about') {
+          window.history.replaceState(null, '', '/#about');
         }
-        setCurrentHash('#contact');
+        setCurrentHash('#about');
       }
     };
 
@@ -261,15 +257,6 @@ const Header: React.FC = () => {
               <div className="nav-item-left">
                 <i className="fas fa-info-circle"></i>
                 <span>About</span>
-              </div>
-              <i className="fas fa-chevron-right"></i>
-            </a>
-          </li>
-          <li>
-            <a href="/#contact" onClick={(e) => handleHashClick(e, 'contact')} className={isActive('/#contact') ? 'active' : ''}>
-              <div className="nav-item-left">
-                <i className="fas fa-envelope"></i>
-                <span>Contact</span>
               </div>
               <i className="fas fa-chevron-right"></i>
             </a>

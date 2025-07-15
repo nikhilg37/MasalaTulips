@@ -36,7 +36,7 @@ export const recipes: Record<string, Recipe> = {
     cuisine: 'South Indian',
     type: 'Vegetarian',
     mainImage: '/images/recipes/mavinakaayi-chitranna/7.jpeg',
-    category: ['breakfast', 'lunch', 'vegetarian', 'quick'],
+    category: ['breakfast', 'vegetarian', 'quick'],
     tags: ['south-indian', 'mango', 'rice', 'tangy'],
     ingredients: [
       '2 cups cooked rice',
@@ -139,7 +139,7 @@ export const recipes: Record<string, Recipe> = {
     cuisine: 'South Indian',
     type: 'Vegetarian',
     mainImage: '/images/recipes/veg-pulao/new13.jpeg',
-    category: ['lunch', 'dinner', 'vegetarian'],
+    category: ['lunch', 'vegetarian'],
     tags: ['vegetable-pulao', 'tharakari-pulao', 'indian-rice', 'vegetarian-recipe'],
     ingredients: [
       '2 cups Sona Masuri Rice/Basmati Rice',
@@ -317,8 +317,8 @@ export const recipes: Record<string, Recipe> = {
     subtitle: '"ಸ್ಟ್ರೋಬೆರ್ರಿ ಮಿಲ್ಕ್ಶ್ಯೇಕ್"',
     description: 'A creamy, refreshing milkshake made with fresh strawberries, milk, and a touch of sweetness. Perfect for hot summer days or as a quick, delicious treat for kids and adults alike.',
     cookingTime: '5 mins',
-    prepTime: '5 mins',
-    totalTime: '10 mins',
+    prepTime: '10 mins',
+    totalTime: '15 mins',
     cuisine: '',
     type: 'Vegetarian',
     mainImage: '/images/recipes/strawberry-milkshake/img2.jpeg',

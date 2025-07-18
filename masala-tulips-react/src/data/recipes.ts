@@ -465,7 +465,7 @@ export const recipes: Record<string, Recipe> = {
     cuisine: 'Indian',
     type: 'Vegetarian',
     mainImage: '/images/recipes/veg-sandwich/img4.jpeg',
-    category: ['breakfast', 'vegetarian', 'quick', 'upto-30-min', 'kids-options'],
+    category: ['vegetarian', 'quick', 'upto-30-min', 'kids-options'],
     tags: ['sandwich', 'vegetable', 'healthy', 'quick-meal', 'vegetarian'],
     ingredients: [
       '4 slices of whole wheat bread',

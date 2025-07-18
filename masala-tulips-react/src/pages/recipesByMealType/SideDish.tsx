@@ -4,7 +4,7 @@ import { getRecipesByCategory } from '../../data/recipes';
 
 const SideDish: React.FC = () => {
   useEffect(() => {
-    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Side Dish', path: '/recipes/side-dish' }));
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Side Dish', path: '/recipe-categories/side-dish' }));
   }, []);
   const sideDishRecipes = getRecipesByCategory('side-dish');
 
@@ -14,7 +14,7 @@ const SideDish: React.FC = () => {
         title="Side Dish Recipes"
         description="Explore our collection of delicious side dishes, perfect to complement any meal!"
         recipes={sideDishRecipes}
-        breadcrumbPath="/recipes/side-dish"
+        breadcrumbPath="/recipe-categories/side-dish"
         breadcrumbLabel="Side Dish"
       />
       {sideDishRecipes.length <= 1 && (

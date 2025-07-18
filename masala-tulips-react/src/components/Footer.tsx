@@ -11,6 +11,16 @@ const Footer: React.FC = () => {
     });
     trackGTMEvent('social_link_click', { platform });
   };
+
+  const handleEmailClick = () => {
+    trackGAEvent({
+      action: 'click',
+      category: 'Contact',
+      label: 'Email',
+    });
+    trackGTMEvent('email_click', { location: 'Footer' });
+  };
+
   return (
     <footer>
       <div className="footer-content">
@@ -41,6 +51,13 @@ const Footer: React.FC = () => {
             onClick={() => handleSocialClick('Pinterest')}
           >
             <i className="fab fa-pinterest"></i>
+          </a>
+          <a 
+            href="mailto:masalatulips27@gmail.com"
+            aria-label="Send us an email"
+            onClick={handleEmailClick}
+          >
+            <i className="fas fa-envelope"></i>
           </a>
         </div>
         <p>&copy; 2025 Masala Tulips. All rights reserved.</p>

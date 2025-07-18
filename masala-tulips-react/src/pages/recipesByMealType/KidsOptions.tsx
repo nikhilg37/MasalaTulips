@@ -5,7 +5,7 @@ import '../../styles/RecipeList.css';
 
 const KidsOptions: React.FC = () => {
   useEffect(() => {
-    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Kids Options', path: '/recipes/kids-options' }));
+    sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Kids Options', path: '/recipe-categories/kids-options' }));
   }, []);
   const recipes = getRecipesByCategory('kids-options');
 
@@ -14,7 +14,7 @@ const KidsOptions: React.FC = () => {
       title="Kids Options"
       description="Fun and nutritious meals designed specifically for children. Our kid-friendly recipes focus on healthy ingredients, appealing presentation, and flavors that young palates love."
       recipes={recipes}
-      breadcrumbPath="/recipes/kids-options"
+      breadcrumbPath="/recipe-categories/kids-options"
       breadcrumbLabel="Kids Options"
     />
   );
@@ -69,6 +69,11 @@ const RecipeList: React.FC<RecipeListProps> = ({
                   <h3>{recipe.title} - {recipe.subtitle}</h3>
                   <p className="recipe-meta">
                     {recipe.totalTime} • {recipe.type}
+                    {recipe.category.includes('breakfast') && ' • Breakfast'}
+                    {recipe.category.includes('lunch') && ' • Lunch'}
+                    {recipe.category.includes('dinner') && ' • Dinner'}
+                    {recipe.category.includes('drinks') && ' • Drinks'}
+                    {recipe.category.includes('kids-options') && ' • Kids Options'}
                   </p>
                 </div>
               </Link>

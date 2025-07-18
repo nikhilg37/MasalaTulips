@@ -52,6 +52,11 @@ const RecipeList: React.FC<RecipeListProps> = ({
                   <h3>{recipe.title} - {recipe.subtitle}</h3>
                   <p className="recipe-meta">
                     {recipe.totalTime} • {recipe.type}
+                    {recipe.category.includes('breakfast') && ' • Breakfast'}
+                    {recipe.category.includes('lunch') && ' • Lunch'}
+                    {recipe.category.includes('dinner') && ' • Dinner'}
+                    {recipe.category.includes('drinks') && ' • Drinks'}
+                    {recipe.category.includes('kids-options') && ' • Kids Options'}
                   </p>
                 </div>
               </Link>

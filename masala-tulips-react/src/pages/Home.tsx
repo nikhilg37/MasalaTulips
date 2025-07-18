@@ -1,40 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
-import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 import { getRecipeBySlug } from '../data/recipes';
 
 const Home: React.FC = () => {
-  const [contactForm, setContactForm] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setContactForm(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Track contact form submission
-    trackGAEvent({
-      action: 'submit',
-      category: 'Contact Form',
-      label: 'Home Contact',
-    });
-    trackGTMEvent('contact_form_submit', { location: 'Home' });
-    // Handle form submission here
-    console.log('Contact form submitted:', contactForm);
-    // Reset form
-    setContactForm({ name: '', email: '', message: '' });
-    alert('Thank you for your message! We\'ll get back to you soon.');
-  };
-
   const navigate = useNavigate();
 
   // Handler to clear lastCategory and navigate
@@ -90,7 +59,7 @@ const Home: React.FC = () => {
         <div className="container">
           <h2>Recipe Categories</h2>
           <div className="categories-grid">
-            <Link to="/recipes/breakfast" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
+            <Link to="/recipe-categories/breakfast" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
                 src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Breakfast+Recipes" 
                 alt="Breakfast Recipe Options - Masala Tulips" 
@@ -101,7 +70,7 @@ const Home: React.FC = () => {
                 <p>Start your day with delicious and nutritious South Indian breakfast recipes. From traditional rice dishes like Mavinakaayi Chitranna to wholesome vegetable pulao, our breakfast collection offers authentic flavors that energize your morning. Perfect for busy weekdays or leisurely weekend brunches.</p>
               </div>
             </Link>
-            <Link to="/recipes/kids-options" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
+            <Link to="/recipe-categories/kids-options" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
                 src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Kids+Recipes" 
                 alt="Kids Recipe Options - Masala Tulips" 
@@ -112,7 +81,7 @@ const Home: React.FC = () => {
                 <p>Fun and nutritious meals designed specifically for children. Our kid-friendly recipes focus on healthy ingredients, appealing presentation, and flavors that young palates love. From colorful vegetable dishes to creative snack ideas, we make healthy eating exciting for the whole family.</p>
               </div>
             </Link>
-            <Link to="/recipes/most-popular" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
+            <Link to="/recipe-categories/most-popular" className="category-card" style={{textDecoration: 'none', color: 'inherit'}}>
               <img 
                 src="https://placehold.co/300x250/FF6B35/FFFFFF/png?text=Most+Popular" 
                 alt="Most Popular Recipes - Masala Tulips" 
@@ -141,7 +110,7 @@ const Home: React.FC = () => {
                       />
                       <div className="recipe-content">
                         <h3>{chitranna.title} - {chitranna.subtitle}</h3>
-                        <p className="recipe-meta">{chitranna.totalTime} • {chitranna.type}</p>
+                        <p className="recipe-meta">{chitranna.totalTime} • {chitranna.type} • Breakfast</p>
                         <p>{chitranna.description}</p>
                       </div>
                     </div>
@@ -155,7 +124,7 @@ const Home: React.FC = () => {
                       />
                       <div className="recipe-content">
                         <h3>{pulao.title} - {pulao.subtitle}</h3>
-                        <p className="recipe-meta">{pulao.totalTime} • {pulao.type}</p>
+                        <p className="recipe-meta">{pulao.totalTime} • {pulao.type} • Lunch</p>
                         <p>{pulao.description}</p>
                       </div>
                     </div>
@@ -169,7 +138,7 @@ const Home: React.FC = () => {
                       />
                       <div className="recipe-content">
                         <h3>{milkshake.title} - {milkshake.subtitle}</h3>
-                        <p className="recipe-meta">{milkshake.totalTime} • {milkshake.type}</p>
+                        <p className="recipe-meta">{milkshake.totalTime} • {milkshake.type} • Drinks</p>
                         <p>{milkshake.description}</p>
                       </div>
                     </div>
@@ -196,41 +165,6 @@ const Home: React.FC = () => {
                 alt="About Us - Vegetarian Food - Masala Tulips"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="contact-section">
-        <div className="container">
-          <h2>Get in Touch</h2>
-          <div className="contact-form">
-            <form id="contactForm" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={contactForm.name}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={contactForm.email}
-                onChange={handleInputChange}
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={contactForm.message}
-                onChange={handleInputChange}
-                required
-              ></textarea>
-              <button type="submit" className="submit-button">Send Message</button>
-            </form>
           </div>
         </div>
       </section>

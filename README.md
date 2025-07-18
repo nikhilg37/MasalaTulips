@@ -89,12 +89,18 @@ MasalaTulips/
 ## 🍳 Current Recipes
 
 ### Featured Recipes
-- **Mavinakaayi Chitranna** - Raw Mango Rice (30 mins • Vegetarian • Breakfast)
-- **Tharakari Pulao** - Vegetable Pulao (45 mins • Vegetarian • Lunch)
+- **Raw Mango Lemon Rice** - Mavinakaayi Chitranna (30 mins • Vegetarian • Breakfast)
+- **Coconut Lemon Rice** - Kaayi Chitranna (30 mins • Vegetarian • Breakfast)
+- **Vegetable Pulao** - Tharakari Pulao (45 mins • Vegetarian • Lunch)
+- **Hot Lentil Millet** - Bisi Bele Bath (50 mins • Vegetarian • Dinner)
+- **Veg Sambhar** - Tharakari Sambhar (40 mins • Vegetarian • Lunch)
+
+### Quick Meals & Snacks
+- **Vegetable Sandwich** - Tharakari Sandwich (25 mins • Vegetarian • Breakfast)
 - **Strawberry Milkshake** - Refreshing Summer Drink (15 mins • Vegetarian • Drinks)
 
 ### Side Dishes & Condiments
-- **Mint Chutney** - Pudina Chutney (15 mins • Vegetarian)
+- **Mint Chutney** - Pudina Chutney (15 mins • Vegetarian • Side Dish)
 
 ### Kids & Healthy Options
 - **Spinach Khichdi** - Palak Khichdi (30 mins • Vegetarian • Kids Options)
@@ -143,6 +149,8 @@ MasalaTulips/
 - **Core Web Vitals**: Performance monitoring
 - **AdSense Ready**: Proper ads.txt configuration
 - **Analytics**: Google Analytics and GTM integration
+- **Canonical URLs**: Proper canonical tags for SEO
+- **Enhanced Sitemap**: Comprehensive sitemap with metadata
 
 ## 🎨 Design System
 
@@ -303,6 +311,11 @@ interface Recipe {
 ## 🎯 Recent Updates
 
 ### Latest Improvements
+- **New Recipes Added**: 
+  - Coconut Lemon Rice (Kaayi Chitranna)
+  - Vegetable Sandwich (Tharakari Sandwich)
+  - Hot Lentil Millet (Bisi Bele Bath)
+  - Veg Sambhar (Tharakari Sambhar)
 - **Consistent URL Structure**: Updated all category routes to use `/recipe-categories/[category-name]` pattern
 - **Enhanced Cooking Time Categories**: 
   - "Upto 30 min" for quick recipes (≤ 30 mins total time)
@@ -320,17 +333,33 @@ interface Recipe {
 - **Recipe Categorization**: Updated recipe categories for better organization
 - **Context-Aware Display**: Smart meal type display based on recipe categories
 - **Removed Contact Section**: Streamlined home page by removing contact form
+- **SEO Improvements**: Added canonical URLs, enhanced sitemap, and improved robots.txt
+- **Most Popular Filtering**: Removed specific recipes from most popular category for better curation
 
 ### Recipe Meta Information
-- **Raw Mango Rice**: 30 mins • Vegetarian • Breakfast
+- **Raw Mango Lemon Rice**: 30 mins • Vegetarian • Breakfast
+- **Coconut Lemon Rice**: 30 mins • Vegetarian • Breakfast
 - **Vegetable Pulao**: 45 mins • Vegetarian • Lunch
+- **Hot Lentil Millet**: 50 mins • Vegetarian • Dinner
+- **Veg Sambhar**: 40 mins • Vegetarian • Lunch
+- **Vegetable Sandwich**: 25 mins • Vegetarian • Breakfast
 - **Strawberry Milkshake**: 15 mins • Vegetarian • Drinks
+- **Mint Chutney**: 15 mins • Vegetarian • Side Dish
 - **Spinach Khichdi**: 30 mins • Vegetarian • Kids Options
 
 ### Current Recipe Distribution
-- **"Upto 30 min"**: 4 recipes (Raw Mango Rice, Mint Chutney, Strawberry Milkshake, Spinach Khichdi)
-- **"Between 30 - 60 min"**: 1 recipe (Vegetable Pulao)
+- **"Upto 30 min"**: 6 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Strawberry Milkshake, Mint Chutney, Spinach Khichdi, Vegetable Sandwich)
+- **"Between 30 - 60 min"**: 3 recipes (Vegetable Pulao, Hot Lentil Millet, Veg Sambhar)
 - **"Between 60 - 90 min"**: 0 recipes (ready for future additions)
+
+### Category Distribution
+- **Breakfast**: 3 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Vegetable Sandwich)
+- **Lunch**: 2 recipes (Vegetable Pulao, Veg Sambhar)
+- **Dinner**: 1 recipe (Hot Lentil Millet)
+- **Side Dish**: 1 recipe (Mint Chutney)
+- **Drinks**: 1 recipe (Strawberry Milkshake)
+- **Kids Options**: 1 recipe (Spinach Khichdi)
+- **Vegetarian**: 9 recipes (all recipes are vegetarian)
 
 ## 🎯 Future Enhancements
 

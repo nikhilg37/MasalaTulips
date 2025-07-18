@@ -647,102 +647,80 @@ export const recipes: Record<string, Recipe> = {
     tags: ['sambhar', 'lentils', 'vegetables', 'south-indian', 'vegetarian', 'dal'],
     ingredients: [
       '1 cup toor dal',
-      '2 cups mixed vegetables (carrots, beans, peas, potatoes, eggplant)',
-      '1 large onion, finely chopped',
-      '2 tomatoes, chopped',
+      '2 cups mixed vegetables (drumsticks, carrots, turnips, tomatoes, bottle gourd, potatoes, chow chow)',
+      '1 sambhar onion, finely chopped',
       '1/4 cup tamarind pulp',
       '2 tablespoons oil',
       '1 teaspoon mustard seeds',
       '1 teaspoon cumin seeds',
       '1/2 teaspoon turmeric powder',
-      '1 teaspoon red chili powder',
       '1 teaspoon sambhar powder',
       '10-12 curry leaves',
-      '2-3 green chilies, slit',
-      '1 inch ginger, grated',
-      '4-5 garlic cloves, minced',
+      '4-5 garlic cloves',
       '1/4 cup fresh coriander leaves',
       'Salt to taste',
-      '3 cups water'
+      '3 cups water',
+      'Pinch of asafoetida'
     ],
     instructions: [
       {
         step: 1,
         title: 'Prepare the Ingredients',
-        description: 'Wash toor dal thoroughly. Chop all vegetables - carrots, beans, peas, potatoes, and eggplant. Finely chop onions and tomatoes. Prepare tamarind pulp by soaking tamarind in warm water.',
-        images: ['/images/recipes/veg-sambhar/img1.jpeg']
+        description: 'Wash toor dal thoroughly. Chop all vegetables - drumsticks, carrots, turnips, tomatoes, bottle gourd, potatoes, and chow chow. Finely chop sambhar onion. Prepare tamarind pulp by soaking tamarind in warm water.',
+        images: ['/images/recipes/veg-sambhar/img1.jpeg', '/images/recipes/veg-sambhar/img2.jpeg', '/images/recipes/veg-sambhar/img4.jpeg']
       },
       {
         step: 2,
         title: 'Cook the Dal',
-        description: 'In a pressure cooker, add toor dal and 2 cups of water. Cook for 3-4 whistles until the dal is soft and well-cooked. Mash the dal slightly and set aside.',
-        images: ['/images/recipes/veg-sambhar/img2.jpeg']
+        description: 'In a pressure cooker, add toor dal, oil and 2 cups of water. Add turmeric powder and garlic cloves. Cook for 3-4 whistles until the dal is soft and well-cooked. Mash the dal slightly and set aside.',
+        images: ['/images/recipes/veg-sambhar/img5.jpeg', '/images/recipes/veg-sambhar/img6.jpeg']
       },
       {
         step: 3,
-        title: 'Prepare the Tempering',
-        description: 'Heat oil in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, green chilies, ginger, and garlic. Sauté until fragrant.',
-        images: ['/images/recipes/veg-sambhar/img3.jpeg']
-      },
-      {
-        step: 4,
-        title: 'Add Onions and Tomatoes',
-        description: 'Add chopped onions and sauté until translucent. Add chopped tomatoes and cook until they become soft and mushy.',
-        images: ['/images/recipes/veg-sambhar/img4.jpeg']
-      },
-      {
-        step: 5,
-        title: 'Add Vegetables and Spices',
-        description: 'Add all the mixed vegetables and cook for 3-4 minutes. Add turmeric powder, red chili powder, and sambhar powder. Mix well.',
-        images: ['/images/recipes/veg-sambhar/img5.jpeg']
-      },
-      {
-        step: 6,
-        title: 'Add Water and Cook Vegetables',
-        description: 'Add 1 cup of water and bring to a boil. Cook the vegetables until they are tender but not mushy.',
-        images: ['/images/recipes/veg-sambhar/img6.jpeg']
-      },
-      {
-        step: 7,
-        title: 'Add Cooked Dal',
-        description: 'Add the cooked and mashed toor dal to the vegetable mixture. Mix well and cook for 2-3 minutes.',
+        title: 'Fry Sambhar Onion',
+        description: 'Add sambhar onion to the oil and fry until it is soft and translucent.',
         images: ['/images/recipes/veg-sambhar/img7.jpeg']
       },
       {
+        step: 4,
+        title: 'Add Water and Cook Vegetables',
+        description: 'Add 1 cup of water and bring to a boil. Cook the vegetables until they are tender but not mushy.',
+        images: ['/images/recipes/veg-sambhar/img8.jpeg', '/images/recipes/veg-sambhar/img9.jpeg']
+      },
+      {
+        step: 5,
+        title: 'Mix the Vegetables with Dal',
+        description: 'Add the cooked and mashed toor dal to the vegetable mixture. Add tamarind pulp, salt, sambhar powder and mix well.',
+        images: ['/images/recipes/veg-sambhar/img10.jpeg']
+      },
+      {
+        step: 6,
+        title: 'Prepare the Tempering',
+        description: 'Heat oil in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, asafoetida. Sauté until fragrant.',
+        images: ['/images/recipes/veg-sambhar/img3.jpeg']
+      },
+      {
+        step: 7,
+        title: 'Mix Tempering with Sambhar',
+        description: 'Add the tempering to the sambhar and mix well. Boil for 5-7 minutes until all flavors are well combined.',
+      },
+      {
         step: 8,
-        title: 'Add Tamarind Pulp',
-        description: 'Add tamarind pulp and salt. Mix well and bring to a boil. Cook for 5-7 minutes until all flavors are well combined.',
-        images: ['/images/recipes/veg-sambhar/img8.jpeg']
-      },
-      {
-        step: 9,
-        title: 'Prepare Final Tempering',
-        description: 'In a small pan, heat a little oil. Add mustard seeds, cumin seeds, and curry leaves. Let them splutter and pour this tempering over the sambhar.',
-        images: ['/images/recipes/veg-sambhar/img9.jpeg']
-      },
-      {
-        step: 10,
         title: 'Add Fresh Herbs',
         description: 'Add fresh coriander leaves and mix gently. Let the sambhar simmer for 2-3 minutes to enhance the flavors.',
         images: ['/images/recipes/veg-sambhar/img10.jpeg']
       },
       {
-        step: 11,
+        step: 9,
         title: 'Check Consistency',
         description: 'The sambhar should have a medium consistency - not too thick or too thin. Add more water if needed and adjust salt to taste.',
         images: ['/images/recipes/veg-sambhar/img11.jpeg']
       },
       {
-        step: 12,
-        title: 'Final Garnish',
-        description: 'Garnish with additional fresh coriander leaves. The sambhar should have a perfect balance of tangy, spicy, and savory flavors.',
-        images: ['/images/recipes/veg-sambhar/img12.jpeg']
-      },
-      {
-        step: 13,
+        step: 10,
         title: 'Serve Hot',
         description: 'Serve hot with steamed rice, idli, dosa, or any South Indian bread. The sambhar should be piping hot and full of flavor.',
-        images: ['/images/recipes/veg-sambhar/img13.jpeg']
+        images: ['/images/recipes/veg-sambhar/img12.jpeg']
       }
     ],
     notes: [
@@ -751,10 +729,11 @@ export const recipes: Record<string, Recipe> = {
         content: [
           'Use fresh vegetables for the best taste and texture.',
           'Adjust the amount of tamarind based on your preference for tanginess.',
-          'You can add more vegetables like drumsticks, okra, or pumpkin for variety.',
+          'You can add more vegetables like okra or pumpkin for variety.',
           'The sambhar should have a medium consistency - not too thick or too thin.',
           'Let it rest for 5 minutes after cooking for better flavor development.',
-          'Use homemade sambhar powder for authentic taste.'
+          'Use homemade sambhar powder for authentic taste.',
+          'Sambhar onion gives a unique flavor compared to regular onions.'
         ]
       },
       {
@@ -765,7 +744,7 @@ export const recipes: Record<string, Recipe> = {
           'Try with different types of lentils like moong dal or masoor dal.',
           'Add a dollop of ghee on top before serving for enhanced flavor.',
           'Serve with coconut chutney or tomato chutney for a complete meal.',
-          'Add drumsticks for a traditional touch.'
+          'Use different combinations of vegetables based on seasonal availability.'
         ]
       }
     ]

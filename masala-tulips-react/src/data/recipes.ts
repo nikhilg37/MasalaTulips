@@ -532,6 +532,246 @@ export const recipes: Record<string, Recipe> = {
       }
     ]
   },
+  'bisi-bele-bath': {
+    id: 'bisi-bele-bath',
+    title: 'Hot Lentil Rice',
+    subtitle: '"ಬಿಸಿ ಬೇಳೆ ಬಾತ್" - Bisi Bele Bath',
+    description: 'A traditional Karnataka rice dish made with rice, lentils, vegetables, and aromatic spices. This one-pot meal is rich in flavors and nutrients, perfect for lunch or dinner. The dish gets its name from "bisi" (hot), "bele" (lentils), and "bath" (rice dish).',
+    cookingTime: '25 mins',
+    prepTime: '25 mins',
+    totalTime: '50 mins',
+    cuisine: 'South Indian',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/bisi-bele-bath/img7.jpeg',
+    category: ['dinner', 'vegetarian', 'between-30-60-min'],
+    tags: ['bisi-bele-bath', 'karnataka', 'rice-dish', 'lentils', 'vegetarian', 'one-pot'],
+    ingredients: [
+      '1 cup rice',
+      '1/2 cup toor dal',
+      '1/4 cup chana dal',
+      '2 cups mixed vegetables (carrots, beans, peas, potatoes)',
+      '1 large onion, finely chopped',
+      '2 tomatoes, chopped',
+      '1/4 cup tamarind pulp',
+      '2 tablespoons oil or ghee',
+      '1 teaspoon mustard seeds',
+      '1 teaspoon cumin seeds',
+      '1/2 teaspoon turmeric powder',
+      '1 teaspoon red chili powder',
+      '1 teaspoon garam masala',
+      '10-12 curry leaves',
+      '2-3 green chilies, slit',
+      '1 inch ginger, grated',
+      '4-5 garlic cloves, minced',
+      '1/4 cup fresh coriander leaves',
+      'Salt to taste',
+      '4 cups water'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Ingredients',
+        description: 'Wash rice and lentils together. Chop all vegetables - carrots, beans, peas, and potatoes. Finely chop onions and tomatoes. Prepare tamarind pulp by soaking tamarind in warm water.',
+        images: ['/images/recipes/bisi-bele-bath/img1.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Cook Rice and Lentils',
+        description: 'In a pressure cooker, add rice, toor dal, chana dal, and 2 cups of water. Cook for 2-3 whistles until the rice and lentils are soft and well-cooked.',
+        images: ['/images/recipes/bisi-bele-bath/img2.jpeg']
+      },
+      {
+        step: 3,
+        title: 'Prepare the Tempering',
+        description: 'Heat oil or ghee in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, green chilies, ginger, and garlic. Sauté until fragrant.',
+        images: ['/images/recipes/bisi-bele-bath/img3.jpeg']
+      },
+      {
+        step: 4,
+        title: 'Add Vegetables and Spices',
+        description: 'Add chopped onions and sauté until translucent. Add all the mixed vegetables and cook for 3-4 minutes. Add turmeric powder, red chili powder, and garam masala.',
+        images: ['/images/recipes/bisi-bele-bath/img4.jpeg']
+      },
+      {
+        step: 5,
+        title: 'Combine with Cooked Rice and Lentils',
+        description: 'Add the cooked rice and lentils to the vegetable mixture. Add tamarind pulp and salt. Mix well and cook for 5-7 minutes until everything is well combined.',
+        images: ['/images/recipes/bisi-bele-bath/img5.jpeg']
+      },
+      {
+        step: 6,
+        title: 'Add Water and Simmer',
+        description: 'Add remaining water and bring to a boil. Reduce heat and simmer for 10-15 minutes until the mixture thickens and all flavors are well incorporated.',
+        images: ['/images/recipes/bisi-bele-bath/img6.jpeg']
+      },
+      {
+        step: 7,
+        title: 'Garnish and Serve',
+        description: 'Garnish with fresh coriander leaves. Serve hot with papad, pickle, or raita. The dish should have a perfect balance of spicy, tangy, and savory flavors.',
+        images: ['/images/recipes/bisi-bele-bath/img7.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh vegetables for the best taste and texture.',
+          'Adjust the amount of tamarind based on your preference for tanginess.',
+          'You can add more vegetables like eggplant or drumsticks for variety.',
+          'The dish should have a porridge-like consistency - not too thick or too thin.',
+          'Let it rest for 5 minutes after cooking for better flavor development.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add coconut milk for a richer, creamier texture.',
+          'Include roasted peanuts or cashews for extra crunch.',
+          'Try with different types of lentils for varied nutrition.',
+          'Add a dollop of ghee on top before serving for enhanced flavor.',
+          'Serve with coconut chutney or tomato chutney for a complete meal.'
+        ]
+      }
+    ]
+  },
+  'veg-sambhar': {
+    id: 'veg-sambhar',
+    title: 'Veg Sambhar',
+    subtitle: '"ತರಕಾರಿ ಸಾಂಬಾರ್" - Tharakari Sambhar',
+    description: 'A traditional South Indian lentil stew made with toor dal, mixed vegetables, and aromatic spices. This nutritious and flavorful dish is a staple in South Indian cuisine, perfect to serve with rice, idli, or dosa. The tangy tamarind and aromatic spices create a perfect balance of flavors.',
+    cookingTime: '20 mins',
+    prepTime: '20 mins',
+    totalTime: '40 mins',
+    cuisine: 'South Indian',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/veg-sambhar/img12.jpeg',
+    category: ['lunch', 'vegetarian', 'upto-30-min'],
+    tags: ['sambhar', 'lentils', 'vegetables', 'south-indian', 'vegetarian', 'dal'],
+    ingredients: [
+      '1 cup toor dal',
+      '2 cups mixed vegetables (carrots, beans, peas, potatoes, eggplant)',
+      '1 large onion, finely chopped',
+      '2 tomatoes, chopped',
+      '1/4 cup tamarind pulp',
+      '2 tablespoons oil',
+      '1 teaspoon mustard seeds',
+      '1 teaspoon cumin seeds',
+      '1/2 teaspoon turmeric powder',
+      '1 teaspoon red chili powder',
+      '1 teaspoon sambhar powder',
+      '10-12 curry leaves',
+      '2-3 green chilies, slit',
+      '1 inch ginger, grated',
+      '4-5 garlic cloves, minced',
+      '1/4 cup fresh coriander leaves',
+      'Salt to taste',
+      '3 cups water'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Ingredients',
+        description: 'Wash toor dal thoroughly. Chop all vegetables - carrots, beans, peas, potatoes, and eggplant. Finely chop onions and tomatoes. Prepare tamarind pulp by soaking tamarind in warm water.',
+        images: ['/images/recipes/veg-sambhar/img1.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Cook the Dal',
+        description: 'In a pressure cooker, add toor dal and 2 cups of water. Cook for 3-4 whistles until the dal is soft and well-cooked. Mash the dal slightly and set aside.',
+        images: ['/images/recipes/veg-sambhar/img2.jpeg']
+      },
+      {
+        step: 3,
+        title: 'Prepare the Tempering',
+        description: 'Heat oil in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, green chilies, ginger, and garlic. Sauté until fragrant.',
+        images: ['/images/recipes/veg-sambhar/img3.jpeg']
+      },
+      {
+        step: 4,
+        title: 'Add Onions and Tomatoes',
+        description: 'Add chopped onions and sauté until translucent. Add chopped tomatoes and cook until they become soft and mushy.',
+        images: ['/images/recipes/veg-sambhar/img4.jpeg']
+      },
+      {
+        step: 5,
+        title: 'Add Vegetables and Spices',
+        description: 'Add all the mixed vegetables and cook for 3-4 minutes. Add turmeric powder, red chili powder, and sambhar powder. Mix well.',
+        images: ['/images/recipes/veg-sambhar/img5.jpeg']
+      },
+      {
+        step: 6,
+        title: 'Add Water and Cook Vegetables',
+        description: 'Add 1 cup of water and bring to a boil. Cook the vegetables until they are tender but not mushy.',
+        images: ['/images/recipes/veg-sambhar/img6.jpeg']
+      },
+      {
+        step: 7,
+        title: 'Add Cooked Dal',
+        description: 'Add the cooked and mashed toor dal to the vegetable mixture. Mix well and cook for 2-3 minutes.',
+        images: ['/images/recipes/veg-sambhar/img7.jpeg']
+      },
+      {
+        step: 8,
+        title: 'Add Tamarind Pulp',
+        description: 'Add tamarind pulp and salt. Mix well and bring to a boil. Cook for 5-7 minutes until all flavors are well combined.',
+        images: ['/images/recipes/veg-sambhar/img8.jpeg']
+      },
+      {
+        step: 9,
+        title: 'Prepare Final Tempering',
+        description: 'In a small pan, heat a little oil. Add mustard seeds, cumin seeds, and curry leaves. Let them splutter and pour this tempering over the sambhar.',
+        images: ['/images/recipes/veg-sambhar/img9.jpeg']
+      },
+      {
+        step: 10,
+        title: 'Add Fresh Herbs',
+        description: 'Add fresh coriander leaves and mix gently. Let the sambhar simmer for 2-3 minutes to enhance the flavors.',
+        images: ['/images/recipes/veg-sambhar/img10.jpeg']
+      },
+      {
+        step: 11,
+        title: 'Check Consistency',
+        description: 'The sambhar should have a medium consistency - not too thick or too thin. Add more water if needed and adjust salt to taste.',
+        images: ['/images/recipes/veg-sambhar/img11.jpeg']
+      },
+      {
+        step: 12,
+        title: 'Final Garnish',
+        description: 'Garnish with additional fresh coriander leaves. The sambhar should have a perfect balance of tangy, spicy, and savory flavors.',
+        images: ['/images/recipes/veg-sambhar/img12.jpeg']
+      },
+      {
+        step: 13,
+        title: 'Serve Hot',
+        description: 'Serve hot with steamed rice, idli, dosa, or any South Indian bread. The sambhar should be piping hot and full of flavor.',
+        images: ['/images/recipes/veg-sambhar/img13.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh vegetables for the best taste and texture.',
+          'Adjust the amount of tamarind based on your preference for tanginess.',
+          'You can add more vegetables like drumsticks, okra, or pumpkin for variety.',
+          'The sambhar should have a medium consistency - not too thick or too thin.',
+          'Let it rest for 5 minutes after cooking for better flavor development.',
+          'Use homemade sambhar powder for authentic taste.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add coconut milk for a richer, creamier texture.',
+          'Include roasted peanuts or cashews for extra crunch.',
+          'Try with different types of lentils like moong dal or masoor dal.',
+          'Add a dollop of ghee on top before serving for enhanced flavor.',
+          'Serve with coconut chutney or tomato chutney for a complete meal.',
+          'Add drumsticks for a traditional touch.'
+        ]
+      }
+    ]
+  },
   'spinach-khichdi': {
     id: 'spinach-khichdi',
     title: 'Spinach Khichdi',

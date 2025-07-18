@@ -259,6 +259,8 @@ interface Recipe {
 2. **Copy build to docs**
    ```bash
    rsync -av build/ ../docs/
+   touch ../docs/.nojekyll
+   cp ../docs/index.html ../docs/404.html
    ```
 
 3. **Commit and push**

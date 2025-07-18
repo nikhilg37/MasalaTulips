@@ -27,7 +27,7 @@ export interface Recipe {
 export const recipes: Record<string, Recipe> = {
   'mavinakaayi-chitranna': {
     id: 'mavinakaayi-chitranna',
-    title: 'Raw Mango Rice',
+    title: 'Raw Mango Lemon Rice',
     subtitle: '"ಮಾವಿನಕಾಯಿ ಚಿತ್ರಾನ್ನ" - Mavinakaayi Chitranna',
     description: 'A tangy and refreshing South Indian rice dish made with raw mangoes, tempered with aromatic spices, and garnished with fresh herbs. This traditional recipe brings together the perfect balance of sour, spicy, and savory flavors that will transport you straight to the heart of Karnataka.',
     cookingTime: '15 mins',
@@ -360,6 +360,174 @@ export const recipes: Record<string, Recipe> = {
           'Adjust sugar to your taste and the sweetness of the strawberries.',
           'For a vegan version, use almond or oat milk and skip the ice cream.',
           'Add a few mint leaves for a refreshing twist.'
+        ]
+      }
+    ]
+  },
+  'kaayi-chitranna': {
+    id: 'kaayi-chitranna',
+    title: 'Coconut Lemon Rice',
+    subtitle: '"ಕಾಯಿ ಚಿತ್ರಾನ್ನ" - Kaayi Chitranna',
+    description: 'A traditional South Indian rice dish made with raw mango (kaayi), tempered with aromatic spices, and garnished with fresh herbs. This tangy and refreshing recipe brings together the perfect balance of sour, spicy, and savory flavors that will transport you straight to the heart of Karnataka.',
+    cookingTime: '15 mins',
+    prepTime: '15 mins',
+    totalTime: '30 mins',
+    cuisine: 'South Indian',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/kaayi-chitranna/img5.jpeg',
+    category: ['breakfast', 'vegetarian', 'quick', 'upto-30-min'],
+    tags: ['south-indian', 'kaayi', 'raw-mango', 'rice', 'tangy', 'chitranna'],
+    ingredients: [
+      '2 cups cooked rice',
+      '1 medium raw mango (kaayi), grated',
+      '2 tablespoons oil',
+      '1 teaspoon mustard seeds',
+      '1 teaspoon cumin seeds',
+      '1 teaspoon urad dal',
+      '1 teaspoon chana dal',
+      '1 complete garlic pod, finely chopped',
+      'A pinch of asafoetida',
+      '3-4 finely chopped dry green chilies',
+      '10-12 curry leaves',
+      '1/4 cup peanuts',
+      '1/4 teaspoon turmeric powder',
+      'Salt to taste',
+      'Fresh coriander leaves for garnish'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Rice and Roast Peanuts',
+        description: 'Cook rice and let it cool completely. Roast the peanuts in a pan with a little oil until they are slightly golden brown and set aside.',
+        images: ['/images/recipes/kaayi-chitranna/img1.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Prepare the Raw Mango',
+        description: 'Wash and peel the raw mango (kaayi). Grate it finely and set aside. The grated mango will give the dish its characteristic tangy flavor.',
+        images: ['/images/recipes/kaayi-chitranna/img2.jpeg']
+      },
+      {
+        step: 3,
+        title: 'Make the Tempering',
+        description: 'Heat oil in a large pan. Add cumin seeds, mustard seeds, and asafoetida. Let them splutter and add urad dal, chana dal. Also add curry leaves, finely chopped garlic and green chilies. Fry until the dals turn golden brown.',
+        images: ['/images/recipes/kaayi-chitranna/img3.jpeg']
+      },
+      {
+        step: 4,
+        title: 'Add Grated Raw Mango',
+        description: 'Add turmeric powder and grated raw mango (kaayi). Mix well and cook for 2-3 minutes until the mango softens slightly and releases its tangy flavor.',
+        images: ['/images/recipes/kaayi-chitranna/img4.jpeg']
+      },
+      {
+        step: 5,
+        title: 'Mix with Rice and Season',
+        description: 'Add the cooled rice and salt. Gently mix everything together, taking care not to break the rice grains. The rice should be well coated with the mango mixture.',
+        images: ['/images/recipes/kaayi-chitranna/img5.jpeg']
+      },
+      {
+        step: 6,
+        title: 'Garnish and Serve',
+        description: 'Garnish with fresh coriander leaves and roasted peanuts. Serve warm or at room temperature. The dish should have a perfect balance of tangy, spicy, and savory flavors.',
+        images: ['/images/recipes/kaayi-chitranna/img6.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Notes',
+        content: [
+          'Choose firm, green raw mangoes (kaayi) for the best tangy flavor.',
+          'You can adjust the amount of raw mango based on how tangy you prefer the dish.',
+          'For a spicier version, add finely chopped extra green chilies during tempering.',
+          'This dish can be stored in the refrigerator for up to 2 days.',
+          'The peanuts add a nice crunch and protein to the dish.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add grated coconut for a richer flavor and texture.',
+          'Include roasted cashews for extra crunch and luxury.',
+          'Try with different types of rice like brown rice or basmati rice.',
+          'Add finely chopped vegetables like carrots or beans for extra nutrition.',
+          'For a more traditional taste, use coconut oil instead of regular oil.'
+        ]
+      }
+    ]
+  },
+  'vegetable-sandwich': {
+    id: 'vegetable-sandwich',
+    title: 'Vegetable Sandwich',
+    subtitle: '"ತರಕಾರಿ ಸ್ಯಾಂಡ್‌ವಿಚ್" - Tharakari Sandwich',
+    description: 'A healthy and delicious vegetable sandwich packed with fresh vegetables, herbs, and flavorful spreads. Perfect for breakfast, lunch, or as a quick snack. This wholesome sandwich combines the goodness of mixed vegetables with aromatic spices and fresh herbs.',
+    cookingTime: '10 mins',
+    prepTime: '15 mins',
+    totalTime: '25 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/veg-sandwich/img4.jpeg',
+    category: ['breakfast', 'vegetarian', 'quick', 'upto-30-min', 'kids-options'],
+    tags: ['sandwich', 'vegetable', 'healthy', 'quick-meal', 'vegetarian'],
+    ingredients: [
+      '4 slices of whole wheat bread',
+      '1 medium potato, boiled and sliced',
+      '1 medium cucumber, thinly sliced',
+      '1 medium tomato, thinly sliced',
+      '1 small onion, thinly sliced',
+      '1/2 cup mixed bell peppers, thinly sliced',
+      '1/4 cup fresh coriander leaves, chopped',
+      '2 tablespoons butter or ghee',
+      '1/2 teaspoon chaat masala',
+      '1/2 teaspoon black pepper powder',
+      'Salt to taste',
+      '1/4 cup mint chutney (optional)',
+      '1/4 cup tomato ketchup (optional)'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Vegetables',
+        description: 'Wash and prepare all vegetables. Boil the potato until tender, then slice it. Thinly slice cucumber, tomato, onion, and bell peppers. Chop fresh coriander leaves.',
+        images: ['/images/recipes/veg-sandwich/img1.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Season the Vegetables',
+        description: 'In a bowl, mix the sliced vegetables with chaat masala, black pepper powder, and salt. Let them marinate for 5 minutes to enhance the flavors.',
+        images: ['/images/recipes/veg-sandwich/img2.jpeg']
+      },
+      {
+        step: 3,
+        title: 'Assemble the Sandwich',
+        description: 'Take two slices of bread and spread butter or ghee on one side of each slice. Layer the seasoned vegetables evenly on one slice, starting with potato slices as the base.',
+        images: ['/images/recipes/veg-sandwich/img3.jpeg']
+      },
+      {
+        step: 4,
+        title: 'Add Spreads and Close',
+        description: 'Add mint chutney or tomato ketchup if desired. Place the second slice of bread on top with the buttered side facing down. Press gently to hold the sandwich together.',
+        images: ['/images/recipes/veg-sandwich/img4.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh, crisp vegetables for the best texture and flavor.',
+          'You can add cheese slices for extra flavor and protein.',
+          'For a healthier option, use whole grain or multigrain bread.',
+          'The sandwich can be served immediately or wrapped for later consumption.',
+          'Adjust the spices according to your taste preference.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add paneer slices for a protein-rich version.',
+          'Include avocado slices for a creamy texture.',
+          'Try with different breads like sourdough or rye bread.',
+          'Add sprouts for extra nutrition and crunch.',
+          'Use different spreads like hummus or cream cheese.'
         ]
       }
     ]

@@ -379,13 +379,12 @@ export const recipes: Record<string, Recipe> = {
     tags: ['south-indian', 'kaayi', 'raw-mango', 'rice', 'tangy', 'chitranna'],
     ingredients: [
       '2 cups cooked rice',
-      '1 medium raw mango (kaayi), grated',
+      '1/2 cup coconut, grated',
       '2 tablespoons oil',
       '1 teaspoon mustard seeds',
       '1 teaspoon cumin seeds',
       '1 teaspoon urad dal',
       '1 teaspoon chana dal',
-      '1 complete garlic pod, finely chopped',
       'A pinch of asafoetida',
       '3-4 finely chopped dry green chilies',
       '10-12 curry leaves',
@@ -399,36 +398,36 @@ export const recipes: Record<string, Recipe> = {
         step: 1,
         title: 'Prepare the Rice and Roast Peanuts',
         description: 'Cook rice and let it cool completely. Roast the peanuts in a pan with a little oil until they are slightly golden brown and set aside.',
-        images: ['/images/recipes/kaayi-chitranna/img1.jpeg']
+        images: ['/images/recipes/kaayi-chitranna/img2.jpeg']
       },
       {
         step: 2,
-        title: 'Prepare the Raw Mango',
-        description: 'Wash and peel the raw mango (kaayi). Grate it finely and set aside. The grated mango will give the dish its characteristic tangy flavor.',
-        images: ['/images/recipes/kaayi-chitranna/img2.jpeg']
+        title: 'Prepare the Coconut',
+        description: 'Grate fresh coconut finely and set aside. The grated coconut will give the dish its characteristic rich and nutty flavor.',
+        images: ['/images/recipes/kaayi-chitranna/img1.jpeg']
       },
       {
         step: 3,
         title: 'Make the Tempering',
-        description: 'Heat oil in a large pan. Add cumin seeds, mustard seeds, and asafoetida. Let them splutter and add urad dal, chana dal. Also add curry leaves, finely chopped garlic and green chilies. Fry until the dals turn golden brown.',
+        description: 'Heat oil in a large pan. Add cumin seeds, mustard seeds, and asafoetida. Let them splutter and add urad dal, chana dal. Also add curry leaves and green chilies. Fry until the dals turn golden brown.',
         images: ['/images/recipes/kaayi-chitranna/img3.jpeg']
       },
       {
         step: 4,
-        title: 'Add Grated Raw Mango',
-        description: 'Add turmeric powder and grated raw mango (kaayi). Mix well and cook for 2-3 minutes until the mango softens slightly and releases its tangy flavor.',
+        title: 'Add Grated Coconut',
+        description: 'Add turmeric powder and grated coconut. Mix well and cook for 2-3 minutes until the coconut releases its aromatic flavor and becomes slightly golden.',
         images: ['/images/recipes/kaayi-chitranna/img4.jpeg']
       },
       {
         step: 5,
         title: 'Mix with Rice and Season',
-        description: 'Add the cooled rice and salt. Gently mix everything together, taking care not to break the rice grains. The rice should be well coated with the mango mixture.',
+        description: 'Add the cooled rice and salt. Gently mix everything together, taking care not to break the rice grains. The rice should be well coated with the coconut mixture.',
         images: ['/images/recipes/kaayi-chitranna/img5.jpeg']
       },
       {
         step: 6,
         title: 'Garnish and Serve',
-        description: 'Garnish with fresh coriander leaves and roasted peanuts. Serve warm or at room temperature. The dish should have a perfect balance of tangy, spicy, and savory flavors.',
+        description: 'Garnish with fresh coriander leaves and roasted peanuts. Serve warm or at room temperature. The dish should have a perfect balance of nutty, spicy, and savory flavors.',
         images: ['/images/recipes/kaayi-chitranna/img6.jpeg']
       }
     ],
@@ -436,8 +435,8 @@ export const recipes: Record<string, Recipe> = {
       {
         title: 'Notes',
         content: [
-          'Choose firm, green raw mangoes (kaayi) for the best tangy flavor.',
-          'You can adjust the amount of raw mango based on how tangy you prefer the dish.',
+          'Use fresh, grated coconut for the best rich and nutty flavor.',
+          'You can adjust the amount of coconut based on how rich you prefer the dish.',
           'For a spicier version, add finely chopped extra green chilies during tempering.',
           'This dish can be stored in the refrigerator for up to 2 days.',
           'The peanuts add a nice crunch and protein to the dish.'
@@ -446,8 +445,8 @@ export const recipes: Record<string, Recipe> = {
       {
         title: 'Variations',
         content: [
-          'Add grated coconut for a richer flavor and texture.',
-          'Include roasted cashews for extra crunch and luxury.',
+          'Add roasted cashews for extra crunch and luxury.',
+          'Include fresh curry leaves for enhanced aroma.',
           'Try with different types of rice like brown rice or basmati rice.',
           'Add finely chopped vegetables like carrots or beans for extra nutrition.',
           'For a more traditional taste, use coconut oil instead of regular oil.'

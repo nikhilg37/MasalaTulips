@@ -94,6 +94,7 @@ MasalaTulips/
 - **Vegetable Pulao** - Tharakari Pulao (45 mins • Vegetarian • Lunch)
 - **Hot Lentil Millet** - Bisi Bele Bath (50 mins • Vegetarian • Dinner)
 - **Veg Sambhar** - Tharakari Sambhar (40 mins • Vegetarian • Lunch)
+- **Oggarane Mosranna** - Traditional Yogurt Rice (25 mins • Vegetarian • Lunch)
 
 ### Quick Meals & Snacks
 - **Vegetable Sandwich** - Tharakari Sandwich (25 mins • Vegetarian • Breakfast)
@@ -316,6 +317,7 @@ interface Recipe {
   - Vegetable Sandwich (Tharakari Sandwich)
   - Hot Lentil Millet (Bisi Bele Bath)
   - Veg Sambhar (Tharakari Sambhar)
+  - Oggarane Mosranna (Traditional Yogurt Rice)
 - **Consistent URL Structure**: Updated all category routes to use `/recipe-categories/[category-name]` pattern
 - **Enhanced Cooking Time Categories**: 
   - "Upto 30 min" for quick recipes (≤ 30 mins total time)
@@ -342,24 +344,26 @@ interface Recipe {
 - **Vegetable Pulao**: 45 mins • Vegetarian • Lunch
 - **Hot Lentil Millet**: 50 mins • Vegetarian • Dinner
 - **Veg Sambhar**: 40 mins • Vegetarian • Lunch
-- **Vegetable Sandwich**: 25 mins • Vegetarian • Breakfast
+- **Oggarane Mosranna**: 25 mins • Vegetarian • Lunch
+- **Vegetable Sandwich**: 25 mins • Vegetarian • Quick
 - **Strawberry Milkshake**: 15 mins • Vegetarian • Drinks
 - **Mint Chutney**: 15 mins • Vegetarian • Side Dish
 - **Spinach Khichdi**: 30 mins • Vegetarian • Kids Options
 
 ### Current Recipe Distribution
-- **"Upto 30 min"**: 6 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Strawberry Milkshake, Mint Chutney, Spinach Khichdi, Vegetable Sandwich)
+- **"Upto 30 min"**: 7 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Strawberry Milkshake, Mint Chutney, Spinach Khichdi, Vegetable Sandwich, Oggarane Mosranna)
 - **"Between 30 - 60 min"**: 3 recipes (Vegetable Pulao, Hot Lentil Millet, Veg Sambhar)
 - **"Between 60 - 90 min"**: 0 recipes (ready for future additions)
 
 ### Category Distribution
-- **Breakfast**: 3 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Vegetable Sandwich)
-- **Lunch**: 2 recipes (Vegetable Pulao, Veg Sambhar)
+- **Breakfast**: 2 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice)
+- **Lunch**: 3 recipes (Vegetable Pulao, Veg Sambhar, Oggarane Mosranna)
 - **Dinner**: 1 recipe (Hot Lentil Millet)
 - **Side Dish**: 1 recipe (Mint Chutney)
 - **Drinks**: 1 recipe (Strawberry Milkshake)
 - **Kids Options**: 1 recipe (Spinach Khichdi)
-- **Vegetarian**: 9 recipes (all recipes are vegetarian)
+- **Quick**: 1 recipe (Vegetable Sandwich)
+- **Vegetarian**: 10 recipes (all recipes are vegetarian)
 
 ## 🎯 Future Enhancements
 

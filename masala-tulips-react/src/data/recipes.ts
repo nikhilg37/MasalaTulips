@@ -749,6 +749,110 @@ export const recipes: Record<string, Recipe> = {
       }
     ]
   },
+  'oggarane-mosranna': {
+    id: 'oggarane-mosranna',
+    title: 'Oggarane Mosranna',
+    subtitle: '"ಒಗ್ಗರಣೆ ಮೊಸರನ್ನ" - Oggarane Mosranna',
+    description: 'A traditional South Indian rice dish made with yogurt, tempered with aromatic spices, and garnished with fresh herbs. This cooling and refreshing recipe brings together the perfect balance of tangy, spicy, and savory flavors that is perfect for hot summer days.',
+    cookingTime: '10 mins',
+    prepTime: '15 mins',
+    totalTime: '25 mins',
+    cuisine: 'South Indian',
+    type: 'Vegetarian',
+    mainImage: '/images/recipes/oggarane-mosranna/img8.jpeg',
+    category: ['lunch', 'vegetarian', 'upto-30-min'],
+    tags: ['oggarane-mosranna', 'yogurt-rice', 'south-indian', 'vegetarian', 'cooling'],
+    ingredients: [
+      '2 cups cooked rice',
+      '1 cup fresh yogurt',
+      '1 finely chopped onion',
+      '2 tablespoons oil',
+      '1 teaspoon mustard seeds',
+      '1 teaspoon cumin seeds',
+      '1 teaspoon urad dal',
+      '1 teaspoon chana dal',
+      'A pinch of asafoetida',
+      '3-4 finely chopped dry green chilies',
+      '10-12 curry leaves',
+      '1/4 cup cashews',
+      '1/4 teaspoon turmeric powder',
+      '1 inch ginger, grated',
+      '2-3 green chilies, slit',
+      'Salt to taste',
+      'Fresh coriander leaves for garnish'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Rice and Roast Peanuts',
+        description: 'Cook rice for 3-4 whistles in a pressure cooker and let it cool completely. Roast the cashews in a pan with a little oil until they are slightly golden brown and set aside. Add finely chopped onion, curry leaves, and green chilies and mash them together.',
+        images: ['/images/recipes/oggarane-mosranna/img1.jpeg', '/images/recipes/oggarane-mosranna/img2.jpeg']
+      },
+      {
+        step: 2,
+        title: 'Prepare the Yogurt Mixture',
+        description: 'In a large bowl, whisk the fresh yogurt until smooth. Add salt and mix well. The yogurt should be slightly sour for the best taste.',
+      },
+      {
+        step: 3,
+        title: 'Make the Tempering',
+        description: 'Heat oil in a large pan. Add cumin seeds, mustard seeds, and asafoetida. Let them splutter and add urad dal, chana dal. Also add curry leaves, green chilies, and grated ginger. Fry until the dals turn golden brown.',
+        images: ['/images/recipes/oggarane-mosranna/img3.jpeg', '/images/recipes/oggarane-mosranna/img4.jpeg']
+      },
+      {
+        step: 4,
+        title: 'Add cashews',
+        description: 'Add roasted cashews to the tempering. Mix well and cook for 1-2 minutes until the cashews are well coated with the spices.',
+      },
+      {
+        step: 5,
+        title: 'Combine Rice with Yogurt',
+        description: 'Add the cooled rice to the yogurt mixture. Gently mix everything together, taking care not to break the rice grains.',
+        images: ['/images/recipes/oggarane-mosranna/img6.jpeg']
+      },
+      {
+        step: 6,
+        title: 'Add Tempering to Rice',
+        description: 'Pour the hot tempering over the rice and yogurt mixture. Mix gently to combine all the flavors.',
+        images: ['/images/recipes/oggarane-mosranna/img5.jpeg']
+      },
+      {
+        step: 7,
+        title: 'Garnish and Serve',
+        description: 'Garnish with fresh coriander leaves and serve immediately. The dish should have a perfect balance of tangy, spicy, and cooling flavors.',
+        images: ['/images/recipes/oggarane-mosranna/img7.jpeg']
+      },
+      {
+        step: 8,
+        title: 'Final Presentation',
+        description: 'Serve the Oggarane Mosranna warm or at room temperature. This cooling dish is perfect for hot summer days and pairs well with pickles or papad.',
+        images: ['/images/recipes/oggarane-mosranna/img8.jpeg']
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use slightly sour yogurt for the best tangy flavor.',
+          'Make sure the rice is completely cooled before mixing with yogurt.',
+          'You can adjust the amount of yogurt based on how creamy you prefer the dish.',
+          'For a spicier version, add more green chilies during tempering.',
+          'This dish should be consumed fresh and not stored for long periods.',
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add grated coconut for a richer flavor and texture.',
+          'Include roasted cashews for extra crunch and luxury.',
+          'Try with different types of rice like brown rice or basmati rice.',
+          'Add finely chopped vegetables like cucumber or carrots for extra nutrition.',
+          'For a more traditional taste, use coconut oil instead of regular oil.',
+          'Add a pinch of sugar for a sweet-sour balance.'
+        ]
+      }
+    ]
+  },
   'spinach-khichdi': {
     id: 'spinach-khichdi',
     title: 'Spinach Khichdi',

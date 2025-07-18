@@ -2,35 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://masalatulips.nl/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://masalatulips.nl/recipe-categories</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://masalatulips.nl/blogs</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/breakfast</loc>
+    <loc>https://masalatulips.nl/recipe-categories/breakfast</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/lunch</loc>
+    <loc>https://masalatulips.nl/recipe-categories/lunch</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/dinner</loc>
+    <loc>https://masalatulips.nl/recipe-categories/dinner</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/upto-30-min</loc>
+    <loc>https://masalatulips.nl/recipe-categories/upto-30-min</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/upto-60-min</loc>
+    <loc>https://masalatulips.nl/recipe-categories/between-30-60-min</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/vegetarian</loc>
+    <loc>https://masalatulips.nl/recipe-categories/between-60-90-min</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/most-popular</loc>
+    <loc>https://masalatulips.nl/recipe-categories/vegetarian</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://masalatulips.nl/recipes/all-recipes</loc>
+    <loc>https://masalatulips.nl/recipe-categories/most-popular</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://masalatulips.nl/recipe-categories/all-recipes</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://masalatulips.nl/recipe/mavinakaayi-chitranna</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://masalatulips.nl/recipe/vegetable-pulao</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://masalatulips.nl/recipe/spinach-khichdi</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset> 

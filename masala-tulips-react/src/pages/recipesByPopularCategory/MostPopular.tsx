@@ -6,10 +6,10 @@ const MostPopular: React.FC = () => {
   useEffect(() => {
     sessionStorage.setItem('lastCategory', JSON.stringify({ label: 'Most Popular', path: '/recipe-categories/most-popular' }));
   }, []);
-  // Filter out Mint Chutney and Pulao from most popular recipes
+  // Filter out Mint Chutney, Pulao, Coconut Lemon Rice, and Hot Lentil Rice from most popular recipes
   const allRecipes = getAllRecipes();
   const popularRecipes = allRecipes.filter(recipe => 
-    recipe.id !== 'mint-chutney' && recipe.id !== 'vegetable-pulao'
+    recipe.id !== 'mint-chutney' && recipe.id !== 'vegetable-pulao' && recipe.id !== 'kaayi-chitranna' && recipe.id !== 'bisi-bele-bath'
   );
 
   return (

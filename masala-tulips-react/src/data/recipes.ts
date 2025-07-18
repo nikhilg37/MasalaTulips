@@ -379,13 +379,12 @@ export const recipes: Record<string, Recipe> = {
     tags: ['south-indian', 'kaayi', 'raw-mango', 'rice', 'tangy', 'chitranna'],
     ingredients: [
       '2 cups cooked rice',
-      '1 medium raw mango (kaayi), grated',
+      '1/2 cup coconut, grated',
       '2 tablespoons oil',
       '1 teaspoon mustard seeds',
       '1 teaspoon cumin seeds',
       '1 teaspoon urad dal',
       '1 teaspoon chana dal',
-      '1 complete garlic pod, finely chopped',
       'A pinch of asafoetida',
       '3-4 finely chopped dry green chilies',
       '10-12 curry leaves',
@@ -399,36 +398,36 @@ export const recipes: Record<string, Recipe> = {
         step: 1,
         title: 'Prepare the Rice and Roast Peanuts',
         description: 'Cook rice and let it cool completely. Roast the peanuts in a pan with a little oil until they are slightly golden brown and set aside.',
-        images: ['/images/recipes/kaayi-chitranna/img1.jpeg']
+        images: ['/images/recipes/kaayi-chitranna/img2.jpeg']
       },
       {
         step: 2,
-        title: 'Prepare the Raw Mango',
-        description: 'Wash and peel the raw mango (kaayi). Grate it finely and set aside. The grated mango will give the dish its characteristic tangy flavor.',
-        images: ['/images/recipes/kaayi-chitranna/img2.jpeg']
+        title: 'Prepare the Coconut',
+        description: 'Grate fresh coconut finely and set aside. The grated coconut will give the dish its characteristic rich and nutty flavor.',
+        images: ['/images/recipes/kaayi-chitranna/img1.jpeg']
       },
       {
         step: 3,
         title: 'Make the Tempering',
-        description: 'Heat oil in a large pan. Add cumin seeds, mustard seeds, and asafoetida. Let them splutter and add urad dal, chana dal. Also add curry leaves, finely chopped garlic and green chilies. Fry until the dals turn golden brown.',
+        description: 'Heat oil in a large pan. Add cumin seeds, mustard seeds, and asafoetida. Let them splutter and add urad dal, chana dal. Also add curry leaves and green chilies. Fry until the dals turn golden brown.',
         images: ['/images/recipes/kaayi-chitranna/img3.jpeg']
       },
       {
         step: 4,
-        title: 'Add Grated Raw Mango',
-        description: 'Add turmeric powder and grated raw mango (kaayi). Mix well and cook for 2-3 minutes until the mango softens slightly and releases its tangy flavor.',
+        title: 'Add Grated Coconut',
+        description: 'Add turmeric powder and grated coconut. Mix well and cook for 2-3 minutes until the coconut releases its aromatic flavor and becomes slightly golden.',
         images: ['/images/recipes/kaayi-chitranna/img4.jpeg']
       },
       {
         step: 5,
         title: 'Mix with Rice and Season',
-        description: 'Add the cooled rice and salt. Gently mix everything together, taking care not to break the rice grains. The rice should be well coated with the mango mixture.',
+        description: 'Add the cooled rice and salt. Gently mix everything together, taking care not to break the rice grains. The rice should be well coated with the coconut mixture.',
         images: ['/images/recipes/kaayi-chitranna/img5.jpeg']
       },
       {
         step: 6,
         title: 'Garnish and Serve',
-        description: 'Garnish with fresh coriander leaves and roasted peanuts. Serve warm or at room temperature. The dish should have a perfect balance of tangy, spicy, and savory flavors.',
+        description: 'Garnish with fresh coriander leaves and roasted peanuts. Serve warm or at room temperature. The dish should have a perfect balance of nutty, spicy, and savory flavors.',
         images: ['/images/recipes/kaayi-chitranna/img6.jpeg']
       }
     ],
@@ -436,8 +435,8 @@ export const recipes: Record<string, Recipe> = {
       {
         title: 'Notes',
         content: [
-          'Choose firm, green raw mangoes (kaayi) for the best tangy flavor.',
-          'You can adjust the amount of raw mango based on how tangy you prefer the dish.',
+          'Use fresh, grated coconut for the best rich and nutty flavor.',
+          'You can adjust the amount of coconut based on how rich you prefer the dish.',
           'For a spicier version, add finely chopped extra green chilies during tempering.',
           'This dish can be stored in the refrigerator for up to 2 days.',
           'The peanuts add a nice crunch and protein to the dish.'
@@ -446,8 +445,8 @@ export const recipes: Record<string, Recipe> = {
       {
         title: 'Variations',
         content: [
-          'Add grated coconut for a richer flavor and texture.',
-          'Include roasted cashews for extra crunch and luxury.',
+          'Add roasted cashews for extra crunch and luxury.',
+          'Include fresh curry leaves for enhanced aroma.',
           'Try with different types of rice like brown rice or basmati rice.',
           'Add finely chopped vegetables like carrots or beans for extra nutrition.',
           'For a more traditional taste, use coconut oil instead of regular oil.'
@@ -470,42 +469,47 @@ export const recipes: Record<string, Recipe> = {
     tags: ['sandwich', 'vegetable', 'healthy', 'quick-meal', 'vegetarian'],
     ingredients: [
       '4 slices of whole wheat bread',
-      '1 medium potato, boiled and sliced',
-      '1 medium cucumber, thinly sliced',
       '1 medium tomato, thinly sliced',
-      '1 small onion, thinly sliced',
+      '1 onion, thinly sliced',
+      '1/2 cup cottage cheese, chopped',
+      '1 cup of cheese spread',
+      '1/2 cup of grated cheese',
+      '3-4 green chilies, chopped',
       '1/2 cup mixed bell peppers, thinly sliced',
       '1/4 cup fresh coriander leaves, chopped',
       '2 tablespoons butter or ghee',
       '1/2 teaspoon chaat masala',
-      '1/2 teaspoon black pepper powder',
       'Salt to taste',
-      '1/4 cup mint chutney (optional)',
-      '1/4 cup tomato ketchup (optional)'
+      '1/4 cup schezwan chutney (optional)',
+      '1/4 cup mayonnaise (optional)'
     ],
     instructions: [
       {
         step: 1,
-        title: 'Prepare the Vegetables',
-        description: 'Wash and prepare all vegetables. Boil the potato until tender, then slice it. Thinly slice cucumber, tomato, onion, and bell peppers. Chop fresh coriander leaves.',
-        images: ['/images/recipes/veg-sandwich/img1.jpeg']
+        title: 'Prepare the Ingredients',
+        description: 'Wash and prepare all vegetables. Thinly slice tomato, onion, and bell peppers. Chop fresh coriander leaves and green chilies. Chop cottage cheese into small pieces.',
+        images: ['/images/recipes/veg-sandwich/img1.jpeg', '/images/recipes/veg-sandwich/img2.jpeg']
       },
       {
         step: 2,
         title: 'Season the Vegetables',
-        description: 'In a bowl, mix the sliced vegetables with chaat masala, black pepper powder, and salt. Let them marinate for 5 minutes to enhance the flavors.',
-        images: ['/images/recipes/veg-sandwich/img2.jpeg']
+        description: 'In a bowl, mix the sliced vegetables, chopped cottage cheese, and green chilies with chaat masala, mayonnaise, schezwan chutney and salt. Let them marinate for 5 minutes to enhance the flavors.',
+        images: ['/images/recipes/veg-sandwich/img3.jpeg']
       },
       {
         step: 3,
         title: 'Assemble the Sandwich',
-        description: 'Take two slices of bread and spread butter or ghee on one side of each slice. Layer the seasoned vegetables evenly on one slice, starting with potato slices as the base.',
-        images: ['/images/recipes/veg-sandwich/img3.jpeg']
+        description: 'Take two slices of bread and spread butter or ghee on one side of each slice. Apply cheese spread on both slices(optional). Layer the seasoned vegetables and cottage cheese evenly on one slice.',
       },
       {
         step: 4,
-        title: 'Add Spreads and Close',
-        description: 'Add mint chutney or tomato ketchup if desired. Place the second slice of bread on top with the buttered side facing down. Press gently to hold the sandwich together.',
+        title: 'Roast the Sandwich and Close',
+        description: 'Sprinkle grated cheese on top of the vegetables. Place the second slice of bread on top with the buttered side facing down. Roast the sandwich in a pan until the bread is golden brown and the cheese is melted.',
+      },
+      {
+        step: 5,
+        title: 'Serve the Sandwich',
+        description: 'Cut the sandwich into halves and serve with a side of tomato ketchup or schezwan chutney.',
         images: ['/images/recipes/veg-sandwich/img4.jpeg']
       }
     ],
@@ -514,7 +518,6 @@ export const recipes: Record<string, Recipe> = {
         title: 'Tips',
         content: [
           'Use fresh, crisp vegetables for the best texture and flavor.',
-          'You can add cheese slices for extra flavor and protein.',
           'For a healthier option, use whole grain or multigrain bread.',
           'The sandwich can be served immediately or wrapped for later consumption.',
           'Adjust the spices according to your taste preference.'
@@ -523,7 +526,6 @@ export const recipes: Record<string, Recipe> = {
       {
         title: 'Variations',
         content: [
-          'Add paneer slices for a protein-rich version.',
           'Include avocado slices for a creamy texture.',
           'Try with different breads like sourdough or rye bread.',
           'Add sprouts for extra nutrition and crunch.',
@@ -534,7 +536,7 @@ export const recipes: Record<string, Recipe> = {
   },
   'bisi-bele-bath': {
     id: 'bisi-bele-bath',
-    title: 'Hot Lentil Rice',
+    title: 'Hot Lentil Millet',
     subtitle: '"ಬಿಸಿ ಬೇಳೆ ಬಾತ್" - Bisi Bele Bath',
     description: 'A traditional Karnataka rice dish made with rice, lentils, vegetables, and aromatic spices. This one-pot meal is rich in flavors and nutrients, perfect for lunch or dinner. The dish gets its name from "bisi" (hot), "bele" (lentils), and "bath" (rice dish).',
     cookingTime: '25 mins',
@@ -546,22 +548,18 @@ export const recipes: Record<string, Recipe> = {
     category: ['dinner', 'vegetarian', 'between-30-60-min'],
     tags: ['bisi-bele-bath', 'karnataka', 'rice-dish', 'lentils', 'vegetarian', 'one-pot'],
     ingredients: [
-      '1 cup rice',
+      '1/2 cup millet(Barnyard or Pearl Millet)',
       '1/2 cup toor dal',
-      '1/4 cup chana dal',
-      '2 cups mixed vegetables (carrots, beans, peas, potatoes)',
-      '1 large onion, finely chopped',
-      '2 tomatoes, chopped',
+      '2-3 tablespoons of moong dal',
+      '2 cups mixed vegetables (carrots, beans, peas, potatoes, bell peppers, onions, tomatoes, kohlrabi, turnips, etc)',
       '1/4 cup tamarind pulp',
       '2 tablespoons oil or ghee',
       '1 teaspoon mustard seeds',
       '1 teaspoon cumin seeds',
       '1/2 teaspoon turmeric powder',
       '1 teaspoon red chili powder',
-      '1 teaspoon garam masala',
+      '2-3 tablespoons of bisi bele bath powder',
       '10-12 curry leaves',
-      '2-3 green chilies, slit',
-      '1 inch ginger, grated',
       '4-5 garlic cloves, minced',
       '1/4 cup fresh coriander leaves',
       'Salt to taste',
@@ -571,38 +569,36 @@ export const recipes: Record<string, Recipe> = {
       {
         step: 1,
         title: 'Prepare the Ingredients',
-        description: 'Wash rice and lentils together. Chop all vegetables - carrots, beans, peas, and potatoes. Finely chop onions and tomatoes. Prepare tamarind pulp by soaking tamarind in warm water.',
-        images: ['/images/recipes/bisi-bele-bath/img1.jpeg']
+        description: 'Wash millet and lentils together. Chop all vegetables - carrots, beans, peas, potatoes, bell peppers, onions, tomatoes, kohlrabi, and turnips. Prepare tamarind pulp by soaking tamarind in warm water.',
+        images: ['/images/recipes/bisi-bele-bath/img1.jpeg', '/images/recipes/bisi-bele-bath/img2.jpeg']
       },
       {
         step: 2,
-        title: 'Cook Rice and Lentils',
-        description: 'In a pressure cooker, add rice, toor dal, chana dal, and 2 cups of water. Cook for 2-3 whistles until the rice and lentils are soft and well-cooked.',
-        images: ['/images/recipes/bisi-bele-bath/img2.jpeg']
-      },
-      {
-        step: 3,
-        title: 'Prepare the Tempering',
-        description: 'Heat oil or ghee in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, green chilies, ginger, and garlic. Sauté until fragrant.',
+        title: 'Cook Millet and Lentils',
+        description: 'In a pressure cooker, add millet, toor dal, moong dal, and 2 cups of water. Cook for 2-3 whistles until the millet and lentils are soft and well-cooked.',
         images: ['/images/recipes/bisi-bele-bath/img3.jpeg']
       },
       {
+        step: 3,
+        title: 'Boil the Vegetables',
+        description: 'Boil all the vegetables in a pressure cooker for 2-3 minutes until they are tender. Do not overcook them.',
+      },
+      {
         step: 4,
-        title: 'Add Vegetables and Spices',
-        description: 'Add chopped onions and sauté until translucent. Add all the mixed vegetables and cook for 3-4 minutes. Add turmeric powder, red chili powder, and garam masala.',
+        title: 'Combine with Cooked Millet and Lentils',
+        description: 'Add the cooked millet and lentils to the vegetable mixture. Add tamarind pulp and salt. Add bisi bele bath powder, red chili powder and mix well. Cook for 5-7 minutes until everything is well combined.',
         images: ['/images/recipes/bisi-bele-bath/img4.jpeg']
       },
       {
         step: 5,
-        title: 'Combine with Cooked Rice and Lentils',
-        description: 'Add the cooked rice and lentils to the vegetable mixture. Add tamarind pulp and salt. Mix well and cook for 5-7 minutes until everything is well combined.',
-        images: ['/images/recipes/bisi-bele-bath/img5.jpeg']
+        title: 'Add Water and Simmer',
+        description: 'Add remaining water and bring to a boil. Reduce heat and simmer for 10-15 minutes until the mixture thickens and all flavors are well incorporated.',
       },
       {
         step: 6,
-        title: 'Add Water and Simmer',
-        description: 'Add remaining water and bring to a boil. Reduce heat and simmer for 10-15 minutes until the mixture thickens and all flavors are well incorporated.',
-        images: ['/images/recipes/bisi-bele-bath/img6.jpeg']
+        title: 'Tempering the Dish',
+        description: 'Add oil in a pan and add mustard seeds, cumin seeds, curry leaves, asafoetida, groundnut, and garlic. Add onion and bell peppers and cook until they are soft. Let them splutter and pour this tempering over the bisi bele bath.',
+        images: ['/images/recipes/bisi-bele-bath/img5.jpeg', '/images/recipes/bisi-bele-bath/img6.jpeg']
       },
       {
         step: 7,
@@ -619,7 +615,8 @@ export const recipes: Record<string, Recipe> = {
           'Adjust the amount of tamarind based on your preference for tanginess.',
           'You can add more vegetables like eggplant or drumsticks for variety.',
           'The dish should have a porridge-like consistency - not too thick or too thin.',
-          'Let it rest for 5 minutes after cooking for better flavor development.'
+          'Let it rest for 5 minutes after cooking for better flavor development.',
+          'Use authentic bisi bele bath powder for the best traditional taste.'
         ]
       },
       {
@@ -627,9 +624,10 @@ export const recipes: Record<string, Recipe> = {
         content: [
           'Add coconut milk for a richer, creamier texture.',
           'Include roasted peanuts or cashews for extra crunch.',
-          'Try with different types of lentils for varied nutrition.',
+          'Try with different types of millets like foxtail millet or finger millet.',
           'Add a dollop of ghee on top before serving for enhanced flavor.',
-          'Serve with coconut chutney or tomato chutney for a complete meal.'
+          'Serve with coconut chutney or tomato chutney for a complete meal.',
+          'Use different combinations of vegetables based on seasonal availability.'
         ]
       }
     ]
@@ -649,102 +647,80 @@ export const recipes: Record<string, Recipe> = {
     tags: ['sambhar', 'lentils', 'vegetables', 'south-indian', 'vegetarian', 'dal'],
     ingredients: [
       '1 cup toor dal',
-      '2 cups mixed vegetables (carrots, beans, peas, potatoes, eggplant)',
-      '1 large onion, finely chopped',
-      '2 tomatoes, chopped',
+      '2 cups mixed vegetables (drumsticks, carrots, turnips, tomatoes, bottle gourd, potatoes, chow chow)',
+      '1 sambhar onion, finely chopped',
       '1/4 cup tamarind pulp',
       '2 tablespoons oil',
       '1 teaspoon mustard seeds',
       '1 teaspoon cumin seeds',
       '1/2 teaspoon turmeric powder',
-      '1 teaspoon red chili powder',
       '1 teaspoon sambhar powder',
       '10-12 curry leaves',
-      '2-3 green chilies, slit',
-      '1 inch ginger, grated',
-      '4-5 garlic cloves, minced',
+      '4-5 garlic cloves',
       '1/4 cup fresh coriander leaves',
       'Salt to taste',
-      '3 cups water'
+      '3 cups water',
+      'Pinch of asafoetida'
     ],
     instructions: [
       {
         step: 1,
         title: 'Prepare the Ingredients',
-        description: 'Wash toor dal thoroughly. Chop all vegetables - carrots, beans, peas, potatoes, and eggplant. Finely chop onions and tomatoes. Prepare tamarind pulp by soaking tamarind in warm water.',
-        images: ['/images/recipes/veg-sambhar/img1.jpeg']
+        description: 'Wash toor dal thoroughly. Chop all vegetables - drumsticks, carrots, turnips, tomatoes, bottle gourd, potatoes, and chow chow. Finely chop sambhar onion. Prepare tamarind pulp by soaking tamarind in warm water.',
+        images: ['/images/recipes/veg-sambhar/img1.jpeg', '/images/recipes/veg-sambhar/img2.jpeg', '/images/recipes/veg-sambhar/img4.jpeg']
       },
       {
         step: 2,
         title: 'Cook the Dal',
-        description: 'In a pressure cooker, add toor dal and 2 cups of water. Cook for 3-4 whistles until the dal is soft and well-cooked. Mash the dal slightly and set aside.',
-        images: ['/images/recipes/veg-sambhar/img2.jpeg']
+        description: 'In a pressure cooker, add toor dal, oil and 2 cups of water. Add turmeric powder and garlic cloves. Cook for 3-4 whistles until the dal is soft and well-cooked. Mash the dal slightly and set aside.',
+        images: ['/images/recipes/veg-sambhar/img5.jpeg', '/images/recipes/veg-sambhar/img6.jpeg']
       },
       {
         step: 3,
-        title: 'Prepare the Tempering',
-        description: 'Heat oil in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, green chilies, ginger, and garlic. Sauté until fragrant.',
-        images: ['/images/recipes/veg-sambhar/img3.jpeg']
-      },
-      {
-        step: 4,
-        title: 'Add Onions and Tomatoes',
-        description: 'Add chopped onions and sauté until translucent. Add chopped tomatoes and cook until they become soft and mushy.',
-        images: ['/images/recipes/veg-sambhar/img4.jpeg']
-      },
-      {
-        step: 5,
-        title: 'Add Vegetables and Spices',
-        description: 'Add all the mixed vegetables and cook for 3-4 minutes. Add turmeric powder, red chili powder, and sambhar powder. Mix well.',
-        images: ['/images/recipes/veg-sambhar/img5.jpeg']
-      },
-      {
-        step: 6,
-        title: 'Add Water and Cook Vegetables',
-        description: 'Add 1 cup of water and bring to a boil. Cook the vegetables until they are tender but not mushy.',
-        images: ['/images/recipes/veg-sambhar/img6.jpeg']
-      },
-      {
-        step: 7,
-        title: 'Add Cooked Dal',
-        description: 'Add the cooked and mashed toor dal to the vegetable mixture. Mix well and cook for 2-3 minutes.',
+        title: 'Fry Sambhar Onion',
+        description: 'Add sambhar onion to the oil and fry until it is soft and translucent.',
         images: ['/images/recipes/veg-sambhar/img7.jpeg']
       },
       {
+        step: 4,
+        title: 'Add Water and Cook Vegetables',
+        description: 'Add 1 cup of water and bring to a boil. Cook the vegetables until they are tender but not mushy.',
+        images: ['/images/recipes/veg-sambhar/img8.jpeg', '/images/recipes/veg-sambhar/img9.jpeg']
+      },
+      {
+        step: 5,
+        title: 'Mix the Vegetables with Dal',
+        description: 'Add the cooked and mashed toor dal to the vegetable mixture. Add tamarind pulp, salt, sambhar powder and mix well.',
+        images: ['/images/recipes/veg-sambhar/img10.jpeg']
+      },
+      {
+        step: 6,
+        title: 'Prepare the Tempering',
+        description: 'Heat oil in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, asafoetida. Sauté until fragrant.',
+        images: ['/images/recipes/veg-sambhar/img3.jpeg']
+      },
+      {
+        step: 7,
+        title: 'Mix Tempering with Sambhar',
+        description: 'Add the tempering to the sambhar and mix well. Boil for 5-7 minutes until all flavors are well combined.',
+      },
+      {
         step: 8,
-        title: 'Add Tamarind Pulp',
-        description: 'Add tamarind pulp and salt. Mix well and bring to a boil. Cook for 5-7 minutes until all flavors are well combined.',
-        images: ['/images/recipes/veg-sambhar/img8.jpeg']
-      },
-      {
-        step: 9,
-        title: 'Prepare Final Tempering',
-        description: 'In a small pan, heat a little oil. Add mustard seeds, cumin seeds, and curry leaves. Let them splutter and pour this tempering over the sambhar.',
-        images: ['/images/recipes/veg-sambhar/img9.jpeg']
-      },
-      {
-        step: 10,
         title: 'Add Fresh Herbs',
         description: 'Add fresh coriander leaves and mix gently. Let the sambhar simmer for 2-3 minutes to enhance the flavors.',
         images: ['/images/recipes/veg-sambhar/img10.jpeg']
       },
       {
-        step: 11,
+        step: 9,
         title: 'Check Consistency',
         description: 'The sambhar should have a medium consistency - not too thick or too thin. Add more water if needed and adjust salt to taste.',
         images: ['/images/recipes/veg-sambhar/img11.jpeg']
       },
       {
-        step: 12,
-        title: 'Final Garnish',
-        description: 'Garnish with additional fresh coriander leaves. The sambhar should have a perfect balance of tangy, spicy, and savory flavors.',
-        images: ['/images/recipes/veg-sambhar/img12.jpeg']
-      },
-      {
-        step: 13,
+        step: 10,
         title: 'Serve Hot',
         description: 'Serve hot with steamed rice, idli, dosa, or any South Indian bread. The sambhar should be piping hot and full of flavor.',
-        images: ['/images/recipes/veg-sambhar/img13.jpeg']
+        images: ['/images/recipes/veg-sambhar/img12.jpeg']
       }
     ],
     notes: [
@@ -753,10 +729,11 @@ export const recipes: Record<string, Recipe> = {
         content: [
           'Use fresh vegetables for the best taste and texture.',
           'Adjust the amount of tamarind based on your preference for tanginess.',
-          'You can add more vegetables like drumsticks, okra, or pumpkin for variety.',
+          'You can add more vegetables like okra or pumpkin for variety.',
           'The sambhar should have a medium consistency - not too thick or too thin.',
           'Let it rest for 5 minutes after cooking for better flavor development.',
-          'Use homemade sambhar powder for authentic taste.'
+          'Use homemade sambhar powder for authentic taste.',
+          'Sambhar onion gives a unique flavor compared to regular onions.'
         ]
       },
       {
@@ -767,7 +744,7 @@ export const recipes: Record<string, Recipe> = {
           'Try with different types of lentils like moong dal or masoor dal.',
           'Add a dollop of ghee on top before serving for enhanced flavor.',
           'Serve with coconut chutney or tomato chutney for a complete meal.',
-          'Add drumsticks for a traditional touch.'
+          'Use different combinations of vegetables based on seasonal availability.'
         ]
       }
     ]

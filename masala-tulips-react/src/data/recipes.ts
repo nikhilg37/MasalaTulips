@@ -470,42 +470,47 @@ export const recipes: Record<string, Recipe> = {
     tags: ['sandwich', 'vegetable', 'healthy', 'quick-meal', 'vegetarian'],
     ingredients: [
       '4 slices of whole wheat bread',
-      '1 medium potato, boiled and sliced',
-      '1 medium cucumber, thinly sliced',
       '1 medium tomato, thinly sliced',
-      '1 small onion, thinly sliced',
+      '1 onion, thinly sliced',
+      '1/2 cup cottage cheese, chopped',
+      '1 cup of cheese spread',
+      '1/2 cup of grated cheese',
+      '3-4 green chilies, chopped',
       '1/2 cup mixed bell peppers, thinly sliced',
       '1/4 cup fresh coriander leaves, chopped',
       '2 tablespoons butter or ghee',
       '1/2 teaspoon chaat masala',
-      '1/2 teaspoon black pepper powder',
       'Salt to taste',
-      '1/4 cup mint chutney (optional)',
-      '1/4 cup tomato ketchup (optional)'
+      '1/4 cup schezwan chutney (optional)',
+      '1/4 cup mayonnaise (optional)'
     ],
     instructions: [
       {
         step: 1,
-        title: 'Prepare the Vegetables',
-        description: 'Wash and prepare all vegetables. Boil the potato until tender, then slice it. Thinly slice cucumber, tomato, onion, and bell peppers. Chop fresh coriander leaves.',
-        images: ['/images/recipes/veg-sandwich/img1.jpeg']
+        title: 'Prepare the Ingredients',
+        description: 'Wash and prepare all vegetables. Thinly slice tomato, onion, and bell peppers. Chop fresh coriander leaves and green chilies. Chop cottage cheese into small pieces.',
+        images: ['/images/recipes/veg-sandwich/img1.jpeg', '/images/recipes/veg-sandwich/img2.jpeg']
       },
       {
         step: 2,
         title: 'Season the Vegetables',
-        description: 'In a bowl, mix the sliced vegetables with chaat masala, black pepper powder, and salt. Let them marinate for 5 minutes to enhance the flavors.',
-        images: ['/images/recipes/veg-sandwich/img2.jpeg']
+        description: 'In a bowl, mix the sliced vegetables, chopped cottage cheese, and green chilies with chaat masala, mayonnaise, schezwan chutney and salt. Let them marinate for 5 minutes to enhance the flavors.',
+        images: ['/images/recipes/veg-sandwich/img3.jpeg']
       },
       {
         step: 3,
         title: 'Assemble the Sandwich',
-        description: 'Take two slices of bread and spread butter or ghee on one side of each slice. Layer the seasoned vegetables evenly on one slice, starting with potato slices as the base.',
-        images: ['/images/recipes/veg-sandwich/img3.jpeg']
+        description: 'Take two slices of bread and spread butter or ghee on one side of each slice. Apply cheese spread on both slices(optional). Layer the seasoned vegetables and cottage cheese evenly on one slice.',
       },
       {
         step: 4,
-        title: 'Add Spreads and Close',
-        description: 'Add mint chutney or tomato ketchup if desired. Place the second slice of bread on top with the buttered side facing down. Press gently to hold the sandwich together.',
+        title: 'Roast the Sandwich and Close',
+        description: 'Sprinkle grated cheese on top of the vegetables. Place the second slice of bread on top with the buttered side facing down. Roast the sandwich in a pan until the bread is golden brown and the cheese is melted.',
+      },
+      {
+        step: 5,
+        title: 'Serve the Sandwich',
+        description: 'Cut the sandwich into halves and serve with a side of tomato ketchup or schezwan chutney.',
         images: ['/images/recipes/veg-sandwich/img4.jpeg']
       }
     ],
@@ -514,7 +519,6 @@ export const recipes: Record<string, Recipe> = {
         title: 'Tips',
         content: [
           'Use fresh, crisp vegetables for the best texture and flavor.',
-          'You can add cheese slices for extra flavor and protein.',
           'For a healthier option, use whole grain or multigrain bread.',
           'The sandwich can be served immediately or wrapped for later consumption.',
           'Adjust the spices according to your taste preference.'
@@ -523,7 +527,6 @@ export const recipes: Record<string, Recipe> = {
       {
         title: 'Variations',
         content: [
-          'Add paneer slices for a protein-rich version.',
           'Include avocado slices for a creamy texture.',
           'Try with different breads like sourdough or rye bread.',
           'Add sprouts for extra nutrition and crunch.',

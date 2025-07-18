@@ -536,7 +536,7 @@ export const recipes: Record<string, Recipe> = {
   },
   'bisi-bele-bath': {
     id: 'bisi-bele-bath',
-    title: 'Hot Lentil Rice',
+    title: 'Hot Lentil Millet',
     subtitle: '"ಬಿಸಿ ಬೇಳೆ ಬಾತ್" - Bisi Bele Bath',
     description: 'A traditional Karnataka rice dish made with rice, lentils, vegetables, and aromatic spices. This one-pot meal is rich in flavors and nutrients, perfect for lunch or dinner. The dish gets its name from "bisi" (hot), "bele" (lentils), and "bath" (rice dish).',
     cookingTime: '25 mins',
@@ -548,22 +548,18 @@ export const recipes: Record<string, Recipe> = {
     category: ['dinner', 'vegetarian', 'between-30-60-min'],
     tags: ['bisi-bele-bath', 'karnataka', 'rice-dish', 'lentils', 'vegetarian', 'one-pot'],
     ingredients: [
-      '1 cup rice',
+      '1/2 cup millet(Barnyard or Pearl Millet)',
       '1/2 cup toor dal',
-      '1/4 cup chana dal',
-      '2 cups mixed vegetables (carrots, beans, peas, potatoes)',
-      '1 large onion, finely chopped',
-      '2 tomatoes, chopped',
+      '2-3 tablespoons of moong dal',
+      '2 cups mixed vegetables (carrots, beans, peas, potatoes, bell peppers, onions, tomatoes, kohlrabi, turnips, etc)',
       '1/4 cup tamarind pulp',
       '2 tablespoons oil or ghee',
       '1 teaspoon mustard seeds',
       '1 teaspoon cumin seeds',
       '1/2 teaspoon turmeric powder',
       '1 teaspoon red chili powder',
-      '1 teaspoon garam masala',
+      '2-3 tablespoons of bisi bele bath powder',
       '10-12 curry leaves',
-      '2-3 green chilies, slit',
-      '1 inch ginger, grated',
       '4-5 garlic cloves, minced',
       '1/4 cup fresh coriander leaves',
       'Salt to taste',
@@ -573,38 +569,36 @@ export const recipes: Record<string, Recipe> = {
       {
         step: 1,
         title: 'Prepare the Ingredients',
-        description: 'Wash rice and lentils together. Chop all vegetables - carrots, beans, peas, and potatoes. Finely chop onions and tomatoes. Prepare tamarind pulp by soaking tamarind in warm water.',
-        images: ['/images/recipes/bisi-bele-bath/img1.jpeg']
+        description: 'Wash millet and lentils together. Chop all vegetables - carrots, beans, peas, potatoes, bell peppers, onions, tomatoes, kohlrabi, and turnips. Prepare tamarind pulp by soaking tamarind in warm water.',
+        images: ['/images/recipes/bisi-bele-bath/img1.jpeg', '/images/recipes/bisi-bele-bath/img2.jpeg']
       },
       {
         step: 2,
-        title: 'Cook Rice and Lentils',
-        description: 'In a pressure cooker, add rice, toor dal, chana dal, and 2 cups of water. Cook for 2-3 whistles until the rice and lentils are soft and well-cooked.',
-        images: ['/images/recipes/bisi-bele-bath/img2.jpeg']
-      },
-      {
-        step: 3,
-        title: 'Prepare the Tempering',
-        description: 'Heat oil or ghee in a large pan. Add mustard seeds and cumin seeds. Let them splutter, then add curry leaves, green chilies, ginger, and garlic. Sauté until fragrant.',
+        title: 'Cook Millet and Lentils',
+        description: 'In a pressure cooker, add millet, toor dal, moong dal, and 2 cups of water. Cook for 2-3 whistles until the millet and lentils are soft and well-cooked.',
         images: ['/images/recipes/bisi-bele-bath/img3.jpeg']
       },
       {
+        step: 3,
+        title: 'Boil the Vegetables',
+        description: 'Boil all the vegetables in a pressure cooker for 2-3 minutes until they are tender. Do not overcook them.',
+      },
+      {
         step: 4,
-        title: 'Add Vegetables and Spices',
-        description: 'Add chopped onions and sauté until translucent. Add all the mixed vegetables and cook for 3-4 minutes. Add turmeric powder, red chili powder, and garam masala.',
+        title: 'Combine with Cooked Millet and Lentils',
+        description: 'Add the cooked millet and lentils to the vegetable mixture. Add tamarind pulp and salt. Add bisi bele bath powder, red chili powder and mix well. Cook for 5-7 minutes until everything is well combined.',
         images: ['/images/recipes/bisi-bele-bath/img4.jpeg']
       },
       {
         step: 5,
-        title: 'Combine with Cooked Rice and Lentils',
-        description: 'Add the cooked rice and lentils to the vegetable mixture. Add tamarind pulp and salt. Mix well and cook for 5-7 minutes until everything is well combined.',
-        images: ['/images/recipes/bisi-bele-bath/img5.jpeg']
+        title: 'Add Water and Simmer',
+        description: 'Add remaining water and bring to a boil. Reduce heat and simmer for 10-15 minutes until the mixture thickens and all flavors are well incorporated.',
       },
       {
         step: 6,
-        title: 'Add Water and Simmer',
-        description: 'Add remaining water and bring to a boil. Reduce heat and simmer for 10-15 minutes until the mixture thickens and all flavors are well incorporated.',
-        images: ['/images/recipes/bisi-bele-bath/img6.jpeg']
+        title: 'Tempering the Dish',
+        description: 'Add oil in a pan and add mustard seeds, cumin seeds, curry leaves, asafoetida, groundnut, and garlic. Add onion and bell peppers and cook until they are soft. Let them splutter and pour this tempering over the bisi bele bath.',
+        images: ['/images/recipes/bisi-bele-bath/img5.jpeg', '/images/recipes/bisi-bele-bath/img6.jpeg']
       },
       {
         step: 7,
@@ -621,7 +615,8 @@ export const recipes: Record<string, Recipe> = {
           'Adjust the amount of tamarind based on your preference for tanginess.',
           'You can add more vegetables like eggplant or drumsticks for variety.',
           'The dish should have a porridge-like consistency - not too thick or too thin.',
-          'Let it rest for 5 minutes after cooking for better flavor development.'
+          'Let it rest for 5 minutes after cooking for better flavor development.',
+          'Use authentic bisi bele bath powder for the best traditional taste.'
         ]
       },
       {
@@ -629,9 +624,10 @@ export const recipes: Record<string, Recipe> = {
         content: [
           'Add coconut milk for a richer, creamier texture.',
           'Include roasted peanuts or cashews for extra crunch.',
-          'Try with different types of lentils for varied nutrition.',
+          'Try with different types of millets like foxtail millet or finger millet.',
           'Add a dollop of ghee on top before serving for enhanced flavor.',
-          'Serve with coconut chutney or tomato chutney for a complete meal.'
+          'Serve with coconut chutney or tomato chutney for a complete meal.',
+          'Use different combinations of vegetables based on seasonal availability.'
         ]
       }
     ]

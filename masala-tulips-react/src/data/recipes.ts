@@ -261,7 +261,7 @@ export const recipes: Record<string, Recipe> = {
     totalTime: '15 mins',
     cuisine: 'South Indian',
     type: 'Vegetarian',
-    mainImage: '/images/recipes/mint-chutney/im6.jpeg',
+    mainImage: '/images/recipes/mint-chutney/img6.jpeg',
     category: ['side-dish', 'all-recipes', 'upto-30-min'],
     tags: ['chutney', 'mint', 'dip', 'condiment', 'vegetarian'],
     ingredients: [
@@ -278,26 +278,26 @@ export const recipes: Record<string, Recipe> = {
         step: 1,
         title: 'Prepare the Ingredients',
         description: 'Wash the mint and coriander leaves thoroughly. Roughly chop the green chilies and tamrind.',
-        images: ['/images/recipes/mint-chutney/im2.jpeg']
+        images: ['/images/recipes/mint-chutney/img2.jpeg']
       },
       {
         step: 2,
         title: 'Fry the Ingredients',
         description: 'Fry the chopped mint, green chilies for 2-3 minutes.',
-        images: ['/images/recipes/mint-chutney/im3.jpeg', '/images/recipes/mint-chutney/im4.jpeg']
+        images: ['/images/recipes/mint-chutney/img3.jpeg', '/images/recipes/mint-chutney/img4.jpeg']
       },
       {
         step: 3,
         title: 'Add the Ingredients to the Blender',
         description: 'Add the fried mint, green chilies, tamrind, salt to the blender. Blend to a smooth paste. The add chopped coriander leaves and blend again.',
-        images: ['/images/recipes/mint-chutney/im5.jpeg']
+        images: ['/images/recipes/mint-chutney/img5.jpeg']
       },
 
       {
         step: 4,
         title: 'Serve',
         description: 'Transfer the chutney to a bowl. Serve immediately as a dip with snacks or as a side with Indian meals. Store leftovers in the refrigerator for up to 2 days.',
-        images: ['/images/recipes/mint-chutney/im6.jpeg']
+        images: ['/images/recipes/mint-chutney/img6.jpeg']
       }
     ],
     notes: [

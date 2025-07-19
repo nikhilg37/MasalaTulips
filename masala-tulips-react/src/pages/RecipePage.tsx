@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getRecipeBySlug } from '../data/recipes';
+import { getRecipeBySlug, getAllRecipes } from '../data/recipes';
 import '../styles/RecipePage.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 
@@ -43,6 +43,65 @@ const RecipePage: React.FC = () => {
       ...prev,
       [name]: value
     }));
+  };
+
+  // Function to get related recipes based on categories and tags
+  const getRelatedRecipes = (currentRecipe: any) => {
+    const allRecipes = getAllRecipes();
+    const relatedRecipes = allRecipes
+      .filter(recipe => recipe.id !== currentRecipe.id) // Exclude current recipe
+      .map(recipe => {
+        // Calculate similarity score based on shared categories and tags
+        const sharedCategories = recipe.category.filter((cat: string) => 
+          currentRecipe.category.includes(cat)
+        );
+        const sharedTags = recipe.tags.filter((tag: string) => 
+          currentRecipe.tags.includes(tag)
+        );
+        
+        // Score: categories worth more than tags
+        const score = (sharedCategories.length * 2) + sharedTags.length;
+        
+        return { recipe, score };
+      })
+      .filter(item => item.score > 0) // Only include recipes with some similarity
+      .sort((a, b) => b.score - a.score) // Sort by similarity score
+      .slice(0, 3) // Limit to 3 related recipes
+      .map(item => item.recipe);
+    
+    return relatedRecipes;
+  };
+
+  // Function to get category links based on recipe categories
+  const getCategoryLinks = (currentRecipe: any) => {
+    const categoryMap: { [key: string]: string } = {
+      'breakfast': 'Breakfast Recipes',
+      'lunch': 'Lunch Recipes', 
+      'dinner': 'Dinner Recipes',
+      'side-dish': 'Side Dish Recipes',
+      'drinks': 'Drinks',
+      'kids-options': 'Kids Options',
+      'vegetarian': 'Vegetarian Recipes',
+      'quick': 'Under 30 Minutes',
+      'upto-30-min': 'Under 30 Minutes',
+      'between-30-60-min': '30-60 Minutes',
+      'between-60-90-min': '60-90 Minutes',
+      'all-recipes': 'All Recipes'
+    };
+
+    const categoryLinks = currentRecipe.category
+      .filter((cat: string) => categoryMap[cat])
+      .map((cat: string) => ({
+        path: cat === 'quick' ? '/recipe-categories/upto-30-min' : `/recipe-categories/${cat}`,
+        label: categoryMap[cat]
+      }));
+    
+    // Remove duplicates based on path
+    const uniqueLinks = categoryLinks.filter((link: { path: string; label: string }, index: number, self: { path: string; label: string }[]) => 
+      index === self.findIndex((l: { path: string; label: string }) => l.path === link.path)
+    );
+    
+    return uniqueLinks;
   };
 
   // Get last visited category from sessionStorage
@@ -157,12 +216,36 @@ const RecipePage: React.FC = () => {
         {/* Related Recipes Section */}
         <div className="notes-section">
           <h2>Related Recipes & Categories</h2>
-          <ul className="ingredients-list">
-            <li><Link to="/recipe/vegetable-pulao">Tharakari Pulao (Vegetable Pulao)</Link></li>
-            <li><Link to="/recipe-categories/vegetarian">See all Vegetarian Recipes</Link></li>
-            <li><Link to="/recipe-categories/lunch">See all Lunch Recipes</Link></li>
-            <li><Link to="/recipe-categories/all-recipes">Browse All Recipes</Link></li>
-          </ul>
+          <div className="related-content">
+            {/* Related Recipes */}
+            {getRelatedRecipes(recipe).length > 0 && (
+              <div className="related-recipes">
+                <h3>Related Recipes</h3>
+                <ul className="ingredients-list">
+                  {getRelatedRecipes(recipe).map((relatedRecipe) => (
+                    <li key={relatedRecipe.id}>
+                      <Link to={`/recipe/${relatedRecipe.id}`}>
+                        {relatedRecipe.title} - {relatedRecipe.subtitle}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            
+            {/* Category Links */}
+            <div className="category-links">
+              <h3>Browse by Category</h3>
+              <ul className="ingredients-list">
+                {getCategoryLinks(recipe).map((category: { path: string; label: string }, index: number) => (
+                  <li key={index}>
+                    <Link to={category.path}>See all {category.label}</Link>
+                  </li>
+                ))}
+                <li><Link to="/recipe-categories/all-recipes">Browse All Recipes</Link></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 

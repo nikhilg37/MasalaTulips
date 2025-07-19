@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import { Recipe } from '../data/recipes';
 import '../styles/RecipeList.css';
 
+// Function to check if a recipe is quick (30 minutes or less)
+const isQuickRecipe = (totalTime: string): boolean => {
+  const timeInMinutes = parseInt(totalTime.replace(' mins', ''));
+  return timeInMinutes <= 30;
+};
+
 interface RecipeListProps {
   title: string;
   description: string;
@@ -50,15 +56,20 @@ const RecipeList: React.FC<RecipeListProps> = ({
                 />
                 <div className="recipe-content">
                   <h3>{recipe.title} - {recipe.subtitle}</h3>
-                  <p className="recipe-meta">
-                    {recipe.totalTime} • {recipe.type}
-                    {recipe.category.includes('breakfast') && ' • Breakfast'}
-                    {recipe.category.includes('lunch') && ' • Lunch'}
-                    {recipe.category.includes('dinner') && ' • Dinner'}
-                    {recipe.category.includes('side-dish') && ' • Side Dish'}
-                    {recipe.category.includes('drinks') && ' • Drinks'}
-                    {recipe.category.includes('kids-options') && ' • Kids Options'}
-                  </p>
+                                          <div className="recipe-meta">
+                          <span className="time-indicator">
+                            <i className="far fa-clock"></i>
+                            {recipe.totalTime}
+                          </span>
+                          <span className="category-badge vegetarian">{recipe.type}</span>
+                          {recipe.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
+                          {recipe.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
+                          {recipe.category.includes('dinner') && <span className="category-badge dinner">Dinner</span>}
+                          {recipe.category.includes('side-dish') && <span className="category-badge side-dish">Side Dish</span>}
+                          {recipe.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
+                          {recipe.category.includes('kids-options') && <span className="category-badge kids-options">Kids</span>}
+                          {(recipe.category.includes('quick') || isQuickRecipe(recipe.totalTime)) && <span className="category-badge quick">Quick</span>}
+                        </div>
                 </div>
               </Link>
             ))}

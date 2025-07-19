@@ -49,9 +49,9 @@
 .breadcrumbs {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem 0; /* Remove top padding to move breadcrumbs higher */
+    padding: 0.2rem 1.5rem 0; /* Slight top padding for better spacing */
     font-family: var(--body-font);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: var(--secondary-color);
     margin-bottom: 3.5rem; /* Increased space below breadcrumbs */
 }

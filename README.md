@@ -1,590 +1,256 @@
-# Masala Tulips - Indian Recipe Website
+# Masala Tulips - Traditional Indian Cooking Recipes
 
-A modern, responsive recipe website showcasing authentic Indian cuisine with a blend of Dutch hospitality. Built with React and TypeScript, featuring beautiful imagery, detailed recipes, and an intuitive user experience.
+A modern, responsive website showcasing traditional Indian cooking recipes with step-by-step instructions, beautiful photography, and cultural insights. Built with React, TypeScript, and modern web technologies.
 
-## 🌟 Live Site
-**Production:** [https://masalatulips.nl/](https://masalatulips.nl/)
+## 🌟 Features
 
-## 🚀 Tech Stack
+### 🍽️ Recipe Management
+- **10+ Traditional Recipes**: From South Indian classics to modern vegetarian dishes
+- **Step-by-Step Instructions**: Detailed cooking instructions with photos
+- **Ingredient Lists**: Comprehensive ingredient lists with measurements
+- **Cooking Times**: Prep time and cooking time for each recipe
+- **Categories**: Organized by meal type, cooking time, and popularity
+- **Search & Filter**: Easy navigation through recipe categories
 
-- **Frontend Framework**: React 19 with TypeScript
-- **Routing**: React Router v7
-- **Styling**: CSS3 with responsive design and CSS variables
-- **Build Tool**: Create React App
-- **Package Manager**: npm
-- **Icons**: Font Awesome 6
-- **Analytics**: Google Analytics & Google Tag Manager
-- **Deployment**: GitHub Pages with custom domain
-- **AdSense**: Google AdSense integration
+### 📱 Responsive Design
+- **Mobile-First**: Optimized for all device sizes
+- **Modern UI**: Clean, warm design with traditional Indian aesthetics
+- **Fast Loading**: Optimized images and performance
+- **Accessible**: WCAG compliant design
+
+### 🌍 International Food Blog
+- **Global Cuisine**: Food stories from around the world
+- **Restaurant Reviews**: Authentic dining experiences
+- **Cultural Insights**: Traditional cooking methods and ingredients
+- **Location-Based Content**: City-specific food adventures
+
+### 🔍 Enhanced SEO
+- **Dynamic Meta Tags**: Page-specific titles and descriptions
+- **Structured Data**: JSON-LD schema for rich search results
+- **Recipe Schema**: Enhanced recipe cards in search results
+- **Blog Schema**: Rich snippets for blog content
+- **Location SEO**: City and restaurant-specific content
+- **Comprehensive Tags**: Optimized for recipe searches
+
+## 🚀 Recent Updates
+
+### ✅ SEO Improvements (Latest)
+- **All 10 Recipes Enhanced**: Complete SEO optimization for every recipe
+- **Dynamic Page Titles**: Automatically generated per recipe
+- **Rich Meta Descriptions**: Comprehensive descriptions for better search visibility
+- **Structured Data**: JSON-LD schema for recipes, website, and organization
+- **Enhanced Tags**: Comprehensive keyword optimization
+- **Blog SEO**: International cuisine content optimization
+
+### ✅ Blog Section Redesign
+- **Unique Recipe Cards**: Warm, traditional theme matching site aesthetics
+- **Cleaner Ingredients Section**: Elegant text-based display with subtle backgrounds
+- **Improved Restaurant Section**: Consistent design with ingredients section
+- **Full Image Display**: `object-fit: contain` for complete image visibility
+- **Larger Images**: Increased from 250px to 320px height
+- **Removed Hover Effects**: Non-clickable cards for better UX
+- **Rating Section Removed**: Cleaner, more focused design
+
+### ✅ UI/UX Enhancements
+- **Bigger Breadcrumbs**: Increased font size from 0.9rem to 1.1rem
+- **Better Spacing**: Enhanced padding and margins for improved readability
+- **Consistent Typography**: Uniform sizing across all breadcrumb elements
+- **Improved Navigation**: More prominent and accessible breadcrumb navigation
+
+### ✅ Content Improvements
+- **Enhanced Recipe Descriptions**: Detailed explanations with cultural context
+- **Better Alt Text**: Comprehensive image descriptions for accessibility
+- **Location Information**: City and restaurant details for blog posts
+- **Cultural Context**: Traditional cooking methods and regional insights
+
+## 📋 Recipe Categories
+
+### 🍳 By Meal Type
+- **Breakfast**: Traditional morning meals
+- **Lunch**: Hearty midday dishes
+- **Dinner**: Evening comfort food
+
+### ⏱️ By Cooking Time
+- **Up to 30 Minutes**: Quick and easy recipes
+- **Up to 60 Minutes**: Moderate cooking time
+- **60+ Minutes**: Traditional slow-cooked dishes
+
+### 🌟 By Popularity
+- **Most Popular**: Trending recipes
+- **Vegetarian**: Plant-based dishes
+- **All Recipes**: Complete recipe collection
+
+## 🍽️ Featured Recipes
+
+### South Indian Classics
+- **Raw Mango Lemon Rice** - Tangy South Indian rice dish
+- **Coconut Lemon Rice** - Aromatic rice with fresh coconut
+- **Spicy Curd Rice** - Traditional yogurt rice
+- **Bisi Bele Bath** - Karnataka rice and lentil dish
+- **Veg Sambhar** - Traditional lentil stew
+
+### Modern Vegetarian
+- **Spinach Khichdi** - Easy one-pot Indian meal
+- **Vegetable Pulao** - Aromatic rice with mixed vegetables
+- **Vegetable Sandwich** - Quick and healthy Indian style
+
+### Condiments & Drinks
+- **Mint Chutney** - Fresh and spicy Indian condiment
+- **Strawberry Milkshake** - Refreshing homemade drink
+
+## 🌍 International Food Blog
+
+### European Cuisine
+- **Continental Breakfast** - European morning classic (Antwerp, Belgium)
+- **Burger & Fries** - Classic comfort combo (Amsterdam, Netherlands)
+- **Dutch Mushrooms** - Gebakken champignons (Almere, Netherlands)
+
+### Global Food Stories
+- Authentic restaurant experiences
+- Traditional cooking methods
+- Cultural food insights
+- Location-based culinary adventures
+
+## 🛠️ Technical Stack
+
+### Frontend
+- **React 18**: Modern React with hooks and functional components
+- **TypeScript**: Type-safe development
+- **CSS3**: Custom styling with CSS variables
+- **Responsive Design**: Mobile-first approach
+
+### SEO & Performance
+- **Dynamic SEO**: Page-specific meta tags and structured data
+- **JSON-LD Schema**: Rich snippets for search engines
+- **Image Optimization**: Optimized for web performance
+- **Google Analytics**: Traffic and user behavior tracking
+
+### Deployment
+- **GitHub Pages**: Static site hosting
+- **Custom Domain**: masalatulips.com
+- **SSL Certificate**: Secure HTTPS connection
 
 ## 📁 Project Structure
 
 ```
-MasalaTulips/
-├── masala-tulips-react/     # Main React application
-│   ├── public/
-│   │   ├── images/          # Recipe images and assets
-│   │   │   ├── recipes/     # Recipe-specific images
-│   │   │   └── blogs/       # Blog post images
-│   │   ├── socialMediaLogo/ # Custom branding assets
-│   │   ├── favicon.ico
-│   │   ├── favicon.svg
-│   │   ├── manifest.json
-│   │   ├── robots.txt
-│   │   └── index.html       # Main HTML template
-│   ├── src/
-│   │   ├── components/      # Reusable UI components
-│   │   │   ├── Header.tsx   # Navigation with animated logo
-│   │   │   ├── Footer.tsx   # Social media links & email contact
-│   │   │   └── ScrollToTop.tsx
-│   │   ├── pages/          # Page components
-│   │   │   ├── recipesByPopularCategory/
-│   │   │   │   ├── AllRecipes.tsx
-│   │   │   │   ├── MostPopular.tsx
-│   │   │   │   └── Vegetarian.tsx
-│   │   │   ├── recipesByMealType/
-│   │   │   │   ├── Breakfast.tsx
-│   │   │   │   ├── Lunch.tsx
-│   │   │   │   ├── Dinner.tsx
-│   │   │   │   ├── SideDish.tsx
-│   │   │   │   ├── Drinks.tsx
-│   │   │   │   └── KidsOptions.tsx
-│   │   │   ├── recipesByCookingTime/
-│   │   │   │   ├── Upto30Min.tsx
-│   │   │   │   ├── Between30to60Min.tsx
-│   │   │   │   └── Between60to90Min.tsx
-│   │   │   ├── RecipeList.tsx
-│   │   │   ├── RecipePage.tsx
-│   │   │   ├── RecipeCategories.tsx
-│   │   │   ├── Home.tsx
-│   │   │   └── Blogs.tsx
-│   │   ├── data/           # Recipe data and content
-│   │   │   └── recipes.ts  # All recipe definitions
-│   │   ├── styles/         # All CSS stylesheets
-│   │   │   ├── App.css     # Global styles and variables
-│   │   │   ├── Blogs.css
-│   │   │   ├── Footer.css
-│   │   │   ├── Header.css
-│   │   │   ├── Home.css
-│   │   │   ├── RecipeCategories.css
-│   │   │   ├── RecipeList.css
-│   │   │   └── RecipePage.css
-│   │   ├── utils/          # Utility functions
-│   │   │   └── analytics.ts # GA & GTM tracking
-│   │   ├── App.tsx         # Main app component with routing
-│   │   ├── index.tsx       # App entry point
-│   │   ├── index.css       # Global styles
-│   │   ├── react-app-env.d.ts
-│   │   └── reportWebVitals.ts
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── README.md
-├── docs/                   # Built/deployed website files
-├── CNAME                   # Custom domain configuration
-├── robots.txt              # SEO configuration
-├── sitemap.xml             # Site map for search engines
-└── ads.txt                 # AdSense configuration
+masala-tulips-react/
+├── public/
+│   ├── images/
+│   │   ├── recipes/          # Recipe images
+│   │   └── blogs/           # Blog post images
+│   ├── index.html
+│   └── manifest.json
+├── src/
+│   ├── components/          # Reusable components
+│   ├── pages/              # Page components
+│   ├── data/               # Recipe data
+│   ├── styles/             # CSS files
+│   └── utils/              # Utility functions
+└── package.json
 ```
 
-## 🍳 Current Recipes
-
-### Featured Recipes
-- **Raw Mango Lemon Rice** - Mavinakaayi Chitranna (30 mins • Vegetarian • Breakfast)
-- **Coconut Lemon Rice** - Kaayi Chitranna (30 mins • Vegetarian • Breakfast)
-- **Vegetable Pulao** - Tharakari Pulao (45 mins • Vegetarian • Lunch)
-- **Hot Lentil Millet** - Bisi Bele Bath (50 mins • Vegetarian • Dinner)
-- **Veg Sambhar** - Tharakari Sambhar (40 mins • Vegetarian • Lunch)
-- **Oggarane Mosranna** - Traditional Yogurt Rice (25 mins • Vegetarian • Lunch)
-
-### Quick Meals & Snacks
-- **Vegetable Sandwich** - Tharakari Sandwich (25 mins • Vegetarian • Breakfast)
-- **Strawberry Milkshake** - Refreshing Summer Drink (15 mins • Vegetarian • Drinks)
-
-### Side Dishes & Condiments
-- **Mint Chutney** - Pudina Chutney (15 mins • Vegetarian • Side Dish)
-
-### Kids & Healthy Options
-- **Spinach Khichdi** - Palak Khichdi (30 mins • Vegetarian • Kids Options)
-
-### Recipe Categories
-- **Breakfast**: Traditional South Indian morning dishes
-- **Lunch**: Hearty midday meals
-- **Dinner**: Comforting evening dishes
-- **Side Dish**: Accompaniments and condiments
-- **Drinks**: Refreshing beverages
-- **Kids Options**: Child-friendly recipes
-- **Vegetarian**: Plant-based dishes
-- **Most Popular**: Community favorites
-- **All Recipes**: Complete recipe collection
-
-### Cooking Time Categories
-- **Upto 30 min**: Quick recipes (≤ 30 mins total time)
-- **Between 30 - 60 min**: Medium-duration recipes (> 30 mins and ≤ 60 mins total time)
-- **Between 60 - 90 min**: Coming soon (no recipes currently in this range)
-- **More than 120 min**: Extended cooking recipes (> 120 mins total time)
-
-### Empty Categories (Coming Soon)
-- **Vegan**: Plant-based recipes without animal products
-- **Salads**: Fresh and healthy salad recipes
-- **Starters**: Appetizers and starter dishes
-- **Snacks**: Quick snack recipes
-- **Desserts**: Sweet treats and dessert recipes
-
-## 🎯 Features
-
-### Core Functionality
-- **Responsive Design**: Mobile-first approach with breakpoints for all devices
-- **Dynamic Routing**: Client-side navigation with React Router
-- **Interactive Components**: Stateful components with user interactions
-- **Recipe Management**: Detailed recipe pages with ingredients, instructions, and step-by-step images
-- **Category Filtering**: Multiple ways to browse recipes (meal type, cooking time, popularity)
-- **Smart Breadcrumbs**: Context-aware navigation showing user journey
-- **Recipe Meta Information**: Dynamic display of cooking time, dietary type, and meal categories
-- **Dynamic Related Recipes**: Intelligent algorithm that suggests related recipes based on shared categories and tags
-- **Automatic Category Links**: Context-aware category navigation based on each recipe's attributes
-
-### User Experience
-- **Animated Logo**: CSS animations for the tulip logo with spice particles
-- **Hamburger Menu**: Mobile-responsive navigation
-- **Email Integration**: Direct email contact via footer (masalatulips27@gmail.com)
-- **Social Media Integration**: Links to Instagram, YouTube, and Pinterest
-- **Image Optimization**: Full image display with `object-fit: contain`
-- **Placeholder Images**: Consistent styling for upcoming recipes
-- **Context-Aware Recipe Display**: Smart meal type categorization
-- **Clean Recipe Interface**: Streamlined recipe pages without distractions
-- **Dynamic Related Content**: Intelligent recipe suggestions and category navigation
-- **Blog Experience**: Glassmorphism cards with interactive elements, location badges, ingredient chips, and animated ratings
-
-### Performance & SEO
-- **Lazy Loading**: Images load progressively
-- **Optimized Assets**: Compressed images and efficient CSS
-- **SEO Friendly**: Meta tags and semantic HTML structure
-- **Scroll to Top**: Automatic scroll restoration on navigation
-- **Core Web Vitals**: Performance monitoring
-- **AdSense Ready**: Proper ads.txt configuration
-- **Analytics**: Google Analytics and GTM integration
-- **Canonical URLs**: Proper canonical tags for SEO
-- **Enhanced Sitemap**: Comprehensive sitemap with metadata
-
-## 🎨 Design System
-
-### Typography
-- **Headings**: `'Playfair Display', Georgia, serif` (elegant, sophisticated)
-- **Body Text**: `'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif` (clean, readable)
-- **Code**: `source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace`
-
-### Color Palette
-- **Primary**: #2c2c2c (Dark Gray)
-- **Secondary**: #666666 (Medium Gray)
-- **Accent**: #ff6b6b (Coral Red)
-- **Background**: #ffffff (White)
-- **Light Gray**: #f8f8f8 (Light Background)
-- **Border**: #e6e6e6 (Light Border)
-- **Hero Background**: #FFF3EB (Light Orange)
-- **Time Indicator**: Linear gradient #667eea to #764ba2 (Purple)
-- **Category Badges**: Various gradient colors for each meal type
-
-### Button Styles
-- **Primary Action Buttons**: #FF6B35 (Vibrant Orange)
-- **Hover State**: #e65c24 (Darker Orange)
-- **Text**: #FFFFFF (White)
-
-### Layout
-- **Container**: Max-width 1200px, centered
-- **Grid System**: CSS Grid and Flexbox
-- **Spacing**: Consistent 16px, 24px, 32px increments
-- **Border Radius**: 8px for cards, 12px for images
-
-## 🛠️ Setup & Installation
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm (v8 or higher)
+- Node.js (v14 or higher)
+- npm or yarn
 
-### Installation Steps
-1. **Navigate to the React app directory**
-   ```bash
-   cd masala-tulips-react
-   ```
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/masala-tulips.git
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+# Navigate to the project directory
+cd masala-tulips/masala-tulips-react
 
-3. **Start development server**
-   ```bash
-   npm start
-   ```
+# Install dependencies
+npm install
 
-4. **Open in browser**
-   Navigate to `http://localhost:3000`
-
-### Available Scripts
-- `npm start` - Start development server
-- `npm build` - Build for production
-- `npm test` - Run test suite (when tests are added)
-- `npm eject` - Eject from Create React App (irreversible)
-
-## 📊 Data Architecture
-
-### Recipe Data Structure
-```typescript
-interface Recipe {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  cookingTime: string;
-  prepTime: string;
-  totalTime: string;
-  cuisine: string;
-  type: string;
-  ingredients: string[];
-  instructions: Array<{
-    step: number;
-    title: string;
-    description: string;
-    images?: string[];
-  }>;
-  notes: Array<{
-    title: string;
-    content: string[];
-  }>;
-  mainImage: string;
-  category: string[];
-  tags: string[];
-}
+# Start the development server
+npm start
 ```
 
-### Related Recipes Algorithm
-```typescript
-// Smart matching based on shared categories and tags
-const getRelatedRecipes = (currentRecipe: Recipe) => {
-  const allRecipes = getAllRecipes();
-  return allRecipes
-    .filter(recipe => recipe.id !== currentRecipe.id)
-    .map(recipe => {
-      const sharedCategories = recipe.category.filter(cat => 
-        currentRecipe.category.includes(cat)
-      );
-      const sharedTags = recipe.tags.filter(tag => 
-        currentRecipe.tags.includes(tag)
-      );
-      const score = (sharedCategories.length * 2) + sharedTags.length;
-      return { recipe, score };
-    })
-    .filter(item => item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3)
-    .map(item => item.recipe);
-};
+### Building for Production
+```bash
+# Build the project
+npm run build
+
+# The build files will be in the 'build' directory
 ```
 
-### Navigation System
-- **Smart Breadcrumbs**: Tracks user journey using sessionStorage
-- **Category Pages**: Dynamic recipe filtering by category
-- **Consistent URL Structure**: `/recipe-categories/[category-name]` for all category pages
-- **Recipe Cards**: Enhanced styling with animations and interactive elements
-- **Responsive Navigation**: Mobile-friendly hamburger menu
-- **Recipe Meta Display**: Dynamic meal type and dietary information
-- **Related Recipes Algorithm**: 
-  - Finds recipes with shared categories (weighted 2x)
-  - Considers shared tags for additional relevance
-  - Sorts by similarity score and limits to 3 suggestions
-  - Excludes current recipe from suggestions
-- **Dynamic Category Links**: 
-  - Automatically generates relevant category links
-  - Maps technical category names to user-friendly labels
-  - Prevents duplicate links for overlapping categories
-  - Redirects "quick" to "under 30 minutes" for consistency
-- **Visual Design System**: 
-  - Consistent color-coded category badges
-  - Prominent time indicators with gradient backgrounds
-  - Animated borders and hover effects
-  - Professional typography and spacing
+## 🎯 SEO Features
 
-## 🚀 Deployment
+### Recipe SEO
+- **Dynamic Titles**: "Recipe Name - Description | Masala Tulips"
+- **Rich Descriptions**: Comprehensive recipe explanations
+- **Structured Data**: Recipe schema with ingredients, instructions, and metadata
+- **Image Optimization**: Alt text and optimized images
+- **Keyword Optimization**: Comprehensive tags for search visibility
 
-### GitHub Pages with Custom Domain
-- **Domain**: masalatulips.nl
-- **Build Output**: `/docs` directory
-- **AdSense**: Properly configured with ads.txt
-- **SEO**: Optimized meta tags and sitemap
+### Blog SEO
+- **Location-Based Content**: City and restaurant-specific SEO
+- **Cultural Keywords**: Traditional cooking and regional cuisine terms
+- **Rich Snippets**: Blog posting schema with location data
+- **International Focus**: Global cuisine and cultural content
 
-### Deployment Process
-1. **Build the app**
-   ```bash
-   cd masala-tulips-react
-   npm run build
-   ```
+### Technical SEO
+- **Meta Tags**: Comprehensive meta descriptions and keywords
+- **Canonical URLs**: Proper URL structure
+- **Sitemap**: XML sitemap for search engines
+- **Robots.txt**: Search engine crawling instructions
 
-2. **Copy build to docs**
-   ```bash
-   rsync -av build/ ../docs/
-   touch ../docs/.nojekyll
-   cp ../docs/index.html ../docs/404.html
-   ```
+## 🌟 Key Features
 
-3. **Commit and push**
-   ```bash
-   git add .
-   git commit -m "Deploy updates"
-   git push origin main
-   ```
+### Recipe Pages
+- **Step-by-step instructions** with photos
+- **Ingredient lists** with measurements
+- **Cooking times** and preparation details
+- **Cultural context** and traditional methods
+- **Related recipes** and categories
 
-## 🔧 Development Guidelines
+### Blog Section
+- **International food stories** from around the world
+- **Restaurant reviews** with authentic experiences
+- **Cultural insights** and traditional cooking methods
+- **Location-based content** with city-specific details
 
-### Code Style
-- **TypeScript**: Strict mode enabled
-- **Components**: Functional components with hooks
-- **Props**: Interface definitions for all props
-- **CSS**: CSS variables for consistent theming
+### Navigation
+- **Category-based browsing** (meal type, cooking time, popularity)
+- **Search functionality** for quick recipe finding
+- **Breadcrumb navigation** for easy site navigation
+- **Responsive design** for all devices
 
-### File Naming
-- **Components**: PascalCase (e.g., `RecipePage.tsx`)
-- **CSS**: Same name as component (e.g., `RecipePage.css`)
-- **Pages**: PascalCase with descriptive names
-- **Data**: camelCase (e.g., `recipes.ts`)
+## 📊 Performance
 
-### State Management
-- **Local State**: useState for component-specific state
-- **Session Storage**: For breadcrumb navigation tracking
-
-## 📈 Analytics & Tracking
-
-### Google Analytics
-- Page view tracking
-- Recipe view events
-- User interaction monitoring
-
-### Google Tag Manager
-- Enhanced ecommerce tracking
-- Custom event tracking
-- Conversion monitoring
-
-## 🎯 Recent Updates
-
-### Latest Improvements
-- **New Recipes Added**: 
-  - Coconut Lemon Rice (Kaayi Chitranna)
-  - Vegetable Sandwich (Tharakari Sandwich)
-  - Hot Lentil Millet (Bisi Bele Bath)
-  - Veg Sambhar (Tharakari Sambhar)
-  - Oggarane Mosranna (Traditional Yogurt Rice)
-- **Empty Category Handling**: 
-  - Added links to Vegan, Salads, Starters, Snacks, Desserts, Between 60-90 min, and More than 120 min
-  - Reuses existing RecipeList component with empty arrays for consistent design
-  - Automatic "Cooking Soon" placeholder cards when no recipes are available
-  - Consistent breadcrumb navigation and styling across all categories
-- **Dynamic Related Recipes & Categories**: 
-  - Smart algorithm that finds related recipes based on shared categories and tags
-  - Automatic category link generation based on recipe attributes
-  - Intelligent scoring system (categories weighted 2x more than tags)
-  - Responsive two-column layout with hover effects
-  - Duplicate prevention for overlapping categories
-- **Category Link Fixes**: 
-  - Fixed "Quick Recipes" link redirecting to "Under 30 Minutes" page
-  - All category links now point to valid routes
-  - Proper TypeScript type annotations added
-- **UI Simplification**: 
-  - Removed comments section from recipe pages for cleaner interface
-  - Streamlined recipe page layout focusing on content and navigation
-- **Enhanced Recipe Cards**: 
-  - Unique category badges with gradient colors for each meal type
-  - Interactive time indicators with purple gradient background and white text
-  - Automatic "Quick" labels for recipes with 30 minutes or less cooking time
-  - Smooth hover animations with scale and rotation effects
-  - Improved typography and spacing for better readability
-  - Responsive design optimized for all screen sizes
-  - Animated borders with subtle glow effect and gradient overlays
-  - Enhanced visual hierarchy with prominent borders and shadows
-  - **Global Implementation**: Applied to both featured recipes and category pages
-- **Traditional Blog Design**: 
-  - Warm, cohesive design matching the site's traditional theme
-  - Subtle border glow animations with Masala Tulips brand colors
-  - Location badges with warm gradient backgrounds and map icons
-  - Clean restaurant display with subtle green background and accent border
-  - Clean ingredients display with subtle background and orange accent border
-  - Interactive rating stars with warm gold colors
-  - Decorative elements using the site's signature color gradients
-  - Full image display with `object-fit: contain` and subtle background
-  - Static design without hover effects (informational cards)
-  - Consistent typography and spacing with the rest of the website
-  - Responsive design maintaining the warm, inviting aesthetic
-- **Consistent URL Structure**: Updated all category routes to use `/recipe-categories/[category-name]` pattern
-- **Enhanced Cooking Time Categories**: 
-  - "Upto 30 min" for quick recipes (≤ 30 mins total time)
-  - "Between 30 - 60 min" for medium recipes (> 30 mins and ≤ 60 mins total time)
-  - "Between 60 - 90 min" for longer recipes (> 60 mins and ≤ 90 mins total time)
-- **Component Naming Convention**: Renamed cooking time components for better clarity:
-  - `Upto30Min.tsx` → `Upto30Min.tsx` (unchanged)
-  - `Upto60Min.tsx` → `Between30to60Min.tsx`
-  - `Between60Min.tsx` → `Between60to90Min.tsx`
-- **Total Time Logic**: Updated cooking time filtering to use total time (prep + cooking) instead of just cooking time
-- **Exclusive Range Logic**: Fixed recipe categorization to prevent overlap between time categories
-- **Enhanced Recipe Meta**: Added dynamic meal type display (Breakfast, Lunch, Dinner, Drinks, Kids Options)
-- **Email Integration**: Added email icon in footer for direct contact (masalatulips27@gmail.com)
-- **Improved Navigation**: Removed contact link from header navigation
-- **Recipe Categorization**: Updated recipe categories for better organization
-- **Context-Aware Display**: Smart meal type display based on recipe categories
-- **Removed Contact Section**: Streamlined home page by removing contact form
-- **SEO Improvements**: Added canonical URLs, enhanced sitemap, and improved robots.txt
-- **Most Popular Filtering**: Removed specific recipes from most popular category for better curation
-
-### Recipe Meta Information
-- **Raw Mango Lemon Rice**: 30 mins • Vegetarian • Breakfast
-- **Coconut Lemon Rice**: 30 mins • Vegetarian • Breakfast
-- **Vegetable Pulao**: 45 mins • Vegetarian • Lunch
-- **Hot Lentil Millet**: 50 mins • Vegetarian • Dinner
-- **Veg Sambhar**: 40 mins • Vegetarian • Lunch
-- **Oggarane Mosranna**: 25 mins • Vegetarian • Lunch
-- **Vegetable Sandwich**: 25 mins • Vegetarian • Quick (redirects to Under 30 Minutes)
-- **Strawberry Milkshake**: 15 mins • Vegetarian • Drinks
-- **Mint Chutney**: 15 mins • Vegetarian • Side Dish
-- **Spinach Khichdi**: 30 mins • Vegetarian • Kids Options
-
-### Current Recipe Distribution
-- **"Upto 30 min"**: 7 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Strawberry Milkshake, Mint Chutney, Spinach Khichdi, Vegetable Sandwich, Oggarane Mosranna)
-- **"Between 30 - 60 min"**: 3 recipes (Vegetable Pulao, Hot Lentil Millet, Veg Sambhar)
-- **"Between 60 - 90 min"**: 0 recipes (ready for future additions)
-
-### Recipe Page Structure
-- **Breadcrumbs**: Context-aware navigation path
-- **Recipe Header**: Title, subtitle, description, and timing information
-- **Showcase Image**: High-quality main recipe image with hover effects
-- **Recipe Grid**: Two-column layout with ingredients and step-by-step instructions
-- **Notes Section**: Tips, variations, and cooking advice
-- **Related Recipes & Categories**: Dynamic suggestions and category navigation
-- **Footer**: Site-wide navigation and social links
-
-### Recipe Card Design Features
-- **Category Badges**: Color-coded gradient badges for each meal type
-- **Time Indicators**: Purple gradient background with white text and clock icons
-- **Quick Labels**: Automatic "Quick" badges for recipes ≤ 30 minutes (prevents duplicates when recipe also has 'quick' category)
-- **Animated Borders**: Subtle glow effect with gradient overlays
-- **Hover Effects**: Scale, lift, and image zoom animations
-- **Responsive Layout**: Optimized for all screen sizes
-- **Interactive Elements**: Micro-animations for enhanced user experience
-
-### Category Distribution
-- **Breakfast**: 2 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice)
-- **Lunch**: 3 recipes (Vegetable Pulao, Veg Sambhar, Oggarane Mosranna)
-- **Dinner**: 1 recipe (Hot Lentil Millet)
-- **Side Dish**: 1 recipe (Mint Chutney)
-- **Drinks**: 1 recipe (Strawberry Milkshake)
-- **Kids Options**: 1 recipe (Spinach Khichdi)
-- **Quick**: 1 recipe (Vegetable Sandwich) - Redirects to "Under 30 Minutes"
-- **Vegetarian**: 10 recipes (all recipes are vegetarian)
-
-## 🎯 Future Enhancements
-
-### Planned Features
-- **Recipe Search**: Full-text search functionality
-- **User Accounts**: User registration and favorites
-- **Recipe Ratings**: User rating and review system
-- **Recipe Sharing**: Social media sharing buttons
-- **Print Recipes**: PDF generation for recipes
-- **Recipe Collections**: Curated recipe collections
-- **Video Content**: Recipe video integration
-- **Empty Categories**: Future recipe additions for Vegan, Salads, Starters, Snacks, Desserts, and More than 120 min
-- **More Cooking Time Categories**: Additional time ranges as recipe collection grows (e.g., "Between 90 - 120 min")
-- **Recipe Difficulty Levels**: Easy, Medium, Hard categorization
-- **Enhanced Related Recipes**: 
-  - Machine learning-based recipe recommendations
-  - User behavior tracking for personalized suggestions
-  - Seasonal and dietary preference filtering
-- **Advanced Category Management**: 
-  - Custom category creation
-  - Category-based recipe collections
-  - Cross-category recipe suggestions
-- **Recipe Comments**: Future implementation of user feedback system
-- **Dark Mode**: Theme switching for better user experience
-- **Recipe Filters**: Advanced filtering by ingredients, cuisine, and dietary preferences
-
-### Technical Improvements
-- **Performance**: Image lazy loading optimization
-- **Accessibility**: WCAG 2.1 compliance
-- **PWA**: Progressive Web App features
-- **Internationalization**: Multi-language support
-- **TypeScript Enhancement**: Strict type checking and improved type safety
-- **Component Optimization**: Better separation of concerns and reusability
-- **SEO Enhancement**: Improved internal linking and content discovery
-- **Code Cleanup**: Removed unused comment functionality for cleaner codebase
-- **CSS Architecture**: Modular styling with consistent design tokens
-- **Animation Performance**: Hardware-accelerated animations for smooth interactions
+- **Fast Loading**: Optimized images and code
+- **Mobile Optimized**: Responsive design for all screen sizes
+- **SEO Optimized**: Search engine friendly structure
+- **Accessible**: WCAG compliant design
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 License
+## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🌟 Acknowledgments
+
+- Traditional Indian cooking methods and recipes
+- Global food culture and culinary traditions
+- Modern web development best practices
+- SEO and accessibility standards
 
 ## 📞 Contact
 
-- **Website**: [https://masalatulips.nl/](https://masalatulips.nl/)
-- **Email**: masalatulips27@gmail.com
-- **Social Media**: Instagram, YouTube, Pinterest links in footer
-
-## 🎯 Project Status
-
-### Current State
-- ✅ **10 Complete Recipes**: All with detailed ingredients, instructions, and images
-- ✅ **Dynamic Related Recipes**: Intelligent algorithm working across all recipes
-- ✅ **Enhanced Recipe Cards**: Beautiful design with category badges and time indicators
-- ✅ **Responsive Design**: Optimized for all devices and screen sizes
-- ✅ **SEO Optimized**: Complete sitemap, canonical URLs, and meta tags
-- ✅ **Clean Codebase**: TypeScript compliance and modern React patterns
-- ✅ **Performance Optimized**: Fast loading and smooth user experience
-- ✅ **Visual Design**: Modern UI with gradients, animations, and professional styling
-
-### Recent Achievements
-- 🆕 **Oggarane Mosranna**: Latest traditional South Indian recipe added
-- 🔧 **Related Recipes System**: Smart content discovery implemented
-- 🎨 **UI Simplification**: Cleaner, more focused recipe pages
-- 🔗 **Category Navigation**: Fixed all broken links and redirects
-- 📊 **Analytics Integration**: Complete tracking and monitoring
-- 🎨 **Enhanced Recipe Cards**: Beautiful design with category badges and time indicators
-- 🌈 **Color Scheme Updates**: Purple gradient time indicators for better visual hierarchy
-
-### Next Milestones
-- 🔍 **Recipe Search**: Full-text search functionality
-- 📱 **PWA Features**: Offline support and app-like experience
-- 🌍 **Internationalization**: Multi-language support
-- 📈 **Advanced Analytics**: User behavior insights and optimization
-- 🌙 **Dark Mode**: Theme switching for better user experience
-- 🔧 **Advanced Filters**: Ingredient-based and dietary preference filtering
+- **Website**: [masalatulips.com](https://masalatulips.com)
+- **Email**: [contact@masalatulips.com](mailto:contact@masalatulips.com)
 
 ---
 
-## 🔍 SEO Optimization
-
-### Recipe SEO Strategy
-- **Enhanced Recipe Titles**: Descriptive titles like "Spinach Khichdi Recipe - Easy One Pot Indian Meal"
-- **Rich Descriptions**: Detailed recipe descriptions with cooking time, difficulty, and benefits
-- **Comprehensive Tags**: Multiple relevant tags for better search visibility
-- **Structured Data**: JSON-LD schema markup for rich search results
-- **Dynamic Meta Tags**: Recipe-specific page titles and descriptions
-
-### Technical SEO
-- **Structured Data**: Recipe, Website, and Organization schema markup
-- **Meta Tags**: Comprehensive meta descriptions, keywords, and social media tags
-- **Canonical URLs**: Proper canonical URL implementation
-- **Sitemap**: Complete XML sitemap with all recipe URLs
-- **Page Speed**: Optimized images and code for fast loading
-
-### Search Visibility
-- **Recipe Schema**: Rich snippets in Google search results
-- **Local SEO**: Dutch-Indian cuisine focus for regional searches
-- **Long-tail Keywords**: Specific recipe searches like "spinach khichdi recipe"
-- **Content Optimization**: Step-by-step instructions and cooking tips
-
----
-
-**Masala Tulips** - Where tradition meets innovation, and every bite tells a story. 
+**Masala Tulips** - Bringing traditional Indian cooking to the modern web with authentic recipes, cultural insights, and global culinary adventures. 🌶️🍽️✨ 

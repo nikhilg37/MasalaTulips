@@ -3,6 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import { getRecipeBySlug } from '../data/recipes';
 
+// Function to check if a recipe is quick (30 minutes or less)
+const isQuickRecipe = (totalTime: string): boolean => {
+  const timeInMinutes = parseInt(totalTime.replace(' mins', ''));
+  return timeInMinutes <= 30;
+};
+
 const Home: React.FC = () => {
   const navigate = useNavigate();
 
@@ -110,7 +116,15 @@ const Home: React.FC = () => {
                       />
                       <div className="recipe-content">
                         <h3>{chitranna.title} - {chitranna.subtitle}</h3>
-                        <p className="recipe-meta">{chitranna.totalTime} • {chitranna.type} • Breakfast</p>
+                        <div className="recipe-meta">
+                          <span className="time-indicator">
+                            <i className="far fa-clock"></i>
+                            {chitranna.totalTime}
+                          </span>
+                          <span className="category-badge vegetarian">{chitranna.type}</span>
+                          <span className="category-badge breakfast">Breakfast</span>
+                          {isQuickRecipe(chitranna.totalTime) && <span className="category-badge quick">Quick</span>}
+                        </div>
                         <p>{chitranna.description}</p>
                       </div>
                     </div>
@@ -124,7 +138,15 @@ const Home: React.FC = () => {
                       />
                       <div className="recipe-content">
                         <h3>{pulao.title} - {pulao.subtitle}</h3>
-                        <p className="recipe-meta">{pulao.totalTime} • {pulao.type} • Lunch</p>
+                        <div className="recipe-meta">
+                          <span className="time-indicator">
+                            <i className="far fa-clock"></i>
+                            {pulao.totalTime}
+                          </span>
+                          <span className="category-badge vegetarian">{pulao.type}</span>
+                          <span className="category-badge lunch">Lunch</span>
+                          {isQuickRecipe(pulao.totalTime) && <span className="category-badge quick">Quick</span>}
+                        </div>
                         <p>{pulao.description}</p>
                       </div>
                     </div>
@@ -138,7 +160,15 @@ const Home: React.FC = () => {
                       />
                       <div className="recipe-content">
                         <h3>{milkshake.title} - {milkshake.subtitle}</h3>
-                        <p className="recipe-meta">{milkshake.totalTime} • {milkshake.type} • Drinks</p>
+                        <div className="recipe-meta">
+                          <span className="time-indicator">
+                            <i className="far fa-clock"></i>
+                            {milkshake.totalTime}
+                          </span>
+                          <span className="category-badge vegetarian">{milkshake.type}</span>
+                          <span className="category-badge drinks">Drinks</span>
+                          {isQuickRecipe(milkshake.totalTime) && <span className="category-badge quick">Quick</span>}
+                        </div>
                         <p>{milkshake.description}</p>
                       </div>
                     </div>

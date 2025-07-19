@@ -230,6 +230,35 @@
     font-size: 1.2rem;
 }
 
+/* Related Recipes Section */
+.related-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.related-recipes h3,
+.category-links h3 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.related-recipes .ingredients-list li a,
+.category-links .ingredients-list li a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.related-recipes .ingredients-list li a:hover,
+.category-links .ingredients-list li a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
 /* Comments Section Styles */
 .comments-section {
     background-color: var(--light-gray);
@@ -314,7 +343,8 @@
     }
     
     .recipe-grid,
-    .notes-grid {
+    .notes-grid,
+    .related-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }

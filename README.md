@@ -94,6 +94,7 @@ MasalaTulips/
 - **Vegetable Pulao** - Tharakari Pulao (45 mins • Vegetarian • Lunch)
 - **Hot Lentil Millet** - Bisi Bele Bath (50 mins • Vegetarian • Dinner)
 - **Veg Sambhar** - Tharakari Sambhar (40 mins • Vegetarian • Lunch)
+- **Oggarane Mosranna** - Traditional Yogurt Rice (25 mins • Vegetarian • Lunch)
 
 ### Quick Meals & Snacks
 - **Vegetable Sandwich** - Tharakari Sandwich (25 mins • Vegetarian • Breakfast)
@@ -131,6 +132,8 @@ MasalaTulips/
 - **Category Filtering**: Multiple ways to browse recipes (meal type, cooking time, popularity)
 - **Smart Breadcrumbs**: Context-aware navigation showing user journey
 - **Recipe Meta Information**: Dynamic display of cooking time, dietary type, and meal categories
+- **Dynamic Related Recipes**: Intelligent algorithm that suggests related recipes based on shared categories and tags
+- **Automatic Category Links**: Context-aware category navigation based on each recipe's attributes
 
 ### User Experience
 - **Animated Logo**: CSS animations for the tulip logo with spice particles
@@ -248,6 +251,16 @@ interface Recipe {
 - **Recipe Cards**: Consistent styling with hover effects
 - **Responsive Navigation**: Mobile-friendly hamburger menu
 - **Recipe Meta Display**: Dynamic meal type and dietary information
+- **Related Recipes Algorithm**: 
+  - Finds recipes with shared categories (weighted 2x)
+  - Considers shared tags for additional relevance
+  - Sorts by similarity score and limits to 3 suggestions
+  - Excludes current recipe from suggestions
+- **Dynamic Category Links**: 
+  - Automatically generates relevant category links
+  - Maps technical category names to user-friendly labels
+  - Prevents duplicate links for overlapping categories
+  - Redirects "quick" to "under 30 minutes" for consistency
 
 ## 🚀 Deployment
 
@@ -316,6 +329,17 @@ interface Recipe {
   - Vegetable Sandwich (Tharakari Sandwich)
   - Hot Lentil Millet (Bisi Bele Bath)
   - Veg Sambhar (Tharakari Sambhar)
+  - Oggarane Mosranna (Traditional Yogurt Rice)
+- **Dynamic Related Recipes & Categories**: 
+  - Smart algorithm that finds related recipes based on shared categories and tags
+  - Automatic category link generation based on recipe attributes
+  - Intelligent scoring system (categories weighted 2x more than tags)
+  - Responsive two-column layout with hover effects
+  - Duplicate prevention for overlapping categories
+- **Category Link Fixes**: 
+  - Fixed "Quick Recipes" link redirecting to "Under 30 Minutes" page
+  - All category links now point to valid routes
+  - Proper TypeScript type annotations added
 - **Consistent URL Structure**: Updated all category routes to use `/recipe-categories/[category-name]` pattern
 - **Enhanced Cooking Time Categories**: 
   - "Upto 30 min" for quick recipes (≤ 30 mins total time)
@@ -342,24 +366,26 @@ interface Recipe {
 - **Vegetable Pulao**: 45 mins • Vegetarian • Lunch
 - **Hot Lentil Millet**: 50 mins • Vegetarian • Dinner
 - **Veg Sambhar**: 40 mins • Vegetarian • Lunch
-- **Vegetable Sandwich**: 25 mins • Vegetarian • Breakfast
+- **Oggarane Mosranna**: 25 mins • Vegetarian • Lunch
+- **Vegetable Sandwich**: 25 mins • Vegetarian • Quick
 - **Strawberry Milkshake**: 15 mins • Vegetarian • Drinks
 - **Mint Chutney**: 15 mins • Vegetarian • Side Dish
 - **Spinach Khichdi**: 30 mins • Vegetarian • Kids Options
 
 ### Current Recipe Distribution
-- **"Upto 30 min"**: 6 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Strawberry Milkshake, Mint Chutney, Spinach Khichdi, Vegetable Sandwich)
+- **"Upto 30 min"**: 7 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Strawberry Milkshake, Mint Chutney, Spinach Khichdi, Vegetable Sandwich, Oggarane Mosranna)
 - **"Between 30 - 60 min"**: 3 recipes (Vegetable Pulao, Hot Lentil Millet, Veg Sambhar)
 - **"Between 60 - 90 min"**: 0 recipes (ready for future additions)
 
 ### Category Distribution
-- **Breakfast**: 3 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice, Vegetable Sandwich)
-- **Lunch**: 2 recipes (Vegetable Pulao, Veg Sambhar)
+- **Breakfast**: 2 recipes (Raw Mango Lemon Rice, Coconut Lemon Rice)
+- **Lunch**: 3 recipes (Vegetable Pulao, Veg Sambhar, Oggarane Mosranna)
 - **Dinner**: 1 recipe (Hot Lentil Millet)
 - **Side Dish**: 1 recipe (Mint Chutney)
 - **Drinks**: 1 recipe (Strawberry Milkshake)
 - **Kids Options**: 1 recipe (Spinach Khichdi)
-- **Vegetarian**: 9 recipes (all recipes are vegetarian)
+- **Quick**: 1 recipe (Vegetable Sandwich) - Redirects to "Under 30 Minutes"
+- **Vegetarian**: 10 recipes (all recipes are vegetarian)
 
 ## 🎯 Future Enhancements
 
@@ -373,12 +399,23 @@ interface Recipe {
 - **Video Content**: Recipe video integration
 - **More Cooking Time Categories**: Additional time ranges as recipe collection grows (e.g., "Between 90 - 120 min", "More than 120 min")
 - **Recipe Difficulty Levels**: Easy, Medium, Hard categorization
+- **Enhanced Related Recipes**: 
+  - Machine learning-based recipe recommendations
+  - User behavior tracking for personalized suggestions
+  - Seasonal and dietary preference filtering
+- **Advanced Category Management**: 
+  - Custom category creation
+  - Category-based recipe collections
+  - Cross-category recipe suggestions
 
 ### Technical Improvements
 - **Performance**: Image lazy loading optimization
 - **Accessibility**: WCAG 2.1 compliance
 - **PWA**: Progressive Web App features
 - **Internationalization**: Multi-language support
+- **TypeScript Enhancement**: Strict type checking and improved type safety
+- **Component Optimization**: Better separation of concerns and reusability
+- **SEO Enhancement**: Improved internal linking and content discovery
 
 ## 🤝 Contributing
 

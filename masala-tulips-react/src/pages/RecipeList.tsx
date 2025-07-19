@@ -55,6 +55,7 @@ const RecipeList: React.FC<RecipeListProps> = ({
                     {recipe.category.includes('breakfast') && ' • Breakfast'}
                     {recipe.category.includes('lunch') && ' • Lunch'}
                     {recipe.category.includes('dinner') && ' • Dinner'}
+                    {recipe.category.includes('side-dish') && ' • Side Dish'}
                     {recipe.category.includes('drinks') && ' • Drinks'}
                     {recipe.category.includes('kids-options') && ' • Kids Options'}
                   </p>

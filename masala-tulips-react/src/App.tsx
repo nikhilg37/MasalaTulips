@@ -18,6 +18,8 @@ import AllRecipes from './pages/recipesByPopularCategory/AllRecipes';
 import SideDish from './pages/recipesByMealType/SideDish';
 import Drinks from './pages/recipesByMealType/Drinks';
 import KidsOptions from './pages/recipesByMealType/KidsOptions';
+import RecipeList from './pages/RecipeList';
+
 import './styles/App.css';
 import ScrollToTop from './components/ScrollToTop';
 import { useEffect } from 'react';
@@ -57,12 +59,20 @@ function App() {
             {/* Cooking Time Routes */}
             <Route path="/recipe-categories/upto-30-min" element={<Upto30Min />} />
             <Route path="/recipe-categories/between-30-60-min" element={<Between30to60Min />} />
-            <Route path="/recipe-categories/between-60-90-min" element={<Between60to90Min />} />
+            <Route path="/recipe-categories/between-60-90-min" element={<RecipeList title="Recipes Between 60-90 Minutes" description="Delicious recipes that take between 60-90 minutes to prepare!" recipes={[]} breadcrumbPath="/recipe-categories/between-60-90-min" breadcrumbLabel="Between 60 - 90 min" />} />
             
             {/* Popular Categories Routes */}
             <Route path="/recipe-categories/vegetarian" element={<Vegetarian />} />
             <Route path="/recipe-categories/most-popular" element={<MostPopular />} />
             <Route path="/recipe-categories/all-recipes" element={<AllRecipes />} />
+            
+            {/* Empty Category Routes - Using RecipeList with empty arrays */}
+            <Route path="/recipe-categories/vegan" element={<RecipeList title="Vegan Recipes" description="Plant-based recipes without animal products!" recipes={[]} breadcrumbPath="/recipe-categories/vegan" breadcrumbLabel="Vegan" />} />
+            <Route path="/recipe-categories/salads" element={<RecipeList title="Salad Recipes" description="Fresh and healthy salad recipes!" recipes={[]} breadcrumbPath="/recipe-categories/salads" breadcrumbLabel="Salads" />} />
+            <Route path="/recipe-categories/starters" element={<RecipeList title="Starter Recipes" description="Delicious appetizers and starter dishes!" recipes={[]} breadcrumbPath="/recipe-categories/starters" breadcrumbLabel="Starters" />} />
+            <Route path="/recipe-categories/snacks" element={<RecipeList title="Snack Recipes" description="Quick and tasty snack recipes!" recipes={[]} breadcrumbPath="/recipe-categories/snacks" breadcrumbLabel="Snacks" />} />
+            <Route path="/recipe-categories/desserts" element={<RecipeList title="Dessert Recipes" description="Sweet treats and dessert recipes!" recipes={[]} breadcrumbPath="/recipe-categories/desserts" breadcrumbLabel="Desserts" />} />
+            <Route path="/recipe-categories/more-than-120-min" element={<RecipeList title="Long Cooking Recipes" description="Extended cooking recipes that take more than 120 minutes!" recipes={[]} breadcrumbPath="/recipe-categories/more-than-120-min" breadcrumbLabel="More than 120 min" />} />
           </Routes>
         </main>
         <Footer />

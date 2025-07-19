@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getAllRecipes } from '../data/recipes';
 import '../styles/RecipePage.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
+import { generateRecipeStructuredData } from '../utils/structuredData';
 
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -10,12 +11,37 @@ const RecipePage: React.FC = () => {
 
   useEffect(() => {
     if (recipe) {
+      // Update page title and meta description for SEO
+      document.title = `${recipe.title} - Masala Tulips`;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', recipe.description);
+      }
+
+      // Add structured data for SEO
+      const structuredData = generateRecipeStructuredData(recipe, window.location.href);
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(structuredData);
+      document.head.appendChild(script);
+
+      // Analytics tracking
       trackGAEvent({
         action: 'view',
         category: 'Recipe',
         label: recipe.title,
       });
       trackGTMEvent('recipe_view', { recipeId: recipe.id, title: recipe.title });
+
+      // Cleanup function to remove structured data script
+      return () => {
+        const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+        scripts.forEach(script => {
+          if (script.textContent?.includes(recipe.title)) {
+            script.remove();
+          }
+        });
+      };
     }
   }, [recipe]);
 

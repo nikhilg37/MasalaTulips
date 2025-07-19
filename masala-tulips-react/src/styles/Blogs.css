@@ -155,10 +155,8 @@
     border-left: 3px solid #FF6B35;
 }
 
-/* Rating Section */
-.rating-section {
-    margin-bottom: 1.5rem;
-}
+/* Rating Section - Removed */
+
 
 .rating-label {
     font-weight: 700;

@@ -751,7 +751,7 @@ export const recipes: Record<string, Recipe> = {
   },
   'oggarane-mosranna': {
     id: 'oggarane-mosranna',
-    title: 'Oggarane Mosranna',
+    title: 'Spicy Curd Rice',
     subtitle: '"ಒಗ್ಗರಣೆ ಮೊಸರನ್ನ" - Oggarane Mosranna',
     description: 'A traditional South Indian rice dish made with yogurt, tempered with aromatic spices, and garnished with fresh herbs. This cooling and refreshing recipe brings together the perfect balance of tangy, spicy, and savory flavors that is perfect for hot summer days.',
     cookingTime: '10 mins',

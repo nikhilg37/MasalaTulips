@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getAllRecipes } from '../data/recipes';
 import '../styles/RecipePage.css';
@@ -7,11 +7,6 @@ import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const recipe = getRecipeBySlug(slug || '');
-  const [commentForm, setCommentForm] = useState({
-    name: '',
-    email: '',
-    comment: ''
-  });
 
   useEffect(() => {
     if (recipe) {
@@ -23,27 +18,6 @@ const RecipePage: React.FC = () => {
       trackGTMEvent('recipe_view', { recipeId: recipe.id, title: recipe.title });
     }
   }, [recipe]);
-
-  const handleCommentSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Track comment form submission
-    trackGAEvent({
-      action: 'submit',
-      category: 'Comment Form',
-      label: recipe ? recipe.title : 'Unknown Recipe',
-    });
-    trackGTMEvent('comment_form_submit', { recipeId: recipe ? recipe.id : undefined });
-    alert('Thank you for your comment! This feature is coming soon.');
-    setCommentForm({ name: '', email: '', comment: '' });
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setCommentForm(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
 
   // Function to get related recipes based on categories and tags
   const getRelatedRecipes = (currentRecipe: any) => {
@@ -245,54 +219,6 @@ const RecipePage: React.FC = () => {
                 <li><Link to="/recipe-categories/all-recipes">Browse All Recipes</Link></li>
               </ul>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Comments Section */}
-      <div className="comments-section">
-        <div className="recipe-container">
-          <h2>Comments</h2>
-          <div className="comments-form">
-            <form onSubmit={handleCommentSubmit}>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={commentForm.name}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={commentForm.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="comment">Comment</label>
-                <textarea
-                  id="comment"
-                  name="comment"
-                  rows={4}
-                  value={commentForm.comment}
-                  onChange={handleInputChange}
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" className="submit-button">Post Comment</button>
-            </form>
-          </div>
-          <div className="comments-list">
-            {/* Comments will be dynamically added here */}
           </div>
         </div>
       </div>

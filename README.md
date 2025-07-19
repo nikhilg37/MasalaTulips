@@ -120,7 +120,15 @@ MasalaTulips/
 ### Cooking Time Categories
 - **Upto 30 min**: Quick recipes (≤ 30 mins total time)
 - **Between 30 - 60 min**: Medium-duration recipes (> 30 mins and ≤ 60 mins total time)
-- **Between 60 - 90 min**: Longer recipes (> 60 mins and ≤ 90 mins total time)
+- **Between 60 - 90 min**: Coming soon (no recipes currently in this range)
+- **More than 120 min**: Extended cooking recipes (> 120 mins total time)
+
+### Empty Categories (Coming Soon)
+- **Vegan**: Plant-based recipes without animal products
+- **Salads**: Fresh and healthy salad recipes
+- **Starters**: Appetizers and starter dishes
+- **Snacks**: Quick snack recipes
+- **Desserts**: Sweet treats and dessert recipes
 
 ## 🎯 Features
 
@@ -363,6 +371,11 @@ const getRelatedRecipes = (currentRecipe: Recipe) => {
   - Hot Lentil Millet (Bisi Bele Bath)
   - Veg Sambhar (Tharakari Sambhar)
   - Oggarane Mosranna (Traditional Yogurt Rice)
+- **Empty Category Handling**: 
+  - Added links to Vegan, Salads, Starters, Snacks, Desserts, Between 60-90 min, and More than 120 min
+  - Reuses existing RecipeList component with empty arrays for consistent design
+  - Automatic "Cooking Soon" placeholder cards when no recipes are available
+  - Consistent breadcrumb navigation and styling across all categories
 - **Dynamic Related Recipes & Categories**: 
   - Smart algorithm that finds related recipes based on shared categories and tags
   - Automatic category link generation based on recipe attributes
@@ -435,7 +448,7 @@ const getRelatedRecipes = (currentRecipe: Recipe) => {
 ### Recipe Card Design Features
 - **Category Badges**: Color-coded gradient badges for each meal type
 - **Time Indicators**: Purple gradient background with white text and clock icons
-- **Quick Labels**: Automatic "Quick" badges for recipes ≤ 30 minutes
+- **Quick Labels**: Automatic "Quick" badges for recipes ≤ 30 minutes (prevents duplicates when recipe also has 'quick' category)
 - **Animated Borders**: Subtle glow effect with gradient overlays
 - **Hover Effects**: Scale, lift, and image zoom animations
 - **Responsive Layout**: Optimized for all screen sizes
@@ -461,7 +474,8 @@ const getRelatedRecipes = (currentRecipe: Recipe) => {
 - **Print Recipes**: PDF generation for recipes
 - **Recipe Collections**: Curated recipe collections
 - **Video Content**: Recipe video integration
-- **More Cooking Time Categories**: Additional time ranges as recipe collection grows (e.g., "Between 90 - 120 min", "More than 120 min")
+- **Empty Categories**: Future recipe additions for Vegan, Salads, Starters, Snacks, Desserts, and More than 120 min
+- **More Cooking Time Categories**: Additional time ranges as recipe collection grows (e.g., "Between 90 - 120 min")
 - **Recipe Difficulty Levels**: Easy, Medium, Hard categorization
 - **Enhanced Related Recipes**: 
   - Machine learning-based recipe recommendations

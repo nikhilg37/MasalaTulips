@@ -68,8 +68,7 @@ const RecipeList: React.FC<RecipeListProps> = ({
                           {recipe.category.includes('side-dish') && <span className="category-badge side-dish">Side Dish</span>}
                           {recipe.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
                           {recipe.category.includes('kids-options') && <span className="category-badge kids-options">Kids</span>}
-                          {recipe.category.includes('quick') && <span className="category-badge quick">Quick</span>}
-                          {isQuickRecipe(recipe.totalTime) && <span className="category-badge quick">Quick</span>}
+                          {(recipe.category.includes('quick') || isQuickRecipe(recipe.totalTime)) && <span className="category-badge quick">Quick</span>}
                         </div>
                 </div>
               </Link>

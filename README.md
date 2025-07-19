@@ -153,6 +153,7 @@ MasalaTulips/
 - **Context-Aware Recipe Display**: Smart meal type categorization
 - **Clean Recipe Interface**: Streamlined recipe pages without distractions
 - **Dynamic Related Content**: Intelligent recipe suggestions and category navigation
+- **Blog Experience**: Glassmorphism cards with interactive elements, location badges, ingredient chips, and animated ratings
 
 ### Performance & SEO
 - **Lazy Loading**: Images load progressively
@@ -399,6 +400,18 @@ const getRelatedRecipes = (currentRecipe: Recipe) => {
   - Animated borders with subtle glow effect and gradient overlays
   - Enhanced visual hierarchy with prominent borders and shadows
   - **Global Implementation**: Applied to both featured recipes and category pages
+- **Traditional Blog Design**: 
+  - Warm, cohesive design matching the site's traditional theme
+  - Subtle border glow animations with Masala Tulips brand colors
+  - Location badges with warm gradient backgrounds and map icons
+  - Clean restaurant display with subtle green background and accent border
+  - Clean ingredients display with subtle background and orange accent border
+  - Interactive rating stars with warm gold colors
+  - Decorative elements using the site's signature color gradients
+  - Full image display with `object-fit: contain` and subtle background
+  - Static design without hover effects (informational cards)
+  - Consistent typography and spacing with the rest of the website
+  - Responsive design maintaining the warm, inviting aesthetic
 - **Consistent URL Structure**: Updated all category routes to use `/recipe-categories/[category-name]` pattern
 - **Enhanced Cooking Time Categories**: 
   - "Upto 30 min" for quick recipes (≤ 30 mins total time)

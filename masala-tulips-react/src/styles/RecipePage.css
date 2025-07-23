@@ -941,20 +941,27 @@
     }
     
     .recipe-meta {
-        gap: 0.4rem;
-        margin-top: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.4rem !important;
+        margin-top: 1rem !important;
+        flex-wrap: wrap !important;
+        max-width: 100% !important;
     }
     
     .category-badge {
-        padding: 0.25rem 0.7rem;
-        font-size: 0.7rem;
+        padding: 0.25rem 0.7rem !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
     }
     
     .time-indicator {
-        padding: 0.25rem 0.7rem;
-        font-size: 0.7rem;
+        padding: 0.25rem 0.7rem !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
     }
     
     .time-indicator i {

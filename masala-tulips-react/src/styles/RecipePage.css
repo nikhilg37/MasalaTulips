@@ -383,33 +383,196 @@
     animation-delay: 0.3s;
 }
 
-/* Related Recipes Section */
-.related-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+/* Related Recipes Section - Redesigned */
+.related-section {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.03), rgba(76, 175, 80, 0.01));
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    margin-top: 3rem;
+    border: 1px solid rgba(76, 175, 80, 0.1);
 }
 
-.related-recipes h3,
-.category-links h3 {
+.related-section h2 {
+    font-family: var(--heading-font);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.related-section h2 i {
+    color: #4CAF50;
+    font-size: 1.8rem;
+}
+
+.related-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.related-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(76, 175, 80, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.related-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+}
+
+.recipes-card::before {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+}
+
+.categories-card::before {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+.related-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.related-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.recipes-card .related-icon {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.categories-card .related-icon {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+.related-header h3 {
     font-family: var(--heading-font);
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
-.related-recipes .ingredients-list li a,
-.category-links .ingredients-list li a {
-    color: var(--accent-color);
-    text-decoration: none;
+.related-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.related-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background-color: rgba(76, 175, 80, 0.05);
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: all 0.2s ease;
+}
+
+.related-item:last-child {
+    margin-bottom: 0;
+}
+
+.recipes-card .related-item {
+    background-color: rgba(33, 150, 243, 0.05);
+    border-color: rgba(33, 150, 243, 0.1);
+}
+
+.categories-card .related-item {
+    background-color: rgba(255, 152, 0, 0.05);
+    border-color: rgba(255, 152, 0, 0.1);
+}
+
+.related-bullet {
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+}
+
+.related-bullet i {
+    font-size: 0.9rem;
+    color: #4CAF50;
+}
+
+.recipes-card .related-bullet i {
+    color: #2196F3;
+}
+
+.categories-card .related-bullet i {
+    color: #FF9800;
+}
+
+.related-link {
+    font-family: var(--body-font);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-decoration: underline;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
-.related-recipes .ingredients-list li a:hover,
-.category-links .ingredients-list li a:hover {
+.related-link:hover {
     color: var(--primary-color);
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+/* Add subtle animations for related cards */
+@keyframes relatedCardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.related-card {
+    animation: relatedCardFadeIn 0.6s ease-out;
+}
+
+.related-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.related-card:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
 
@@ -420,8 +583,7 @@
         padding: 1rem;
     }
     
-    .recipe-grid,
-    .related-content {
+    .recipe-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
@@ -487,6 +649,54 @@
     }
     
     .note-item span {
+        font-size: 0.9rem;
+    }
+    
+    .related-section {
+        padding: 2rem 1rem;
+    }
+    
+    .related-section h2 {
+        font-size: 1.8rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .related-section h2 i {
+        font-size: 1.5rem;
+    }
+    
+    .related-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .related-card {
+        padding: 1.5rem;
+    }
+    
+    .related-header {
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+    }
+    
+    .related-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .related-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .related-item {
+        gap: 0.6rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .related-link {
         font-size: 0.9rem;
     }
 } 

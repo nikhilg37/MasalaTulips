@@ -237,36 +237,64 @@ const RecipePage: React.FC = () => {
         </div>
 
         {/* Related Recipes Section */}
-        <div className="notes-section">
-          <h2>Related Recipes & Categories</h2>
-          <div className="related-content">
+        <div className="related-section">
+          <h2>
+            <i className="fas fa-compass"></i>
+            Related Recipes & Categories
+          </h2>
+          <div className="related-container">
             {/* Related Recipes */}
             {getRelatedRecipes(recipe).length > 0 && (
-              <div className="related-recipes">
-                <h3>Related Recipes</h3>
-                <ul className="ingredients-list">
+              <div className="related-card recipes-card">
+                <div className="related-header">
+                  <div className="related-icon">
+                    <i className="fas fa-utensils"></i>
+                  </div>
+                  <h3>Related Recipes</h3>
+                </div>
+                <div className="related-content">
                   {getRelatedRecipes(recipe).map((relatedRecipe) => (
-                    <li key={relatedRecipe.id}>
-                      <Link to={`/recipe/${relatedRecipe.id}`}>
+                    <div key={relatedRecipe.id} className="related-item">
+                      <div className="related-bullet">
+                        <i className="fas fa-arrow-right"></i>
+                      </div>
+                      <Link to={`/recipe/${relatedRecipe.id}`} className="related-link">
                         {relatedRecipe.title} - {relatedRecipe.subtitle}
                       </Link>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
             
             {/* Category Links */}
-            <div className="category-links">
-              <h3>Browse by Category</h3>
-              <ul className="ingredients-list">
+            <div className="related-card categories-card">
+              <div className="related-header">
+                <div className="related-icon">
+                  <i className="fas fa-tags"></i>
+                </div>
+                <h3>Browse by Category</h3>
+              </div>
+              <div className="related-content">
                 {getCategoryLinks(recipe).map((category: { path: string; label: string }, index: number) => (
-                  <li key={index}>
-                    <Link to={category.path}>See all {category.label}</Link>
-                  </li>
+                  <div key={index} className="related-item">
+                    <div className="related-bullet">
+                      <i className="fas fa-folder-open"></i>
+                    </div>
+                    <Link to={category.path} className="related-link">
+                      See all {category.label}
+                    </Link>
+                  </div>
                 ))}
-                <li><Link to="/recipe-categories/all-recipes">Browse All Recipes</Link></li>
-              </ul>
+                <div className="related-item">
+                  <div className="related-bullet">
+                    <i className="fas fa-folder-open"></i>
+                  </div>
+                  <Link to="/recipe-categories/all-recipes" className="related-link">
+                    Browse All Recipes
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

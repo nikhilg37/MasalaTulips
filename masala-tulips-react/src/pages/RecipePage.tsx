@@ -198,16 +198,39 @@ const RecipePage: React.FC = () => {
 
         {/* Notes Section */}
         <div className="notes-section">
-          <h2>Notes & Variations</h2>
-          <div className="notes-grid">
+          <h2>
+            <i className="fas fa-lightbulb"></i>
+            Notes & Variations
+          </h2>
+          <div className="notes-container">
             {recipe.notes.map((note, index) => (
-              <div key={index}>
-                <h3>{note.title}</h3>
-                <ul className="ingredients-list">
+              <div key={index} className={`note-card ${note.title.toLowerCase()}`}>
+                <div className="note-header">
+                  <div className="note-icon">
+                    {note.title.toLowerCase() === 'notes' || note.title.toLowerCase() === 'tips' ? (
+                      <i className="fas fa-sticky-note"></i>
+                    ) : note.title.toLowerCase() === 'variations' ? (
+                      <i className="fas fa-magic"></i>
+                    ) : (
+                      <i className="fas fa-info-circle"></i>
+                    )}
+                  </div>
+                  <h3>{note.title}</h3>
+                </div>
+                <div className="note-content">
                   {note.content.map((item, itemIndex) => (
-                    <li key={itemIndex}>{item}</li>
+                    <div key={itemIndex} className="note-item">
+                      <div className="note-bullet">
+                        {note.title.toLowerCase() === 'variations' ? (
+                          <i className="fas fa-arrow-right"></i>
+                        ) : (
+                          <i className="fas fa-check-circle"></i>
+                        )}
+                      </div>
+                      <span>{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>

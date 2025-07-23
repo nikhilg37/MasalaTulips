@@ -643,7 +643,7 @@ export const recipes: Record<string, Recipe> = {
     cuisine: 'South Indian',
     type: 'Vegetarian',
     mainImage: '/images/recipes/veg-sambhar/img12.jpeg',
-    category: ['lunch', 'vegetarian', 'upto-30-min'],
+    category: ['lunch', 'vegetarian'],
     tags: ['veg-sambhar', 'sambhar-recipe', 'south-indian-sambhar', 'lentil-stew', 'toor-dal', 'vegetarian-recipe', 'indian-lentils', 'traditional-recipe', 'protein-rich'],
     ingredients: [
       '1 cup toor dal',

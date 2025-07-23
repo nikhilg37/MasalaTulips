@@ -103,23 +103,22 @@
     line-height: 1.5;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.6rem;
     align-items: center;
 }
 
 /* Category Badges */
 .category-badge {
     display: inline-block;
-    padding: 0.3rem 0.8rem;
+    padding: 0.35rem 0.9rem;
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-right: 0.5rem;
-    margin-bottom: 0.3rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    white-space: nowrap;
 }
 
 .category-badge:hover {
@@ -172,15 +171,15 @@
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    padding: 0.2rem 0.6rem;
+    padding: 0.35rem 0.9rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
-    font-size: 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
     font-weight: 600;
     color: white;
-    margin-right: 0.5rem;
     box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .time-indicator:hover {
@@ -314,19 +313,20 @@
     }
     
     .recipe-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.4rem;
+        flex-wrap: wrap;
     }
     
     .category-badge {
-        margin-right: 0;
-        margin-bottom: 0.2rem;
+        padding: 0.25rem 0.7rem;
+        font-size: 0.7rem;
     }
     
     .time-indicator {
-        margin-right: 0;
-        margin-bottom: 0.2rem;
+        padding: 0.25rem 0.7rem;
+        font-size: 0.7rem;
     }
 }
 
@@ -349,12 +349,12 @@
     }
     
     .category-badge {
-        font-size: 0.7rem;
-        padding: 0.25rem 0.6rem;
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
     }
     
     .time-indicator {
-        font-size: 0.75rem;
-        padding: 0.15rem 0.5rem;
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
     }
 } 

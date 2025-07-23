@@ -62,13 +62,13 @@ const RecipeList: React.FC<RecipeListProps> = ({
                             {recipe.totalTime}
                           </span>
                           <span className="category-badge vegetarian">{recipe.type}</span>
+                          {(recipe.category.includes('quick') || isQuickRecipe(recipe.totalTime)) && <span className="category-badge quick">Quick</span>}
                           {recipe.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
                           {recipe.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
                           {recipe.category.includes('dinner') && <span className="category-badge dinner">Dinner</span>}
                           {recipe.category.includes('side-dish') && <span className="category-badge side-dish">Side Dish</span>}
                           {recipe.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
                           {recipe.category.includes('kids-options') && <span className="category-badge kids-options">Kids</span>}
-                          {(recipe.category.includes('quick') || isQuickRecipe(recipe.totalTime)) && <span className="category-badge quick">Quick</span>}
                         </div>
                 </div>
               </Link>

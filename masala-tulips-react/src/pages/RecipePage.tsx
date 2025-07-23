@@ -151,6 +151,20 @@ const RecipePage: React.FC = () => {
             <i className="far fa-clock"></i>
             <span>Prep Time: {recipe.prepTime} | Cook Time: {recipe.cookingTime} | Total Time: {recipe.totalTime}</span>
           </div>
+          <div className="recipe-meta">
+            <span className="time-indicator">
+              <i className="far fa-clock"></i>
+              {recipe.totalTime}
+            </span>
+            <span className="category-badge vegetarian">{recipe.type}</span>
+            {(recipe.category.includes('quick') || recipe.category.includes('upto-30-min')) && <span className="category-badge quick">Quick</span>}
+            {recipe.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
+            {recipe.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
+            {recipe.category.includes('dinner') && <span className="category-badge dinner">Dinner</span>}
+            {recipe.category.includes('side-dish') && <span className="category-badge side-dish">Side Dish</span>}
+            {recipe.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
+            {recipe.category.includes('kids-options') && <span className="category-badge kids-options">Kids</span>}
+          </div>
         </div>
 
         {/* Showcase Image */}
@@ -161,22 +175,44 @@ const RecipePage: React.FC = () => {
         {/* Recipe Content */}
         <div className="recipe-grid">
           {/* Ingredients */}
-          <div className="recipe-section">
-            <h2>Ingredients</h2>
-            <ul className="ingredients-list">
+          <div className="ingredients-section">
+            <div className="section-label">
+              <span>What You'll Need</span>
+            </div>
+            <h2>
+              <i className="fas fa-shopping-basket"></i>
+              Ingredients
+            </h2>
+            <div className="ingredients-container">
               {recipe.ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
+                <div key={index} className="ingredient-item">
+                  <div className="ingredient-bullet">
+                    <i className="fas fa-circle"></i>
+                  </div>
+                  <span>{ingredient}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Instructions */}
-          <div className="recipe-section">
-            <h2>Instructions</h2>
-            <ol className="instructions-list">
+          <div className="instructions-section">
+            <div className="section-label">
+              <span>Step-by-Step Guide</span>
+            </div>
+            <h2>
+              <i className="fas fa-list-ol"></i>
+              Instructions
+            </h2>
+            <div className="instructions-container">
               {recipe.instructions.map((instruction) => (
-                <li key={instruction.step}>
-                  <h3>{instruction.step}. {instruction.title}</h3>
+                <div key={instruction.step} className="instruction-item">
+                  <div className="instruction-header">
+                    <div className="step-number">
+                      <span>{instruction.step}</span>
+                    </div>
+                    <h3>{instruction.title}</h3>
+                  </div>
                   <p>{instruction.description}</p>
                   {instruction.images && instruction.images.length > 0 && (
                     <div className="step-images">
@@ -190,17 +226,20 @@ const RecipePage: React.FC = () => {
                       ))}
                     </div>
                   )}
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
         </div>
 
         {/* Notes Section */}
         <div className="notes-section">
+          <div className="section-label">
+            <span>Pro Tips & Ideas</span>
+          </div>
           <h2>
             <i className="fas fa-lightbulb"></i>
-            Notes & Variations
+            Tips & Variations
           </h2>
           <div className="notes-container">
             {recipe.notes.map((note, index) => (
@@ -238,6 +277,9 @@ const RecipePage: React.FC = () => {
 
         {/* Related Recipes Section */}
         <div className="related-section">
+          <div className="section-label">
+            <span>Explore More</span>
+          </div>
           <h2>
             <i className="fas fa-compass"></i>
             Related Recipes & Categories

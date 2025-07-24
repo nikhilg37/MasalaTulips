@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import { getRecipeBySlug } from '../data/recipes';
-
+import AdSenseAd from '../components/AdSenseAd';
 
 // Function to check if a recipe is quick (30 minutes or less)
 const isQuickRecipe = (totalTime: string): boolean => {
@@ -92,18 +92,11 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* AdSense Ad Unit - Placed after substantial content */}
-      <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px'}}>
-          <ins className="adsbygoogle"
-               style={{display: 'block'}}
-               data-ad-client="ca-pub-1787338664165158"
-               data-ad-slot="4974887200"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-      </div>
+      {/* Conditional AdSense Ad Unit */}
+      <AdSenseAd 
+        pageType="home" 
+        recipes={[chitranna, pulao, milkshake].filter(Boolean)}
+      />
 
       {/* Featured Recipes */}
       <section className="featured-recipes">

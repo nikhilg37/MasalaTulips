@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getRecipesByCategory } from '../data/recipes';
 import '../styles/RecipePage.css';
 
-import { generateRecipeStructuredData } from '../utils/structuredData';
+import { generateRecipeStructuredData, addStructuredData, generateBreadcrumbStructuredData } from '../utils/structuredData';
+import { updateRecipeSEO, trackEnhancedPageView, trackRecipeInteraction } from '../utils/seo';
 
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -20,30 +21,30 @@ const RecipePage: React.FC = () => {
         const related = getRecipesByCategory(foundRecipe.category[0]).filter(r => r.id !== foundRecipe.id).slice(0, 3);
         setRelatedRecipes(related);
         
-        // Update page title and meta description
-        document.title = `${foundRecipe.title} - ${foundRecipe.subtitle} | Masala Tulips`;
+        // Enhanced SEO updates
+        const currentUrl = window.location.href;
+        updateRecipeSEO(foundRecipe, currentUrl);
         
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-          metaDescription.setAttribute('content', foundRecipe.description);
-        }
+        // Generate and add structured data
+        const recipeStructuredData = generateRecipeStructuredData(foundRecipe, currentUrl);
+        const breadcrumbStructuredData = generateBreadcrumbStructuredData([
+          { name: 'Home', url: 'https://masalatulips.nl/' },
+          { name: 'Recipes', url: 'https://masalatulips.nl/recipe-categories' },
+          { name: foundRecipe.category[0], url: `https://masalatulips.nl/recipe-categories/${foundRecipe.category[0]}` },
+          { name: foundRecipe.title, url: currentUrl }
+        ]);
+        
+        addStructuredData(recipeStructuredData);
+        
+        // Track enhanced page view
+        trackEnhancedPageView(window.location.pathname, {
+          recipeId: foundRecipe.id,
+          recipeTitle: foundRecipe.title,
+          recipeCategory: foundRecipe.category[0],
+          recipeCuisine: foundRecipe.cuisine
+        });
 
-        // Add structured data for SEO
-        const structuredData = generateRecipeStructuredData(foundRecipe, window.location.href);
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify(structuredData);
-        document.head.appendChild(script);
-
-        // Analytics tracking
-        // trackGAEvent({
-        //   action: 'view',
-        //   category: 'Recipe',
-        //   label: foundRecipe.title,
-        // });
-        // trackGTMEvent('recipe_view', { recipeId: foundRecipe.id, title: foundRecipe.title });
-
-        // Cleanup function to remove structured data script
+        // Cleanup function
         return () => {
           const scripts = document.querySelectorAll('script[type="application/ld+json"]');
           scripts.forEach(script => {
@@ -53,8 +54,6 @@ const RecipePage: React.FC = () => {
           });
         };
       }
-
-      
     }
   }, [slug]);
 

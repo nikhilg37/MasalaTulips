@@ -3,7 +3,18 @@ import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getRecipesByCategory } from '../data/recipes';
 import '../styles/RecipePage.css';
 
-import { generateRecipeStructuredData } from '../utils/structuredData';
+import { generateRecipeStructuredData, addStructuredData, generateBreadcrumbStructuredData, generateFAQStructuredData } from '../utils/structuredData';
+import { updateRecipeSEO, trackEnhancedPageView, trackRecipeInteraction } from '../utils/seo';
+import { 
+  enhanceRecipeDescription, 
+  generateRecipeIntroduction, 
+  generateCookingTips, 
+  generateStorageInstructions, 
+  generateIngredientSubstitutions, 
+  generateRecipeFAQ,
+  generateRelatedContent,
+  checkContentQuality 
+} from '../utils/contentOptimizer';
 
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -20,30 +31,31 @@ const RecipePage: React.FC = () => {
         const related = getRecipesByCategory(foundRecipe.category[0]).filter(r => r.id !== foundRecipe.id).slice(0, 3);
         setRelatedRecipes(related);
         
-        // Update page title and meta description
-        document.title = `${foundRecipe.title} - ${foundRecipe.subtitle} | Masala Tulips`;
+        // Enhanced SEO updates
+        const currentUrl = window.location.href;
+        updateRecipeSEO(foundRecipe, currentUrl);
         
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-          metaDescription.setAttribute('content', foundRecipe.description);
-        }
+        // Generate and add structured data
+        const recipeStructuredData = generateRecipeStructuredData(foundRecipe, currentUrl);
+        const breadcrumbStructuredData = generateBreadcrumbStructuredData([
+          { name: 'Home', url: 'https://masalatulips.nl/' },
+          { name: 'Recipes', url: 'https://masalatulips.nl/recipe-categories' },
+          { name: foundRecipe.category[0], url: `https://masalatulips.nl/recipe-categories/${foundRecipe.category[0]}` },
+          { name: foundRecipe.title, url: currentUrl }
+        ]);
+        const faqStructuredData = generateFAQStructuredData(generateRecipeFAQ(foundRecipe));
+        
+        addStructuredData(recipeStructuredData);
+        
+        // Track enhanced page view
+        trackEnhancedPageView(window.location.pathname, {
+          recipeId: foundRecipe.id,
+          recipeTitle: foundRecipe.title,
+          recipeCategory: foundRecipe.category[0],
+          recipeCuisine: foundRecipe.cuisine
+        });
 
-        // Add structured data for SEO
-        const structuredData = generateRecipeStructuredData(foundRecipe, window.location.href);
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify(structuredData);
-        document.head.appendChild(script);
-
-        // Analytics tracking
-        // trackGAEvent({
-        //   action: 'view',
-        //   category: 'Recipe',
-        //   label: foundRecipe.title,
-        // });
-        // trackGTMEvent('recipe_view', { recipeId: foundRecipe.id, title: foundRecipe.title });
-
-        // Cleanup function to remove structured data script
+        // Cleanup function
         return () => {
           const scripts = document.querySelectorAll('script[type="application/ld+json"]');
           scripts.forEach(script => {
@@ -53,8 +65,6 @@ const RecipePage: React.FC = () => {
           });
         };
       }
-
-      
     }
   }, [slug]);
 
@@ -245,7 +255,28 @@ const RecipePage: React.FC = () => {
               }}
             >
               <i className="fas fa-lightbulb"></i>
-              <span>Tips</span>
+              <span>Guide</span>
+            </a>
+            <a 
+              href="#faq-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('faq-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-question-circle"></i>
+              <span>FAQ</span>
             </a>
             <a 
               href="#related-section" 
@@ -338,16 +369,17 @@ const RecipePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Tips Section */}
+        {/* Enhanced Tips & Variations Section */}
         <div id="tips-section" className="notes-section">
           <div className="section-label">
             <span>Pro Tips & Ideas</span>
           </div>
           <h2>
             <i className="fas fa-lightbulb"></i>
-            Tips & Variations
+            Cooking Guide & Tips
           </h2>
           <div className="notes-container">
+            {/* Original Recipe Notes */}
             {recipe.notes.map((note: any, index: number) => (
               <div key={index} className={`note-card ${note.title.toLowerCase()}`}>
                 <div className="note-header">
@@ -375,6 +407,94 @@ const RecipePage: React.FC = () => {
                       <span>{item}</span>
                     </div>
                   ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Enhanced Cooking Tips */}
+            <div className="note-card tips">
+              <div className="note-header">
+                <div className="note-icon">
+                  <i className="fas fa-utensils"></i>
+                </div>
+                <h3>Essential Cooking Tips</h3>
+              </div>
+              <div className="note-content">
+                {generateCookingTips(recipe).map((tip, index) => (
+                  <div key={index} className="note-item">
+                    <div className="note-bullet">
+                      <i className="fas fa-check-circle"></i>
+                    </div>
+                    <span>{tip}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Storage Instructions */}
+            <div className="note-card storage">
+              <div className="note-header">
+                <div className="note-icon">
+                  <i className="fas fa-box"></i>
+                </div>
+                <h3>Storage & Reheating</h3>
+              </div>
+              <div className="note-content">
+                <div className="note-item">
+                  <div className="note-bullet">
+                    <i className="fas fa-info-circle"></i>
+                  </div>
+                  <span>{generateStorageInstructions(recipe)}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Ingredient Substitutions */}
+            {Object.keys(generateIngredientSubstitutions(recipe)).length > 0 && (
+              <div className="note-card substitutions">
+                <div className="note-header">
+                  <div className="note-icon">
+                    <i className="fas fa-exchange-alt"></i>
+                  </div>
+                  <h3>Ingredient Substitutions</h3>
+                </div>
+                <div className="note-content">
+                  {Object.entries(generateIngredientSubstitutions(recipe)).map(([original, substitutes]) => (
+                    <div key={original} className="note-item">
+                      <div className="note-bullet">
+                        <i className="fas fa-arrow-right"></i>
+                      </div>
+                      <span><strong>{original}:</strong> {substitutes.join(', ')}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+
+
+        {/* FAQ Section */}
+        <div id="faq-section" className="enhanced-content-section">
+          <div className="section-label">
+            <span>Common Questions</span>
+          </div>
+          <h2>
+            <i className="fas fa-question-circle"></i>
+            Frequently Asked Questions
+          </h2>
+          <div className="faq-container">
+            {generateRecipeFAQ(recipe).map((faq, index) => (
+              <div key={index} className="faq-item">
+                <div className="faq-question">
+                  <div className="faq-icon">
+                    <i className="fas fa-question"></i>
+                  </div>
+                  <h3>{faq.question}</h3>
+                </div>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
                 </div>
               </div>
             ))}

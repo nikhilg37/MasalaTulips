@@ -2,5 +2,56 @@
 User-agent: *
 Allow: /
 
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important directories
+Allow: /recipe-categories/
+Allow: /recipe/
+Allow: /blogs/
+Allow: /images/
+
 # Sitemap
 Sitemap: https://masalatulips.nl/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Additional directives for better SEO
+# Allow Googlebot to crawl all content
+User-agent: Googlebot
+Allow: /
+
+# Allow Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Allow social media crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block common bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Host directive for canonical domain
+Host: https://masalatulips.nl

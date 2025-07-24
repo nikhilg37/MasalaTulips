@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import { getRecipeBySlug } from '../data/recipes';
 import AdSenseAd from '../components/AdSenseAd';
+import { updateHomeSEO, trackEnhancedPageView } from '../utils/seo';
+import { addMultipleStructuredData, generateWebsiteStructuredData, generateOrganizationStructuredData } from '../utils/structuredData';
 
 // Function to check if a recipe is quick (30 minutes or less)
 const isQuickRecipe = (totalTime: string): boolean => {
@@ -20,6 +22,22 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
+    // Enhanced SEO setup
+    const currentUrl = window.location.href;
+    updateHomeSEO(currentUrl);
+    
+    // Add structured data
+    const websiteStructuredData = generateWebsiteStructuredData();
+    const organizationStructuredData = generateOrganizationStructuredData();
+    addMultipleStructuredData([websiteStructuredData, organizationStructuredData]);
+    
+    // Track enhanced page view
+    trackEnhancedPageView(window.location.pathname, {
+      pageType: 'home',
+      featuredRecipes: ['mavinakaayi-chitranna', 'vegetable-pulao', 'strawberry-milkshake']
+    });
+
+    // Handle scroll to hash
     const hash = sessionStorage.getItem('scrollToHash');
     if (hash) {
       const element = document.getElementById(hash);
@@ -32,8 +50,6 @@ const Home: React.FC = () => {
       }
       sessionStorage.removeItem('scrollToHash');
     }
-
-;
   }, []);
 
   const chitranna = getRecipeBySlug('mavinakaayi-chitranna');

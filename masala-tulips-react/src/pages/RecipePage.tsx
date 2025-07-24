@@ -1,57 +1,68 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getRecipeBySlug, getAllRecipes } from '../data/recipes';
+import { getRecipeBySlug, getRecipesByCategory } from '../data/recipes';
 import '../styles/RecipePage.css';
-import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
+
 import { generateRecipeStructuredData } from '../utils/structuredData';
 
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const recipe = getRecipeBySlug(slug || '');
-  
-
+  const [recipe, setRecipe] = useState<any>(null);
+  const [relatedRecipes, setRelatedRecipes] = useState<any[]>([]);
 
   useEffect(() => {
-    if (recipe) {
-      // Update page title and meta description for SEO
-      document.title = `${recipe.title} - Masala Tulips`;
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', recipe.description);
+    if (slug) {
+      const foundRecipe = getRecipeBySlug(slug);
+      setRecipe(foundRecipe);
+      
+      if (foundRecipe) {
+        // Get related recipes from the same category
+        const related = getRecipesByCategory(foundRecipe.category[0]).filter(r => r.id !== foundRecipe.id).slice(0, 3);
+        setRelatedRecipes(related);
+        
+        // Update page title and meta description
+        document.title = `${foundRecipe.title} - ${foundRecipe.subtitle} | Masala Tulips`;
+        
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+          metaDescription.setAttribute('content', foundRecipe.description);
+        }
+
+        // Add structured data for SEO
+        const structuredData = generateRecipeStructuredData(foundRecipe, window.location.href);
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+
+        // Analytics tracking
+        // trackGAEvent({
+        //   action: 'view',
+        //   category: 'Recipe',
+        //   label: foundRecipe.title,
+        // });
+        // trackGTMEvent('recipe_view', { recipeId: foundRecipe.id, title: foundRecipe.title });
+
+        // Cleanup function to remove structured data script
+        return () => {
+          const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+          scripts.forEach(script => {
+            if (script.textContent?.includes(foundRecipe.title)) {
+              script.remove();
+            }
+          });
+        };
       }
 
-      // Add structured data for SEO
-      const structuredData = generateRecipeStructuredData(recipe, window.location.href);
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.text = JSON.stringify(structuredData);
-      document.head.appendChild(script);
-
-      // Analytics tracking
-      trackGAEvent({
-        action: 'view',
-        category: 'Recipe',
-        label: recipe.title,
-      });
-      trackGTMEvent('recipe_view', { recipeId: recipe.id, title: recipe.title });
-
-      // Cleanup function to remove structured data script
-      return () => {
-        const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-        scripts.forEach(script => {
-          if (script.textContent?.includes(recipe.title)) {
-            script.remove();
-          }
-        });
-      };
+      
     }
-  }, [recipe]);
+  }, [slug]);
 
 
 
   // Function to get related recipes based on categories and tags
   const getRelatedRecipes = (currentRecipe: any) => {
-    const allRecipes = getAllRecipes();
+    const allRecipes = getRecipesByCategory(currentRecipe.category[0]); // Assuming category is an array
     const relatedRecipes = allRecipes
       .filter(recipe => recipe.id !== currentRecipe.id) // Exclude current recipe
       .map(recipe => {
@@ -89,7 +100,6 @@ const RecipePage: React.FC = () => {
       'quick': 'Under 30 Minutes',
       'upto-30-min': 'Under 30 Minutes',
       'between-30-60-min': '30-60 Minutes',
-      'between-60-90-min': '60-90 Minutes',
       'all-recipes': 'All Recipes'
     };
 
@@ -278,7 +288,7 @@ const RecipePage: React.FC = () => {
               Ingredients
             </h2>
             <div className="ingredients-container">
-              {recipe.ingredients.map((ingredient, index) => (
+              {recipe.ingredients.map((ingredient: string, index: number) => (
                 <div key={index} className="ingredient-item">
                   <div className="ingredient-bullet">
                     <i className="fas fa-circle"></i>
@@ -288,6 +298,8 @@ const RecipePage: React.FC = () => {
               ))}
             </div>
           </div>
+
+
 
           {/* Instructions */}
           <div id="instructions-section" className="instructions-section">
@@ -299,7 +311,7 @@ const RecipePage: React.FC = () => {
               Instructions
             </h2>
             <div className="instructions-container">
-              {recipe.instructions.map((instruction) => (
+              {recipe.instructions.map((instruction: any) => (
                 <div key={instruction.step} className="instruction-item">
                   <div className="instruction-header">
                     <div className="step-number">
@@ -310,7 +322,7 @@ const RecipePage: React.FC = () => {
                   <p>{instruction.description}</p>
                   {instruction.images && instruction.images.length > 0 && (
                     <div className="step-images">
-                      {instruction.images.map((image, imageIndex) => (
+                      {instruction.images.map((image: string, imageIndex: number) => (
                         <img 
                           key={imageIndex}
                           src={image} 
@@ -336,7 +348,7 @@ const RecipePage: React.FC = () => {
             Tips & Variations
           </h2>
           <div className="notes-container">
-            {recipe.notes.map((note, index) => (
+            {recipe.notes.map((note: any, index: number) => (
               <div key={index} className={`note-card ${note.title.toLowerCase()}`}>
                 <div className="note-header">
                   <div className="note-icon">
@@ -351,7 +363,7 @@ const RecipePage: React.FC = () => {
                   <h3>{note.title}</h3>
                 </div>
                 <div className="note-content">
-                  {note.content.map((item, itemIndex) => (
+                  {note.content.map((item: string, itemIndex: number) => (
                     <div key={itemIndex} className="note-item">
                       <div className="note-bullet">
                         {note.title.toLowerCase() === 'variations' ? (
@@ -380,7 +392,7 @@ const RecipePage: React.FC = () => {
           </h2>
           <div className="related-container">
             {/* Related Recipes */}
-            {getRelatedRecipes(recipe).length > 0 && (
+            {relatedRecipes.length > 0 && (
               <div className="related-card recipes-card">
                 <div className="related-header">
                   <div className="related-icon">
@@ -389,7 +401,7 @@ const RecipePage: React.FC = () => {
                   <h3>Related Recipes</h3>
                 </div>
                 <div className="related-content">
-                  {getRelatedRecipes(recipe).map((relatedRecipe) => (
+                  {relatedRecipes.map((relatedRecipe) => (
                     <div key={relatedRecipe.id} className="related-item">
                       <div className="related-bullet">
                         <i className="fas fa-arrow-right"></i>

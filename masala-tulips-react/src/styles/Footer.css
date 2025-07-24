@@ -31,4 +31,24 @@ footer {
 .footer-content p {
     font-family: var(--body-font);
     margin: 0;
+}
+
+.legal-links {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.legal-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: var(--accent-color);
+}
+
+.legal-links .separator {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.7);
 } 

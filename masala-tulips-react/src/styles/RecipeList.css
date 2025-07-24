@@ -168,6 +168,32 @@
     color: #2D3436;
 }
 
+/* Additional Category Badge Styles */
+.category-badge.vegan {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.category-badge.salads {
+  background-color: #8BC34A;
+  color: white;
+}
+
+.category-badge.starters {
+  background-color: #FF9800;
+  color: white;
+}
+
+.category-badge.snacks {
+  background-color: #FF5722;
+  color: white;
+}
+
+.category-badge.desserts {
+  background-color: #E91E63;
+  color: white;
+}
+
 /* Time indicator */
 .time-indicator {
     display: inline-flex;
@@ -359,4 +385,312 @@
         font-size: 0.65rem;
         padding: 0.2rem 0.6rem;
     }
+} 
+
+/* Content Enhancement Styles */
+.content-enhancement {
+  margin: 40px 0;
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
+
+.category-description {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-description h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.category-description p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.coming-soon-notice {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.coming-soon-notice p {
+  color: #856404;
+  margin: 0;
+  font-weight: 500;
+}
+
+.coming-soon-card {
+  background-color: #f8f9fa;
+  border: 2px dashed #dee2e6;
+}
+
+.coming-soon-card .recipe-content h3 {
+  color: #6c757d;
+}
+
+.coming-soon-card .recipe-content p {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.category-info {
+  margin: 40px 0;
+  padding: 40px 0;
+  background-color: #f8f9fa;
+}
+
+.category-info h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.category-info p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enhanced 404 Page Styles */
+.not-found-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.not-found-page .container {
+  max-width: 800px;
+  text-align: center;
+}
+
+.not-found-page h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.not-found-page p {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.not-found-page a {
+  color: #FF6B35;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.not-found-page a:hover {
+  text-decoration: underline;
+}
+
+.suggested-content {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.suggested-content h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.suggested-content p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.suggested-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.suggested-content li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border-left: 4px solid #FF6B35;
+}
+
+.suggested-content li a {
+  color: #FF6B35;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.suggested-content li a:hover {
+  text-decoration: underline;
+} 
+
+/* Enhanced Content Styles */
+.cooking-tips {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #FF6B35;
+}
+
+.cooking-tips h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.cooking-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cooking-tips li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+  color: #666;
+  line-height: 1.5;
+}
+
+.cooking-tips li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #FF6B35;
+  font-weight: bold;
+}
+
+.category-description h3 {
+  color: #333;
+  margin: 25px 0 15px 0;
+  font-size: 1.4rem;
+}
+
+.category-description ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.category-description li {
+  margin-bottom: 10px;
+  padding: 12px;
+  background-color: white;
+  border-radius: 6px;
+  border-left: 3px solid #FF6B35;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-description li strong {
+  color: #FF6B35;
+  font-weight: 600;
+}
+
+/* Enhanced placeholder cards */
+.coming-soon-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px dashed #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.coming-soon-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.coming-soon-card .recipe-content h3 {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.coming-soon-card .recipe-content p {
+  color: #6c757d;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.coming-soon-notice {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.coming-soon-notice p {
+  color: #856404;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Special styling for longer cooking time categories */
+.recipes-hero.special-occasion {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.recipes-hero.special-occasion h1 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.recipes-hero.special-occasion p {
+  color: rgba(255,255,255,0.9);
+}
+
+/* Enhanced content for longer cooking times */
+.category-description .elaborate-cooking {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  border-left: 5px solid #667eea;
+}
+
+.category-description .elaborate-cooking h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.category-description .elaborate-cooking ul {
+  list-style: none;
+  padding: 0;
+}
+
+.category-description .elaborate-cooking li {
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-description .elaborate-cooking li strong {
+  color: #667eea;
+  font-weight: 600;
 } 

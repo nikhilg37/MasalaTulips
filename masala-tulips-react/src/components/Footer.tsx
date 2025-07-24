@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 import { trackGAEvent, trackGTMEvent } from '../utils/analytics';
 
@@ -61,6 +62,11 @@ const Footer: React.FC = () => {
           </a>
         </div>
         <p>&copy; 2025 Masala Tulips. All rights reserved.</p>
+        <div className="legal-links">
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <span className="separator">|</span>
+          <Link to="/terms-of-service">Terms of Service</Link>
+        </div>
       </div>
     </footer>
   );

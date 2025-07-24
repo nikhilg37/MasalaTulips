@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import { getRecipeBySlug } from '../data/recipes';
 
+
 // Function to check if a recipe is quick (30 minutes or less)
 const isQuickRecipe = (totalTime: string): boolean => {
   const timeInMinutes = parseInt(totalTime.replace(' mins', ''));
@@ -31,6 +32,8 @@ const Home: React.FC = () => {
       }
       sessionStorage.removeItem('scrollToHash');
     }
+
+;
   }, []);
 
   const chitranna = getRecipeBySlug('mavinakaayi-chitranna');
@@ -124,6 +127,8 @@ const Home: React.FC = () => {
                           <span className="category-badge vegetarian">{chitranna.type}</span>
                           {chitranna.category.includes('quick') && <span className="category-badge quick">Quick</span>}
                           {chitranna.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
+                          {chitranna.category.includes('vegan') && <span className="category-badge vegan">Vegan</span>}
+                          {chitranna.category.includes('salads') && <span className="category-badge salads">Salads</span>}
                         </div>
                         <p>{chitranna.description}</p>
                       </div>
@@ -145,6 +150,8 @@ const Home: React.FC = () => {
                           </span>
                           <span className="category-badge vegetarian">{pulao.type}</span>
                           {pulao.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
+                          {pulao.category.includes('vegan') && <span className="category-badge vegan">Vegan</span>}
+                          {pulao.category.includes('salads') && <span className="category-badge salads">Salads</span>}
                         </div>
                         <p>{pulao.description}</p>
                       </div>
@@ -167,6 +174,8 @@ const Home: React.FC = () => {
                           <span className="category-badge vegetarian">{milkshake.type}</span>
                           {milkshake.category.includes('upto-30-min') && <span className="category-badge quick">Quick</span>}
                           {milkshake.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
+                          {milkshake.category.includes('vegan') && <span className="category-badge vegan">Vegan</span>}
+                          {milkshake.category.includes('salads') && <span className="category-badge salads">Salads</span>}
                         </div>
                         <p>{milkshake.description}</p>
                       </div>

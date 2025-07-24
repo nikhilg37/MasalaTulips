@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import '../styles/Blogs.css';
 
+
 const Blogs: React.FC = () => {
   useEffect(() => {
     // Update page title and meta description for SEO
@@ -88,6 +89,8 @@ const Blogs: React.FC = () => {
     script.setAttribute('data-structured-data', 'blogs');
     script.textContent = JSON.stringify(structuredData);
     document.head.appendChild(script);
+
+
 
     // Cleanup function
     return () => {
@@ -313,6 +316,19 @@ const Blogs: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* AdSense Ad Unit - After Blog Content */}
+      <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px'}}>
+        <ins className="adsbygoogle"
+             style={{display: 'block'}}
+             data-ad-client="ca-pub-1787338664165158"
+             data-ad-slot="4974887200"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
     </div>
   );
 };

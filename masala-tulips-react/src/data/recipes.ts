@@ -919,6 +919,153 @@ export const recipes: Record<string, Recipe> = {
         ]
       }
     ]
+  },
+  'cucumber-tomato-salad': {
+    id: 'cucumber-tomato-salad',
+    title: 'Cucumber Tomato Salad Recipe - Fresh Indian Kachumber',
+    subtitle: '"ಕಾಕುಂಬರ್" - Kachumber Salad',
+    description: 'Learn how to make authentic Indian Kachumber - a refreshing cucumber tomato salad that\'s a staple in Indian households. This simple yet flavorful salad combines crisp cucumbers, juicy tomatoes, and aromatic spices to create a perfect accompaniment to any meal. Quick to prepare in just 10 minutes and packed with fresh flavors.',
+    cookingTime: '0 mins',
+    prepTime: '10 mins',
+    totalTime: '10 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80',
+    category: ['salads', 'vegetarian', 'vegan', 'upto-30-min', 'side-dish', 'starters'],
+    tags: ['cucumber-tomato-salad', 'kachumber', 'indian-salad', 'fresh-salad', 'vegetarian-recipe', 'vegan-recipe', 'quick-recipe', 'healthy-recipe'],
+    ingredients: [
+      '2 medium cucumbers, finely chopped',
+      '2 medium tomatoes, finely chopped',
+      '1 small red onion, finely chopped',
+      '1/4 cup fresh coriander leaves, chopped',
+      '1 green chili, finely chopped (optional)',
+      '1/2 teaspoon roasted cumin powder',
+      '1/2 teaspoon chaat masala',
+      '1/2 teaspoon black salt (kala namak)',
+      '1 tablespoon lemon juice',
+      '1 tablespoon olive oil',
+      'Fresh mint leaves for garnish (optional)'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Vegetables',
+        description: 'Wash and finely chop the cucumbers, tomatoes, and red onion. Make sure all pieces are uniform in size for better presentation.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Mix the Ingredients',
+        description: 'In a large bowl, combine the chopped cucumbers, tomatoes, and red onion. Add finely chopped coriander leaves and green chili if using.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Add Seasonings',
+        description: 'Sprinkle roasted cumin powder, chaat masala, and black salt over the vegetables. Drizzle with lemon juice and olive oil.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Toss and Serve',
+        description: 'Gently toss all ingredients together until well combined. Garnish with fresh mint leaves and serve immediately for the best taste and texture.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh, firm vegetables for the best texture and flavor.',
+          'Adjust the amount of green chili according to your spice preference.',
+          'Serve immediately to maintain the crispness of the vegetables.',
+          'You can add a pinch of sugar for a sweet-sour balance.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add grated carrots for extra color and nutrition.',
+          'Include pomegranate seeds for a festive touch.',
+          'Use different types of cucumbers for varied texture.',
+          'Add a dash of amchur (dry mango powder) for extra tanginess.'
+        ]
+      }
+    ]
+  },
+  'gulab-jamun': {
+    id: 'gulab-jamun',
+    title: 'Gulab Jamun Recipe - Sweet Indian Dessert Balls',
+    subtitle: '"ಗುಲಾಬ್ ಜಾಮುನ್" - Gulab Jamun',
+    description: 'Learn how to make authentic Gulab Jamun - a classic Indian dessert featuring soft, spongy milk solids balls soaked in rose-flavored sugar syrup. This beloved sweet is a staple at Indian celebrations and festivals. The perfect combination of melt-in-mouth texture and aromatic sweetness makes it irresistible.',
+    cookingTime: '90 mins',
+    prepTime: '45 mins',
+    totalTime: '135 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
+    category: ['desserts', 'vegetarian', 'more-than-120-min', 'sweet', 'festival-food'],
+    tags: ['gulab-jamun', 'indian-dessert', 'sweet-balls', 'festival-food', 'vegetarian-dessert', 'indian-recipe'],
+    ingredients: [
+      '1 cup milk powder',
+      '1/4 cup all-purpose flour',
+      '1/4 teaspoon baking soda',
+      '2 tablespoons ghee',
+      '1/4 cup milk (or as needed)',
+      'Oil for deep frying',
+      'For Sugar Syrup:',
+      '1 cup sugar',
+      '1 cup water',
+      '4-5 cardamom pods',
+      '1/2 teaspoon rose water',
+      'A few strands of saffron (optional)'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Dough',
+        description: 'Mix milk powder, flour, and baking soda. Add ghee and mix well. Gradually add milk to form a soft, smooth dough.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Shape the Balls',
+        description: 'Divide the dough into small portions and roll them into smooth, crack-free balls. Keep them covered.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Make Sugar Syrup',
+        description: 'In a pan, combine sugar and water. Add cardamom pods and bring to a boil. Simmer for 5-7 minutes until slightly thick. Add rose water and saffron.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Fry and Soak',
+        description: 'Heat oil and fry the balls on medium heat until golden brown. Drain and immediately soak in warm sugar syrup for 2-3 hours.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh milk powder for best results.',
+          'Don\'t over-knead the dough to keep it soft.',
+          'Fry on medium heat to ensure even cooking.',
+          'Soak in warm syrup for better absorption.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add chopped nuts to the dough for texture.',
+          'Use different flavors like kesar or elaichi.',
+          'Try different shapes like cylinders or squares.',
+          'Serve with vanilla ice cream for a modern twist.'
+        ]
+      }
+    ]
   }
 };
 

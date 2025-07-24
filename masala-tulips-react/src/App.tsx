@@ -19,9 +19,12 @@ import SideDish from './pages/recipesByMealType/SideDish';
 import Drinks from './pages/recipesByMealType/Drinks';
 import KidsOptions from './pages/recipesByMealType/KidsOptions';
 import RecipeList from './pages/RecipeList';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 import './styles/App.css';
 import ScrollToTop from './components/ScrollToTop';
+import CookieConsent from './components/CookieConsent';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView } from './utils/analytics';
@@ -42,6 +45,7 @@ function App() {
       <div className="App">
         <Header />
         <main>
+          <CookieConsent />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/recipe-categories" element={<RecipeCategories />} />
@@ -65,6 +69,10 @@ function App() {
             <Route path="/recipe-categories/vegetarian" element={<Vegetarian />} />
             <Route path="/recipe-categories/most-popular" element={<MostPopular />} />
             <Route path="/recipe-categories/all-recipes" element={<AllRecipes />} />
+            
+            {/* Legal Pages Routes */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             
             {/* 404 Route - Catch all invalid routes */}
             <Route path="*" element={

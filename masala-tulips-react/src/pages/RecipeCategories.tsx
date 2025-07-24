@@ -47,6 +47,19 @@ const RecipeCategories: React.FC = () => {
         </div>
       </section>
 
+      {/* AdSense Ad Unit - After Categories */}
+      <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px'}}>
+        <ins className="adsbygoogle"
+             style={{display: 'block'}}
+             data-ad-client="ca-pub-1787338664165158"
+             data-ad-slot="4974887200"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
       {/* Additional Content Section */}
       <section className="categories-info">
         <div className="container">

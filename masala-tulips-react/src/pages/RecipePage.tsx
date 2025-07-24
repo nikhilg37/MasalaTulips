@@ -289,6 +289,19 @@ const RecipePage: React.FC = () => {
             </div>
           </div>
 
+          {/* AdSense Ad Unit - After Ingredients */}
+          <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px', gridColumn: '1 / -1'}}>
+            <ins className="adsbygoogle"
+                 style={{display: 'block'}}
+                 data-ad-client="ca-pub-1787338664165158"
+                 data-ad-slot="4974887200"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+
           {/* Instructions */}
           <div id="instructions-section" className="instructions-section">
             <div className="section-label">

@@ -1,0 +1,165 @@
+.legal-page {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.legal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: var(--body-font);
+  line-height: 1.6;
+  color: #333;
+}
+
+.legal-content h1 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-family: var(--heading-font);
+}
+
+.legal-content h2 {
+  color: var(--primary-color);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+}
+
+.legal-content h3 {
+  color: #555;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-family: var(--heading-font);
+  font-size: 1.2rem;
+}
+
+.legal-content h4 {
+  color: #666;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-family: var(--heading-font);
+  font-size: 1.1rem;
+}
+
+.legal-content p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.legal-content ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.legal-content li {
+  margin-bottom: 8px;
+}
+
+.legal-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal-content a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.last-updated {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-left: 4px solid var(--primary-color);
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.contact-info {
+  background-color: #fff3e0;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 25px 0;
+  border-left: 4px solid #ff9800;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-info li {
+  margin-bottom: 5px;
+}
+
+.disclaimer {
+  background-color: #fff8e1;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border-left: 4px solid #ffc107;
+}
+
+.disclaimer p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .legal-page {
+    padding: 20px 10px;
+  }
+  
+  .legal-content {
+    padding: 25px 20px;
+    margin: 0 10px;
+  }
+  
+  .legal-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .legal-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .legal-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .legal-content h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-content {
+    padding: 20px 15px;
+    margin: 0 5px;
+  }
+  
+  .legal-content h1 {
+    font-size: 1.6rem;
+  }
+  
+  .legal-content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-info,
+  .disclaimer {
+    padding: 15px;
+  }
+} 

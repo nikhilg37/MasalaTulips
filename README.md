@@ -196,6 +196,7 @@ npm start
 npm run build
 
 # The build files will be in the 'build' directory
+cp -r build/* ../docs/
 ```
 
 ## 🎯 SEO Features

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import { getRecipeBySlug } from '../data/recipes';
-import { loadAdsSafely } from '../utils/analytics';
+
 
 // Function to check if a recipe is quick (30 minutes or less)
 const isQuickRecipe = (totalTime: string): boolean => {
@@ -33,14 +33,7 @@ const Home: React.FC = () => {
       sessionStorage.removeItem('scrollToHash');
     }
 
-    // Load ads safely after content is rendered
-    setTimeout(() => {
-      const adElement = document.querySelector('.adsbygoogle') as HTMLElement;
-      if (adElement) {
-        const recipes = [chitranna, pulao, milkshake].filter(Boolean);
-        loadAdsSafely(adElement, recipes, 'home');
-      }
-    }, 1000);
+;
   }, []);
 
   const chitranna = getRecipeBySlug('mavinakaayi-chitranna');
@@ -107,6 +100,9 @@ const Home: React.FC = () => {
                data-ad-slot="4974887200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
       </div>
 
       {/* Featured Recipes */}

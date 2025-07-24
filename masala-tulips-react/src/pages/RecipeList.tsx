@@ -95,6 +95,24 @@ const RecipeList: React.FC<RecipeListProps> = ({
             <li><strong>Poha</strong> - Flattened rice breakfast or snack</li>
           </ul>
         `;
+      } else if (title.toLowerCase().includes('60-90') || title.toLowerCase().includes('between 60')) {
+        categoryInfo = '';
+        recipeSuggestions = '';
+      } else if (title.toLowerCase().includes('120') || title.toLowerCase().includes('more than')) {
+        categoryInfo = `
+          <h2>About Elaborate and Special Occasion Recipes</h2>
+          <p>Recipes that take more than 120 minutes to prepare are truly special occasion dishes. These elaborate preparations are perfect for festivals, celebrations, family gatherings, and when you want to create something extraordinary. They often involve multiple components, complex techniques, and traditional cooking methods.</p>
+          <p>These dishes are a labor of love, requiring patience and attention to detail. The extended cooking times allow for the development of complex flavors, tender textures, and the perfect balance of spices and ingredients that make these dishes truly memorable.</p>
+        `;
+        recipeSuggestions = `
+          <h3>Popular Elaborate Recipe Categories</h3>
+          <ul>
+            <li><strong>Festival Thali</strong> - Complete Indian meal with multiple dishes</li>
+            <li><strong>Traditional Biryani</strong> - Layered rice dish with dum cooking</li>
+            <li><strong>Multi-Course Meals</strong> - Elaborate meal preparations</li>
+            <li><strong>Festival Specials</strong> - Traditional celebration dishes</li>
+          </ul>
+        `;
       } else {
         categoryInfo = `
           <h2>About ${title}</h2>
@@ -103,11 +121,15 @@ const RecipeList: React.FC<RecipeListProps> = ({
         `;
       }
       
+      // Don't show cooking tips for 60-90 minute category
+      const showCookingTips = !(title.toLowerCase().includes('60-90') || title.toLowerCase().includes('between 60'));
+      
       contentSection.innerHTML = `
         <div class="container">
           <section class="category-description">
             ${categoryInfo}
             ${recipeSuggestions}
+            ${showCookingTips ? `
             <div class="cooking-tips">
               <h3>Cooking Tips for ${title}</h3>
               <ul>
@@ -118,6 +140,7 @@ const RecipeList: React.FC<RecipeListProps> = ({
                 <li>Store leftovers properly to maintain freshness and flavor</li>
               </ul>
             </div>
+            ` : ''}
           </section>
         </div>
       `;

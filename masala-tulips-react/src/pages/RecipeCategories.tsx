@@ -1,23 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/RecipeCategories.css';
-import { loadAdsSafely } from '../utils/analytics';
+
 
 const RecipeCategories: React.FC = () => {
   useEffect(() => {
-    // Load ads safely after content is rendered
-    setTimeout(() => {
-      const adElement = document.querySelector('.adsbygoogle') as HTMLElement;
-      if (adElement) {
-        // This page has substantial content about recipe categories
-        const categoryContent = [
-          { title: 'Recipe Categories', description: 'Comprehensive guide to our recipe collection' },
-          { title: 'Meal Types', description: 'Breakfast, lunch, dinner, and more' },
-          { title: 'Cooking Times', description: 'Quick recipes to elaborate dishes' }
-        ];
-        loadAdsSafely(adElement, categoryContent, 'category');
-      }
-    }, 1000);
+
   }, []);
 
   return (
@@ -64,21 +52,10 @@ const RecipeCategories: React.FC = () => {
           <ul className="categories-list">
             <li><Link to="/recipe-categories/upto-30-min">Upto 30 min</Link></li>
             <li><Link to="/recipe-categories/between-30-60-min">Between 30 - 60 min</Link></li>
-            <li><Link to="/recipe-categories/between-60-90-min">Between 60 - 90 min</Link></li>
             <li><Link to="/recipe-categories/more-than-120-min">More than 120 min</Link></li>
           </ul>
         </div>
       </section>
-
-      {/* AdSense Ad Unit - After Categories */}
-      <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px'}}>
-        <ins className="adsbygoogle"
-             style={{display: 'block'}}
-             data-ad-client="ca-pub-1787338664165158"
-             data-ad-slot="4974887200"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-      </div>
 
       {/* Additional Content Section */}
       <section className="categories-info">
@@ -101,6 +78,19 @@ const RecipeCategories: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* AdSense Ad Unit - After Content */}
+      <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px'}}>
+        <ins className="adsbygoogle"
+             style={{display: 'block'}}
+             data-ad-client="ca-pub-1787338664165158"
+             data-ad-slot="4974887200"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
     </div>
   );
 };

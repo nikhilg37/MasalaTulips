@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getRecipesByCategory } from '../data/recipes';
 import '../styles/RecipePage.css';
-import { loadAdsSafely } from '../utils/analytics';
+
 import { generateRecipeStructuredData } from '../utils/structuredData';
 
 const RecipePage: React.FC = () => {
@@ -54,13 +54,7 @@ const RecipePage: React.FC = () => {
         };
       }
 
-      // Load ads safely after content is rendered
-      setTimeout(() => {
-        const adElement = document.querySelector('.adsbygoogle') as HTMLElement;
-        if (adElement && foundRecipe) {
-          loadAdsSafely(adElement, [foundRecipe], 'recipe');
-        }
-      }, 1000);
+      
     }
   }, [slug]);
 
@@ -106,7 +100,6 @@ const RecipePage: React.FC = () => {
       'quick': 'Under 30 Minutes',
       'upto-30-min': 'Under 30 Minutes',
       'between-30-60-min': '30-60 Minutes',
-      'between-60-90-min': '60-90 Minutes',
       'all-recipes': 'All Recipes'
     };
 
@@ -306,15 +299,7 @@ const RecipePage: React.FC = () => {
             </div>
           </div>
 
-          {/* AdSense Ad Unit - After Ingredients */}
-          <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px', gridColumn: '1 / -1'}}>
-            <ins className="adsbygoogle"
-                 style={{display: 'block'}}
-                 data-ad-client="ca-pub-1787338664165158"
-                 data-ad-slot="4974887200"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-          </div>
+
 
           {/* Instructions */}
           <div id="instructions-section" className="instructions-section">

@@ -84,12 +84,7 @@ export const loadAdsSafely = (adElement: HTMLElement, recipes: any[] = [], pageT
     return;
   }
 
-  // Check if adsbygoogle is available
-  if (typeof window !== 'undefined' && window.adsbygoogle) {
-    try {
-      window.adsbygoogle.push({});
-    } catch (error) {
-      console.error('Error loading ad:', error);
-    }
-  }
+  // The script tags in the components handle ad loading automatically
+  // This function now only checks content sufficiency
+  console.log('Ad loading handled by script tags - content check passed');
 }; 

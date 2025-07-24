@@ -11,8 +11,8 @@ const MoreThan120Min: React.FC = () => {
   return (
     <div className="content-section">
       <RecipeList
-        title="Recipes More Than 120 Minutes"
-        description="Elaborate and special occasion recipes that take more than 120 minutes to prepare!"
+        title="Elaborate & Special Occasion Recipes"
+        description="Discover traditional Indian recipes that take more than 120 minutes to prepare - perfect for festivals, celebrations, and when you want to create something truly extraordinary!"
         recipes={longRecipes}
         breadcrumbPath="/recipe-categories/more-than-120-min"
         breadcrumbLabel="More than 120 min"

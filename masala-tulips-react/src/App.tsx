@@ -17,7 +17,7 @@ import Desserts from './pages/recipesByMealType/Desserts';
 import KidsOptions from './pages/recipesByMealType/KidsOptions';
 import Upto30Min from './pages/recipesByCookingTime/Upto30Min';
 import Between30to60Min from './pages/recipesByCookingTime/Between30to60Min';
-import Between60to90Min from './pages/recipesByCookingTime/Between60to90Min';
+
 import MoreThan120Min from './pages/recipesByCookingTime/MoreThan120Min';
 import Vegetarian from './pages/recipesByPopularCategory/Vegetarian';
 import Vegan from './pages/recipesByPopularCategory/Vegan';
@@ -72,7 +72,6 @@ function App() {
             {/* Cooking Time Routes */}
             <Route path="/recipe-categories/upto-30-min" element={<Upto30Min />} />
             <Route path="/recipe-categories/between-30-60-min" element={<Between30to60Min />} />
-            <Route path="/recipe-categories/between-60-90-min" element={<RecipeList title="Recipes Between 60-90 Minutes" description="Delicious recipes that take between 60-90 minutes to prepare!" recipes={[]} breadcrumbPath="/recipe-categories/between-60-90-min" breadcrumbLabel="Between 60 - 90 min" />} />
             <Route path="/recipe-categories/more-than-120-min" element={<MoreThan120Min />} />
             
             {/* Popular Categories Routes */}

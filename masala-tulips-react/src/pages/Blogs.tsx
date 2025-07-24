@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/Blogs.css';
+import { loadAdsSafely } from '../utils/analytics';
 
 const Blogs: React.FC = () => {
   useEffect(() => {
@@ -88,6 +89,20 @@ const Blogs: React.FC = () => {
     script.setAttribute('data-structured-data', 'blogs');
     script.textContent = JSON.stringify(structuredData);
     document.head.appendChild(script);
+
+    // Load ads safely after content is rendered
+    setTimeout(() => {
+      const adElement = document.querySelector('.adsbygoogle') as HTMLElement;
+      if (adElement) {
+        // Create a mock recipe array for blog content
+        const blogContent = [
+          { title: 'Continental Breakfast', description: 'European morning classic' },
+          { title: 'Burger & Fries', description: 'Classic comfort combo' },
+          { title: 'Gebakken Champignons', description: 'Dutch-style sautéed mushrooms' }
+        ];
+        loadAdsSafely(adElement, blogContent, 'blog');
+      }
+    }, 1000);
 
     // Cleanup function
     return () => {
@@ -322,9 +337,6 @@ const Blogs: React.FC = () => {
              data-ad-slot="4974887200"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </div>
   );

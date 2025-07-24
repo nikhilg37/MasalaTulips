@@ -360,3 +360,158 @@
         padding: 0.2rem 0.6rem;
     }
 } 
+
+/* Content Enhancement Styles */
+.content-enhancement {
+  margin: 40px 0;
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
+
+.category-description {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-description h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.category-description p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.coming-soon-notice {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.coming-soon-notice p {
+  color: #856404;
+  margin: 0;
+  font-weight: 500;
+}
+
+.coming-soon-card {
+  background-color: #f8f9fa;
+  border: 2px dashed #dee2e6;
+}
+
+.coming-soon-card .recipe-content h3 {
+  color: #6c757d;
+}
+
+.coming-soon-card .recipe-content p {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.category-info {
+  margin: 40px 0;
+  padding: 40px 0;
+  background-color: #f8f9fa;
+}
+
+.category-info h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.category-info p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enhanced 404 Page Styles */
+.not-found-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.not-found-page .container {
+  max-width: 800px;
+  text-align: center;
+}
+
+.not-found-page h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.not-found-page p {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.not-found-page a {
+  color: #FF6B35;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.not-found-page a:hover {
+  text-decoration: underline;
+}
+
+.suggested-content {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.suggested-content h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.suggested-content p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.suggested-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.suggested-content li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  border-left: 4px solid #FF6B35;
+}
+
+.suggested-content li a {
+  color: #FF6B35;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.suggested-content li a:hover {
+  text-decoration: underline;
+} 

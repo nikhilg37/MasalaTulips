@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/RecipeCategories.css';
+import { loadAdsSafely } from '../utils/analytics';
 
 const RecipeCategories: React.FC = () => {
+  useEffect(() => {
+    // Load ads safely after content is rendered
+    setTimeout(() => {
+      const adElement = document.querySelector('.adsbygoogle') as HTMLElement;
+      if (adElement) {
+        // This page has substantial content about recipe categories
+        const categoryContent = [
+          { title: 'Recipe Categories', description: 'Comprehensive guide to our recipe collection' },
+          { title: 'Meal Types', description: 'Breakfast, lunch, dinner, and more' },
+          { title: 'Cooking Times', description: 'Quick recipes to elaborate dishes' }
+        ];
+        loadAdsSafely(adElement, categoryContent, 'category');
+      }
+    }, 1000);
+  }, []);
+
   return (
     <div className="recipe-categories-page">
       {/* Hero Section */}
@@ -55,9 +72,6 @@ const RecipeCategories: React.FC = () => {
              data-ad-slot="4974887200"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
 
       {/* Additional Content Section */}

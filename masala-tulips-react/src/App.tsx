@@ -74,13 +74,24 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             
-            {/* 404 Route - Catch all invalid routes */}
+            {/* 404 Route - Catch all invalid routes - NO ADS */}
             <Route path="*" element={
               <div className="not-found-page">
                 <div className="container">
                   <h1>Page Not Found</h1>
                   <p>Sorry, the page you're looking for doesn't exist.</p>
                   <p>Please check the URL or navigate back to our <a href="/">home page</a> to explore our recipe collection.</p>
+                  <div className="suggested-content">
+                    <h2>Explore Our Recipe Collection</h2>
+                    <p>Discover delicious recipes from our popular categories:</p>
+                    <ul>
+                      <li><a href="/recipe-categories/breakfast">Breakfast Recipes</a> - Start your day with traditional South Indian breakfast dishes</li>
+                      <li><a href="/recipe-categories/most-popular">Most Popular Recipes</a> - Our community's favorite dishes</li>
+                      <li><a href="/recipe-categories/vegetarian">Vegetarian Recipes</a> - Plant-based meals full of flavor</li>
+                      <li><a href="/recipe-categories/upto-30-min">Quick Recipes</a> - Delicious meals ready in 30 minutes or less</li>
+                    </ul>
+                    <p>Or browse our <a href="/blogs">food blog</a> to explore international cuisine and restaurant experiences.</p>
+                  </div>
                 </div>
               </div>
             } />

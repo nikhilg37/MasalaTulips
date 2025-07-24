@@ -919,6 +919,681 @@ export const recipes: Record<string, Recipe> = {
         ]
       }
     ]
+  },
+  'cucumber-tomato-salad': {
+    id: 'cucumber-tomato-salad',
+    title: 'Cucumber Tomato Salad Recipe - Fresh Indian Kachumber',
+    subtitle: '"ಕಾಕುಂಬರ್" - Kachumber Salad',
+    description: 'Learn how to make authentic Indian Kachumber - a refreshing cucumber tomato salad that\'s a staple in Indian households. This simple yet flavorful salad combines crisp cucumbers, juicy tomatoes, and aromatic spices to create a perfect accompaniment to any meal. Quick to prepare in just 10 minutes and packed with fresh flavors.',
+    cookingTime: '0 mins',
+    prepTime: '10 mins',
+    totalTime: '10 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80',
+    category: ['salads', 'vegetarian', 'vegan', 'upto-30-min', 'side-dish', 'starters'],
+    tags: ['cucumber-tomato-salad', 'kachumber', 'indian-salad', 'fresh-salad', 'vegetarian-recipe', 'vegan-recipe', 'quick-recipe', 'healthy-recipe'],
+    ingredients: [
+      '2 medium cucumbers, finely chopped',
+      '2 medium tomatoes, finely chopped',
+      '1 small red onion, finely chopped',
+      '1/4 cup fresh coriander leaves, chopped',
+      '1 green chili, finely chopped (optional)',
+      '1/2 teaspoon roasted cumin powder',
+      '1/2 teaspoon chaat masala',
+      '1/2 teaspoon black salt (kala namak)',
+      '1 tablespoon lemon juice',
+      '1 tablespoon olive oil',
+      'Fresh mint leaves for garnish (optional)'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Vegetables',
+        description: 'Wash and finely chop the cucumbers, tomatoes, and red onion. Make sure all pieces are uniform in size for better presentation.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Mix the Ingredients',
+        description: 'In a large bowl, combine the chopped cucumbers, tomatoes, and red onion. Add finely chopped coriander leaves and green chili if using.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Add Seasonings',
+        description: 'Sprinkle roasted cumin powder, chaat masala, and black salt over the vegetables. Drizzle with lemon juice and olive oil.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Toss and Serve',
+        description: 'Gently toss all ingredients together until well combined. Garnish with fresh mint leaves and serve immediately for the best taste and texture.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh, firm vegetables for the best texture and flavor.',
+          'Adjust the amount of green chili according to your spice preference.',
+          'Serve immediately to maintain the crispness of the vegetables.',
+          'You can add a pinch of sugar for a sweet-sour balance.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add grated carrots for extra color and nutrition.',
+          'Include pomegranate seeds for a festive touch.',
+          'Use different types of cucumbers for varied texture.',
+          'Add a dash of amchur (dry mango powder) for extra tanginess.'
+        ]
+      }
+    ]
+  },
+  'sprouts-salad': {
+    id: 'sprouts-salad',
+    title: 'Mixed Sprouts Salad Recipe - Healthy Protein-Rich Salad',
+    subtitle: '"ಸ್ಪ್ರೌಟ್ಸ್ ಸಲಾಡ್" - Sprouts Salad',
+    description: 'Discover how to make a nutritious Mixed Sprouts Salad - a protein-packed Indian salad that\'s perfect for health-conscious individuals. This wholesome salad combines various sprouted legumes with fresh vegetables and aromatic spices, creating a satisfying and nutritious meal. Rich in protein, fiber, and essential nutrients.',
+    cookingTime: '0 mins',
+    prepTime: '15 mins',
+    totalTime: '15 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80',
+    category: ['salads', 'vegetarian', 'vegan', 'upto-30-min', 'healthy', 'protein-rich'],
+    tags: ['sprouts-salad', 'mixed-sprouts', 'protein-salad', 'healthy-salad', 'vegetarian-recipe', 'vegan-recipe', 'nutritious-recipe'],
+    ingredients: [
+      '1 cup mixed sprouts (moong, chana, moth beans)',
+      '1/2 cup cucumber, finely chopped',
+      '1/2 cup tomato, finely chopped',
+      '1/4 cup red onion, finely chopped',
+      '1/4 cup carrot, grated',
+      '1/4 cup fresh coriander leaves, chopped',
+      '1 green chili, finely chopped',
+      '1/2 teaspoon chaat masala',
+      '1/2 teaspoon roasted cumin powder',
+      '1/2 teaspoon black pepper powder',
+      '1 tablespoon lemon juice',
+      '1 tablespoon olive oil',
+      'Salt to taste',
+      'Fresh mint leaves for garnish'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Sprouts',
+        description: 'Wash the mixed sprouts thoroughly under running water. Drain well and set aside. If using store-bought sprouts, ensure they are fresh and clean.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Chop the Vegetables',
+        description: 'Finely chop cucumber, tomato, and red onion. Grate the carrot and chop fresh coriander leaves and green chili.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Combine Ingredients',
+        description: 'In a large bowl, combine the sprouts with all the chopped vegetables. Add grated carrot and fresh herbs.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Season and Serve',
+        description: 'Add chaat masala, roasted cumin powder, black pepper, lemon juice, olive oil, and salt. Toss gently and garnish with fresh mint leaves.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh sprouts for the best taste and nutrition.',
+          'You can sprout your own beans at home for maximum freshness.',
+          'Adjust spices according to your taste preference.',
+          'Serve immediately to maintain the crunchiness of sprouts.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add pomegranate seeds for extra sweetness and color.',
+          'Include roasted peanuts for additional crunch.',
+          'Use different types of sprouts for varied nutrition.',
+          'Add a dash of ginger for extra flavor.'
+        ]
+      }
+    ]
+  },
+  'beetroot-carrot-salad': {
+    id: 'beetroot-carrot-salad',
+    title: 'Beetroot Carrot Salad Recipe - Colorful Indian Salad',
+    subtitle: '"ಬೀಟ್ರೂಟ್ ಕ್ಯಾರೆಟ್ ಸಲಾಡ್" - Beetroot Carrot Salad',
+    description: 'Learn how to make a vibrant Beetroot Carrot Salad - a colorful and nutritious Indian salad that\'s as beautiful as it is delicious. This antioxidant-rich salad combines the earthy sweetness of beetroot with the crisp freshness of carrots, creating a perfect balance of flavors and textures. Perfect for adding color and nutrition to any meal.',
+    cookingTime: '0 mins',
+    prepTime: '12 mins',
+    totalTime: '12 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=600&q=80',
+    category: ['salads', 'vegetarian', 'vegan', 'upto-30-min', 'healthy', 'antioxidant-rich'],
+    tags: ['beetroot-carrot-salad', 'colorful-salad', 'antioxidant-salad', 'healthy-recipe', 'vegetarian-recipe', 'vegan-recipe'],
+    ingredients: [
+      '1 medium beetroot, grated',
+      '2 medium carrots, grated',
+      '1 small red onion, finely chopped',
+      '1/4 cup fresh coriander leaves, chopped',
+      '1 green chili, finely chopped',
+      '1/2 teaspoon chaat masala',
+      '1/2 teaspoon roasted cumin powder',
+      '1 tablespoon lemon juice',
+      '1 tablespoon olive oil',
+      '1/2 teaspoon black salt',
+      'Fresh mint leaves for garnish',
+      '1 tablespoon roasted peanuts, crushed (optional)'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Vegetables',
+        description: 'Wash and peel the beetroot and carrots. Grate them finely using a grater. Finely chop the red onion, coriander leaves, and green chili.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Combine the Ingredients',
+        description: 'In a large bowl, combine the grated beetroot and carrots. Add the chopped onion, coriander leaves, and green chili.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Add Seasonings',
+        description: 'Sprinkle chaat masala, roasted cumin powder, black salt, and lemon juice over the vegetables. Drizzle with olive oil.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Garnish and Serve',
+        description: 'Toss all ingredients gently until well combined. Garnish with fresh mint leaves and crushed peanuts if using. Serve immediately.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh, firm beetroot and carrots for the best taste.',
+          'Wear gloves while grating beetroot to avoid staining your hands.',
+          'Adjust the amount of green chili according to your spice preference.',
+          'Serve immediately to maintain the crispness and color.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add grated coconut for a South Indian twist.',
+          'Include pomegranate seeds for extra sweetness.',
+          'Use different types of carrots for varied colors.',
+          'Add a dash of ginger for extra flavor.'
+        ]
+      }
+    ]
+  },
+  'paneer-tikka': {
+    id: 'paneer-tikka',
+    title: 'Paneer Tikka Recipe - Grilled Cottage Cheese Appetizer',
+    subtitle: '"ಪನೀರ್ ಟಿಕ್ಕಾ" - Paneer Tikka',
+    description: 'Learn how to make authentic Paneer Tikka - a popular Indian appetizer featuring marinated cottage cheese grilled to perfection. This flavorful starter combines tender paneer with aromatic spices and yogurt marinade, creating a dish that\'s perfect for parties and gatherings. Served with mint chutney and onion rings.',
+    cookingTime: '15 mins',
+    prepTime: '30 mins',
+    totalTime: '45 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+    category: ['starters', 'vegetarian', 'between-30-60-min', 'grilled', 'appetizer'],
+    tags: ['paneer-tikka', 'indian-starter', 'grilled-paneer', 'vegetarian-appetizer', 'party-food', 'indian-recipe'],
+    ingredients: [
+      '200g paneer, cut into cubes',
+      '1/2 cup thick yogurt',
+      '1 tablespoon ginger-garlic paste',
+      '1 teaspoon red chili powder',
+      '1/2 teaspoon turmeric powder',
+      '1 teaspoon garam masala',
+      '1 teaspoon chaat masala',
+      '1 tablespoon kasoori methi (dried fenugreek leaves)',
+      '1 tablespoon mustard oil',
+      '1 tablespoon lemon juice',
+      'Salt to taste',
+      '1 bell pepper, cut into cubes',
+      '1 onion, cut into cubes',
+      'Skewers for grilling',
+      'Oil for brushing'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Marinade',
+        description: 'In a bowl, mix yogurt, ginger-garlic paste, red chili powder, turmeric powder, garam masala, chaat masala, kasoori methi, mustard oil, lemon juice, and salt.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Marinate the Paneer',
+        description: 'Add paneer cubes to the marinade and coat them well. Let it marinate for at least 30 minutes in the refrigerator.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Prepare for Grilling',
+        description: 'Thread marinated paneer cubes, bell pepper, and onion onto skewers. Brush with oil.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Grill and Serve',
+        description: 'Grill on medium heat for 10-15 minutes, turning occasionally until golden brown. Serve hot with mint chutney.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh, firm paneer for the best results.',
+          'Marinate for at least 30 minutes for better flavor absorption.',
+          'Don\'t overcook as paneer can become rubbery.',
+          'Serve immediately for the best taste and texture.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add different vegetables like mushrooms or baby corn.',
+          'Use different marinades like tandoori or malai.',
+          'Try different cooking methods like baking or air frying.',
+          'Add cream to the marinade for a richer taste.'
+        ]
+      }
+    ]
+  },
+  'aloo-tikki': {
+    id: 'aloo-tikki',
+    title: 'Aloo Tikki Recipe - Spiced Potato Patties',
+    subtitle: '"ಆಲೂ ಟಿಕ್ಕಿ" - Aloo Tikki',
+    description: 'Discover how to make delicious Aloo Tikki - crispy spiced potato patties that are a popular street food in India. These golden-brown patties are made with mashed potatoes, aromatic spices, and herbs, then shallow-fried to perfection. Served with chutneys and yogurt, they make a perfect appetizer or snack.',
+    cookingTime: '20 mins',
+    prepTime: '25 mins',
+    totalTime: '45 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
+    category: ['starters', 'vegetarian', 'vegan', 'between-30-60-min', 'snacks', 'street-food'],
+    tags: ['aloo-tikki', 'potato-patties', 'indian-starter', 'vegetarian-snack', 'street-food', 'indian-recipe'],
+    ingredients: [
+      '4 medium potatoes, boiled and mashed',
+      '1/2 cup green peas, boiled',
+      '1 small onion, finely chopped',
+      '2 green chilies, finely chopped',
+      '1/4 cup fresh coriander leaves, chopped',
+      '1 teaspoon ginger, grated',
+      '1 teaspoon red chili powder',
+      '1/2 teaspoon garam masala',
+      '1/2 teaspoon chaat masala',
+      '1/2 teaspoon amchur (dry mango powder)',
+      '1/2 cup breadcrumbs',
+      'Salt to taste',
+      'Oil for shallow frying',
+      'Mint chutney and tamarind chutney for serving'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Mixture',
+        description: 'In a large bowl, combine mashed potatoes, boiled peas, chopped onion, green chilies, coriander leaves, and grated ginger.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Add Seasonings',
+        description: 'Add red chili powder, garam masala, chaat masala, amchur, breadcrumbs, and salt. Mix well to form a smooth mixture.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Shape the Patties',
+        description: 'Divide the mixture into equal portions and shape them into round patties. Press gently to flatten.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Fry and Serve',
+        description: 'Heat oil in a pan and shallow fry the patties on medium heat until golden brown on both sides. Serve hot with chutneys.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use starchy potatoes for better binding.',
+          'Don\'t over-mash the potatoes to maintain texture.',
+          'Fry on medium heat to ensure even cooking.',
+          'Serve immediately for the best crispiness.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add grated carrots or beetroot for extra nutrition.',
+          'Stuff with paneer or mixed vegetables.',
+          'Use different spices for varied flavors.',
+          'Try baking instead of frying for a healthier version.'
+        ]
+      }
+    ]
+  },
+  'gulab-jamun': {
+    id: 'gulab-jamun',
+    title: 'Gulab Jamun Recipe - Sweet Indian Dessert Balls',
+    subtitle: '"ಗುಲಾಬ್ ಜಾಮುನ್" - Gulab Jamun',
+    description: 'Learn how to make authentic Gulab Jamun - a classic Indian dessert featuring soft, spongy milk solids balls soaked in rose-flavored sugar syrup. This beloved sweet is a staple at Indian celebrations and festivals. The perfect combination of melt-in-mouth texture and aromatic sweetness makes it irresistible.',
+    cookingTime: '20 mins',
+    prepTime: '15 mins',
+    totalTime: '35 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
+    category: ['desserts', 'vegetarian', 'between-30-60-min', 'sweet', 'festival-food'],
+    tags: ['gulab-jamun', 'indian-dessert', 'sweet-balls', 'festival-food', 'vegetarian-dessert', 'indian-recipe'],
+    ingredients: [
+      '1 cup milk powder',
+      '1/4 cup all-purpose flour',
+      '1/4 teaspoon baking soda',
+      '2 tablespoons ghee',
+      '1/4 cup milk (or as needed)',
+      'Oil for deep frying',
+      'For Sugar Syrup:',
+      '1 cup sugar',
+      '1 cup water',
+      '4-5 cardamom pods',
+      '1/2 teaspoon rose water',
+      'A few strands of saffron (optional)'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Dough',
+        description: 'Mix milk powder, flour, and baking soda. Add ghee and mix well. Gradually add milk to form a soft, smooth dough.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Shape the Balls',
+        description: 'Divide the dough into small portions and roll them into smooth, crack-free balls. Keep them covered.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Make Sugar Syrup',
+        description: 'In a pan, combine sugar and water. Add cardamom pods and bring to a boil. Simmer for 5-7 minutes until slightly thick. Add rose water and saffron.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Fry and Soak',
+        description: 'Heat oil and fry the balls on medium heat until golden brown. Drain and immediately soak in warm sugar syrup for 2-3 hours.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh milk powder for best results.',
+          'Don\'t over-knead the dough to keep it soft.',
+          'Fry on medium heat to ensure even cooking.',
+          'Soak in warm syrup for better absorption.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add chopped nuts to the dough for texture.',
+          'Use different flavors like kesar or elaichi.',
+          'Try different shapes like cylinders or squares.',
+          'Serve with vanilla ice cream for a modern twist.'
+        ]
+      }
+    ]
+  },
+  'kheer': {
+    id: 'kheer',
+    title: 'Rice Kheer Recipe - Traditional Indian Rice Pudding',
+    subtitle: '"ಖೀರ್" - Rice Kheer',
+    description: 'Discover how to make authentic Rice Kheer - a creamy and aromatic Indian rice pudding that\'s a traditional dessert. This rich and comforting sweet dish is made with slow-cooked rice, milk, sugar, and aromatic spices. Perfect for festivals, celebrations, or as a comforting dessert.',
+    cookingTime: '45 mins',
+    prepTime: '10 mins',
+    totalTime: '55 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
+    category: ['desserts', 'vegetarian', 'between-60-90-min', 'pudding', 'festival-food'],
+    tags: ['rice-kheer', 'indian-pudding', 'rice-dessert', 'festival-food', 'vegetarian-dessert', 'indian-recipe'],
+    ingredients: [
+      '1/4 cup basmati rice',
+      '1 liter full-fat milk',
+      '1/2 cup sugar (adjust to taste)',
+      '1/4 cup mixed nuts (almonds, pistachios, cashews)',
+      '1/4 cup raisins',
+      '1/2 teaspoon cardamom powder',
+      '1/4 teaspoon saffron strands',
+      '2 tablespoons ghee',
+      '1 tablespoon rose water (optional)',
+      'Silver leaf for garnish (optional)'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Rice',
+        description: 'Wash and soak rice for 30 minutes. Drain and set aside. Chop the nuts and soak saffron in 2 tablespoons warm milk.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Cook the Rice',
+        description: 'In a heavy-bottomed pan, bring milk to a boil. Add rice and cook on low heat, stirring frequently until rice is soft and milk thickens.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Add Sweeteners and Flavors',
+        description: 'Add sugar, cardamom powder, and saffron milk. Continue cooking until the mixture thickens to desired consistency.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Garnish and Serve',
+        description: 'Add ghee, nuts, raisins, and rose water. Mix well and serve warm or chilled. Garnish with silver leaf if desired.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use full-fat milk for rich and creamy texture.',
+          'Cook on low heat to prevent burning.',
+          'Stir frequently to avoid sticking to the bottom.',
+          'Adjust sugar according to your taste preference.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add different nuts like walnuts or pine nuts.',
+          'Use different rice varieties for varied texture.',
+          'Add fruits like mango or berries.',
+          'Try different flavors like kesar or elaichi.'
+        ]
+      }
+    ]
+  },
+  'masala-peanuts': {
+    id: 'masala-peanuts',
+    title: 'Masala Peanuts Recipe - Spiced Roasted Peanuts',
+    subtitle: '"ಮಸಾಲಾ ಕಡಲೇಕಾಯಿ" - Masala Peanuts',
+    description: 'Learn how to make delicious Masala Peanuts - a popular Indian snack featuring roasted peanuts coated with aromatic spices. This crunchy and flavorful snack is perfect for tea time, parties, or as a healthy munching option. Quick to prepare and packed with protein and flavor.',
+    cookingTime: '15 mins',
+    prepTime: '5 mins',
+    totalTime: '20 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
+    category: ['snacks', 'vegetarian', 'vegan', 'upto-30-min', 'protein-rich', 'tea-time'],
+    tags: ['masala-peanuts', 'spiced-peanuts', 'indian-snack', 'vegetarian-snack', 'protein-snack', 'tea-time-snack'],
+    ingredients: [
+      '2 cups raw peanuts',
+      '2 tablespoons oil',
+      '1 teaspoon red chili powder',
+      '1/2 teaspoon turmeric powder',
+      '1/2 teaspoon garam masala',
+      '1/2 teaspoon chaat masala',
+      '1/2 teaspoon black salt',
+      '1/2 teaspoon cumin powder',
+      '1/4 teaspoon asafoetida',
+      '1 tablespoon lemon juice',
+      'Salt to taste',
+      'Fresh coriander leaves for garnish'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Peanuts',
+        description: 'Wash and pat dry the raw peanuts. Heat oil in a pan and add the peanuts.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Roast the Peanuts',
+        description: 'Roast the peanuts on medium heat, stirring continuously until they turn golden brown and crispy.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Add Spices',
+        description: 'Add all the spices - red chili powder, turmeric, garam masala, chaat masala, black salt, cumin powder, and asafoetida.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Finish and Serve',
+        description: 'Add lemon juice and salt. Mix well and cook for 1-2 minutes. Garnish with coriander leaves and serve hot.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use fresh, good quality peanuts for best results.',
+          'Roast on medium heat to ensure even cooking.',
+          'Store in an airtight container to maintain crispiness.',
+          'Adjust spices according to your taste preference.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add different nuts like cashews or almonds.',
+          'Use different spice combinations.',
+          'Add curry leaves for extra flavor.',
+          'Try different cooking methods like air frying.'
+        ]
+      }
+    ]
+  },
+  'baked-samosa': {
+    id: 'baked-samosa',
+    title: 'Baked Samosa Recipe - Healthy Indian Pastry',
+    subtitle: '"ಬೇಕ್‌ಡ್ ಸಮೋಸಾ" - Baked Samosa',
+    description: 'Discover how to make healthy Baked Samosas - a guilt-free version of the classic Indian pastry. These flaky, golden pastries are filled with spiced potatoes and peas, then baked instead of fried for a healthier alternative. Perfect for parties, snacks, or as an appetizer.',
+    cookingTime: '25 mins',
+    prepTime: '30 mins',
+    totalTime: '55 mins',
+    cuisine: 'Indian',
+    type: 'Vegetarian',
+    mainImage: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
+    category: ['snacks', 'vegetarian', 'vegan', 'between-30-60-min', 'baked', 'appetizer'],
+    tags: ['baked-samosa', 'healthy-samosa', 'indian-pastry', 'vegetarian-snack', 'baked-snack', 'indian-recipe'],
+    ingredients: [
+      'For Dough:',
+      '2 cups all-purpose flour',
+      '1/4 cup oil',
+      '1/2 teaspoon salt',
+      'Water as needed',
+      'For Filling:',
+      '3 medium potatoes, boiled and mashed',
+      '1/2 cup green peas, boiled',
+      '1 small onion, finely chopped',
+      '2 green chilies, finely chopped',
+      '1 teaspoon ginger-garlic paste',
+      '1 teaspoon red chili powder',
+      '1/2 teaspoon garam masala',
+      '1/2 teaspoon cumin powder',
+      '1/4 cup fresh coriander leaves, chopped',
+      'Salt to taste',
+      'Oil for brushing'
+    ],
+    instructions: [
+      {
+        step: 1,
+        title: 'Prepare the Dough',
+        description: 'Mix flour, oil, and salt. Gradually add water to form a stiff dough. Cover and rest for 30 minutes.',
+        images: []
+      },
+      {
+        step: 2,
+        title: 'Make the Filling',
+        description: 'Heat oil and sauté onions, green chilies, and ginger-garlic paste. Add spices and mashed potatoes. Mix well and add peas and coriander.',
+        images: []
+      },
+      {
+        step: 3,
+        title: 'Shape the Samosas',
+        description: 'Divide dough into portions. Roll each into a circle, cut in half, and form cones. Fill with potato mixture and seal.',
+        images: []
+      },
+      {
+        step: 4,
+        title: 'Bake and Serve',
+        description: 'Preheat oven to 200°C. Brush samosas with oil and bake for 20-25 minutes until golden brown. Serve hot with chutney.',
+        images: []
+      }
+    ],
+    notes: [
+      {
+        title: 'Tips',
+        content: [
+          'Use cold water for the dough to make it flaky.',
+          'Don\'t over-knead the dough.',
+          'Brush with oil for golden color.',
+          'Serve immediately for the best taste.'
+        ]
+      },
+      {
+        title: 'Variations',
+        content: [
+          'Add different vegetables to the filling.',
+          'Use whole wheat flour for healthier version.',
+          'Try different fillings like paneer or mixed vegetables.',
+          'Add different spices for varied flavors.'
+        ]
+      }
+    ]
   }
 };
 

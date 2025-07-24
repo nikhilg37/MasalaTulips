@@ -131,6 +131,8 @@ const Home: React.FC = () => {
                           <span className="category-badge vegetarian">{chitranna.type}</span>
                           {chitranna.category.includes('quick') && <span className="category-badge quick">Quick</span>}
                           {chitranna.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
+                          {chitranna.category.includes('vegan') && <span className="category-badge vegan">Vegan</span>}
+                          {chitranna.category.includes('salads') && <span className="category-badge salads">Salads</span>}
                         </div>
                         <p>{chitranna.description}</p>
                       </div>
@@ -152,6 +154,8 @@ const Home: React.FC = () => {
                           </span>
                           <span className="category-badge vegetarian">{pulao.type}</span>
                           {pulao.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
+                          {pulao.category.includes('vegan') && <span className="category-badge vegan">Vegan</span>}
+                          {pulao.category.includes('salads') && <span className="category-badge salads">Salads</span>}
                         </div>
                         <p>{pulao.description}</p>
                       </div>
@@ -174,6 +178,8 @@ const Home: React.FC = () => {
                           <span className="category-badge vegetarian">{milkshake.type}</span>
                           {milkshake.category.includes('upto-30-min') && <span className="category-badge quick">Quick</span>}
                           {milkshake.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
+                          {milkshake.category.includes('vegan') && <span className="category-badge vegan">Vegan</span>}
+                          {milkshake.category.includes('salads') && <span className="category-badge salads">Salads</span>}
                         </div>
                         <p>{milkshake.description}</p>
                       </div>

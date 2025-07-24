@@ -168,6 +168,32 @@
     color: #2D3436;
 }
 
+/* Additional Category Badge Styles */
+.category-badge.vegan {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.category-badge.salads {
+  background-color: #8BC34A;
+  color: white;
+}
+
+.category-badge.starters {
+  background-color: #FF9800;
+  color: white;
+}
+
+.category-badge.snacks {
+  background-color: #FF5722;
+  color: white;
+}
+
+.category-badge.desserts {
+  background-color: #E91E63;
+  color: white;
+}
+
 /* Time indicator */
 .time-indicator {
     display: inline-flex;
@@ -514,4 +540,108 @@
 
 .suggested-content li a:hover {
   text-decoration: underline;
+} 
+
+/* Enhanced Content Styles */
+.cooking-tips {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #FF6B35;
+}
+
+.cooking-tips h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.cooking-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cooking-tips li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+  color: #666;
+  line-height: 1.5;
+}
+
+.cooking-tips li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #FF6B35;
+  font-weight: bold;
+}
+
+.category-description h3 {
+  color: #333;
+  margin: 25px 0 15px 0;
+  font-size: 1.4rem;
+}
+
+.category-description ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.category-description li {
+  margin-bottom: 10px;
+  padding: 12px;
+  background-color: white;
+  border-radius: 6px;
+  border-left: 3px solid #FF6B35;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-description li strong {
+  color: #FF6B35;
+  font-weight: 600;
+}
+
+/* Enhanced placeholder cards */
+.coming-soon-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px dashed #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.coming-soon-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.coming-soon-card .recipe-content h3 {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.coming-soon-card .recipe-content p {
+  color: #6c757d;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.coming-soon-notice {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.coming-soon-notice p {
+  color: #856404;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.1rem;
 } 

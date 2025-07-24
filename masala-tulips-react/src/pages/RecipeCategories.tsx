@@ -35,7 +35,9 @@ const RecipeCategories: React.FC = () => {
           <hr className="categories-divider" />
           <ul className="categories-list">
             <li><Link to="/recipe-categories/vegetarian">Vegetarian</Link></li>
+            <li><Link to="/recipe-categories/vegan">Vegan</Link></li>
             <li><Link to="/recipe-categories/kids-options">Kids Options</Link></li>
+            <li><Link to="/recipe-categories/salads">Salads</Link></li>
             <li><Link to="/recipe-categories/most-popular">Most Popular</Link></li>
             <li><Link to="/recipe-categories/all-recipes">All Recipes</Link></li>
           </ul>
@@ -49,7 +51,10 @@ const RecipeCategories: React.FC = () => {
             <li><Link to="/recipe-categories/lunch">Lunch</Link></li>
             <li><Link to="/recipe-categories/dinner">Dinner</Link></li>
             <li><Link to="/recipe-categories/side-dish">Side Dish</Link></li>
+            <li><Link to="/recipe-categories/starters">Starters</Link></li>
             <li><Link to="/recipe-categories/drinks">Drinks</Link></li>
+            <li><Link to="/recipe-categories/snacks">Snacks</Link></li>
+            <li><Link to="/recipe-categories/desserts">Desserts</Link></li>
           </ul>
         </div>
         
@@ -60,6 +65,7 @@ const RecipeCategories: React.FC = () => {
             <li><Link to="/recipe-categories/upto-30-min">Upto 30 min</Link></li>
             <li><Link to="/recipe-categories/between-30-60-min">Between 30 - 60 min</Link></li>
             <li><Link to="/recipe-categories/between-60-90-min">Between 60 - 90 min</Link></li>
+            <li><Link to="/recipe-categories/more-than-120-min">More than 120 min</Link></li>
           </ul>
         </div>
       </section>

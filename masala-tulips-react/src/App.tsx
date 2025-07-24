@@ -66,13 +66,16 @@ function App() {
             <Route path="/recipe-categories/most-popular" element={<MostPopular />} />
             <Route path="/recipe-categories/all-recipes" element={<AllRecipes />} />
             
-            {/* Empty Category Routes - Using RecipeList with empty arrays */}
-            <Route path="/recipe-categories/vegan" element={<RecipeList title="Vegan Recipes" description="Plant-based recipes without animal products!" recipes={[]} breadcrumbPath="/recipe-categories/vegan" breadcrumbLabel="Vegan" />} />
-            <Route path="/recipe-categories/salads" element={<RecipeList title="Salad Recipes" description="Fresh and healthy salad recipes!" recipes={[]} breadcrumbPath="/recipe-categories/salads" breadcrumbLabel="Salads" />} />
-            <Route path="/recipe-categories/starters" element={<RecipeList title="Starter Recipes" description="Delicious appetizers and starter dishes!" recipes={[]} breadcrumbPath="/recipe-categories/starters" breadcrumbLabel="Starters" />} />
-            <Route path="/recipe-categories/snacks" element={<RecipeList title="Snack Recipes" description="Quick and tasty snack recipes!" recipes={[]} breadcrumbPath="/recipe-categories/snacks" breadcrumbLabel="Snacks" />} />
-            <Route path="/recipe-categories/desserts" element={<RecipeList title="Dessert Recipes" description="Sweet treats and dessert recipes!" recipes={[]} breadcrumbPath="/recipe-categories/desserts" breadcrumbLabel="Desserts" />} />
-            <Route path="/recipe-categories/more-than-120-min" element={<RecipeList title="Long Cooking Recipes" description="Extended cooking recipes that take more than 120 minutes!" recipes={[]} breadcrumbPath="/recipe-categories/more-than-120-min" breadcrumbLabel="More than 120 min" />} />
+            {/* 404 Route - Catch all invalid routes */}
+            <Route path="*" element={
+              <div className="not-found-page">
+                <div className="container">
+                  <h1>Page Not Found</h1>
+                  <p>Sorry, the page you're looking for doesn't exist.</p>
+                  <p>Please check the URL or navigate back to our <a href="/">home page</a> to explore our recipe collection.</p>
+                </div>
+              </div>
+            } />
           </Routes>
         </main>
         <Footer />

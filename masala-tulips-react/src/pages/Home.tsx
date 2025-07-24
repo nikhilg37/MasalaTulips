@@ -39,19 +39,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="home">
-      {/* AdSense Ad Unit */}
-      <div style={{textAlign: 'center', margin: '20px 0', padding: '0 20px'}}>
-          <ins className="adsbygoogle"
-               style={{display: 'block'}}
-               data-ad-client="ca-pub-1787338664165158"
-               data-ad-slot="4974887200"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-      </div>
-
       {/* Hero Section */}
       <section id="home" className="hero">
         <div className="hero-content">
@@ -101,6 +88,19 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* AdSense Ad Unit - Placed after substantial content */}
+      <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px'}}>
+          <ins className="adsbygoogle"
+               style={{display: 'block'}}
+               data-ad-client="ca-pub-1787338664165158"
+               data-ad-slot="4974887200"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+      </div>
 
       {/* Featured Recipes */}
       <section className="featured-recipes">

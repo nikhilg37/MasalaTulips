@@ -67,14 +67,20 @@ const RecipeList: React.FC<RecipeListProps> = ({
                 />
                 <div className="recipe-content">
                   <h3>{recipe.title} - {recipe.subtitle}</h3>
-                  <p className="recipe-meta">
-                    {recipe.totalTime} • {recipe.type}
-                    {recipe.category.includes('breakfast') && ' • Breakfast'}
-                    {recipe.category.includes('lunch') && ' • Lunch'}
-                    {recipe.category.includes('dinner') && ' • Dinner'}
-                    {recipe.category.includes('drinks') && ' • Drinks'}
-                    {recipe.category.includes('kids-options') && ' • Kids Options'}
-                  </p>
+                  <div className="recipe-meta">
+                    <span className="time-indicator">
+                      <i className="far fa-clock"></i>
+                      {recipe.totalTime}
+                    </span>
+                    <span className="category-badge vegetarian">{recipe.type}</span>
+                    {(recipe.category.includes('quick') || recipe.category.includes('upto-30-min')) && <span className="category-badge quick">Quick</span>}
+                    {recipe.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
+                    {recipe.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
+                    {recipe.category.includes('dinner') && <span className="category-badge dinner">Dinner</span>}
+                    {recipe.category.includes('side-dish') && <span className="category-badge side-dish">Side Dish</span>}
+                    {recipe.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
+                    {recipe.category.includes('kids-options') && <span className="category-badge kids-options">Kids Options</span>}
+                  </div>
                 </div>
               </Link>
             ))}

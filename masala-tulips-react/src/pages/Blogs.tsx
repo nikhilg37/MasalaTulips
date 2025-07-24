@@ -24,7 +24,7 @@ const Blogs: React.FC = () => {
         "name": "Masala Tulips",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://masalatulips.com/socialMediaLogo/social-media-logo-square.jpg"
+          "url": "https://masalatulips.nl/logo192.png"
         }
       },
       "blogPost": [
@@ -32,7 +32,7 @@ const Blogs: React.FC = () => {
           "@type": "BlogPosting",
           "headline": "Continental Breakfast: A European Morning Classic",
           "description": "The continental breakfast is a light, elegant morning meal enjoyed across Europe. Featuring flaky croissants, crusty baguette, creamy butter, fruit preserves, a selection of cheeses, and fresh fruit, it's typically served with a hot cup of coffee.",
-          "image": "https://masalatulips.com/images/blogs/Continental_Belgium.jpeg",
+          "image": "https://masalatulips.nl/images/blogs/Continental_Belgium.jpeg",
           "author": {
             "@type": "Person",
             "name": "Masala Tulips"
@@ -47,7 +47,7 @@ const Blogs: React.FC = () => {
           "@type": "BlogPosting",
           "headline": "Burger & Fries: The Classic Comfort Combo",
           "description": "Burger and fries is a beloved comfort food enjoyed around the world. This classic combo features a juicy veggie burger stacked with fresh toppings and served alongside crispy golden fries.",
-          "image": "https://masalatulips.com/images/blogs/Burger-Fries-BurgerBar.jpeg",
+          "image": "https://masalatulips.nl/images/blogs/Burger-Fries-BurgerBar.jpeg",
           "author": {
             "@type": "Person",
             "name": "Masala Tulips"
@@ -62,7 +62,7 @@ const Blogs: React.FC = () => {
           "@type": "BlogPosting",
           "headline": "Gebakken Champignons: Dutch-Style Sautéed Mushrooms",
           "description": "Gebakken champignons are a classic Dutch appetizer or side dish featuring mushrooms sautéed in butter with garlic and fresh herbs. Served hot, often with a squeeze of lemon and a sprinkle of parsley.",
-          "image": "https://masalatulips.com/images/blogs/focaccia.jpeg",
+          "image": "https://masalatulips.nl/images/blogs/focaccia.jpeg",
           "author": {
             "@type": "Person",
             "name": "Masala Tulips"

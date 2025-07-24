@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getAllRecipes } from '../data/recipes';
 import '../styles/RecipePage.css';
@@ -8,6 +8,8 @@ import { generateRecipeStructuredData } from '../utils/structuredData';
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const recipe = getRecipeBySlug(slug || '');
+  
+
 
   useEffect(() => {
     if (recipe) {
@@ -44,6 +46,8 @@ const RecipePage: React.FC = () => {
       };
     }
   }, [recipe]);
+
+
 
   // Function to get related recipes based on categories and tags
   const getRelatedRecipes = (currentRecipe: any) => {
@@ -167,6 +171,96 @@ const RecipePage: React.FC = () => {
           </div>
         </div>
 
+        {/* Quick Navigation Links */}
+        <div className="quick-nav">
+          <div className="quick-nav-container">
+            <a 
+              href="#ingredients-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('ingredients-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-shopping-basket"></i>
+              <span>Ingredients</span>
+            </a>
+            <a 
+              href="#instructions-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('instructions-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-list-ol"></i>
+              <span>Instructions</span>
+            </a>
+            <a 
+              href="#tips-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('tips-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-lightbulb"></i>
+              <span>Tips</span>
+            </a>
+            <a 
+              href="#related-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('related-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-compass"></i>
+              <span>Related</span>
+            </a>
+          </div>
+        </div>
+
         {/* Showcase Image */}
         <div className="showcase-image">
           <img src={recipe.mainImage} alt={recipe.title} className="main-image" />
@@ -175,7 +269,7 @@ const RecipePage: React.FC = () => {
         {/* Recipe Content */}
         <div className="recipe-grid">
           {/* Ingredients */}
-          <div className="ingredients-section">
+          <div id="ingredients-section" className="ingredients-section">
             <div className="section-label">
               <span>What You'll Need</span>
             </div>
@@ -196,7 +290,7 @@ const RecipePage: React.FC = () => {
           </div>
 
           {/* Instructions */}
-          <div className="instructions-section">
+          <div id="instructions-section" className="instructions-section">
             <div className="section-label">
               <span>Step-by-Step Guide</span>
             </div>
@@ -232,8 +326,8 @@ const RecipePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Notes Section */}
-        <div className="notes-section">
+        {/* Tips Section */}
+        <div id="tips-section" className="notes-section">
           <div className="section-label">
             <span>Pro Tips & Ideas</span>
           </div>
@@ -276,7 +370,7 @@ const RecipePage: React.FC = () => {
         </div>
 
         {/* Related Recipes Section */}
-        <div className="related-section">
+        <div id="related-section" className="related-section">
           <div className="section-label">
             <span>Explore More</span>
           </div>

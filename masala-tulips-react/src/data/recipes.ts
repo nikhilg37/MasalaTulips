@@ -109,7 +109,7 @@ export const recipes: Record<string, Recipe> = {
     ],
     notes: [
       {
-        title: 'Notes',
+        title: 'Tips',
         content: [
           'Choose firm, green raw mangoes for the best tangy flavor.',
           'You can adjust the amount of raw mango based on how tangy you prefer the dish.',
@@ -230,7 +230,7 @@ export const recipes: Record<string, Recipe> = {
     ],
     notes: [
       {
-        title: 'Notes',
+        title: 'Tips',
         content: [
           'Soaking the rice for 30 minutes ensures even cooking and fluffy texture.',
           'You can use any combination of vegetables you prefer.',
@@ -433,7 +433,7 @@ export const recipes: Record<string, Recipe> = {
     ],
     notes: [
       {
-        title: 'Notes',
+        title: 'Tips',
         content: [
           'Use fresh, grated coconut for the best rich and nutty flavor.',
           'You can adjust the amount of coconut based on how rich you prefer the dish.',

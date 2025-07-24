@@ -269,7 +269,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Website**: [masalatulips.com](https://masalatulips.com)
-- **Email**: [contact@masalatulips.com](mailto:contact@masalatulips.com)
+- **Email**: [masalatulips27@gmail.com](mailto:masalatulips27@gmail.com)
 
 ---
 

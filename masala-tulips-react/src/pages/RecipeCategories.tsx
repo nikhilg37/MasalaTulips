@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/RecipeCategories.css';
-
+import AdSenseAd from '../components/AdSenseAd';
 
 const RecipeCategories: React.FC = () => {
   useEffect(() => {
@@ -79,18 +79,11 @@ const RecipeCategories: React.FC = () => {
         </div>
       </section>
 
-      {/* AdSense Ad Unit - After Content */}
-      <div style={{textAlign: 'center', margin: '40px 0', padding: '0 20px'}}>
-        <ins className="adsbygoogle"
-             style={{display: 'block'}}
-             data-ad-client="ca-pub-1787338664165158"
-             data-ad-slot="4974887200"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
+      {/* Conditional AdSense Ad Unit */}
+      <AdSenseAd 
+        pageType="category" 
+        recipes={[]}
+      />
     </div>
   );
 };

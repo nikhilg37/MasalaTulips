@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getAllRecipes } from '../data/recipes';
 import '../styles/RecipePage.css';
@@ -8,6 +8,8 @@ import { generateRecipeStructuredData } from '../utils/structuredData';
 const RecipePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const recipe = getRecipeBySlug(slug || '');
+  
+
 
   useEffect(() => {
     if (recipe) {
@@ -44,6 +46,8 @@ const RecipePage: React.FC = () => {
       };
     }
   }, [recipe]);
+
+
 
   // Function to get related recipes based on categories and tags
   const getRelatedRecipes = (currentRecipe: any) => {
@@ -151,6 +155,110 @@ const RecipePage: React.FC = () => {
             <i className="far fa-clock"></i>
             <span>Prep Time: {recipe.prepTime} | Cook Time: {recipe.cookingTime} | Total Time: {recipe.totalTime}</span>
           </div>
+          <div className="recipe-meta">
+            <span className="time-indicator">
+              <i className="far fa-clock"></i>
+              {recipe.totalTime}
+            </span>
+            <span className="category-badge vegetarian">{recipe.type}</span>
+            {(recipe.category.includes('quick') || recipe.category.includes('upto-30-min')) && <span className="category-badge quick">Quick</span>}
+            {recipe.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
+            {recipe.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
+            {recipe.category.includes('dinner') && <span className="category-badge dinner">Dinner</span>}
+            {recipe.category.includes('side-dish') && <span className="category-badge side-dish">Side Dish</span>}
+            {recipe.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
+            {recipe.category.includes('kids-options') && <span className="category-badge kids-options">Kids</span>}
+          </div>
+        </div>
+
+        {/* Quick Navigation Links */}
+        <div className="quick-nav">
+          <div className="quick-nav-container">
+            <a 
+              href="#ingredients-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('ingredients-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-shopping-basket"></i>
+              <span>Ingredients</span>
+            </a>
+            <a 
+              href="#instructions-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('instructions-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-list-ol"></i>
+              <span>Instructions</span>
+            </a>
+            <a 
+              href="#tips-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('tips-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-lightbulb"></i>
+              <span>Tips</span>
+            </a>
+            <a 
+              href="#related-section" 
+              className="quick-nav-item"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('related-section');
+                if (element) {
+                  const headerOffset = 80;
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+            >
+              <i className="fas fa-compass"></i>
+              <span>Related</span>
+            </a>
+          </div>
         </div>
 
         {/* Showcase Image */}
@@ -161,22 +269,44 @@ const RecipePage: React.FC = () => {
         {/* Recipe Content */}
         <div className="recipe-grid">
           {/* Ingredients */}
-          <div className="recipe-section">
-            <h2>Ingredients</h2>
-            <ul className="ingredients-list">
+          <div id="ingredients-section" className="ingredients-section">
+            <div className="section-label">
+              <span>What You'll Need</span>
+            </div>
+            <h2>
+              <i className="fas fa-shopping-basket"></i>
+              Ingredients
+            </h2>
+            <div className="ingredients-container">
               {recipe.ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
+                <div key={index} className="ingredient-item">
+                  <div className="ingredient-bullet">
+                    <i className="fas fa-circle"></i>
+                  </div>
+                  <span>{ingredient}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Instructions */}
-          <div className="recipe-section">
-            <h2>Instructions</h2>
-            <ol className="instructions-list">
+          <div id="instructions-section" className="instructions-section">
+            <div className="section-label">
+              <span>Step-by-Step Guide</span>
+            </div>
+            <h2>
+              <i className="fas fa-list-ol"></i>
+              Instructions
+            </h2>
+            <div className="instructions-container">
               {recipe.instructions.map((instruction) => (
-                <li key={instruction.step}>
-                  <h3>{instruction.step}. {instruction.title}</h3>
+                <div key={instruction.step} className="instruction-item">
+                  <div className="instruction-header">
+                    <div className="step-number">
+                      <span>{instruction.step}</span>
+                    </div>
+                    <h3>{instruction.title}</h3>
+                  </div>
                   <p>{instruction.description}</p>
                   {instruction.images && instruction.images.length > 0 && (
                     <div className="step-images">
@@ -190,60 +320,117 @@ const RecipePage: React.FC = () => {
                       ))}
                     </div>
                   )}
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
         </div>
 
-        {/* Notes Section */}
-        <div className="notes-section">
-          <h2>Notes & Variations</h2>
-          <div className="notes-grid">
+        {/* Tips Section */}
+        <div id="tips-section" className="notes-section">
+          <div className="section-label">
+            <span>Pro Tips & Ideas</span>
+          </div>
+          <h2>
+            <i className="fas fa-lightbulb"></i>
+            Tips & Variations
+          </h2>
+          <div className="notes-container">
             {recipe.notes.map((note, index) => (
-              <div key={index}>
-                <h3>{note.title}</h3>
-                <ul className="ingredients-list">
+              <div key={index} className={`note-card ${note.title.toLowerCase()}`}>
+                <div className="note-header">
+                  <div className="note-icon">
+                    {note.title.toLowerCase() === 'notes' || note.title.toLowerCase() === 'tips' ? (
+                      <i className="fas fa-sticky-note"></i>
+                    ) : note.title.toLowerCase() === 'variations' ? (
+                      <i className="fas fa-magic"></i>
+                    ) : (
+                      <i className="fas fa-info-circle"></i>
+                    )}
+                  </div>
+                  <h3>{note.title}</h3>
+                </div>
+                <div className="note-content">
                   {note.content.map((item, itemIndex) => (
-                    <li key={itemIndex}>{item}</li>
+                    <div key={itemIndex} className="note-item">
+                      <div className="note-bullet">
+                        {note.title.toLowerCase() === 'variations' ? (
+                          <i className="fas fa-arrow-right"></i>
+                        ) : (
+                          <i className="fas fa-check-circle"></i>
+                        )}
+                      </div>
+                      <span>{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Related Recipes Section */}
-        <div className="notes-section">
-          <h2>Related Recipes & Categories</h2>
-          <div className="related-content">
+        <div id="related-section" className="related-section">
+          <div className="section-label">
+            <span>Explore More</span>
+          </div>
+          <h2>
+            <i className="fas fa-compass"></i>
+            Related Recipes & Categories
+          </h2>
+          <div className="related-container">
             {/* Related Recipes */}
             {getRelatedRecipes(recipe).length > 0 && (
-              <div className="related-recipes">
-                <h3>Related Recipes</h3>
-                <ul className="ingredients-list">
+              <div className="related-card recipes-card">
+                <div className="related-header">
+                  <div className="related-icon">
+                    <i className="fas fa-utensils"></i>
+                  </div>
+                  <h3>Related Recipes</h3>
+                </div>
+                <div className="related-content">
                   {getRelatedRecipes(recipe).map((relatedRecipe) => (
-                    <li key={relatedRecipe.id}>
-                      <Link to={`/recipe/${relatedRecipe.id}`}>
+                    <div key={relatedRecipe.id} className="related-item">
+                      <div className="related-bullet">
+                        <i className="fas fa-arrow-right"></i>
+                      </div>
+                      <Link to={`/recipe/${relatedRecipe.id}`} className="related-link">
                         {relatedRecipe.title} - {relatedRecipe.subtitle}
                       </Link>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
             
             {/* Category Links */}
-            <div className="category-links">
-              <h3>Browse by Category</h3>
-              <ul className="ingredients-list">
+            <div className="related-card categories-card">
+              <div className="related-header">
+                <div className="related-icon">
+                  <i className="fas fa-tags"></i>
+                </div>
+                <h3>Browse by Category</h3>
+              </div>
+              <div className="related-content">
                 {getCategoryLinks(recipe).map((category: { path: string; label: string }, index: number) => (
-                  <li key={index}>
-                    <Link to={category.path}>See all {category.label}</Link>
-                  </li>
+                  <div key={index} className="related-item">
+                    <div className="related-bullet">
+                      <i className="fas fa-folder-open"></i>
+                    </div>
+                    <Link to={category.path} className="related-link">
+                      See all {category.label}
+                    </Link>
+                  </div>
                 ))}
-                <li><Link to="/recipe-categories/all-recipes">Browse All Recipes</Link></li>
-              </ul>
+                <div className="related-item">
+                  <div className="related-bullet">
+                    <i className="fas fa-folder-open"></i>
+                  </div>
+                  <Link to="/recipe-categories/all-recipes" className="related-link">
+                    Browse All Recipes
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

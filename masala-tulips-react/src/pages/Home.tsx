@@ -122,8 +122,8 @@ const Home: React.FC = () => {
                             {chitranna.totalTime}
                           </span>
                           <span className="category-badge vegetarian">{chitranna.type}</span>
-                          <span className="category-badge breakfast">Breakfast</span>
-                          {isQuickRecipe(chitranna.totalTime) && <span className="category-badge quick">Quick</span>}
+                          {chitranna.category.includes('quick') && <span className="category-badge quick">Quick</span>}
+                          {chitranna.category.includes('breakfast') && <span className="category-badge breakfast">Breakfast</span>}
                         </div>
                         <p>{chitranna.description}</p>
                       </div>
@@ -144,8 +144,7 @@ const Home: React.FC = () => {
                             {pulao.totalTime}
                           </span>
                           <span className="category-badge vegetarian">{pulao.type}</span>
-                          <span className="category-badge lunch">Lunch</span>
-                          {isQuickRecipe(pulao.totalTime) && <span className="category-badge quick">Quick</span>}
+                          {pulao.category.includes('lunch') && <span className="category-badge lunch">Lunch</span>}
                         </div>
                         <p>{pulao.description}</p>
                       </div>
@@ -166,8 +165,8 @@ const Home: React.FC = () => {
                             {milkshake.totalTime}
                           </span>
                           <span className="category-badge vegetarian">{milkshake.type}</span>
-                          <span className="category-badge drinks">Drinks</span>
-                          {isQuickRecipe(milkshake.totalTime) && <span className="category-badge quick">Quick</span>}
+                          {milkshake.category.includes('upto-30-min') && <span className="category-badge quick">Quick</span>}
+                          {milkshake.category.includes('drinks') && <span className="category-badge drinks">Drinks</span>}
                         </div>
                         <p>{milkshake.description}</p>
                       </div>

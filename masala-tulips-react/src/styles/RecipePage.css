@@ -1,7 +1,13 @@
+
+
+
+
+
+
 /* Recipe Page Styles */
 .recipe-page {
     min-height: 100vh;
-    background-color: var(--light-gray);
+    background-color: white;
 }
 
 .recipe-container {
@@ -102,6 +108,108 @@
     color: var(--accent-color);
 }
 
+/* Recipe Meta - Using same styles as RecipeList */
+.recipe-meta {
+    font-family: var(--body-font);
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    justify-content: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Category Badges */
+.category-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+.category-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.category-badge.breakfast {
+    background: linear-gradient(135deg, #FFEAA7, #FDCB6E);
+    color: #2D3436;
+}
+
+.category-badge.lunch {
+    background: linear-gradient(135deg, #A8E6CF, #88D8C0);
+    color: #2D3436;
+}
+
+.category-badge.dinner {
+    background: linear-gradient(135deg, #FFB3BA, #FF8A95);
+    color: #2D3436;
+}
+
+.category-badge.side-dish {
+    background: linear-gradient(135deg, #DDA0DD, #C8A2C8);
+    color: #2D3436;
+}
+
+.category-badge.drinks {
+    background: linear-gradient(135deg, #87CEEB, #5F9EA0);
+    color: #2D3436;
+}
+
+.category-badge.kids-options {
+    background: linear-gradient(135deg, #FFD93D, #FF6B6B);
+    color: #2D3436;
+}
+
+.category-badge.vegetarian {
+    background: linear-gradient(135deg, #98FB98, #90EE90);
+    color: #2D3436;
+}
+
+.category-badge.quick {
+    background: linear-gradient(135deg, #FFA07A, #FF6347);
+    color: #2D3436;
+}
+
+/* Time indicator */
+.time-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.9rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.time-indicator:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+.time-indicator i {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
 /* Showcase Image */
 .showcase-image {
     max-width: 600px;
@@ -123,14 +231,258 @@
     transform: scale(1.02);
 }
 
+/* Quick Navigation */
+.quick-nav {
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.quick-nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quick-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.2rem 1.6rem;
+    background: #fff7ed;
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--accent-color);
+    font-family: var(--body-font);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    min-width: 130px;
+    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.2);
+    position: relative;
+}
+
+
+
+.quick-nav-item:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.quick-nav-item:active {
+    transform: translateY(-2px) scale(1.01);
+    transition: all 0.1s ease;
+}
+
+.quick-nav-item i {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.quick-nav-item:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+
+.quick-nav-item span {
+    text-align: center;
+    line-height: 1.3;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
 /* Recipe Grid */
 .recipe-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
     margin-bottom: 3rem;
 }
 
+/* Section Labels - Hidden */
+.section-label {
+    display: none;
+}
+
+/* Ingredients Section - Redesigned */
+.ingredients-section {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.03), rgba(255, 152, 0, 0.01));
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 152, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    scroll-margin-top: 4rem;
+}
+
+.ingredients-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+.ingredients-section h2 {
+    font-family: var(--heading-font);
+    color: #1a252f;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.ingredients-section h2 i {
+    color: #FF9800;
+    font-size: 1.5rem;
+}
+
+.ingredients-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.8rem;
+}
+
+.ingredient-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background-color: rgba(255, 152, 0, 0.05);
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(255, 152, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.ingredient-item:last-child {
+    margin-bottom: 0;
+}
+
+.ingredient-bullet {
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+}
+
+.ingredient-bullet i {
+    font-size: 0.6rem;
+    color: #FF9800;
+}
+
+.ingredient-item span {
+    font-family: var(--body-font);
+    color: #2c3e50;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Instructions Section - Redesigned */
+.instructions-section {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.03), rgba(33, 150, 243, 0.01));
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(33, 150, 243, 0.1);
+    position: relative;
+    overflow: hidden;
+    scroll-margin-top: 4rem;
+}
+
+.instructions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+}
+
+.instructions-section h2 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.instructions-section h2 i {
+    color: #2196F3;
+    font-size: 1.5rem;
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.instruction-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.08);
+    border: 1px solid rgba(33, 150, 243, 0.1);
+    transition: all 0.2s ease;
+}
+
+.instruction-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(33, 150, 243, 0.1);
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+    flex-shrink: 0;
+}
+
+.instruction-header h3 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.instruction-item p {
+    font-family: var(--body-font);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+/* Recipe Section (for Instructions) - keeping for backward compatibility */
 .recipe-section {
     background: var(--light-gray);
     padding: 2rem;
@@ -142,50 +494,6 @@
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     text-align: left;
-}
-
-/* Ingredients List */
-.ingredients-list {
-    list-style: none;
-    padding: 0;
-}
-
-.ingredients-list li {
-    font-family: var(--body-font);
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.ingredients-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-/* Instructions List */
-.instructions-list {
-    list-style: none;
-    padding: 0;
-}
-
-.instructions-list li {
-    margin-bottom: 2rem;
-}
-
-.instructions-list h3 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.instructions-list p {
-    font-family: var(--body-font);
-    margin-bottom: 1rem;
-    line-height: 1.6;
 }
 
 .step-images {
@@ -203,60 +511,389 @@
     margin-top: 1rem;
 }
 
-/* Notes Section */
+/* Tips Section - Redesigned */
 .notes-section {
-    background: var(--light-gray);
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.03), rgba(255, 107, 53, 0.01));
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    margin-top: 3rem;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    scroll-margin-top: 4rem;
 }
 
 .notes-section h2 {
     font-family: var(--heading-font);
-    text-align: left;
-    margin-bottom: 2rem;
-}
-
-.notes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.notes-grid h3 {
-    font-family: var(--heading-font);
+    text-align: center;
+    margin-bottom: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
-/* Related Recipes Section */
-.related-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.related-recipes h3,
-.category-links h3 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.related-recipes .ingredients-list li a,
-.category-links .ingredients-list li a {
+.notes-section h2 i {
     color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 1.8rem;
 }
 
-.related-recipes .ingredients-list li a:hover,
-.category-links .ingredients-list li a:hover {
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.note-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.note-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, var(--accent-color), #FDCB6E);
+}
+
+.note-card.notes::before,
+.note-card.tips::before {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+}
+
+.note-card.variations::before {
+    background: linear-gradient(135deg, #9C27B0, #BA68C8);
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.note-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+    background: linear-gradient(135deg, var(--accent-color), #FDCB6E);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.note-card.notes .note-icon,
+.note-card.tips .note-icon {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.note-card.variations .note-icon {
+    background: linear-gradient(135deg, #9C27B0, #BA68C8);
+    box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+}
+
+.note-header h3 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.note-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.note-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background-color: rgba(255, 107, 53, 0.05);
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    transition: all 0.2s ease;
+}
+
+.note-item:last-child {
+    margin-bottom: 0;
+}
+
+.note-card.notes .note-item,
+.note-card.tips .note-item {
+    background-color: rgba(76, 175, 80, 0.05);
+    border-color: rgba(76, 175, 80, 0.1);
+}
+
+.note-card.variations .note-item {
+    background-color: rgba(156, 39, 176, 0.05);
+    border-color: rgba(156, 39, 176, 0.1);
+}
+
+.note-bullet {
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+}
+
+.note-bullet i {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+}
+
+.note-card.notes .note-bullet i,
+.note-card.tips .note-bullet i {
+    color: #4CAF50;
+}
+
+.note-card.variations .note-bullet i {
+    color: #9C27B0;
+}
+
+.note-item span {
+    font-family: var(--body-font);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Add a subtle animation for the cards */
+@keyframes noteCardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-card {
+    animation: noteCardFadeIn 0.6s ease-out;
+}
+
+.note-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.note-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.note-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Related Recipes Section - Redesigned */
+.related-section {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.03), rgba(255, 107, 53, 0.01));
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    margin-top: 3rem;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    scroll-margin-top: 4rem;
+}
+
+.related-section h2 {
+    font-family: var(--heading-font);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.related-section h2 i {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+}
+
+.related-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.related-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.related-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+}
+
+.recipes-card::before {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+}
+
+.categories-card::before {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+
+.related-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.related-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.recipes-card .related-icon {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.categories-card .related-icon {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+.related-header h3 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.related-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.related-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background-color: rgba(76, 175, 80, 0.05);
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: all 0.2s ease;
+}
+
+.related-item:last-child {
+    margin-bottom: 0;
+}
+
+.recipes-card .related-item {
+    background-color: rgba(33, 150, 243, 0.05);
+    border-color: rgba(33, 150, 243, 0.1);
+}
+
+.categories-card .related-item {
+    background-color: rgba(255, 152, 0, 0.05);
+    border-color: rgba(255, 152, 0, 0.1);
+}
+
+.related-bullet {
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+}
+
+.related-bullet i {
+    font-size: 0.9rem;
+    color: #4CAF50;
+}
+
+.recipes-card .related-bullet i {
+    color: #2196F3;
+}
+
+.categories-card .related-bullet i {
+    color: #FF9800;
+}
+
+.related-link {
+    font-family: var(--body-font);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.related-link:hover {
     color: var(--primary-color);
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+/* Add subtle animations for related cards */
+@keyframes relatedCardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.related-card {
+    animation: relatedCardFadeIn 0.6s ease-out;
+}
+
+.related-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.related-card:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
 
@@ -267,15 +904,132 @@
         padding: 1rem;
     }
     
-    .recipe-grid,
-    .notes-grid,
-    .related-content {
-        grid-template-columns: 1fr;
+    .quick-nav {
+        margin: 1.5rem 0;
+        padding: 0 0.5rem;
+    }
+    
+    .quick-nav-container {
+        gap: 0.8rem;
+    }
+    
+    .quick-nav-item {
+        padding: 1rem 1.4rem;
+        min-width: 120px;
+        font-size: 0.8rem;
+        border-radius: 10px;
+    }
+    
+    .quick-nav-item i {
+        font-size: 1.4rem;
+    }
+    
+    .quick-nav-item span {
+        font-size: 0.75rem;
+    }
+    
+    .recipe-grid {
         gap: 2rem;
+    }
+    
+    .ingredients-section {
+        padding: 1.5rem;
+    }
+    
+    .ingredients-section h2 {
+        font-size: 1.5rem;
+        gap: 0.6rem;
+    }
+    
+    .ingredients-section h2 i {
+        font-size: 1.3rem;
+    }
+    
+    .ingredient-item {
+        gap: 0.6rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .ingredients-container {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    
+    .ingredient-item span {
+        font-size: 0.9rem;
+    }
+    
+    .section-label {
+        display: none;
+    }
+    
+    .instructions-section {
+        padding: 1.5rem;
+    }
+    
+    .instructions-section h2 {
+        font-size: 1.5rem;
+        gap: 0.6rem;
+    }
+    
+    .instructions-section h2 i {
+        font-size: 1.3rem;
+    }
+    
+    .instruction-item {
+        padding: 1.2rem;
+    }
+    
+    .instruction-header {
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.6rem;
+    }
+    
+    .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .instruction-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .instruction-item p {
+        font-size: 0.9rem;
     }
     
     .recipe-header h1 {
         font-size: 2rem;
+    }
+    
+    .recipe-meta {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.4rem !important;
+        margin-top: 1rem !important;
+        flex-wrap: wrap !important;
+        max-width: 100% !important;
+    }
+    
+    .category-badge {
+        padding: 0.25rem 0.7rem !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+    }
+    
+    .time-indicator {
+        padding: 0.25rem 0.7rem !important;
+        font-size: 0.7rem !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+    }
+    
+    .time-indicator i {
+        font-size: 0.6rem;
     }
     
     .main-image {
@@ -291,6 +1045,98 @@
     }
     
     .notes-section {
+        padding: 2rem 1rem;
+    }
+    
+    .notes-section h2 {
+        font-size: 1.8rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .notes-section h2 i {
+        font-size: 1.5rem;
+    }
+    
+    .notes-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .note-card {
         padding: 1.5rem;
+    }
+    
+    .note-header {
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+    }
+    
+    .note-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .note-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .note-item {
+        gap: 0.6rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .note-item span {
+        font-size: 0.9rem;
+    }
+    
+    .related-section {
+        padding: 2rem 1rem;
+    }
+    
+    .related-section h2 {
+        font-size: 1.8rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .related-section h2 i {
+        font-size: 1.5rem;
+    }
+    
+    .related-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .related-card {
+        padding: 1.5rem;
+    }
+    
+    .related-header {
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+    }
+    
+    .related-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .related-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .related-item {
+        gap: 0.6rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .related-link {
+        font-size: 0.9rem;
     }
 } 

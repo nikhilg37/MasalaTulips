@@ -34,6 +34,7 @@ import CookieConsent from './components/CookieConsent';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView } from './utils/analytics';
+import { initializePerformanceMonitoring } from './utils/performance';
 
 function AnalyticsPageView() {
   const location = useLocation();
@@ -44,6 +45,11 @@ function AnalyticsPageView() {
 }
 
 function App() {
+  useEffect(() => {
+    // Initialize performance monitoring
+    initializePerformanceMonitoring();
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />

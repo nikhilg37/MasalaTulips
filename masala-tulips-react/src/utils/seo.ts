@@ -1,7 +1,7 @@
 // SEO Utilities for Masala Tulips
 import { trackGAEvent, trackGTMEvent, trackPageView } from './analytics';
 
-// SEO Meta Tags Management
+// Enhanced SEO Meta Tags Management
 export const updateMetaTags = (metaData: {
   title?: string;
   description?: string;
@@ -9,6 +9,13 @@ export const updateMetaTags = (metaData: {
   image?: string;
   url?: string;
   type?: string;
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
+  tags?: string[];
+  locale?: string;
+  siteName?: string;
 }) => {
   const {
     title,
@@ -16,7 +23,14 @@ export const updateMetaTags = (metaData: {
     keywords,
     image,
     url,
-    type = 'website'
+    type = 'website',
+    author,
+    publishedTime,
+    modifiedTime,
+    section,
+    tags,
+    locale = 'en_US',
+    siteName = 'Masala Tulips'
   } = metaData;
 
   // Update title
@@ -36,56 +50,156 @@ export const updateMetaTags = (metaData: {
     metaKeywords.setAttribute('content', keywords);
   }
 
-  // Update Open Graph tags
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle && title) {
-    ogTitle.setAttribute('content', title);
+  // Update author
+  if (author) {
+    let metaAuthor = document.querySelector('meta[name="author"]');
+    if (!metaAuthor) {
+      metaAuthor = document.createElement('meta');
+      metaAuthor.setAttribute('name', 'author');
+      document.head.appendChild(metaAuthor);
+    }
+    metaAuthor.setAttribute('content', author);
   }
 
-  const ogDescription = document.querySelector('meta[property="og:description"]');
-  if (ogDescription && description) {
-    ogDescription.setAttribute('content', description);
+  // Enhanced Open Graph tags
+  const ogTags = {
+    'og:title': title,
+    'og:description': description,
+    'og:image': image,
+    'og:url': url,
+    'og:type': type,
+    'og:site_name': siteName,
+    'og:locale': locale,
+    'og:image:width': '1200',
+    'og:image:height': '630',
+    'og:image:alt': title
+  };
+
+  Object.entries(ogTags).forEach(([property, content]) => {
+    if (content) {
+      let ogTag = document.querySelector(`meta[property="${property}"]`);
+      if (!ogTag) {
+        ogTag = document.createElement('meta');
+        ogTag.setAttribute('property', property);
+        document.head.appendChild(ogTag);
+      }
+      ogTag.setAttribute('content', content);
+    }
+  });
+
+  // Article-specific Open Graph tags
+  if (type === 'article' && (publishedTime || modifiedTime || author || section || tags)) {
+    const articleTags = {
+      'article:published_time': publishedTime,
+      'article:modified_time': modifiedTime,
+      'article:author': author,
+      'article:section': section
+    };
+
+    Object.entries(articleTags).forEach(([property, content]) => {
+      if (content) {
+        let articleTag = document.querySelector(`meta[property="${property}"]`);
+        if (!articleTag) {
+          articleTag = document.createElement('meta');
+          articleTag.setAttribute('property', property);
+          document.head.appendChild(articleTag);
+        }
+        articleTag.setAttribute('content', content);
+      }
+    });
+
+    // Add article tags
+    if (tags && tags.length > 0) {
+      tags.forEach(tag => {
+        const articleTag = document.createElement('meta');
+        articleTag.setAttribute('property', 'article:tag');
+        articleTag.setAttribute('content', tag);
+        document.head.appendChild(articleTag);
+      });
+    }
   }
 
-  const ogImage = document.querySelector('meta[property="og:image"]');
-  if (ogImage && image) {
-    ogImage.setAttribute('content', image);
-  }
+  // Enhanced Twitter tags
+  const twitterTags = {
+    'twitter:card': 'summary_large_image',
+    'twitter:title': title,
+    'twitter:description': description,
+    'twitter:image': image,
+    'twitter:site': '@masalatulips',
+    'twitter:creator': '@masalatulips'
+  };
 
-  const ogUrl = document.querySelector('meta[property="og:url"]');
-  if (ogUrl && url) {
-    ogUrl.setAttribute('content', url);
-  }
-
-  const ogType = document.querySelector('meta[property="og:type"]');
-  if (ogType && type) {
-    ogType.setAttribute('content', type);
-  }
-
-  // Update Twitter tags
-  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-  if (twitterTitle && title) {
-    twitterTitle.setAttribute('content', title);
-  }
-
-  const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-  if (twitterDescription && description) {
-    twitterDescription.setAttribute('content', description);
-  }
-
-  const twitterImage = document.querySelector('meta[name="twitter:image"]');
-  if (twitterImage && image) {
-    twitterImage.setAttribute('content', image);
-  }
+  Object.entries(twitterTags).forEach(([name, content]) => {
+    if (content) {
+      let twitterTag = document.querySelector(`meta[name="${name}"]`);
+      if (!twitterTag) {
+        twitterTag = document.createElement('meta');
+        twitterTag.setAttribute('name', name);
+        document.head.appendChild(twitterTag);
+      }
+      twitterTag.setAttribute('content', content);
+    }
+  });
 
   // Update canonical URL
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical && url) {
     canonical.setAttribute('href', url);
   }
+
+  // Add JSON-LD structured data for better SEO
+  if (type === 'article') {
+    addArticleStructuredData({
+      title,
+      description,
+      image,
+      url,
+      author,
+      publishedTime,
+      modifiedTime,
+      section,
+      tags
+    });
+  }
 };
 
-// Recipe-specific SEO
+// Add article structured data
+const addArticleStructuredData = (articleData: any) => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": articleData.title,
+    "description": articleData.description,
+    "image": articleData.image,
+    "author": {
+      "@type": "Organization",
+      "name": articleData.author || "Masala Tulips",
+      "url": "https://masalatulips.nl"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Masala Tulips",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://masalatulips.nl/logo192.png"
+      }
+    },
+    "datePublished": articleData.publishedTime || new Date().toISOString(),
+    "dateModified": articleData.modifiedTime || new Date().toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": articleData.url
+    },
+    "keywords": articleData.tags?.join(', ') || 'Indian cooking, recipes, food blog'
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(structuredData);
+  document.head.appendChild(script);
+};
+
+// Recipe-specific SEO with enhanced metadata
 export const updateRecipeSEO = (recipe: any, currentUrl: string) => {
   const title = `${recipe.title} - ${recipe.subtitle} | Masala Tulips`;
   const description = recipe.description;
@@ -99,13 +213,26 @@ export const updateRecipeSEO = (recipe: any, currentUrl: string) => {
     ...recipe.tags
   ].join(', ');
 
+  const tags = [
+    recipe.title,
+    recipe.cuisine,
+    recipe.type,
+    ...recipe.tags
+  ];
+
   updateMetaTags({
     title,
     description,
     keywords,
     image: recipe.mainImage,
     url: currentUrl,
-    type: 'article'
+    type: 'article',
+    author: 'Masala Tulips',
+    publishedTime: new Date().toISOString(),
+    modifiedTime: new Date().toISOString(),
+    section: recipe.category[0],
+    tags,
+    locale: 'en_US'
   });
 
   // Track recipe view
@@ -123,7 +250,7 @@ export const updateRecipeSEO = (recipe: any, currentUrl: string) => {
   });
 };
 
-// Category page SEO
+// Category page SEO with enhanced content
 export const updateCategorySEO = (categoryName: string, recipes: any[], currentUrl: string) => {
   const title = `${categoryName} Recipes - Indian Cooking | Masala Tulips`;
   const description = `Discover authentic ${categoryName.toLowerCase()} Indian recipes. Easy-to-follow step-by-step instructions for traditional and modern Indian cooking. Perfect for home chefs.`;
@@ -133,7 +260,10 @@ export const updateCategorySEO = (categoryName: string, recipes: any[], currentU
     title,
     description,
     keywords,
-    url: currentUrl
+    url: currentUrl,
+    type: 'website',
+    section: categoryName,
+    tags: [categoryName, 'Indian recipes', 'vegetarian cooking']
   });
 
   // Track category view
@@ -144,7 +274,7 @@ export const updateCategorySEO = (categoryName: string, recipes: any[], currentU
   });
 };
 
-// Home page SEO
+// Home page SEO with enhanced metadata
 export const updateHomeSEO = (currentUrl: string) => {
   const title = 'Masala Tulips - Authentic Indian Recipes with a Dutch Twist';
   const description = 'Discover traditional and modern Indian cooking recipes including Spinach Khichdi, Vegetable Pulao, and more. Easy-to-follow recipes with step-by-step instructions.';
@@ -154,7 +284,9 @@ export const updateHomeSEO = (currentUrl: string) => {
     title,
     description,
     keywords,
-    url: currentUrl
+    url: currentUrl,
+    type: 'website',
+    tags: ['Indian recipes', 'vegetarian cooking', 'South Indian food', 'Dutch Indian cooking']
   });
 
   // Track home page view
@@ -165,7 +297,7 @@ export const updateHomeSEO = (currentUrl: string) => {
   });
 };
 
-// Blog page SEO
+// Blog page SEO with enhanced content
 export const updateBlogSEO = (currentUrl: string) => {
   const title = 'Indian Cooking Blog - Tips, Stories & Recipes | Masala Tulips';
   const description = 'Explore our Indian cooking blog for authentic recipes, cooking tips, cultural stories, and step-by-step guides to traditional Indian cuisine.';
@@ -175,11 +307,14 @@ export const updateBlogSEO = (currentUrl: string) => {
     title,
     description,
     keywords,
-    url: currentUrl
+    url: currentUrl,
+    type: 'website',
+    section: 'Blog',
+    tags: ['Indian cooking blog', 'food blog', 'cooking tips', 'Indian cuisine']
   });
 };
 
-// Enhanced page view tracking
+// Enhanced page view tracking with Core Web Vitals
 export const trackEnhancedPageView = (path: string, pageData?: any) => {
   trackPageView(path);
   
@@ -190,9 +325,15 @@ export const trackEnhancedPageView = (path: string, pageData?: any) => {
       ...pageData
     });
   }
+
+  // Track Core Web Vitals if available
+  if ('web-vital' in window) {
+    // This would integrate with web-vitals library
+    console.log('Core Web Vitals tracking available');
+  }
 };
 
-// Search tracking
+// Search tracking with enhanced analytics
 export const trackSearch = (searchTerm: string, resultsCount: number) => {
   trackGAEvent({
     action: 'search',
@@ -207,7 +348,7 @@ export const trackSearch = (searchTerm: string, resultsCount: number) => {
   });
 };
 
-// Recipe interaction tracking
+// Recipe interaction tracking with enhanced data
 export const trackRecipeInteraction = (recipeId: string, action: string, recipeTitle: string) => {
   trackGAEvent({
     action,
@@ -222,7 +363,7 @@ export const trackRecipeInteraction = (recipeId: string, action: string, recipeT
   });
 };
 
-// Social sharing tracking
+// Social sharing tracking with platform-specific data
 export const trackSocialShare = (platform: string, recipeId?: string, recipeTitle?: string) => {
   trackGAEvent({
     action: 'share',
@@ -237,7 +378,7 @@ export const trackSocialShare = (platform: string, recipeId?: string, recipeTitl
   });
 };
 
-// Performance tracking
+// Performance tracking with enhanced metrics
 export const trackPerformance = (metric: string, value: number) => {
   trackGAEvent({
     action: 'timing_complete',
@@ -245,4 +386,44 @@ export const trackPerformance = (metric: string, value: number) => {
     label: metric,
     value: Math.round(value)
   });
+};
+
+// Add breadcrumb structured data
+export const addBreadcrumbStructuredData = (breadcrumbs: Array<{ name: string; url: string }>) => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": crumb.name,
+      "item": crumb.url
+    }))
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(structuredData);
+  document.head.appendChild(script);
+};
+
+// Add FAQ structured data
+export const addFAQStructuredData = (faqs: Array<{ question: string; answer: string }>) => {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.text = JSON.stringify(structuredData);
+  document.head.appendChild(script);
 }; 

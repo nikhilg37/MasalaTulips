@@ -83,6 +83,7 @@ const RecipeCategories: React.FC = () => {
       <AdSenseAd 
         pageType="category" 
         recipes={[]}
+        style={{ marginTop: '60px' }}
       />
     </div>
   );

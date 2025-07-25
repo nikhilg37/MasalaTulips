@@ -53,11 +53,10 @@ export const trackPageView = (path: string) => {
 export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'default'): boolean => {
   // Minimum content requirements for different page types
   const contentRequirements = {
-    'home': { minRecipes: 2, minDescription: 800, minImages: 2, minWordCount: 1000 },
-    'category': { minRecipes: 1, minDescription: 400, minImages: 1, minWordCount: 600 },
-    'recipe': { minRecipes: 1, minDescription: 600, minImages: 3, minWordCount: 800 },
-    'blog': { minRecipes: 0, minDescription: 0, minImages: 2, minWordCount: 800 }, // Blogs don't need recipes
-    'default': { minRecipes: 2, minDescription: 500, minImages: 2, minWordCount: 800 }
+    'home': { minRecipes: 2, minDescription: 800, minImages: 2, minWordCount: 1200 },
+    'recipe': { minRecipes: 1, minDescription: 600, minImages: 3, minWordCount: 1000 },
+    'blog': { minRecipes: 0, minDescription: 0, minImages: 2, minWordCount: 1000 }, // Blogs don't need recipes
+    'default': { minRecipes: 2, minDescription: 500, minImages: 2, minWordCount: 1000 }
   };
 
   const requirements = contentRequirements[pageType as keyof typeof contentRequirements] || contentRequirements.default;
@@ -124,6 +123,29 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
     return false;
   }
   
+  // Check for low-value content indicators
+  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder")');
+  if (placeholderText.length > 0) {
+    console.log('Placeholder content detected - no ads allowed');
+    return false;
+  }
+  
+  // Check for excessive links (navigation-heavy pages)
+  const links = document.querySelectorAll('a');
+  const paragraphs = document.querySelectorAll('p');
+  if (links.length > paragraphs.length * 3) {
+    console.log('Page has too many links compared to content - likely navigation page');
+    return false;
+  }
+  
+  // Check for meaningful content (not just lists of links)
+  const meaningfulContent = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, .recipe-content, .blog-content');
+  const linkLists = document.querySelectorAll('ul, ol');
+  if (linkLists.length > meaningfulContent.length) {
+    console.log('Page has more link lists than meaningful content');
+    return false;
+  }
+  
   console.log(`Content check passed: ${wordCount} words, ${imageCount} images, ${contentElements.length} content elements`);
   return true;
 };
@@ -143,9 +165,9 @@ export const loadAdsSafely = (adElement: HTMLElement, recipes: any[] = [], pageT
 // Additional function to validate page content for AdSense compliance
 export const validatePageForAdSense = (pageType: string): boolean => {
   // Check if page is a valid type for ads
-  const validPageTypes = ['home', 'category', 'recipe', 'blog'];
+  const validPageTypes = ['home', 'recipe', 'blog'];
   if (!validPageTypes.includes(pageType)) {
-    console.log(`Invalid page type for ads: ${pageType}`);
+    console.log(`Invalid page type for ads: ${pageType} - Navigation pages should not serve ads`);
     return false;
   }
 
@@ -166,6 +188,30 @@ export const validatePageForAdSense = (pageType: string): boolean => {
   // Check for popup blockers or ad blockers
   if (window.adsbygoogle === undefined) {
     console.log('AdSense script not loaded');
+    return false;
+  }
+
+  // Additional checks for navigation/behavioral pages
+  const currentPath = window.location.pathname;
+  
+  // Don't serve ads on category listing pages (navigation pages)
+  if (currentPath.includes('/recipe-categories') && !currentPath.includes('/recipe/')) {
+    console.log('Navigation page detected - no ads allowed');
+    return false;
+  }
+  
+  // Don't serve ads on 404 pages
+  if (currentPath === '/404' || document.title.includes('404')) {
+    console.log('404 page detected - no ads allowed');
+    return false;
+  }
+  
+  // Don't serve ads on pages with mostly navigation elements
+  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li');
+  const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card, p, h1, h2, h3, h4, h5, h6');
+  
+  if (navigationElements.length > contentElements.length * 2) {
+    console.log('Page has too many navigation elements compared to content');
     return false;
   }
 

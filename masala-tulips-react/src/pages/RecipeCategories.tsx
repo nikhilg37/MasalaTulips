@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/RecipeCategories.css';
-import AdSenseAd from '../components/AdSenseAd';
 
 const RecipeCategories: React.FC = () => {
   useEffect(() => {
@@ -78,13 +77,6 @@ const RecipeCategories: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Conditional AdSense Ad Unit */}
-      <AdSenseAd 
-        pageType="category" 
-        recipes={[]}
-        style={{ marginTop: '60px' }}
-      />
     </div>
   );
 };

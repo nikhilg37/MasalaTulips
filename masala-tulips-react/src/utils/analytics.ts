@@ -129,6 +129,17 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
     console.log('Placeholder content detected - no ads allowed');
     return false;
   }
+
+  // Check for pages that are primarily navigation or behavioral
+  const currentPath = window.location.pathname;
+  const isNavigationPage = currentPath.includes('/recipe-categories') && !currentPath.includes('/recipe/');
+  const is404Page = currentPath === '/404' || document.title.includes('404');
+  const isLegalPage = currentPath.includes('/privacy-policy') || currentPath.includes('/terms-of-service');
+  
+  if (isNavigationPage || is404Page || isLegalPage) {
+    console.log(`Navigation/behavioral page detected: ${currentPath} - no ads allowed`);
+    return false;
+  }
   
   // Check for excessive links (navigation-heavy pages)
   const links = document.querySelectorAll('a');
@@ -203,6 +214,12 @@ export const validatePageForAdSense = (pageType: string): boolean => {
   // Don't serve ads on 404 pages
   if (currentPath === '/404' || document.title.includes('404')) {
     console.log('404 page detected - no ads allowed');
+    return false;
+  }
+  
+  // Don't serve ads on legal pages (privacy policy, terms of service)
+  if (currentPath.includes('/privacy-policy') || currentPath.includes('/terms-of-service')) {
+    console.log('Legal page detected - no ads allowed');
     return false;
   }
   

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getRecipeBySlug, getRecipesByCategory } from '../data/recipes';
 import '../styles/RecipePage.css';
+import AdSenseAd from '../components/AdSenseAd';
 
 import { generateRecipeStructuredData, addStructuredData, generateBreadcrumbStructuredData, generateFAQStructuredData } from '../utils/structuredData';
 import { updateRecipeSEO, trackEnhancedPageView, trackRecipeInteraction } from '../utils/seo';
@@ -500,6 +501,12 @@ const RecipePage: React.FC = () => {
             ))}
           </div>
         </div>
+
+        {/* Conditional AdSense Ad Unit */}
+        <AdSenseAd 
+          pageType="recipe" 
+          recipes={recipe ? [recipe] : []}
+        />
 
         {/* Related Recipes Section */}
         <div id="related-section" className="related-section">

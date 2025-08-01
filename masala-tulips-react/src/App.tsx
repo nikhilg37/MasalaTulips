@@ -35,6 +35,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView } from './utils/analytics';
 import { initializePerformanceMonitoring } from './utils/performance';
+import { testAdSenseCompliance, logComplianceResults } from './utils/adsenseComplianceTest';
 
 function AnalyticsPageView() {
   const location = useLocation();
@@ -48,6 +49,14 @@ function App() {
   useEffect(() => {
     // Initialize performance monitoring
     initializePerformanceMonitoring();
+    
+    // Run AdSense compliance test in development
+    if (process.env.NODE_ENV === 'development') {
+      setTimeout(() => {
+        const results = testAdSenseCompliance();
+        logComplianceResults(results);
+      }, 3000); // Wait for page to fully load
+    }
   }, []);
 
   return (

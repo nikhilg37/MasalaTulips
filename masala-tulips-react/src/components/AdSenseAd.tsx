@@ -34,15 +34,15 @@ const AdSenseAd: React.FC<AdSenseAdProps> = ({
     // Log content statistics for debugging
     logContentStats(pageType, recipes);
 
-    // First validate the page for AdSense compliance
+    // STRICT CHECK: First validate the page for AdSense compliance
     const isValidForAdSense = validatePageForAdSense(pageType);
     if (!isValidForAdSense) {
-      console.log(`Page not valid for AdSense: ${pageType}`);
+      console.log(`Page not valid for AdSense: ${pageType} - NO ADS ALLOWED`);
       setShouldShowAd(false);
       return;
     }
 
-    // Check if there's sufficient content
+    // STRICT CHECK: Check if there's sufficient content
     const hasContent = hasSufficientContent(recipes, pageType);
     
     if (hasContent) {
@@ -56,7 +56,7 @@ const AdSenseAd: React.FC<AdSenseAdProps> = ({
           setRetryCount(prev => prev + 1);
         }, 2000); // Wait 2 seconds before retry
       } else {
-        console.log(`Ad not shown on ${pageType} page: insufficient content after ${maxRetries} retries`);
+        console.log(`Ad not shown on ${pageType} page: insufficient content after ${maxRetries} retries - NO ADS ALLOWED`);
         setShouldShowAd(false);
       }
     }

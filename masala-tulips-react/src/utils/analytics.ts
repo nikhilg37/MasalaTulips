@@ -61,6 +61,58 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
 
   const requirements = contentRequirements[pageType as keyof typeof contentRequirements] || contentRequirements.default;
   
+  // STRICT CHECK: Don't serve ads on category listing pages (navigation pages)
+  const currentPath = window.location.pathname;
+  if (currentPath.includes('/recipe-categories') && !currentPath.includes('/recipe/')) {
+    console.log(`Category listing page detected: ${currentPath} - NO ADS ALLOWED`);
+    return false;
+  }
+  
+  // STRICT CHECK: Don't serve ads on 404 pages
+  if (currentPath === '/404' || document.title.includes('404') || document.title.includes('Not Found')) {
+    console.log('404 page detected - NO ADS ALLOWED');
+    return false;
+  }
+  
+  // STRICT CHECK: Don't serve ads on legal pages
+  if (currentPath.includes('/privacy-policy') || currentPath.includes('/terms-of-service')) {
+    console.log('Legal page detected - NO ADS ALLOWED');
+    return false;
+  }
+  
+  // STRICT CHECK: Don't serve ads on pages with placeholder content
+  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder"), *:contains("404"), *:contains("Not Found")');
+  if (placeholderText.length > 0) {
+    console.log('Placeholder/error content detected - NO ADS ALLOWED');
+    return false;
+  }
+  
+  // STRICT CHECK: Don't serve ads on pages that are primarily navigation
+  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li, a');
+  const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card, p, h1, h2, h3, h4, h5, h6');
+  
+  // If navigation elements outnumber content elements by more than 2:1, it's a navigation page
+  if (navigationElements.length > contentElements.length * 2) {
+    console.log(`Navigation-heavy page detected: ${navigationElements.length} nav elements vs ${contentElements.length} content elements - NO ADS ALLOWED`);
+    return false;
+  }
+  
+  // STRICT CHECK: Don't serve ads on pages with excessive links (navigation pages)
+  const links = document.querySelectorAll('a');
+  const paragraphs = document.querySelectorAll('p');
+  if (links.length > paragraphs.length * 3) {
+    console.log(`Link-heavy page detected: ${links.length} links vs ${paragraphs.length} paragraphs - NO ADS ALLOWED`);
+    return false;
+  }
+  
+  // STRICT CHECK: Don't serve ads on pages with mostly link lists
+  const meaningfulContent = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, .recipe-content, .blog-content');
+  const linkLists = document.querySelectorAll('ul, ol');
+  if (linkLists.length > meaningfulContent.length) {
+    console.log(`Link list-heavy page detected: ${linkLists.length} lists vs ${meaningfulContent.length} content elements - NO ADS ALLOWED`);
+    return false;
+  }
+  
   // Check if we have enough recipes (only for recipe-related pages)
   if (pageType !== 'blog' && recipes.length < requirements.minRecipes) {
     console.log(`Insufficient recipes: ${recipes.length}/${requirements.minRecipes}`);
@@ -89,19 +141,6 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
     return false;
   }
   
-  // Check for navigation and other non-content elements
-  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container');
-  const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card');
-  
-  // For blog pages, we need to ensure there's substantial blog content
-  if (pageType === 'blog') {
-    const blogCards = document.querySelectorAll('.blog-card');
-    if (blogCards.length < 2) {
-      console.log(`Insufficient blog content: ${blogCards.length} blog cards`);
-      return false;
-    }
-  }
-  
   // Check if content elements outweigh navigation elements
   if (navigationElements.length > contentElements.length * 2) {
     console.log('Too many navigation elements compared to content');
@@ -123,38 +162,13 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
     return false;
   }
   
-  // Check for low-value content indicators
-  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder")');
-  if (placeholderText.length > 0) {
-    console.log('Placeholder content detected - no ads allowed');
-    return false;
-  }
-
-  // Check for pages that are primarily navigation or behavioral
-  const currentPath = window.location.pathname;
-  const isNavigationPage = currentPath.includes('/recipe-categories') && !currentPath.includes('/recipe/');
-  const is404Page = currentPath === '/404' || document.title.includes('404');
-  const isLegalPage = currentPath.includes('/privacy-policy') || currentPath.includes('/terms-of-service');
-  
-  if (isNavigationPage || is404Page || isLegalPage) {
-    console.log(`Navigation/behavioral page detected: ${currentPath} - no ads allowed`);
-    return false;
-  }
-  
-  // Check for excessive links (navigation-heavy pages)
-  const links = document.querySelectorAll('a');
-  const paragraphs = document.querySelectorAll('p');
-  if (links.length > paragraphs.length * 3) {
-    console.log('Page has too many links compared to content - likely navigation page');
-    return false;
-  }
-  
-  // Check for meaningful content (not just lists of links)
-  const meaningfulContent = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, .recipe-content, .blog-content');
-  const linkLists = document.querySelectorAll('ul, ol');
-  if (linkLists.length > meaningfulContent.length) {
-    console.log('Page has more link lists than meaningful content');
-    return false;
+  // For blog pages, we need to ensure there's substantial blog content
+  if (pageType === 'blog') {
+    const blogCards = document.querySelectorAll('.blog-card');
+    if (blogCards.length < 2) {
+      console.log(`Insufficient blog content: ${blogCards.length} blog cards`);
+      return false;
+    }
   }
   
   console.log(`Content check passed: ${wordCount} words, ${imageCount} images, ${contentElements.length} content elements`);
@@ -175,60 +189,83 @@ export const loadAdsSafely = (adElement: HTMLElement, recipes: any[] = [], pageT
 
 // Additional function to validate page content for AdSense compliance
 export const validatePageForAdSense = (pageType: string): boolean => {
-  // Check if page is a valid type for ads
+  // STRICT CHECK: Only allow ads on specific content-rich page types
   const validPageTypes = ['home', 'recipe', 'blog'];
   if (!validPageTypes.includes(pageType)) {
     console.log(`Invalid page type for ads: ${pageType} - Navigation pages should not serve ads`);
     return false;
   }
 
-  // Check for minimum page structure
+  // STRICT CHECK: Check for minimum page structure
   const hasMainContent = document.querySelector('main, .content, .recipe-content, .blog-content');
   if (!hasMainContent) {
     console.log('No main content area found');
     return false;
   }
 
-  // Check for excessive ads (should not exceed 3 ads per page)
+  // STRICT CHECK: Check for excessive ads (should not exceed 3 ads per page)
   const existingAds = document.querySelectorAll('.adsense-container, ins.adsbygoogle');
   if (existingAds.length >= 3) {
     console.log(`Too many ads on page: ${existingAds.length}`);
     return false;
   }
 
-  // Check for popup blockers or ad blockers
+  // STRICT CHECK: Check for popup blockers or ad blockers
   if (window.adsbygoogle === undefined) {
     console.log('AdSense script not loaded');
     return false;
   }
 
-  // Additional checks for navigation/behavioral pages
+  // STRICT CHECK: Additional checks for navigation/behavioral pages
   const currentPath = window.location.pathname;
   
   // Don't serve ads on category listing pages (navigation pages)
   if (currentPath.includes('/recipe-categories') && !currentPath.includes('/recipe/')) {
-    console.log('Navigation page detected - no ads allowed');
+    console.log('Navigation page detected - NO ADS ALLOWED');
     return false;
   }
   
   // Don't serve ads on 404 pages
-  if (currentPath === '/404' || document.title.includes('404')) {
-    console.log('404 page detected - no ads allowed');
+  if (currentPath === '/404' || document.title.includes('404') || document.title.includes('Not Found')) {
+    console.log('404 page detected - NO ADS ALLOWED');
     return false;
   }
   
   // Don't serve ads on legal pages (privacy policy, terms of service)
   if (currentPath.includes('/privacy-policy') || currentPath.includes('/terms-of-service')) {
-    console.log('Legal page detected - no ads allowed');
+    console.log('Legal page detected - NO ADS ALLOWED');
     return false;
   }
   
-  // Don't serve ads on pages with mostly navigation elements
-  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li');
+  // STRICT CHECK: Don't serve ads on pages with placeholder content
+  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder"), *:contains("404"), *:contains("Not Found")');
+  if (placeholderText.length > 0) {
+    console.log('Placeholder/error content detected - NO ADS ALLOWED');
+    return false;
+  }
+  
+  // STRICT CHECK: Don't serve ads on pages with mostly navigation elements
+  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li, a');
   const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card, p, h1, h2, h3, h4, h5, h6');
   
   if (navigationElements.length > contentElements.length * 2) {
-    console.log('Page has too many navigation elements compared to content');
+    console.log('Page has too many navigation elements compared to content - NO ADS ALLOWED');
+    return false;
+  }
+
+  // STRICT CHECK: Don't serve ads on pages with excessive links (navigation pages)
+  const links = document.querySelectorAll('a');
+  const paragraphs = document.querySelectorAll('p');
+  if (links.length > paragraphs.length * 3) {
+    console.log(`Link-heavy page detected: ${links.length} links vs ${paragraphs.length} paragraphs - NO ADS ALLOWED`);
+    return false;
+  }
+
+  // STRICT CHECK: Don't serve ads on pages with mostly link lists
+  const meaningfulContent = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, .recipe-content, .blog-content');
+  const linkLists = document.querySelectorAll('ul, ol');
+  if (linkLists.length > meaningfulContent.length) {
+    console.log(`Link list-heavy page detected: ${linkLists.length} lists vs ${meaningfulContent.length} content elements - NO ADS ALLOWED`);
     return false;
   }
 

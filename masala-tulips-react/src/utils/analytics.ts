@@ -53,10 +53,10 @@ export const trackPageView = (path: string) => {
 export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'default'): boolean => {
   // Minimum content requirements for different page types
   const contentRequirements = {
-    'home': { minRecipes: 2, minDescription: 800, minImages: 2, minWordCount: 1200 },
-    'recipe': { minRecipes: 1, minDescription: 600, minImages: 3, minWordCount: 1000 },
-    'blog': { minRecipes: 0, minDescription: 0, minImages: 2, minWordCount: 1000 }, // Blogs don't need recipes
-    'default': { minRecipes: 2, minDescription: 500, minImages: 2, minWordCount: 1000 }
+    'home': { minRecipes: 2, minDescription: 800, minImages: 2, minWordCount: 600 },
+    'recipe': { minRecipes: 1, minDescription: 600, minImages: 3, minWordCount: 800 },
+    'blog': { minRecipes: 0, minDescription: 0, minImages: 2, minWordCount: 800 }, // Blogs don't need recipes
+    'default': { minRecipes: 2, minDescription: 500, minImages: 2, minWordCount: 800 }
   };
 
   const requirements = contentRequirements[pageType as keyof typeof contentRequirements] || contentRequirements.default;
@@ -81,8 +81,17 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
   }
   
   // STRICT CHECK: Don't serve ads on pages with placeholder content
-  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder"), *:contains("404"), *:contains("Not Found")');
-  if (placeholderText.length > 0) {
+  const allElements = document.querySelectorAll('*');
+  const hasPlaceholderContent = Array.from(allElements).some(element => {
+    const text = element.textContent || '';
+    return text.includes('Coming Soon') || 
+           text.includes('Under Construction') || 
+           text.includes('Placeholder') || 
+           text.includes('404') || 
+           text.includes('Not Found');
+  });
+  
+  if (hasPlaceholderContent) {
     console.log('Placeholder/error content detected - NO ADS ALLOWED');
     return false;
   }
@@ -238,8 +247,17 @@ export const validatePageForAdSense = (pageType: string): boolean => {
   }
   
   // STRICT CHECK: Don't serve ads on pages with placeholder content
-  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder"), *:contains("404"), *:contains("Not Found")');
-  if (placeholderText.length > 0) {
+  const allElements2 = document.querySelectorAll('*');
+  const hasPlaceholderContent2 = Array.from(allElements2).some(element => {
+    const text = element.textContent || '';
+    return text.includes('Coming Soon') || 
+           text.includes('Under Construction') || 
+           text.includes('Placeholder') || 
+           text.includes('404') || 
+           text.includes('Not Found');
+  });
+  
+  if (hasPlaceholderContent2) {
     console.log('Placeholder/error content detected - NO ADS ALLOWED');
     return false;
   }

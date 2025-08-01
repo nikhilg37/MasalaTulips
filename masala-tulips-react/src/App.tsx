@@ -50,13 +50,13 @@ function App() {
     // Initialize performance monitoring
     initializePerformanceMonitoring();
     
-    // Run AdSense compliance test in development
-    if (process.env.NODE_ENV === 'development') {
-      setTimeout(() => {
-        const results = testAdSenseCompliance();
-        logComplianceResults(results);
-      }, 3000); // Wait for page to fully load
-    }
+    // Run AdSense compliance test in development (temporarily disabled for debugging)
+    // if (process.env.NODE_ENV === 'development') {
+    //   setTimeout(() => {
+    //     const results = testAdSenseCompliance();
+    //     logComplianceResults(results);
+    //   }, 3000); // Wait for page to fully load
+    // }
   }, []);
 
   return (

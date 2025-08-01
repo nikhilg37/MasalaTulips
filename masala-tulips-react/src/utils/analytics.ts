@@ -81,8 +81,17 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
   }
   
   // STRICT CHECK: Don't serve ads on pages with placeholder content
-  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder"), *:contains("404"), *:contains("Not Found")');
-  if (placeholderText.length > 0) {
+  const allElements = document.querySelectorAll('*');
+  const hasPlaceholderContent = Array.from(allElements).some(element => {
+    const text = element.textContent || '';
+    return text.includes('Coming Soon') || 
+           text.includes('Under Construction') || 
+           text.includes('Placeholder') || 
+           text.includes('404') || 
+           text.includes('Not Found');
+  });
+  
+  if (hasPlaceholderContent) {
     console.log('Placeholder/error content detected - NO ADS ALLOWED');
     return false;
   }
@@ -238,8 +247,17 @@ export const validatePageForAdSense = (pageType: string): boolean => {
   }
   
   // STRICT CHECK: Don't serve ads on pages with placeholder content
-  const placeholderText = document.querySelectorAll('*:contains("Coming Soon"), *:contains("Under Construction"), *:contains("Placeholder"), *:contains("404"), *:contains("Not Found")');
-  if (placeholderText.length > 0) {
+  const allElements2 = document.querySelectorAll('*');
+  const hasPlaceholderContent2 = Array.from(allElements2).some(element => {
+    const text = element.textContent || '';
+    return text.includes('Coming Soon') || 
+           text.includes('Under Construction') || 
+           text.includes('Placeholder') || 
+           text.includes('404') || 
+           text.includes('Not Found');
+  });
+  
+  if (hasPlaceholderContent2) {
     console.log('Placeholder/error content detected - NO ADS ALLOWED');
     return false;
   }

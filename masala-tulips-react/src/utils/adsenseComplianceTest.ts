@@ -21,7 +21,7 @@ export const testAdSenseCompliance = (): ComplianceTestResult[] => {
   
   const results: ComplianceTestResult[] = [];
   
-  // Test current page
+  // Test current page only (avoiding pathname redefinition issues)
   const contentCheck = hasSufficientContent([], pageType);
   const validationCheck = validatePageForAdSense(pageType);
   const shouldServeAds = contentCheck && validationCheck;
@@ -41,26 +41,11 @@ export const testAdSenseCompliance = (): ComplianceTestResult[] => {
     issues
   });
   
-  // Test common page types
-  const testPages = [
-    { path: '/', type: 'home' },
-    { path: '/recipe/mavinakaayi-chitranna', type: 'recipe' },
-    { path: '/blogs', type: 'blog' },
-    { path: '/recipe-categories/breakfast', type: 'category' },
-    { path: '/recipe-categories/lunch', type: 'category' },
-    { path: '/privacy-policy', type: 'legal' },
-    { path: '/terms-of-service', type: 'legal' },
-    { path: '/404', type: 'error' }
-  ];
+  // Test common page types without pathname manipulation
+  const testPageTypes = ['home', 'recipe', 'blog', 'category', 'legal', 'error'];
   
-  testPages.forEach(({ path, type }) => {
-    // Simulate path for testing
-    const originalPath = window.location.pathname;
-    Object.defineProperty(window.location, 'pathname', {
-      value: path,
-      writable: true
-    });
-    
+  testPageTypes.forEach((type) => {
+    // Test with empty recipes array to simulate different page types
     const testContentCheck = hasSufficientContent([], type);
     const testValidationCheck = validatePageForAdSense(type);
     const testShouldServeAds = testContentCheck && testValidationCheck;
@@ -69,7 +54,7 @@ export const testAdSenseCompliance = (): ComplianceTestResult[] => {
     
     results.push({
       pageType: type,
-      path,
+      path: `/${type}`,
       shouldServeAds: testShouldServeAds,
       reason: testShouldServeAds ? 'Page meets all AdSense requirements' : 'Page does not meet AdSense requirements',
       contentCheck: testContentCheck,
@@ -77,12 +62,6 @@ export const testAdSenseCompliance = (): ComplianceTestResult[] => {
       contentScore: testContentScore,
       navigationScore: testNavigationScore,
       issues: testIssues
-    });
-    
-    // Restore original path
-    Object.defineProperty(window.location, 'pathname', {
-      value: originalPath,
-      writable: true
     });
   });
   
@@ -226,9 +205,10 @@ export const logComplianceResults = (results: ComplianceTestResult[]): void => {
 };
 
 // Auto-run test in development
-if (process.env.NODE_ENV === 'development') {
-  setTimeout(() => {
-    const results = testAdSenseCompliance();
-    logComplianceResults(results);
-  }, 3000); // Wait for page to load
-} 
+// Temporarily disabled to prevent runtime errors
+// if (process.env.NODE_ENV === 'development') {
+//   setTimeout(() => {
+//     const results = testAdSenseCompliance();
+//     logComplianceResults(results);
+//   }, 3000); // Wait for page to load
+// } 

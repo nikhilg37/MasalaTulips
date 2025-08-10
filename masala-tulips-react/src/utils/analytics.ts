@@ -88,7 +88,9 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
            text.includes('Under Construction') || 
            text.includes('Placeholder') || 
            text.includes('404') || 
-           text.includes('Not Found');
+           text.includes('Not Found') ||
+           text.includes('Loading...') ||
+           text.includes('Please wait');
   });
   
   if (hasPlaceholderContent) {
@@ -97,8 +99,8 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
   }
   
   // STRICT CHECK: Don't serve ads on pages that are primarily navigation
-  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li, a');
-  const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card, p, h1, h2, h3, h4, h5, h6');
+  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li, a, .categories-list, .categories-block');
+  const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card, p, h1, h2, h3, h4, h5, h6, .recipe-image, .blog-image');
   
   // If navigation elements outnumber content elements by more than 2:1, it's a navigation page
   if (navigationElements.length > contentElements.length * 2) {
@@ -122,16 +124,21 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
     return false;
   }
   
+  // STRICT CHECK: Don't serve ads on pages with minimal content
+  const pageContent = document.body.innerText || '';
+  const wordCount = pageContent.split(/\s+/).filter(word => word.length > 0).length;
+  
+  if (wordCount < 200) { // Absolute minimum word count
+    console.log(`Page has insufficient content: ${wordCount} words (minimum 200 required)`);
+    return false;
+  }
+  
   // Check if we have enough recipes (only for recipe-related pages)
   if (pageType !== 'blog' && recipes.length < requirements.minRecipes) {
     console.log(`Insufficient recipes: ${recipes.length}/${requirements.minRecipes}`);
     return false;
   }
 
-  // Check if we have substantial text content on the page
-  const pageContent = document.body.innerText || '';
-  const wordCount = pageContent.split(/\s+/).filter(word => word.length > 0).length;
-  
   // Check for images
   const images = document.querySelectorAll('img');
   const imageCount = images.length;
@@ -178,6 +185,15 @@ export const hasSufficientContent = (recipes: any[] = [], pageType: string = 'de
       console.log(`Insufficient blog content: ${blogCards.length} blog cards`);
       return false;
     }
+  }
+  
+  // STRICT CHECK: Ensure the page is not just a list of links
+  const linkTexts = Array.from(links).map(link => link.textContent?.trim()).filter(text => text && text.length > 0);
+  const hasSubstantialLinkText = linkTexts.some(text => text && text.length > 20);
+  
+  if (!hasSubstantialLinkText && linkTexts.length > 5) {
+    console.log('Page appears to be mostly navigation links without substantial content - NO ADS ALLOWED');
+    return false;
   }
   
   console.log(`Content check passed: ${wordCount} words, ${imageCount} images, ${contentElements.length} content elements`);
@@ -254,7 +270,9 @@ export const validatePageForAdSense = (pageType: string): boolean => {
            text.includes('Under Construction') || 
            text.includes('Placeholder') || 
            text.includes('404') || 
-           text.includes('Not Found');
+           text.includes('Not Found') ||
+           text.includes('Loading...') ||
+           text.includes('Please wait');
   });
   
   if (hasPlaceholderContent2) {
@@ -263,8 +281,8 @@ export const validatePageForAdSense = (pageType: string): boolean => {
   }
   
   // STRICT CHECK: Don't serve ads on pages with mostly navigation elements
-  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li, a');
-  const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card, p, h1, h2, h3, h4, h5, h6');
+  const navigationElements = document.querySelectorAll('nav, .nav, .navigation, .breadcrumbs, .header, .footer, .adsense-container, ul, li, a, .categories-list, .categories-block');
+  const contentElements = document.querySelectorAll('main, .content, .recipe-content, .blog-content, article, section, .recipe-card, .blog-card, p, h1, h2, h3, h4, h5, h6, .recipe-image, .blog-image');
   
   if (navigationElements.length > contentElements.length * 2) {
     console.log('Page has too many navigation elements compared to content - NO ADS ALLOWED');
@@ -284,6 +302,48 @@ export const validatePageForAdSense = (pageType: string): boolean => {
   const linkLists = document.querySelectorAll('ul, ol');
   if (linkLists.length > meaningfulContent.length) {
     console.log(`Link list-heavy page detected: ${linkLists.length} lists vs ${meaningfulContent.length} content elements - NO ADS ALLOWED`);
+    return false;
+  }
+
+  // STRICT CHECK: Ensure page has substantial content beyond navigation
+  const pageContent = document.body.innerText || '';
+  const wordCount = pageContent.split(/\s+/).filter(word => word.length > 0).length;
+  
+  if (wordCount < 300) { // Higher threshold for validation
+    console.log(`Page validation failed: insufficient content (${wordCount} words)`);
+    return false;
+  }
+
+  // STRICT CHECK: Check for meaningful content in main areas
+  const mainContent = document.querySelector('main, .content, .recipe-content, .blog-content');
+  if (mainContent) {
+    const mainContentText = mainContent.textContent || '';
+    const mainContentWordCount = mainContentText.split(/\s+/).filter(word => word.length > 0).length;
+    
+    if (mainContentWordCount < wordCount * 0.6) { // At least 60% of content should be in main area
+      console.log(`Main content area has insufficient content: ${mainContentWordCount}/${wordCount * 0.6} words`);
+      return false;
+    }
+  }
+
+  // STRICT CHECK: Ensure the page is not just a collection of links
+  const linkTexts = Array.from(links).map(link => link.textContent?.trim()).filter(text => text && text.length > 0);
+  const hasSubstantialLinkText = linkTexts.some(text => text && text.length > 20);
+  
+  if (!hasSubstantialLinkText && linkTexts.length > 5) {
+    console.log('Page appears to be mostly navigation links without substantial content - NO ADS ALLOWED');
+    return false;
+  }
+
+  // STRICT CHECK: Ensure there are actual images/content, not just placeholders
+  const images = document.querySelectorAll('img');
+  const hasRealImages = Array.from(images).some(img => {
+    const src = img.getAttribute('src') || '';
+    return src && !src.includes('placehold') && !src.includes('placeholder') && src.length > 10;
+  });
+  
+  if (!hasRealImages && images.length > 0) {
+    console.log('Page has only placeholder images - NO ADS ALLOWED');
     return false;
   }
 

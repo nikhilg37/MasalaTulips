@@ -24,7 +24,7 @@ import Vegan from './pages/recipesByPopularCategory/Vegan';
 import Salads from './pages/recipesByPopularCategory/Salads';
 import MostPopular from './pages/recipesByPopularCategory/MostPopular';
 import AllRecipes from './pages/recipesByPopularCategory/AllRecipes';
-import RecipeList from './pages/RecipeList';
+// import RecipeList from './pages/RecipeList'; // Unused import
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 
@@ -35,7 +35,8 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView } from './utils/analytics';
 import { initializePerformanceMonitoring } from './utils/performance';
-import { testAdSenseCompliance, logComplianceResults } from './utils/adsenseComplianceTest';
+// Temporarily disabled to prevent runtime errors
+// import { testAdSenseCompliance, logComplianceResults } from './utils/adsenseComplianceTest';
 
 function AnalyticsPageView() {
   const location = useLocation();
@@ -50,13 +51,12 @@ function App() {
     // Initialize performance monitoring
     initializePerformanceMonitoring();
     
-    // Run AdSense compliance test in development (temporarily disabled for debugging)
-    // if (process.env.NODE_ENV === 'development') {
-    //   setTimeout(() => {
-    //     const results = testAdSenseCompliance();
-    //     logComplianceResults(results);
-    //   }, 3000); // Wait for page to fully load
-    // }
+    // Temporarily disabled AdSense compliance test to prevent runtime errors
+    // TODO: Re-enable after fixing the pathname redefinition issue
+    // setTimeout(() => {
+    //   const results = testAdSenseCompliance();
+    //   logComplianceResults(results);
+    // }, 5000); // Wait for page to fully load
   }, []);
 
   return (
